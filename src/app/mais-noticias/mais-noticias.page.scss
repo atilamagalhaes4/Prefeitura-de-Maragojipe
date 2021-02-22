@@ -1,0 +1,69 @@
+ion-icon {
+    font-size: 200%;
+  }
+  .imagem{
+    width: 80%;
+    float: left;
+    height:auto;
+  }
+  .imagem2{
+    width: 100%;
+    float: left;
+    height:auto;
+  }
+
+  div.figura {
+//    background-color: rgb(236, 236, 236); 
+    margin-left:  4%;
+    margin-right: 4%;
+    width: 90%; 
+    height: auto;
+    border: thin silver solid;
+    img{
+      margin-top: 5% !important;
+      width: auto;
+    }
+  }
+  div.figura p {
+    text-align: center;
+    font-style: normal;
+    font-size: smaller;
+    text-indent: 0;
+  }
+  
+  
+div.figura {
+  margin-left:  4%;
+  margin-right: 4%;
+  width: 90%; 
+  height: auto;
+  border: thin silver solid;
+  img{
+    margin-top: 5% !important;
+    width: auto;
+  }
+}
+div.figura p {
+  text-align: center;
+  font-style: normal;
+  font-size: xx-small;
+  text-indent: 0;
+}
+      
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center
+  }
+  
+  .top1{
+    --background: #34cc67 url('../../assets/background/claro.png') no-repeat center center / cover !important;
+  }
+
+  .top2{
+    --background: #339967 url('../../assets/background/escuro.png') no-repeat center center / cover !important;
+  }
+  .fundoBranco{
+    background-color: rgb(255, 255, 255);
+  }

@@ -1,0 +1,44 @@
+ion-icon{
+vertical-align: middle;
+}
+#imagem{
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width:  auto;
+//    height:60%;
+      height: 15cm !important;
+}
+.corpoMensagem{
+  text-align: justify;
+  font-size:medium;
+  margin-left:15%;
+  margin-right: 15%;
+}
+
+.imagem{
+  width: 80%;
+  float: left;
+  height:auto;
+}
+  .imagem2{
+    width: 100%;
+    float: left;
+    height:auto;
+  }ion-icon {
+    font-size: 200%;
+  }
+
+  
+  .top1{
+    --background: #34cc67 url('../../assets/background/claro.png') no-repeat center center / cover !important;
+  }
+
+  .top2{
+    --background: #339967 url('../../assets/background/escuro.png') no-repeat center center / cover !important;
+  }
+  .fundoMagico{
+    background-color: rgb(255, 255, 255);
+  }

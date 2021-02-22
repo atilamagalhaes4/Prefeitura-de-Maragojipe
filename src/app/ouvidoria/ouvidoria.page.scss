@@ -1,0 +1,36 @@
+ion-icon {
+    font-size: 200%;
+}
+.imagem{
+    width: 80%;
+    float: left;
+    height:auto;
+}
+.imagem2{
+    width: 100%;
+    float: left;
+    height:auto;
+}
+.formulario{
+  border: thin silver solid;
+  margin-top: 2%;
+  margin-left: 4%;
+  margin-right: 2%;
+  width: 43%;
+  float: left;
+}
+.figurinha{
+  float: right;
+  width: 43%;
+  margin-top: 2%;
+  margin-right: 5%;
+  margin-left: 2%;
+}
+
+.top1{
+  --background: #34cc67 url('../../assets/background/claro.png') no-repeat center center / cover !important;
+}
+
+.top2{
+  --background: #339967 url('../../assets/background/escuro.png') no-repeat center center / cover !important;
+}

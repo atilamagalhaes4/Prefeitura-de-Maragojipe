@@ -1,27 +1,132 @@
-#container {
+ion-icon {
+  font-size: 200%;
+}
+.imagem{
+  width: 80%;
+  float: left;
+  height:auto;
+}
+.imagem2{
+  width: 100%;
+  float: left;
+  height:auto;
+}
+ion-searchbar{
+  margin-top: 1cm;
+}
+
+.inputAjuda{
+  margin-top: auto;
+}
+.igreja{
+  margin-left: auto;
+  margin-right: auto;
+
+}
+#background{
+  background-image: url('../../assets/background/istockphoto-1193608799-1024x1024.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.tamanho{
+  font-size: smaller;
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+}
+div.figura {
+  background-color: rgb(236, 236, 236); 
+  width: 80%;
+  height: auto;
+//  border: thin silver solid;
+  img{
+    margin-top: 5% !important;
+    width: 40%;
+  }
+}
+div.figura p {
+  text-align: center;
+  font-style: normal;
+  font-size: smaller;
+  text-indent: 0;
+}
+ion-content{
+  font-family: Roboto Light, sans-serif;
+}
+#fundoCInza{
+  background-color: rgb(241, 241, 240);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
+div.figura2 {
+  background-color: rgb(236, 236, 236); 
+    width: 60%;
+    height: auto;
+//    border: thin silver solid;
+  }
+  div.figura2 p {
+    text-align: center;
+    font-style: normal;
+    font-size: xx-small;
+    text-indent: 0;
+  }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+  
+div.figura3 {
+  //  background-color: yellowgreen;
+  //  width: 100%;
+//    height: 60%;
+  //  border: thin silver solid;
+  img{
+    height: 9cm !important;
+    width: 90%;
+  }
+  }
+  div.figura3 p {
+    text-align: center;
+    font-style: normal;
+    font-size: large;
+    text-indent: 0;
+  }
 
-  color: #8c8c8c;
 
-  margin: 0;
-}
+  div.rodape {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+/*  .figura3:hover img {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    
+  }
+*/  .top1{
+    --background: #34cc67 url('../../assets/background/claro.png') no-repeat center center / cover !important;
+  }
 
-#container a {
-  text-decoration: none;
-}
+  .top2{
+    --background: #339967 url('../../assets/background/escuro.png') no-repeat center center / cover !important;
+  }
+  .banner{
+    background-color: #FFFFFF;
+  }
+  .fundoBaixo{
+    background-color: #ffffff;
+  }
+
+  
+div.figura4 {
+  //  background-color: yellowgreen;
+  //  width: 100%;
+//    height: 60%;
+  //  border: thin silver solid;
+  img{
+    height: 6cm !important;
+    width: 90%;
+  }
+  }
+  div.figura4 p {
+    text-align: center;
+    font-style: normal;
+    font-size: x-small;
+    text-indent: 0;
+  }

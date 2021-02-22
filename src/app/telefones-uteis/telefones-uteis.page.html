@@ -1,0 +1,270 @@
+<ion-content>
+
+  <ion-header [translucent]="true">
+    <ion-toolbar class="top1" >
+      <ion-label style="color: white;">
+        &nbsp;        &nbsp;
+        <b>Acessibilidade</b>         &nbsp;        &nbsp; 
+        <a style="text-decoration: none; color:  white;" href="#">
+          <b>A+</b>
+        </a>
+        &nbsp;
+        <a style="text-decoration: none; color:  white;"  href="#">
+          <b>A-</b>
+        </a>
+      </ion-label>
+      <ion-buttons slot="end">
+        <a style="text-decoration: none;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
+          <ion-icon color = light button  name="logo-facebook"></ion-icon>&nbsp;&nbsp;
+        </a>
+      </ion-buttons>
+      
+      <ion-buttons slot="end">
+        <a style="text-decoration: none;" target="_blank"  href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br"  >
+          <ion-icon color = light name="logo-instagram"></ion-icon> &nbsp;&nbsp; 
+        </a>
+      </ion-buttons>
+      
+      <ion-buttons slot="end">
+        <a style="text-decoration: none;" target="_blank"  href="https://www.youtube.com/channel/UCkyVr17S_wasa8uhFXtqWMQ">
+         <ion-icon color = light  name="logo-youtube"></ion-icon>&nbsp;&nbsp;
+        </a>
+      </ion-buttons>
+      <ion-title>
+      </ion-title>
+    </ion-toolbar>
+    
+    <ion-toolbar class="top2" >
+      <ion-grid>
+        <ion-row  *ngIf ="alternar ==true">
+          <ion-col size = 3>
+            <a style="text-decoration: none;"href="/">
+              <img class="imagem"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+            </a>
+            </ion-col>
+          <ion-col size = 3>
+              <ion-searchbar  type="text"[(ngModel)]="pesquisa" (keyup.enter)="pesquisarNoticias()" class="inputAjuda" placeholder = "O que deseja procurar ?"></ion-searchbar>
+          </ion-col>
+          <ion-col class="centralizarTexto" size = 2>
+            <ion-item button routerLink ="/o-municipio" color = transparent lines = none>
+              <ion-label color = light>
+                O municipio
+              </ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col class="centralizarTexto" size = 2>
+            <ion-item button routerLink ="/a-prefeitura" color = transparent lines = none>
+              <ion-label color = light>
+                A prefeitura
+              </ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col class="centralizarTexto" size = 2>
+            <ion-item  routerLink ="/telefones-uteis" button color = transparent lines = none>
+              <ion-label color = light>
+                Telefones úteis
+              </ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+  
+        <ion-row *ngIf ="alternar ==false">
+          <ion-col routerLink = "/home" size = 3>
+            <img class="imagem2"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+          </ion-col>
+          <ion-col  routerLink ="/o-municipio" size = 3>
+              <ion-label color = light class="tamanho">
+                O municipio
+              </ion-label>
+          </ion-col>
+          <ion-col  routerLink ="/a-prefeitura"  size = 3>
+              <ion-label color = light class="tamanho">
+                A prefeitura
+              </ion-label>
+          </ion-col>
+          <ion-col routerLink ="/telefones-uteis" size = 3>
+              <ion-label color = light class="tamanho">
+                Telefones úteis
+              </ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-header>
+
+<!----------------------------------------------------------------------------------------------->
+
+<div class="fundo">
+  <ion-grid>
+    
+    <ion-row>
+      <ion-col size = 1> </ion-col>
+      <ion-col size = 11>
+        <ion-title> Lista de contatos úteis</ion-title>
+      </ion-col>
+    </ion-row>
+    <br>
+    <ion-row>
+      <ion-col size = 2> </ion-col>
+      <ion-col size = 4>
+            <b>AGÊNCIA VIAÇÃO JAUÁ </b>:
+      </ion-col>
+      <ion-col size = 6>
+        (75) 3526-2074 ou (71) 9 9142-4624
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size = 2> </ion-col>
+      <ion-col size = 4>
+            <b>BANCO DO BRASIL</b>:
+      </ion-col>
+      <ion-col size = 6>
+        (75) 3526-2990
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size = 2> </ion-col>
+      <ion-col size = 4>
+            <b>CAIXA ECONÔMICA</b>:
+      </ion-col>
+      <ion-col size = 6>
+        (75) 3526-2082 ou +55 800 104 0104 (whatsaap)
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size = 2> </ion-col>
+      <ion-col size = 4>
+            <b>COELBA </b>:
+      </ion-col>
+      <ion-col size = 6>
+        0800 071 0800
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size = 2> </ion-col>
+      <ion-col size = 4>
+            <b>COLÔNIA DE PESCADORES E MARISQUEIRAS </b>:
+      </ion-col>
+      <ion-col size = 6>
+        (75) 3526-1423
+      </ion-col>
+    </ion-row>
+      
+    <ion-row>
+      <ion-col size = 2> </ion-col>
+      <ion-col size = 4>
+            <b>CORREIOS </b>:
+      </ion-col>
+      <ion-col size = 6>
+        (75) 3526-1183
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size = 2> </ion-col>
+      <ion-col size = 4>
+            <b>EMBASA</b>:
+      </ion-col>
+      <ion-col size = 6>
+        (75) 3526-1001 ou 3526-2952
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size = 2> </ion-col>
+      <ion-col size = 4>
+            <b>FÓRUM </b>:
+      </ion-col>
+      <ion-col size = 6>
+        (75) 3526-1311
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size = 2> </ion-col>
+      <ion-col size = 4>
+            <b>GUARDA CIVIL MUNICIPAL</b>:
+      </ion-col>
+      <ion-col size = 6>
+        (75) 9 9928-9381 (whatsaap)
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size = 2> </ion-col>
+      <ion-col size = 4>
+            <b>HOSPITAL </b>:
+      </ion-col>
+      <ion-col size = 6>
+        (75) 3526-1117
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size = 2> </ion-col>
+      <ion-col size = 4>
+            <b>ICMBIO  </b>:
+      </ion-col>
+      <ion-col size = 6>
+        (75) 3526-2756
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size = 2> </ion-col>
+      <ion-col size = 4>
+            <b>POLÍCIA MILITAR </b>:
+      </ion-col>
+      <ion-col size = 6>
+        190 ou (75) 9 9974-1480
+      </ion-col>
+    </ion-row>
+
+    
+    <ion-row>
+      <ion-col size = 2> </ion-col>
+      <ion-col size = 4>
+            <b>SAMU </b>:
+      </ion-col>
+      <ion-col size = 6>
+        192 ou (75) 3621-3411
+      </ion-col>
+    </ion-row>
+
+    
+    <ion-row>
+      <ion-col size = 2> </ion-col>
+      <ion-col size = 4>
+            <b>SICOOB </b>:
+      </ion-col>
+      <ion-col size = 6>
+        (75) 3526-1077
+      </ion-col>
+    </ion-row>
+
+    
+    <ion-row>
+      <ion-col size = 2> </ion-col>
+      <ion-col size = 4>
+            <b>UPA 24Hrs </b>:
+      </ion-col>
+      <ion-col size = 6>
+        (75) 3526-1288
+      </ion-col>
+    </ion-row>
+      
+    <ion-row>
+      <ion-col size = 2> </ion-col>
+      <ion-col size = 4>
+            <b>VIGILÂNCIA SANITÁRIA </b>:
+      </ion-col>
+      <ion-col size = 6>
+        (75) 9 8855-9670
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+</ion-content>

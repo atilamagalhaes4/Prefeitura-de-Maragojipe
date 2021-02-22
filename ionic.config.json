@@ -1,5 +1,7 @@
 {
   "name": "prefeitura",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

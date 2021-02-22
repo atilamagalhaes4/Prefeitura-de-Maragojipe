@@ -1,0 +1,180 @@
+<ion-content>
+
+  <ion-header [translucent]="true">
+    <ion-toolbar class="top1" >
+      
+      <ion-buttons slot="end">
+        <a style="text-decoration: none;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
+          <ion-icon color = light button  name="logo-facebook"></ion-icon>&nbsp;&nbsp;
+        </a>
+      </ion-buttons>
+      
+      <ion-buttons slot="end">
+        <a style="text-decoration: none;" target="_blank"  href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br"  >
+          <ion-icon color = light name="logo-instagram"></ion-icon> &nbsp;&nbsp; 
+        </a>
+      </ion-buttons>
+      
+      <ion-buttons slot="end">
+        <a style="text-decoration: none;" target="_blank"  href="https://www.youtube.com/channel/UCkyVr17S_wasa8uhFXtqWMQ">
+         <ion-icon color = light  name="logo-youtube"></ion-icon>&nbsp;&nbsp;
+        </a>
+      </ion-buttons>
+      <ion-title>
+      </ion-title>
+    </ion-toolbar>
+    
+    <ion-toolbar class="top2" >
+      <ion-grid>
+        <ion-row  *ngIf ="alternar ==true">
+          <ion-col size = 3>
+            <a style="text-decoration: none;"href="/">
+              <img class="imagem"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+            </a>
+            </ion-col>
+          <ion-col size = 3>
+              <ion-searchbar  type="text"[(ngModel)]="pesquisa" (keyup.enter)="pesquisarNoticias()" class="inputAjuda" placeholder = "O que deseja procurar ?"></ion-searchbar>
+          </ion-col>
+          <ion-col class="centralizarTexto" size = 2>
+            <ion-item button routerLink ="/o-municipio" color = transparent lines = none>
+              <ion-label color = light>
+                O municipio
+              </ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col class="centralizarTexto" size = 2>
+            <ion-item button routerLink ="/a-prefeitura" color = transparent lines = none>
+              <ion-label color = light>
+                A prefeitura
+              </ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col class="centralizarTexto" size = 2>
+            <ion-item  routerLink ="/telefones-uteis" button color = transparent lines = none>
+              <ion-label color = light>
+                Telefones úteis
+              </ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+  
+        <ion-row *ngIf ="alternar ==false">
+          <ion-col routerLink = "/home" size = 3>
+            <img class="imagem2"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+          </ion-col>
+          <ion-col  routerLink ="/o-municipio" size = 3>
+              <ion-label color = light class="tamanho">
+                O municipio
+              </ion-label>
+          </ion-col>
+          <ion-col  routerLink ="/a-prefeitura"  size = 3>
+              <ion-label color = light class="tamanho">
+                A prefeitura
+              </ion-label>
+          </ion-col>
+          <ion-col routerLink ="/telefones-uteis" size = 3>
+              <ion-label color = light class="tamanho">
+                Telefones úteis
+              </ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-header>
+
+<!-----------------------------------------------------------------------------------------------> 
+<div class="fundoBranco">
+<ion-grid *ngIf = "alternar == true &&  noticiasDuplas.length !=0">
+  <br>
+  <ion-row *ngFor ="let c of noticiasDuplas">
+
+    <ion-col *ngIf ="c.titulo1"  size = 4>
+      <a style="text-decoration: none; color: black;"   href=" javascript:void(0)" (click) ="visualizar(c.titulo1)" >
+      <div class="figura">
+        <p><img [src]="c.thumb1" [alt]="c.titulo1" [title]="c.titulo1"></p>
+        <h2>{{c.titulo1}}</h2>{{c.introducao1}}
+      </div>
+      </a>
+    </ion-col>
+
+    <ion-col *ngIf ="c.titulo2" size = 4  (click) ="visualizar(c.titulo2)">
+      <a style="text-decoration: none; color: black;"   href=" javascript:void(0)" (click) ="visualizar(c.titulo2)" >
+        <div class="figura">
+          <p><img [src]="c.thumb2" [alt]="c.titulo2" [title]="c.titulo2"></p>
+          <h2>{{c.titulo2}}</h2>{{c.introducao2}}
+        </div>
+      </a>
+    </ion-col>
+
+    <ion-col *ngIf ="c.titulo3" size = 4  (click) ="visualizar(c.titulo3)">
+      <a style="text-decoration: none; color: black;"   href=" javascript:void(0)" (click) ="visualizar(c.titulo3)" >
+        <div class="figura">
+          <p><img [src]="c.thumb3" [alt]="c.titulo3" [title]="c.titulo3"></p>
+          <h2>{{c.titulo3}}</h2>{{c.introducao3}}
+          </div>
+      </a>
+    </ion-col>
+
+  </ion-row>
+</ion-grid>
+
+<!---------------------------- Para celular ----------------------------------------------->
+
+<ion-grid *ngIf = "alternar == false &&  noticiasDuplas.length !=0">
+  <br>
+  <ion-row *ngFor ="let c of noticiasDuplas">
+
+    <ion-col *ngIf ="c.titulo1"  size = 4>
+      <a style="text-decoration: none; color: black;"   href=" javascript:void(0)" (click) ="visualizar(c.titulo1)" >
+      <div class="figura2">
+        <p><img [src]="c.thumb1" [alt]="c.titulo1" [title]="c.titulo1"></p>
+        {{c.titulo1}}
+      </div>
+      </a>
+    </ion-col>
+
+    <ion-col *ngIf ="c.titulo2" size = 4  (click) ="visualizar(c.titulo2)">
+      <a style="text-decoration: none; color: black;"   href=" javascript:void(0)" (click) ="visualizar(c.titulo2)" >
+        <div class="figura2">
+          <p><img [src]="c.thumb2" [alt]="c.titulo2" [title]="c.titulo2"></p>
+          {{c.titulo2}}
+        </div>
+      </a>
+    </ion-col>
+
+    <ion-col *ngIf ="c.titulo3" size = 4  (click) ="visualizar(c.titulo3)">
+      <a style="text-decoration: none; color: black;"   href=" javascript:void(0)" (click) ="visualizar(c.titulo3)" >
+        <div class="figura2">
+          <p><img [src]="c.thumb3" [alt]="c.titulo3" [title]="c.titulo3"></p>
+          {{c.titulo3}}
+          </div>
+      </a>
+    </ion-col>
+
+  </ion-row>
+</ion-grid>
+
+
+
+<ion-item color = transparent *ngIf = "opcao =='todos' && noticiasDuplas.length !=0" (click)="maisNoticias1()" button style="margin-left: 5%; margin-right: 5%;">
+  <br>
+  <ion-label>
+    Buscar mais notícias
+  </ion-label>
+</ion-item>
+
+
+
+<ion-item color = transparent *ngIf = "opcao !='todos' && noticiasDuplas.length !=0" (click)="maisNoticias2()" button style="margin-left: 5%; margin-right: 5%;">
+  <br>
+  <ion-label>
+    Buscar mais notícias
+  </ion-label>
+</ion-item>
+
+
+<div *ngIf = "noticiasDuplas.length ==0"  class="container">
+  <p><img src="../../assets/background/404.jpg" alt="Transparencia" title="transparencia"></p>
+</div>
+</div>
+</ion-content>

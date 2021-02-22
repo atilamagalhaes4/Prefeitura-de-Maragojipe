@@ -1,0 +1,115 @@
+<ion-content>
+
+  <ion-header [translucent]="true">
+    <ion-toolbar class="top1" >
+      
+      <ion-buttons slot="end">
+        <a style="text-decoration: none;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
+          <ion-icon color = light button  name="logo-facebook"></ion-icon>&nbsp;&nbsp;
+        </a>
+      </ion-buttons>
+      
+      <ion-buttons slot="end">
+        <a style="text-decoration: none;" target="_blank"  href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br"  >
+          <ion-icon color = light name="logo-instagram"></ion-icon> &nbsp;&nbsp; 
+        </a>
+      </ion-buttons>
+      
+      <ion-buttons slot="end">
+        <a style="text-decoration: none;" target="_blank"  href="https://www.youtube.com/channel/UCkyVr17S_wasa8uhFXtqWMQ">
+         <ion-icon color = light  name="logo-youtube"></ion-icon>&nbsp;&nbsp;
+        </a>
+      </ion-buttons>
+      <ion-title>
+      </ion-title>
+    </ion-toolbar>
+    
+    <ion-toolbar class="top2" >
+      <ion-grid>
+        <ion-row  *ngIf ="alternar ==true">
+          <ion-col size = 3>
+            <a style="text-decoration: none;"href="/">
+              <img class="imagem"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+            </a>
+            </ion-col>
+          <ion-col size = 3>
+              <ion-searchbar  type="text"[(ngModel)]="pesquisa" (keyup.enter)="pesquisarNoticias()" class="inputAjuda" placeholder = "O que deseja procurar ?"></ion-searchbar>
+          </ion-col>
+          <ion-col class="centralizarTexto" size = 2>
+            <ion-item button routerLink ="/o-municipio" color = transparent lines = none>
+              <ion-label color = light>
+                O municipio
+              </ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col class="centralizarTexto" size = 2>
+            <ion-item button routerLink ="/a-prefeitura" color = transparent lines = none>
+              <ion-label color = light>
+                A prefeitura
+              </ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col class="centralizarTexto" size = 2>
+            <ion-item  routerLink ="/telefones-uteis" button color = transparent lines = none>
+              <ion-label color = light>
+                Telefones úteis
+              </ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+  
+        <ion-row *ngIf ="alternar ==false">
+          <ion-col routerLink = "/home" size = 3>
+            <img class="imagem2"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+          </ion-col>
+          <ion-col  routerLink ="/o-municipio" size = 3>
+              <ion-label color = light class="tamanho">
+                O municipio
+              </ion-label>
+          </ion-col>
+          <ion-col  routerLink ="/a-prefeitura"  size = 3>
+              <ion-label color = light class="tamanho">
+                A prefeitura
+              </ion-label>
+          </ion-col>
+          <ion-col routerLink ="/telefones-uteis" size = 3>
+              <ion-label color = light class="tamanho">
+                Telefones úteis
+              </ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-header>
+
+<!-------------------------------------------------------------------------->
+  <div class="formulario">
+    <ion-item>
+      <ion-label position="stacked">Nome Completo</ion-label>
+      <ion-input [(ngModel)] ="nome" placeholder = "Digite seu nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Localidade</ion-label>
+      <ion-input [(ngModel)] ="localidade" placeholder ="Digite sua localidade"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input [(ngModel)] ="email" placeholder = "Informe o seu email para receber feedbacks"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Assunto</ion-label>
+      <ion-input [(ngModel)] ="assunto" placeholder = "Informe seu assunto"></ion-input>
+    </ion-item>
+    <ion-item lines = none>
+      <ion-label  position="stacked">Solicitação</ion-label>
+      <ion-textarea rows="6"  [(ngModel)] ="mensagem" placeholder = "Digite sua mensagem"></ion-textarea>
+    </ion-item>
+    <ion-button (click)="enviarMensagem()" size="small">Enviar</ion-button> &nbsp; <ion-button (click)="clear()" color = danger size="small">Limpar</ion-button>
+  </div>
+
+  <div class="figurinha">
+    <a target="_blank" href="https://www.google.com/maps/place/Maragogipe,+BA,+44420-000/@-12.7760519,-38.923508,15.99z/data=!4m13!1m7!3m6!1s0x715ebf651ade36b:0xe5807a9f8241bf03!2sAv.+Oce%C3%A2nica,+2,+Maragogipe+-+BA,+44420-000!3b1!8m2!3d-12.777348!4d-38.9176897!3m4!1s0x715ebf605e2b43d:0x925ae32615a3535e!8m2!3d-12.7772962!4d-38.9211273?hl=pt-BR">
+    <img src="../../assets/background/mapa.jpeg" alt="">
+    </a>
+  </div>
+</ion-content>
