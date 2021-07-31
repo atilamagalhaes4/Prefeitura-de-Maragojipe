@@ -16,7 +16,7 @@
       </ion-buttons>
       
       <ion-buttons slot="end">
-        <a style="text-decoration: none;" target="_blank"  href="https://www.youtube.com/channel/UCkyVr17S_wasa8uhFXtqWMQ">
+        <a style="text-decoration: none;" target="_blank"  href="">
          <ion-icon color = light  name="logo-youtube"></ion-icon>&nbsp;&nbsp;
         </a>
       </ion-buttons>
@@ -28,7 +28,7 @@
       <ion-grid>
         <ion-row  *ngIf ="alternar ==true">
           <ion-col size = 3>
-            <a style="text-decoration: none;"href="/">
+            <a style="text-decoration: none;"href="/home">
               <img class="imagem"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
             </a>
             </ion-col>
@@ -86,25 +86,34 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col fixed = "true"size ="6">
-        <b>MARAGOJIPE (SEDE)</b>
-      </ion-col>
-      <ion-col  fixed = "true" size ="6">
-        <b>PONTA DE SOUZA (SEDE)</b>
-      </ion-col>
-    </ion-row>
-
+        <ion-col fixed = "true"size ="4">
+          <b>MARAGOJIPE (SEDE)</b>
+        </ion-col>
+        <ion-col  fixed = "true" size ="4">
+          <b>OUTROS</b>
+        </ion-col>
+        <ion-col  fixed = "true" size ="4">
+          <b>DISTRITOS</b>
+        </ion-col>
+      </ion-row>
+      <br>
     <ion-row *ngFor = "let c of todos">
-      <ion-col size ="6">
+      <ion-col size ="4">
         <b>{{c.nome1}}</b><br>
         {{c.rua1}}<br>
         {{c.contato1}}<br>
       </ion-col>
       
-      <ion-col size ="6">
+      <ion-col size ="4"> 
         <b>{{c.nome2}}</b><br>
         {{c.rua2}}<br>
         {{c.contato2}}<br>
+      </ion-col>
+      
+      <ion-col size ="4"> 
+        <b>{{c.nome3}}</b><br>
+        {{c.rua3}}<br>
+        {{c.contato3}}<br>
       </ion-col>
       
     </ion-row>

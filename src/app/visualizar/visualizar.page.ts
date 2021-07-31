@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
-import { PostProvider } from 'src/assets/providers/post-provider';
+import { PostProvider } from '../../assets/providers/post-provider';
 @Component({
   selector: 'app-visualizar',
   templateUrl: './visualizar.page.html',
@@ -46,10 +46,14 @@ export class VisualizarPage implements OnInit {
   ionViewWillEnter(){
     this.actRoute.params.subscribe( data => {
       this.pegarInformacoes(data.titulo);
+      this.titulo = data.titulo;
     });
     if(this.platform.is("desktop")) this.alternar = true;
     
     if(this.platform.is("mobile")) this.alternar = false;
+
+//    this.alternar = true; //Lembrar de tirar
+
     this.maisNoticias()
   }
   alterarView(id, visualizacoes){
@@ -91,7 +95,8 @@ export class VisualizarPage implements OnInit {
     var i =0;
     let dados = {
       requisicao: "pegarUltimas",
-      maximo: "4"
+      maximo: "4",
+      titulo: this.titulo
     }
     this.provider.requisicaoPost(dados,"/dados.php").subscribe((data)=>{
     

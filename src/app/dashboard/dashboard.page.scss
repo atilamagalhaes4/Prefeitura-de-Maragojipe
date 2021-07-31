@@ -1,0 +1,57 @@
+ion-icon {
+    font-size: 200%;
+  }
+  .imagem{
+    width: 80%;
+    float: left;
+    height:auto;
+  }
+  .imagem2{
+    width: 100%;
+    float: left;
+    height:auto;
+  }
+  ion-searchbar{
+    margin-top: 1cm;
+  }
+  
+  .inputAjuda{
+    margin-top: auto;
+  }
+  .top1{
+    --background: #34cc67 url('../../assets/background/claro.png') no-repeat center center / cover !important;
+  }
+
+  .top2{
+    --background: #339967 url('../../assets/background/escuro.png') no-repeat center center / cover !important;
+  }
+
+  .opcoes{
+    border: thin silver solid;
+    border-radius: 10%;
+//    background-color: #CCFFFF;
+    margin: auto;
+    width: auto;
+    height: 90px;
+  }
+  .opcoes:hover { /*
+    box-shadow: 
+    1px 1px #339967, 
+    2px 2px #339967, 
+    3px 3px #339967; 
+transform: translateX (-3px);*/
+  background:#ffffff;
+
+ }
+
+ .descer{
+   height: 23%;
+ }
+
+ ion-content {
+  --background: #b6b6b5 url('../../assets/educacao/background/002.jpg') 0 0/100% 100% no-repeat !important;
+}
+.independente{
+//  margin-top: -8%;
+  position: sticky;
+}

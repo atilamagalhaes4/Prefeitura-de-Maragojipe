@@ -1,7 +1,7 @@
 ion-icon{
 vertical-align: middle;
 }
-#imagem{
+#imagem2{
     display: inline-block;
     position: relative;
     left: 50%;
@@ -9,7 +9,30 @@ vertical-align: middle;
     transform: translateX(-50%);
     width:  auto;
 //    height:60%;
-      height: 15cm !important;
+      height: 7cm !important;
+}
+
+  img.banner{    
+    display: block;
+    height: 200mm;
+    margin-left: auto;
+    margin-right: auto;
+  }
+#imagem{
+  position: relative;
+  float: right;
+  height: 70mm;
+  width:  auto;
+  margin-left: 3%;
+  margin-bottom: 3%;
+  margin-right: 15%;
+
+//    display: inline-block;
+//    left: 50%;
+//  webkit-transform: translateX(-50%);
+//transform: translateX(-50%);
+//    height:60%;
+//     height: 15cm !important;
 }
 .corpoMensagem{
   text-align: justify;
@@ -28,7 +51,7 @@ vertical-align: middle;
     float: left;
     height:auto;
   }ion-icon {
-    font-size: 200%;
+    font-size: 20px;
   }
 
   

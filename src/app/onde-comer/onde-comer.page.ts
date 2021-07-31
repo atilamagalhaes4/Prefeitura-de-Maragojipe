@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
+import { PostProvider } from '../../assets/providers/post-provider';
 
 @Component({
   selector: 'app-onde-comer',
@@ -12,51 +13,16 @@ export class OndeComerPage implements OnInit {
 
   alternar: boolean =true;
   pesquisa: String = "";
-  todos: any = [ { nome1: "", rua1: "", contato1: "", nome2: "", rua2: "", contato2: "", },    { nome1: "", rua1: "", contato1: "", nome2: "", rua2: "", contato2: "", },    { nome1: "", rua1: "", contato1: "", nome2: "", rua2: "", contato2: "", },    { nome1: "", rua1: "", contato1: "", nome2: "", rua2: "", contato2: "", } ]
 
-  ponta: any = [
-    {
-      nome: "Barraca do Nal",
-      rua: "Praia do Pina",
-      contato: "(75) 99962-6517",
-    }
-  ]
-  centro: any = [
-    {
-      nome: "Beto's Bar e Pizzaria",
-      rua: "Praça Conselheiro Antônio Rebouças, Centro",
-      contato: "(75) 3526-1964",
-    },
-    {
-      nome: "Rei da Feijoada",
-      rua: "Rua Dr. Maurício Rebouças, Centro",
-      contato: "(75) 3526-1887",
-    },
-    {
-      nome: "Restaurante Juliana",
-      rua: "Rua Maestro José Pereira Rebouças, 10, Centro",
-      contato: "(75) 3526- 1887",
-    },
-  ]
+  //todos os contatos ficarao nesses array
+  todos: any = []
+  
+  
 
-  concatenar(){
-    var maior = 0;
-
-    if(maior<this.centro.length) maior = this.centro.length;
-    if(maior<this.ponta.length) maior = this.ponta.length;
-    
-    for(var i = 0; i<maior;i++){
-      if(this.centro[i].nome!="")this.todos[i].nome1 = this.centro[i].nome;
-      if(this.centro[i].rua!="")this.todos[i].rua1 = this.centro[i].rua;
-      if(this.centro[i].contato!="")this.todos[i].contato1 = this.centro[i].contato;
-      if(this.ponta[i].nome!="")this.todos[i].nome2 = this.ponta[i].nome;
-      if(this.ponta[i].rua!="")this.todos[i].rua2 = this.ponta[i].rua;
-      if(this.ponta[i].contato!="")this.todos[i].contato2 = this.ponta[i].contato;
-    }
-  }
   constructor(
     private platform: Platform,
-    private route: Router
+    private route: Router,
+    private provider: PostProvider
   ) { }
 
   ngOnInit() {
@@ -69,10 +35,23 @@ export class OndeComerPage implements OnInit {
     if(this.platform.is("mobile")){
       this.alternar = false;
     }
-    this.concatenar();
+    this.pegarLugares();
   }
 
   pesquisarNoticias(){
     this.route.navigate(["/mais-noticias/"+this.pesquisa]);
   }
+
+  pegarLugares(){
+    this.todos = [];
+    let dados ={
+      requisicao: "ondeComer",
+    }
+    this.provider.requisicaoPost(dados, "/dados.php").subscribe((data)=>{
+      for(let c of data['resultado']){
+        this.todos.push(c);
+      }
+    });
+  }
+
 }

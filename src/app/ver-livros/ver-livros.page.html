@@ -1,0 +1,1693 @@
+<ion-content [fullscreen]="true">
+  <ion-header [translucent]="true">
+    <ion-toolbar class="top1" >
+      <ion-buttons slot="end">
+        <a style="text-decoration: none;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
+          <ion-icon color = light button  name="logo-facebook"></ion-icon>&nbsp;&nbsp;
+        </a>
+      </ion-buttons>
+      
+      <ion-buttons slot="end">
+        <a style="text-decoration: none;" target="_blank"  href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br"  >
+          <ion-icon color = light name="logo-instagram"></ion-icon> &nbsp;&nbsp; 
+        </a>
+      </ion-buttons>
+      
+      <ion-buttons slot="end">
+        <a style="text-decoration: none;" target="_blank"  href="">
+         <ion-icon color = light  name="logo-youtube"></ion-icon>&nbsp;&nbsp;
+        </a>
+      </ion-buttons>
+      <ion-title>
+      </ion-title>
+    </ion-toolbar>
+    
+    <ion-toolbar class="top2" >
+      <ion-grid>
+        <ion-row  *ngIf ="alternar ==true">
+          <ion-col size = 3>
+            <a style="text-decoration: none;"href="/home">
+              <img class="imagem"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+            </a>
+            </ion-col>
+          <ion-col size = 3>
+              <ion-searchbar  type="text"[(ngModel)]="pesquisa" (keyup.enter)="pesquisarNoticias()" class="inputAjuda" placeholder = "O que deseja procurar ?"></ion-searchbar>
+          </ion-col>
+          <ion-col class="centralizarTexto" size = 2>
+            <ion-item button routerLink ="/educacao" color = transparent lines = none>
+              <ion-label color = light>
+                Educação
+              </ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col class="centralizarTexto" size = 2>
+            <ion-item button routerLink ="/corpo-tecnico" color = transparent lines = none>
+              <ion-label color = light>
+                Corpo técnico
+              </ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col class="centralizarTexto" size = 2>
+            <ion-item  routerLink ="/telefones-uteis" button color = transparent lines = none>
+              <ion-label color = light>
+                Telefones úteis
+              </ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+  
+        <ion-row *ngIf ="alternar ==false">
+          <ion-col routerLink = "/home" size = 3>
+            <img class="imagem2"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+          </ion-col>
+          <ion-col  routerLink ="/educacao" size = 3>
+              <ion-label color = light class="tamanho">
+                Educação
+              </ion-label>
+          </ion-col>
+          <ion-col  routerLink ="/corpo-tecnico"  size = 3>
+              <ion-label color = light class="tamanho">
+                Corpo técnico
+              </ion-label>
+          </ion-col>
+          <ion-col routerLink ="/telefones-uteis" size = 3>
+              <ion-label color = light class="tamanho">
+                Telefones úteis
+              </ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-header>
+  <br>
+
+  <ion-grid>
+    <ion-row *ngIf ='(alternar == true)'>
+      <ion-col size = 2></ion-col>
+      <ion-col size = 8>
+        
+        <ion-item>
+          <ion-label>Escolaridade : </ion-label>
+          <ion-select (ionChange) = "alterarEscolaridade()" [(ngModel)] ="posicao" okText="Confirmar"  interface="popover" cancelText="Cancelar">
+            <ion-select-option *ngFor = "let c of dados" [value]="c.nome">{{c.nome}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+      </ion-col>
+      <ion-col size = 2></ion-col>
+    </ion-row>
+
+    
+    <ion-row *ngIf ='(alternar == false)'>
+      <ion-col size = 12>        
+        <ion-item>
+          <ion-label>Escolaridade : </ion-label>
+          <ion-select (ionChange) = "alterarEscolaridade()" [(ngModel)] ="posicao" okText="Confirmar"  interface="popover" cancelText="Cancelar">
+            <ion-select-option *ngFor = "let c of dados" [value]="c.nome">{{c.nome}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <br><br>
+
+  <ion-list *ngIf = " opcao == 'infantil'  && alternar == true"> <!-- Remodelado para PC-->
+
+    <ion-grid *ngIf = 'escolaridade == "Creche"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>
+    
+    </ion-grid>
+
+    
+    <ion-grid *ngIf = 'escolaridade == "Pré-Escola"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>
+    
+    </ion-grid>
+
+  </ion-list>
+
+  
+  <ion-list *ngIf = " opcao == 'infantil'  && alternar == false">
+
+    <ion-grid *ngIf = 'escolaridade == "Creche"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>
+    
+    </ion-grid>
+
+    
+    <ion-grid *ngIf = 'escolaridade == "Pré-Escola"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>
+    
+    </ion-grid>
+
+  </ion-list>
+
+  
+  <ion-list *ngIf = " opcao == 'fundamental-1'  && alternar == true">
+
+    <ion-grid *ngIf = 'escolaridade == "1º ano"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+    
+    <ion-grid *ngIf = 'escolaridade == "2º ano"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+
+    
+    <ion-grid *ngIf = 'escolaridade == "3º ano"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+    
+    <ion-grid *ngIf = 'escolaridade == "4º ano"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+
+    
+    <ion-grid *ngIf = 'escolaridade == "5º ano"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+  </ion-list>
+
+
+  <ion-list *ngIf = " opcao == 'fundamental-1'  && alternar == false">
+
+    <ion-grid *ngIf = 'escolaridade == "1º ano"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+    
+    <ion-grid *ngIf = 'escolaridade == "2º ano"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+
+    
+    <ion-grid *ngIf = 'escolaridade == "3º ano"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+    
+    <ion-grid *ngIf = 'escolaridade == "4º ano"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+
+    
+    <ion-grid *ngIf = 'escolaridade == "5º ano"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+  </ion-list>
+
+
+
+
+  <ion-list *ngIf = " opcao == 'fundamental-2'  && alternar == true">
+
+    <ion-grid *ngIf = 'escolaridade == "6º ano"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+    
+    <ion-grid *ngIf = 'escolaridade == "7º ano"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+
+    
+    <ion-grid *ngIf = 'escolaridade == "8º ano"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+    
+    <ion-grid *ngIf = 'escolaridade == "9º ano"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+
+    
+  </ion-list>
+
+
+  <ion-list *ngIf = " opcao == 'fundamental-2'  && alternar == false">
+
+    <ion-grid *ngIf = 'escolaridade == "6º ano"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+    
+    <ion-grid *ngIf = 'escolaridade == "7º ano"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+
+    
+    <ion-grid *ngIf = 'escolaridade == "8º ano"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+    
+    <ion-grid *ngIf = 'escolaridade == "9º ano"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+    
+  </ion-list>
+
+
+  
+  <ion-list *ngIf = " opcao == 'EJA'  && alternar == true">
+
+    <ion-grid *ngIf = 'escolaridade == "5º / 6º Serie"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+    
+    <ion-grid *ngIf = 'escolaridade == "7º / 8º Serie"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+    
+  </ion-list>
+
+
+  <ion-list *ngIf = " opcao == 'EJA'  && alternar == false">
+
+    <ion-grid *ngIf = 'escolaridade == "5º / 6º Serie"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+    
+    <ion-grid *ngIf = 'escolaridade == "7º / 8º Serie"' >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+
+  </ion-list>
+
+
+  
+  <ion-list *ngIf = " opcao == 'AEE'  && alternar == true">
+
+    <ion-grid >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+    
+  </ion-list>
+
+
+  <ion-list *ngIf = " opcao == 'AEE'  && alternar == false">
+
+    <ion-grid >
+
+      <ion-row *ngFor = "let c of livros" >
+
+        <ion-col size = 1></ion-col>
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url1" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem1" [alt]="c.autor1" [title]="c.titulo1"></p>
+            <p>{{c.titulo1}}<br> {{c.autor1}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url2" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem2" [alt]="c.autor2" [title]="c.titulo2"></p>
+            <p>{{c.titulo2}}<br> {{c.autor2}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url3" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem3" [alt]="c.autor3" [title]="c.titulo3"></p>
+            <p>{{c.titulo3}}<br> {{c.autor3}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+    
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url4" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem4" [alt]="c.autor4" [title]="c.titulo4"></p>
+            <p>{{c.titulo4}}<br> {{c.autor4}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+
+        <ion-col size = 2>
+          <div class="figura2">
+            <a color = dark [href]="c.url5" target="_blank"  style=" color: black;text-decoration: none;">
+            <p><img [src]="c.imagem5" [alt]="c.autor5" [title]="c.titulo5"></p>
+            <p>{{c.titulo5}}<br> {{c.autor5}}<br></p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+
+      </ion-row>    
+    </ion-grid>
+    
+  </ion-list>
+
+
+
+</ion-content>

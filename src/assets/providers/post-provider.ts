@@ -4,14 +4,13 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 @Injectable()
 export class PostProvider{
-   server: string = "https://www.maragojipe.ba.gov.br";
-  //  server: string = "http://localhost/prefeitura.api";
-
-    constructor(
+  //server: string = "http://localhost/prefeitura.api";
+  //server: string = "http://39ab824eada4.ngrok.io/prefeitura.api";
+  server: string = "https://www.maragojipe.ba.gov.br/prefeitura.api";
+  constructor(
       private http : HttpClient
     ){  } 
     
-
     acessarBanco(dados: any, api: string){
       return new Promise((resolve, reject) =>{
         let url = this.server + api;

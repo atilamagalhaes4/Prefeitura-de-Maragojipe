@@ -1,0 +1,34 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: #6C7A89;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+.box {
+    width: 305px;
+    height: 305px;
+    background: #fff;
+}
+ion-content{
+    margin: 0px
+}
+
+.osInput{
+    text-align: center;
+}
+.centralizarImagem{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 140px;
+}
+
+.icon {
+    display: inline-block;
+    font-size: 30px;
+    color: #339967;
+    vertical-align: middle;
+   }

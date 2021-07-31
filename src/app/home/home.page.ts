@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
-import { PostProvider } from 'src/assets/providers/post-provider';
+import { PostProvider } from '../../assets/providers/post-provider';
+declare var viewDados1: any;
+declare var viewDados2: any;
+declare var viewDados3: any;
+declare var viewDados4: any;
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -9,14 +14,11 @@ import { PostProvider } from 'src/assets/providers/post-provider';
 })
 export class HomePage {
 
-  banners: any = [
-    {
-      imagem: "../../assets/banner/banner1.jpg"
-    }
-  ];
+
   boletim: string = "../../assets/outros/boletim.jpg";
   vacinometro: string = "../../assets/outros/vacinometro.jpg";
-  campanha: string = "../../assets/outros/campanha.jpg";
+  corona: string = "../../assets/outros/corona.jpg"
+  campanhas: string = "../../assets/outros/campanhas/001.jpeg"
   alternar: boolean = true;
   thumb1: string = "";
   thumb2: string = "";
@@ -26,6 +28,15 @@ export class HomePage {
   introducao2: string = "";
   
   pesquisa: string = "";
+
+  thumb3: string = "";
+  thumb4: string = "";
+  titulo3: string = "";
+  titulo4: string = "";
+  thumb5: string = "";
+  thumb6: string = "";
+  titulo5: string = "";
+  titulo6: string = "";
 
   constructor(
     private platform: Platform,
@@ -37,22 +48,61 @@ export class HomePage {
     this.route.navigate(["/mais-noticias/"+this.pesquisa]);
   }
   ionViewWillEnter(){
-    if(this.platform.is("desktop")){
-      this.alternar = true;
-    }
     if(this.platform.is("mobile")){
       this.alternar = false;
     }
+    if(this.platform.is("desktop")){
+      this.alternar = true;
+    }
+  this.pegarNoticias();
+  this.noticiasPequenas();
+}
 
-    this.pegarNoticias();
+  noticiasPequenas(){
+    var i =0;
+    let dados = {
+      requisicao: "quatroNoticias"
+    }
+    this.provider.requisicaoPost(dados,"/dados.php").subscribe((data)=>{
+      console.log(data);
+      for(let c of data['resultado']){
+        if(i == 0){
+          this.thumb3 = c.thumb;
+          this.titulo3 = c.titulo;
+        }
+        else if(i == 1){
+          this.thumb4 = c.thumb;
+          this.titulo4 = c.titulo;
+        }
+        else if(i == 2){
+          this.thumb5 = c.thumb;
+          this.titulo5 = c.titulo;
+        }
+        else if(i == 3){
+          this.thumb6 = c.thumb;
+          this.titulo6 = c.titulo;
+        }
+        i++;
+      }
+    },(error)=>{
+      console.log(error);
+    });
   }
 
-  pegarNoticias(){
+  ngOnInit() {
+    viewDados1().funcao();
+    viewDados2().funcao();
+    viewDados3().funcao();
+    viewDados4().funcao();
+  }
+  
+  pegarNoticias(){ 
     var i =0;
     let dados = {
       requisicao: "pegarDuasNoticias"
     }
     this.provider.requisicaoPost(dados,"/dados.php").subscribe((data)=>{
+      console.log(data)
       for(let c of data['resultado']){
         if(i ==0) {
           this.titulo1 = c.titulo;
@@ -70,6 +120,7 @@ export class HomePage {
         i++;
       }
     },(error)=>{
+      console.log(error)
     })
 
   }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, Platform } from '@ionic/angular';
-import { PostProvider } from 'src/assets/providers/post-provider';
+import { PostProvider } from '../../assets/providers/post-provider';
 
 @Component({
   selector: 'app-ouvidoria',
@@ -50,7 +50,7 @@ export class OuvidoriaPage implements OnInit {
     else if(this.mensagem ==""){
       this.presentAlert("Digite o corpo da sua mensagem")
     }
-    else{
+    else{/*
       let dados2 ={
         requisicao: "enviarMensagem",
         destinatario: this.email,
@@ -74,6 +74,19 @@ export class OuvidoriaPage implements OnInit {
       },(error)=>{
         this.presentAlert("Sua mensagem foi enviada com sucesso.");
         this.clear()
+      })*/
+      let dados3 = {
+        requisicao: "solicitacoes",
+        nome: this.nome,
+        assunto: this.assunto,
+        mensagem: this.mensagem,
+        localidade: this.localidade,
+        email: this.email
+      }
+      this.provider.requisicaoPost(dados3,"/dados.php").subscribe((data)=>{
+        this.presentAlert("Sua mensagem foi enviada com sucesso.");
+        this.clear();
+      },(error)=>{
       })
     }
   }

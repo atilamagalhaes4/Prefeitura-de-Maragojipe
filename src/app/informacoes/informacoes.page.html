@@ -1,0 +1,117 @@
+<ion-content>
+  <ion-header [translucent]="true">
+    
+    <ion-toolbar class="top2" >
+      <ion-grid>
+        <ion-row>
+          <ion-col size = 3>
+            <a style="text-decoration: none;" (click) = "inicio()" href="javascript:void(0)">
+              <img class="imagem"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+            </a>
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-header>
+
+  <br>  <br>
+
+  <ion-grid>
+    <div id="printar">
+      <ion-row>
+        <ion-col size = 1></ion-col>
+        <ion-col size = 10 style="border: thin silver solid;">
+          <ion-item>
+            <ion-label>Escola</ion-label>
+            <ion-select [disabled] ="escolaDisable" interface="popover" (ionChange) ="pesquisar()" [(ngModel)] ="escola" placeholder="Selecione uma escola">
+              <ion-select-option *ngFor ="let c of escolas"   [value]="c.nome">{{c.nome}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col size = 1></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size = 1></ion-col>
+        <ion-col style ="border:thin silver solid; background-color: rgb(243, 243, 243);" size = 1>
+          Serie
+        </ion-col>
+        <ion-col style ="border:thin silver solid; background-color: rgb(243, 243, 243);" size = 1>
+          Alunos do matutino
+        </ion-col>
+        <ion-col style ="border:thin silver solid; background-color: rgb(243, 243, 243);" size = 1>
+          Alunos do vespertino
+        </ion-col>
+        <ion-col style ="border:thin silver solid; background-color: rgb(243, 243, 243);" size = 1>
+          Alunos do noturno
+        </ion-col>
+        <ion-col style ="border:thin silver solid; background-color: rgb(243, 243, 243);" size = 1>
+          Alunos do integral
+        </ion-col>
+        <ion-col style ="border:thin silver solid; background-color: rgb(243, 243, 243);" size = 1>
+          Alunas do matutino
+        </ion-col>
+        <ion-col style ="border:thin silver solid; background-color: rgb(243, 243, 243);" size = 1>
+          Alunas do vespertino
+        </ion-col>
+        <ion-col style ="border:thin silver solid; background-color: rgb(243, 243, 243);" size = 1>
+          Alunas do noturno
+        </ion-col>
+        <ion-col style ="border:thin silver solid; background-color: rgb(243, 243, 243);" size = 1>
+          Alunas do integral
+        </ion-col>
+        <ion-col style ="border:thin silver solid; background-color: rgb(243, 243, 243);" size = 1>
+          Total
+        </ion-col>
+        <ion-col size = 1></ion-col>
+      </ion-row>
+
+      <ion-row  *ngFor ="let c of atila">
+        <ion-col size = 1></ion-col>
+        <ion-col style ="border:thin silver solid;" size = 1>
+          {{c.serie}}
+        </ion-col>
+        <ion-col style ="border:thin silver solid;" size = 1>
+          {{c.masculinoMatutino}}
+        </ion-col>
+        <ion-col style ="border:thin silver solid;" size = 1>
+          {{c.masculinoVespertino}}
+        </ion-col>
+        <ion-col style ="border:thin silver solid;" size = 1>
+          {{c.masculinoNoturno}}
+        </ion-col>
+        <ion-col style ="border:thin silver solid;" size = 1>
+          {{c.masculinoIntegral}}
+        </ion-col>
+        <ion-col style ="border:thin silver solid;" size = 1>
+          {{c.femininoMatutino}}
+        </ion-col>
+        <ion-col style ="border:thin silver solid;" size = 1>
+          {{c.femininoVespertino}}
+        </ion-col>
+        <ion-col style ="border:thin silver solid;" size = 1>
+          {{c.femininoNoturno}}
+        </ion-col>
+        <ion-col style ="border:thin silver solid;" size = 1>
+          {{c.femininoIntegral}}
+        </ion-col>
+        <ion-col style ="border:thin silver solid;" size = 1>
+          {{c.total}}
+        </ion-col>
+        <ion-col size = 1></ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+<br><br>
+  <ion-grid>
+    <ion-row>
+      <ion-col size = "4"></ion-col>
+      <ion-col size = "2">
+        <ion-button expand="full" (click)="print('printar')" color = "tertiary" >Imprimir</ion-button>
+      </ion-col>
+      <ion-col size = "2">
+        <ion-button expand="full" (click)="voltar()" color = "danger" >Cancelar</ion-button>
+      </ion-col>
+      <ion-col size = "4"></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,514 @@
+<ion-content>
+<ion-content [fullscreen]="true">
+  <ion-header [translucent]="true">
+    <ion-toolbar class="top1" >
+      <ion-buttons slot="end">
+        <a style="text-decoration: none;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
+          <ion-icon color = light button  name="logo-facebook"></ion-icon>&nbsp;&nbsp;
+        </a>
+      </ion-buttons>
+      
+      <ion-buttons slot="end">
+        <a style="text-decoration: none;" target="_blank"  href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br"  >
+          <ion-icon color = light name="logo-instagram"></ion-icon> &nbsp;&nbsp; 
+        </a>
+      </ion-buttons>
+      
+      <ion-buttons slot="end">
+        <a style="text-decoration: none;" target="_blank"  href="">
+         <ion-icon color = light  name="logo-youtube"></ion-icon>&nbsp;&nbsp;
+        </a>
+      </ion-buttons>
+      <ion-title>
+      </ion-title>
+    </ion-toolbar>
+    
+    <ion-toolbar class="top2" >
+      <ion-grid>
+        <ion-row  *ngIf ="alternar ==true">
+          <ion-col size = 3>
+            <a style="text-decoration: none;"href="/home">
+              <img class="imagem"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+            </a>
+            </ion-col>
+          <ion-col size = 3>
+              <ion-searchbar  type="text"[(ngModel)]="pesquisa" (keyup.enter)="pesquisarNoticias()" class="inputAjuda" placeholder = "O que deseja procurar ?"></ion-searchbar>
+          </ion-col>
+          <ion-col class="centralizarTexto" size = 2>
+            <ion-item button routerLink ="/home" color = transparent lines = none>
+              <ion-label color = light>
+                Início
+              </ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col class="centralizarTexto" size = 2>
+            <ion-item button routerLink ="/corpo-tecnico" color = transparent lines = none>
+              <ion-label color = light>
+                Corpo técnico
+              </ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+  
+        <ion-row *ngIf ="alternar ==false">
+          <ion-col routerLink = "/home" size = 3>
+            <img class="imagem2"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+          </ion-col>
+          <ion-col  routerLink ="/home" size = 3>
+              <ion-label color = light class="tamanho">
+                Início
+              </ion-label>
+          </ion-col>
+          <ion-col  routerLink ="/corpo-tecnico"  size = 3>
+              <ion-label color = light class="tamanho">
+                Corpo técnico
+              </ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <!--
+    <iframe width="100%" height="450px" autoplay ="autoplay" src="https://www.youtube.com/embed/6kqe2ICmTxc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  -->
+    <br>
+    <ion-grid *ngIf = "alternar == false">
+      <ion-row>
+        <ion-col size = 9>
+          <div class="banner2" >
+          <ion-item button lines = none >
+            <img  class="imagemPrincipalFalse" [src]="dadosPrincipal.imagem" />
+            <div id = "textoFalse">{{dadosPrincipal.titulo}}</div>
+          </ion-item>
+      </div>
+    </ion-col>
+          <!--
+          <div class="banner2" >
+            <ion-slides [options]="slideOptsOne">            
+              <ion-slide *ngFor = "let c of outdoor">
+                <ion-item button color = transparent (click)="presentModal(c.titulo, c.introducao, c.mensagem, c.imagem, c.link1, c.link2, c.link3)">
+                  <img  class="imagemPrincipalFalse" [src]="c.imagem" />
+                  <div id = "textoFalse">{{c.titulo}}</div>
+                </ion-item>
+              </ion-slide>
+            </ion-slides>
+          </div>-->
+
+        <ion-col size = 3>
+          <a color = dark   (mouseover)="upar(div1titulo, div1introducao, div1Mensagem, div1imagem,div1link1,div1link2,div1link3,1)" href="#" onclick="return false;" style=" color: black;text-decoration: none;">
+            <div class = "div1False">
+              <img [src]="div1imagem">
+            <div id="texto2False">
+              {{div1titulo}}
+            </div>
+            </div>
+          </a>
+  
+          <a color = dark (mouseover)="upar(div2titulo, div2introducao, div2Mensagem, div2imagem,div2link1,div2link2,div2link3,2)"  href="#" onclick="return false;" style=" color: black;text-decoration: none;">
+            <div  class = "div2False">
+              <img [src]="div2imagem">
+              <div id="texto2False">
+                {{div2titulo}}
+              </div>          
+            </div>
+          </a>
+          <a color = dark (mouseover)="upar(div3titulo, div3introducao, div3Mensagem, div3imagem,div3link1,div3link2,div3link3,3)" href="#" onclick="return false;" style=" color: black;text-decoration: none;">
+            <div class = "div3False">
+              <img [src]="div3imagem">
+              <div id="texto2False">
+                {{div3titulo}}
+              </div>
+            </div>
+          </a>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  <ion-grid *ngIf = "alternar == true">
+    <ion-row>
+      <ion-col size = 2></ion-col>
+      <ion-col size = 5>
+        <div class="banner">
+              <ion-item button lines = none >
+                <img  class="imagemPrincipal" [src]="dadosPrincipal.imagem" />
+                <div id = "texto" [innerHTML]="dadosPrincipal.titulo"></div>
+              </ion-item>
+             <!--
+          <ion-slides [options]="slideOptsOne">            
+            <ion-slide *ngFor = "let c of outdoor">
+              <ion-item button lines = none (click)="presentModal(c.titulo, c.introducao, c.mensagem, c.imagem, c.link1, c.link2, c.link3)">
+                <img  class="imagemPrincipal" [src]="c.imagem" />
+                <div id = "texto">{{c.titulo}}</div>
+              </ion-item>
+            </ion-slide>
+          </ion-slides>-->
+        </div>
+      </ion-col>
+      <ion-col size = 1>
+        <span class="direita1" *ngIf="posicao ==1"></span>
+        <span class="direita2" *ngIf="posicao ==2"></span>
+        <span class="direita3" *ngIf="posicao ==3"></span>
+      </ion-col>
+      <ion-col size = 2>
+        <a color = dark (mouseover)="upar(div1titulo, div1introducao, div1Mensagem, div1imagem,div1link1,div1link2,div1link3,1)" >
+          <div class = "div1">
+            <img [src]="div1imagem">
+          <div id="texto2">
+            {{div1titulo}}
+          </div>
+          </div>
+        </a>
+
+        <a color = dark (mouseover)="upar(div2titulo, div2introducao, div2Mensagem, div2imagem,div2link1,div2link2,div2link3,2)" >
+          <div class = "div2">
+            <img [src]="div2imagem">
+            <div id="texto2">
+              {{div2titulo}}
+            </div>          
+          </div>
+        </a>
+        <a color = dark (mouseover)="upar(div3titulo, div3introducao, div3Mensagem, div3imagem,div3link1,div3link2,div3link3,3)" >
+          <div class = "div3">
+            <img [src]="div3imagem">
+            <div id="texto2">
+              {{div3titulo}}
+            </div>
+          </div>
+        </a>
+      </ion-col>
+      <ion-col size = 2></ion-col>
+    </ion-row>
+  </ion-grid>
+<br>
+  <ion-grid *ngIf = "roleta.length >0">
+    <ion-row *ngIf = "alternar == false" >
+        <ion-col size = 3>
+          <img width="90%" height="80%" src = "../../assets/icones prefeitura/NOTICIAS.png">
+        </ion-col>
+        <ion-col size = 9></ion-col>
+    </ion-row>
+    <ion-row *ngIf = "alternar == true" style="margin-bottom: -5mm;">
+      <ion-col size = 3>
+        <img width="90%" height="80%" src = "../../assets/icones prefeitura/NOTICIAS.png">
+      </ion-col>
+      <ion-col size = 9></ion-col>
+  </ion-row>
+    <ion-row *ngIf = "alternar == true" style="margin-bottom: -5mm;">
+      <ion-col size = 12>
+          <ion-slides [options]="slideOptsTwo">            
+            <ion-slide *ngFor = "let c of roleta">
+              <ion-item lines = none button >
+                <img class="imagemPrincipal2" [src]="c.imagem" />
+                <div id = "texto3">
+                  {{c.titulo}}
+                </div>
+              </ion-item>
+            </ion-slide>
+          </ion-slides>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf = "alternar == false">
+      <ion-col size = 12>
+          <ion-slides [options]="slideOptsFour">         
+            <ion-slide *ngFor = "let c of roleta" class="imagemPrincipal3">
+              <ion-item  button >
+                <img [src]="c.imagem" />
+                <div id = "texto4">
+                  {{c.titulo}}
+                </div>
+              </ion-item>
+            </ion-slide>
+          </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+    <br>
+  <ion-grid *ngIf = "roleta2.length >0">
+    <ion-row *ngIf = "alternar == false">
+      <ion-col size = 3>
+        <img width="90%" height="80%" src = "../../assets/icones prefeitura/ESCOLAS.png">
+      </ion-col>
+      <ion-col size = 9></ion-col>
+    </ion-row>
+    <ion-row *ngIf = "alternar == true"  style="margin-bottom: -5mm;">
+        <ion-col size = 3>
+          <img width="90%" height="80%" src = "../../assets/icones prefeitura/ESCOLAS.png">
+        </ion-col>
+        <ion-col size = 9></ion-col>
+    </ion-row>
+    
+    <ion-row *ngIf = "alternar == true" style="margin-bottom: -5mm;">
+        <ion-col size = 12>
+            <ion-slides [options]="slideOptsTwo">            
+              <ion-slide *ngFor = "let c of roleta2">
+                <ion-item button lines = none>
+                  <img class="imagemPrincipal2" [src]="c.imagem" />
+                  <div id = "texto3">
+                    {{c.titulo}}
+                  </div>
+                </ion-item>
+              </ion-slide>
+            </ion-slides>
+        </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf = "alternar == false">
+        <ion-col size = 12>
+            <ion-slides [options]="slideOptsFour">         
+              <ion-slide *ngFor = "let c of roleta2" class="imagemPrincipal3">
+                <ion-item  button >
+                  <img [src]="c.imagem" />
+                  <div id = "texto4">
+                    {{c.titulo}}
+                  </div>
+                </ion-item>
+              </ion-slide>
+            </ion-slides>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+  <br>
+  <ion-grid>
+    <ion-row>
+      <ion-col size = 3>
+        <img width="90%" height="80%" src = "../../assets/icones prefeitura/acervo.png">
+      </ion-col>
+      <ion-col size = 9></ion-col>
+    </ion-row>
+  </ion-grid>
+
+    <ion-grid  *ngIf = "alternar == true">
+      <ion-row>
+        <ion-col size = 1> </ion-col>
+        <ion-col size = 2>
+          <div  (click) ="verLivros('infantil')"  class="figura">
+            <a  target="_blank"  href="#" onclick="return false;" style="text-decoration: none; color: black;">
+            <p><img src="../../assets/educacao/icones/biblioteca.png" alt="Educação Infantil" title="Educação Infantil"></p>
+            <p>Educação Infantil</p>
+          </a>
+          </div>
+          </ion-col>
+        <ion-col size = 2>
+          <div (click) ="verLivros('fundamental-1')" class="figura">
+            <a color = dark  href="#" onclick="return false;" style=" color: black;text-decoration: none;">
+              <p><img src="../../assets/educacao/icones/biblioteca.png" alt="Ensino fundamental I" title="Ensino fundamental I"></p>
+            <p>Ensino fundamental I</p>
+          </a>
+          </div>
+          </ion-col>
+        <ion-col size = 2>
+          <div (click) ="verLivros('fundamental-2')"  class="figura">
+            <a color = dark  href="#" onclick="return false;" style="text-decoration: none; color: black;">
+              <p><img src="../../assets/educacao/icones/biblioteca.png"alt="Ensino fundamental II" title="Ensino fundamental II"></p>
+              <p>Ensino fundamental II</p>
+            </a>
+          </div>
+        </ion-col>
+        
+        <ion-col size = 2>
+          <div (click) ="verLivros('EJA')"  class="figura">
+            <a color = dark  href="#" onclick="return false;" style="text-decoration: none; color: black;">
+            <p><img src="../../assets/educacao/icones/biblioteca.png" alt="EJA" title="EJA"></p>
+            <p>EJA</p>
+            </a>
+          </div>
+        </ion-col>
+        
+        <ion-col size = 2>
+          <div (click) ="verLivros('AEE')"  class="figura">
+            <a color = dark  href="#" onclick="return false;" style=" color: black;text-decoration: none;">
+            <p><img src="../../assets/educacao/icones/biblioteca.png" alt="AEE" title="AEE"></p>
+            <p>AEE</p>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col size = 1>  </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+    
+<!-- Remodelacao para celular -->
+  <ion-grid  *ngIf = "alternar == false">
+    <ion-row>
+      <ion-col size = 1> </ion-col>
+      <ion-col size = 2>
+        <div (click) ="verLivros('infantil')" class="figura2">
+          <a  href="#" onclick="return false;" style="text-decoration: none; color: black;">
+          <p><img src="../../assets/educacao/icones/biblioteca.png" alt="Educação Infantil" title="Educação Infantil"></p>
+          <p >Educação Infantil</p>
+        </a>
+        </div>
+        </ion-col>
+      <ion-col size = 2>
+        <div (click) ="verLivros('fundamental-1')"  class="figura2">
+          <a color = dark href="#" onclick="return false;" style=" color: black;text-decoration: none;">
+            <p><img src="../../assets/educacao/icones/biblioteca.png" alt="Ensino fundamental I" title="Ensino fundamental I"></p>
+          <p>Anos iniciais (1º ao 5º ano)</p>
+        </a>
+        </div>
+        </ion-col>
+      <ion-col size = 2>
+        <div (click) ="verLivros('fundamental-2')"  class="figura2">
+          <a color = dark  href="#" onclick="return false;" style="text-decoration: none; color: black;">
+            <p><img src="../../assets/educacao/icones/biblioteca.png" alt="Ensino fundamental II" title="Ensino fundamental II"></p>
+            <p >Anos finais (6º ao 9º ano)</p>
+          </a>
+        </div>
+      </ion-col>
+      
+      <ion-col size = 2>
+        <div (click) ="verLivros('EJA')" class="figura2">
+          <a color = dark  href="#" onclick="return false;" style="text-decoration: none; color: black;">
+          <p><img src="../../assets/educacao/icones/biblioteca.png" alt="EJA" title="EJA"></p>
+          <p >EJA</p>
+          </a>
+        </div>
+      </ion-col>
+      
+      <ion-col size = 2>
+        <div (click) ="verLivros('AEE')"  class="figura2">
+          <a color = dark href="#" onclick="return false;" style=" color: black;text-decoration: none;">
+          <p><img src="../../assets/educacao/icones/biblioteca.png" alt="AEE" title="AEE"></p>
+          <p >AEE</p>
+          </a>
+        </div>
+      </ion-col>
+      <ion-col size = 1>  </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <br>
+
+  
+  <div id="fundoCInza">
+    <br>
+    <ion-grid>
+      <ion-row>
+        <ion-col size = 3>
+          <img width="100%" src="../../assets/icones prefeitura/destaques.png">
+        </ion-col>
+        <ion-col size = 9></ion-col>
+      </ion-row>
+      <ion-row style="margin-left: 3%; margin-right: 3%;"*ngIf = "alternar == true">
+        <ion-col size = 3>
+          <ion-label style="text-align: center;">
+            Campanha 1
+          </ion-label>
+        </ion-col>
+        <ion-col size = 3>
+          <ion-label style="text-align: center;">
+            Campanha 2
+          </ion-label>
+        </ion-col>
+        <ion-col size = 3>
+          <ion-label style="text-align: center;">
+            Campanha 3
+          </ion-label>
+        </ion-col>
+        <ion-col size = 3>
+          <ion-label style="text-align: center;">
+            Campanha 4
+          </ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="margin-left: 3%; margin-right: 3%;" *ngIf = "alternar == false">
+        <ion-col size = 3>
+          <ion-label style="font-size: xx-small;">
+            Campanha 1
+          </ion-label>
+        </ion-col>
+        <ion-col size = 3>
+          <ion-label style="font-size: xx-small;">
+            Campanha 2
+          </ion-label>
+        </ion-col>
+        <ion-col size = 3>
+          <ion-label style="font-size: xx-small;">
+            Campanha 3
+          </ion-label>
+        </ion-col>
+        <ion-col size = 3>
+          <ion-label style="font-size: xx-small;">
+            Campanha 4
+          </ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="margin-left: 3%; margin-right: 3%;">
+        <ion-col size = 3>
+          <img [src]="campanha1">
+        </ion-col>
+        <ion-col size = 3>
+          <img [src]="campanha2">
+        </ion-col>
+        <ion-col size = 3>
+          <img [src]="campanha3">
+        </ion-col>
+        <ion-col size = 3>
+          <img [src]="campanha4">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <br><br>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="margin: 2%;">
+    <ion-fab-button (click)="abrirPDF()" title = "Documento curricular referencial">
+      <ion-icon name="document-attach-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div class="caixinha">
+    <h1>SECRETARIA DE EDUCAÇÃO, ESPORTE E LAZER</h1><br>
+    <div [innerHTML]="frase">
+    </div>
+
+  </div>
+  <ion-item lines = full></ion-item>
+  <br>
+
+  <ion-grid>
+  <ion-row>
+    <ion-col size = 5>
+      <img src="../../assets/educacao/icones/fale-conosco.png" width="100%" alt="Fale conosco" title="Fale conosco">
+    </ion-col>
+    <ion-col size = 7></ion-col>
+  </ion-row>  
+  <ion-row *ngIf = "alternar == true">
+    <ion-col size = 2></ion-col>
+    <ion-col size = 3>
+      <a style="text-decoration: none; color: black;" target="_blank"  href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br"  >
+        <p><img class="rodape2" src="../../assets/icones prefeitura/INSTAGRAM.png" title="instagram"></p>
+      </a>
+    </ion-col>
+    <ion-col size = 2></ion-col>
+    <ion-col size = 3>        
+      <a style="text-decoration: none; color: black;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
+        <p><img class="rodape2" src="../../assets/icones prefeitura/FACEBOOK.png" title="facebook"></p>
+      </a>
+    </ion-col>
+    <ion-col size = 2></ion-col>
+  </ion-row>
+
+  <ion-row *ngIf = "alternar == false">
+    <ion-col size = 1></ion-col>
+    <ion-col size = 4>
+      <a style="text-decoration: none; color: black;" target="_blank"  href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br"  >
+        <p><img class="rodape" src="../../assets/icones prefeitura/INSTAGRAM.png" alt=""></p>
+      </a>
+    </ion-col>
+    <ion-col size = 2></ion-col>
+    <ion-col size = 4>
+      <a style="text-decoration: none; color: black;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
+        <p><img class="rodape" src="../../assets/icones prefeitura/FACEBOOK.png" alt=""></p>
+      </a>
+    </ion-col>
+    <ion-col size = 1></ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

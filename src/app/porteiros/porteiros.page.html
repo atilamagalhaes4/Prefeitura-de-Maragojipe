@@ -1,0 +1,87 @@
+<ion-content>
+  <ion-header [translucent]="true">
+    
+    <ion-toolbar class="top2" >
+      <ion-grid>
+        <ion-row>
+          <ion-col (click) = "inicio()" size = 3>
+            <a style="text-decoration: none;" href="javascript:void(0)">
+              <img class="imagem"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+            </a>
+          </ion-col>
+          <ion-col *ngIf ="contaEscola ==''" size = 9>
+            <ion-item lines = none color = primary>
+              <ion-label  position="stacked">Pesquisa rápida</ion-label>
+              <ion-input (ionChange) = "pesquisaAutomatica()" [(ngModel)] = "pesquisa" placeholder = "Informe o nome do porteiro."></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-header>
+
+  <br>  <br>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =2>
+        <b>Nome do auxiliar</b>
+      </ion-col>
+      <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =2>
+        <b>Grau de instrucao</b>
+      </ion-col>
+      <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =1>
+        <b>Situacao</b>
+      </ion-col>
+      <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =2>
+        <b>Escola de atuação</b>
+      </ion-col>
+      <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =1>
+        <b>Carga horária</b>
+      </ion-col>
+      <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =2>
+        <b>Diretor responsável</b>
+      </ion-col>
+      <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =2>
+        <b>Data admissão</b>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-grid>
+  <ion-list *ngFor ="let c of porteiros" style="padding: 0px;">
+    <a style="text-decoration: none; color: black;"  href="javascript:void(0)">
+      <ion-row (click) ="perfilSelecionado(c)">
+         <ion-col style="border: thin silver solid;" size =2>
+          {{c.nome}}
+        </ion-col>
+        <ion-col style="border: thin silver solid;" size =2>
+          {{c.escolaridade}}
+        </ion-col>
+        <ion-col style="border: thin silver solid;" size =1>
+          {{c.situacao}}
+        </ion-col>
+        <ion-col style="border: thin silver solid;" size =2>
+          {{c.nomeEscola}}
+        </ion-col>
+        <ion-col style="border: thin silver solid;" size =1>
+          {{c.cargaHoraria}}
+        </ion-col>
+        <ion-col style="border: thin silver solid;" size =2>
+          {{c.diretorResponsavel}}
+        </ion-col>
+        <ion-col style="border: thin silver solid;" size =2>
+          {{c.admissao}}
+        </ion-col>
+      </ion-row>
+    </a>
+  </ion-list>
+</ion-grid>
+
+  <br>  <br>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click) ="adcionar()">
+      <ion-icon name="add-circle-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
+import { PostProvider } from '../../assets/providers/post-provider';
 
 @Component({
   selector: 'app-onde-ficar',
@@ -11,31 +12,21 @@ export class OndeFicarPage implements OnInit {
 
   alternar: boolean =true;
   pesquisa: String = "";
-  centro: any = [
-    {
-      nome: "Pousada da Carminha",
-      rua: "Rua Fernando Suerdieck,  Centro",
-      contato: "(75) 3526-1203",
-    },
-    {
-      nome: "Hotel Maragojipe",
-      rua: "Rua XV de novembro, 11, Areal",
-      contato: "(75) 3526-1056",
-    },
-    {
-      nome: "Pousada Oxumaré",
-      rua: "Rua Cícero Borges, 1, Centro",
-      contato: "(75) 3526- 1104",
-    }
-  ]
+
+  todos: any = []
+
 
   constructor(
     private platform: Platform,
-    private route: Router
+    private route: Router,
+    private provider: PostProvider
   ) { }
 
   ngOnInit() {
   }
+
+  
+
   ionViewWillEnter(){
     if(this.platform.is("desktop")){
       this.alternar = true;
@@ -43,7 +34,22 @@ export class OndeFicarPage implements OnInit {
     if(this.platform.is("mobile")){
       this.alternar = false;
     }
+    this.pegarLugares()
+
   }
+
+  pegarLugares(){
+    this.todos = [];
+    let dados ={
+      requisicao: "ondeFicar",
+    }
+    this.provider.requisicaoPost(dados, "/dados.php").subscribe((data)=>{
+      for(let c of data['resultado']){
+        this.todos.push(c);
+      }
+    });
+  }
+
 
   pesquisarNoticias(){
     this.route.navigate(["/mais-noticias/"+this.pesquisa]);

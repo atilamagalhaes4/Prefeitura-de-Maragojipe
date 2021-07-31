@@ -1,5 +1,4 @@
 <ion-content>
-
   <ion-header [translucent]="true">
     <ion-toolbar class="top1" >
       
@@ -16,7 +15,7 @@
       </ion-buttons>
       
       <ion-buttons slot="end">
-        <a style="text-decoration: none;" target="_blank"  href="https://www.youtube.com/channel/UCkyVr17S_wasa8uhFXtqWMQ">
+        <a style="text-decoration: none;" target="_blank"  href="">
          <ion-icon color = light  name="logo-youtube"></ion-icon>&nbsp;&nbsp;
         </a>
       </ion-buttons>
@@ -28,7 +27,7 @@
       <ion-grid>
         <ion-row  *ngIf ="alternar ==true">
           <ion-col size = 3>
-            <a style="text-decoration: none;"href="/">
+            <a style="text-decoration: none;"href="/home">
               <img class="imagem"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
             </a>
             </ion-col>
@@ -91,8 +90,11 @@
     <ion-col *ngIf ="c.titulo1"  size = 4>
       <a style="text-decoration: none; color: black;"   href=" javascript:void(0)" (click) ="visualizar(c.titulo1)" >
       <div class="figura">
-        <p><img [src]="c.thumb1" [alt]="c.titulo1" [title]="c.titulo1"></p>
-        <h2>{{c.titulo1}}</h2>{{c.introducao1}}
+        <p><img [src]="c.thumb1" height="400px" [alt]="c.titulo1" [title]="c.titulo1"></p>
+        <h2>{{c.titulo1}}</h2>
+        <ion-label>
+          {{c.introducao1}}
+        </ion-label>
       </div>
       </a>
     </ion-col>
@@ -100,8 +102,11 @@
     <ion-col *ngIf ="c.titulo2" size = 4  (click) ="visualizar(c.titulo2)">
       <a style="text-decoration: none; color: black;"   href=" javascript:void(0)" (click) ="visualizar(c.titulo2)" >
         <div class="figura">
-          <p><img [src]="c.thumb2" [alt]="c.titulo2" [title]="c.titulo2"></p>
-          <h2>{{c.titulo2}}</h2>{{c.introducao2}}
+          <p><img [src]="c.thumb2" height="400px" [alt]="c.titulo2" [title]="c.titulo2"></p>
+          <h2>{{c.titulo2}}</h2>
+          <ion-label>
+            {{c.introducao2}}
+          </ion-label>
         </div>
       </a>
     </ion-col>
@@ -109,8 +114,11 @@
     <ion-col *ngIf ="c.titulo3" size = 4  (click) ="visualizar(c.titulo3)">
       <a style="text-decoration: none; color: black;"   href=" javascript:void(0)" (click) ="visualizar(c.titulo3)" >
         <div class="figura">
-          <p><img [src]="c.thumb3" [alt]="c.titulo3" [title]="c.titulo3"></p>
-          <h2>{{c.titulo3}}</h2>{{c.introducao3}}
+          <p><img [src]="c.thumb3" height="400px" [alt]="c.titulo3" [title]="c.titulo3"></p>
+          <h2>{{c.titulo3}}</h2>
+          <ion-label>
+            {{c.introducao3}}
+          </ion-label>
           </div>
       </a>
     </ion-col>
@@ -156,22 +164,16 @@
 
 
 
-<ion-item color = transparent *ngIf = "opcao =='todos' && noticiasDuplas.length !=0" (click)="maisNoticias1()" button style="margin-left: 5%; margin-right: 5%;">
-  <br>
-  <ion-label>
-    Buscar mais notícias
-  </ion-label>
-</ion-item>
-
-
-
-<ion-item color = transparent *ngIf = "opcao !='todos' && noticiasDuplas.length !=0" (click)="maisNoticias2()" button style="margin-left: 5%; margin-right: 5%;">
-  <br>
-  <ion-label>
-    Buscar mais notícias
-  </ion-label>
-</ion-item>
-
+<ion-grid *ngIf = "alternar == true && noticiasDuplas != []">
+  <ion-row>
+    <ion-col size =1></ion-col>
+    <ion-col size =2>
+      <ion-button color = primary (click)="maisNoticias1()" style="margin-left: 5%;" expand="block">  Mais notícias</ion-button>
+    </ion-col>
+    <ion-col size =9></ion-col>
+  </ion-row>
+</ion-grid>
+<ion-button color = primary  *ngIf = "alternar == false  && noticiasDuplas != []" (click)="maisNoticias1()" style="margin-left: 5%;" expand="block">  Mais notícias</ion-button>
 
 <div *ngIf = "noticiasDuplas.length ==0"  class="container">
   <p><img src="../../assets/background/404.jpg" alt="Transparencia" title="transparencia"></p>
