@@ -27,7 +27,7 @@
       <ion-grid>
         <ion-row *ngIf="alternar ==true">
           <ion-col size=3>
-            <a style="text-decoration: none;" href="/home">
+            <a style="text-decoration: none;" routerLink = "/">
               <img class="imagem" src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
             </a>
           </ion-col>
@@ -59,7 +59,7 @@
         </ion-row>
 
         <ion-row *ngIf="alternar ==false">
-          <ion-col routerLink="/home" size=3>
+          <ion-col routerLink = "/" size=3>
             <img class="imagem2" src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
           </ion-col>
           <ion-col routerLink="/o-municipio" size=3>
@@ -142,10 +142,9 @@
 
         <ion-col size=2>
           <div class="figura">
-            <a color=dark target="_blank" href="https://sai.io.org.br/ba/maragojipe/site/licitacoes"
-              style=" color: black;text-decoration: none;">
-              <p><img src="../../assets/icones prefeitura/LICITAÇÃO.png" alt="Licitações" title="Licitações"></p>
-              <p>Licitações</p>
+            <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/meio-ambiente">
+              <p><img src="../../assets/icones prefeitura/cema.png" alt="Meio Ambiente" title="Meio Ambiente"></p>
+              <p>CEMA</p>
             </a>
           </div>
         </ion-col>
@@ -197,9 +196,10 @@
         </ion-col>
         <ion-col size=2>
           <div class="figura">
-            <a color=dark target="_blank" href="https://www.cgu.gov.br/" style=" color: black;text-decoration: none;">
-              <p><img src="../../assets/icones prefeitura/CGU.png" alt="CGU" title="CGU"></p>
-              <p>CGU</p>
+            <a color=dark target="_blank" href="https://sai.io.org.br/ba/maragojipe/site/licitacoes"
+              style=" color: black;text-decoration: none;">
+              <p><img src="../../assets/icones prefeitura/LICITAÇÃO.png" alt="Licitações" title="Licitações"></p>
+              <p>Licitações</p>
             </a>
           </div>
         </ion-col>
@@ -209,6 +209,14 @@
       <ion-row>
         <ion-col size=1> </ion-col>
 
+        <ion-col size=2>
+          <div class="figura">
+            <a color=dark target="_blank" href="https://www.cgu.gov.br/" style=" color: black;text-decoration: none;">
+              <p><img src="../../assets/icones prefeitura/CGU.png" alt="CGU" title="CGU"></p>
+              <p>CGU</p>
+            </a>
+          </div>
+        </ion-col>
         <ion-col size=2>
           <a style="text-decoration: none; color: black;" href="javascript:void(0)" routerLink="/ouvidoria">
             <div class="figura">
@@ -245,6 +253,12 @@
             </a>
           </div>
         </ion-col>
+        <ion-col size=1> </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size=1></ion-col>
+        
         <ion-col size=2>
           <div class="figura">
             <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/onde-ficar">
@@ -253,11 +267,6 @@
             </a>
           </div>
         </ion-col>
-        <ion-col size=1> </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col size=1></ion-col>
         <ion-col size=2>
           <div class="figura">
             <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/onde-comer">
@@ -266,7 +275,7 @@
             </a>
           </div>
         </ion-col>
-        <ion-col size=2>
+        <ion-col size=2 *ngIf="1>2" >
           <div class="figura">
             <a target="_blank"
               href="https://docs.google.com/forms/d/e/1FAIpQLSfcCXyavkRsBErtkQaSiQ1ozP7FWqZKollEDI24RtI2TWbuxQ/viewform?usp=sf_link"
@@ -337,13 +346,10 @@
           </div>
         </ion-col>
 
-        <ion-col size=2>
+        <ion-col routerLink="/meio-ambiente" size=2>
           <div class="figura2">
-            <a color=dark target="_blank" href="https://sai.io.org.br/ba/maragojipe/site/licitacoes"
-              style=" color: black;text-decoration: none;">
-              <p><img src="../../assets/icones prefeitura/LICITAÇÃO.png" alt="Licitações" title="Licitações"></p>
-              <p>Licitações</p>
-            </a>
+            <p><img src="../../assets/icones prefeitura/cema.png" alt="Meio Ambiente" title="Meio Ambiente"></p>
+            <p>CEMA</p>
           </div>
         </ion-col>
         <ion-col size=1> </ion-col>
@@ -392,11 +398,13 @@
             </a>
           </div>
         </ion-col>
+        
         <ion-col size=2>
           <div class="figura2">
-            <a color=dark target="_blank" href="https://www.cgu.gov.br/" style=" color: black;text-decoration: none;">
-              <p><img src="../../assets/icones prefeitura/CGU.png" alt="CGU" title="CGU"></p>
-              <p>CGU</p>
+            <a color=dark target="_blank" href="https://sai.io.org.br/ba/maragojipe/site/licitacoes"
+              style=" color: black;text-decoration: none;">
+              <p><img src="../../assets/icones prefeitura/LICITAÇÃO.png" alt="Licitações" title="Licitações"></p>
+              <p>Licitações</p>
             </a>
           </div>
         </ion-col>
@@ -405,7 +413,16 @@
       <br>
       <ion-row>
         <ion-col size=1> </ion-col>
-
+        
+        <ion-col size=2>
+          <div class="figura2">
+            <a color=dark target="_blank" href="https://www.cgu.gov.br/" style=" color: black;text-decoration: none;">
+              <p><img src="../../assets/icones prefeitura/CGU.png" alt="CGU" title="CGU"></p>
+              <p>CGU</p>
+            </a>
+          </div>
+        </ion-col>
+        
         <ion-col routerLink="/ouvidoria" size=2>
           <div class="figura2">
             <p><img src="../../assets/icones prefeitura/FALE-AQUI.png" alt="Ouvidoria" title="Ouvidoria"></p>
@@ -436,6 +453,13 @@
             </a>
           </div>
         </ion-col>
+        <ion-col size=1></ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col size=1></ion-col>
+        
         <ion-col size=2>
           <div class="figura2">
             <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/onde-ficar">
@@ -444,12 +468,6 @@
             </a>
           </div>
         </ion-col>
-        <ion-col size=1></ion-col>
-      </ion-row>
-
-
-      <ion-row>
-        <ion-col size=1></ion-col>
         <ion-col size=2>
           <div class="figura2">
             <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/onde-comer">
@@ -458,7 +476,7 @@
             </a>
           </div>
         </ion-col>
-        <ion-col size=2>
+        <ion-col size=2 *ngIf="1>2" >
           <div class="figura2">
             <a target="_blank"
               href="https://docs.google.com/forms/d/e/1FAIpQLSfcCXyavkRsBErtkQaSiQ1ozP7FWqZKollEDI24RtI2TWbuxQ/viewform?usp=sf_link"
@@ -483,12 +501,12 @@
     </ion-grid>
   </div>
 
-  <div *ngIf = "1>2" class="banner">
+  <div class="banner">
     <br>
     <ion-slides class="slides" pager="true" [options]="slideOptsOne">
       <ion-slide>
-        <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/ppa">
-          <img class ="banner2" src="../../assets/banner/banner2.jpg">
+        <a href="javascript:void(0)" style="text-decoration: none;color: black;">
+          <img class ="banner2" src="https://maragojipe.ba.gov.br/assets/banner/banner.png">
         </a>
       </ion-slide>
     </ion-slides>

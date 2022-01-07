@@ -37,7 +37,11 @@ const routes: Routes = [
   { path: 'editar-porteiro/:obs/:id', loadChildren: () => import('./editar-porteiro/editar-porteiro.module').then( m => m.EditarPorteiroPageModule)},
   { path: 'outdoor', loadChildren: () => import('./outdoor/outdoor.module').then( m => m.OutdoorPageModule) },
   { path: 'ppa', loadChildren: () => import('./ppa/ppa.module').then( m => m.PpaPageModule)},
-  { path: 'graca', loadChildren: () => import('./graca/graca.module').then( m => m.GracaPageModule)},
+  { path: 'graca', loadChildren: () => import('./graca/graca.module').then( m => m.GracaPageModule)},  {
+    path: 'meio-ambiente',
+    loadChildren: () => import('./meio-ambiente/meio-ambiente.module').then( m => m.MeioAmbientePageModule)
+  },
+
 ];
 @NgModule({
   imports: [

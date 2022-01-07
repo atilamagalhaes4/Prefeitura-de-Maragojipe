@@ -254,18 +254,18 @@ export class EditarPage implements OnInit {
   }
 
   teste(){
-    var dia, mes, ano;
-    ano = this.dataMatricula.substring(0,4);
-    mes = this.dataMatricula.substring(5,7)
-    dia = this.dataMatricula.substring(8,10)
-    this.dataMatriculaAjustado = dia.concat("\\\\")+mes.concat("\\\\")+ano;
+    var ponto =".";
+    if(this.dataMatricula.length ==2)  this.dataMatricula = this.dataMatricula + ponto;
+
+      else if(this.dataMatricula.length ==5) this.dataMatricula = this.dataMatricula + ponto;
+    
   }
   teste2(){
-    var dia, mes, ano;
-    ano = this.dataNascimento.substring(0,4);
-    mes = this.dataNascimento.substring(5,7)
-    dia = this.dataNascimento.substring(8,10)
-    this.dataNascimentoAjustado = dia.concat("\\\\")+mes.concat("\\\\")+ano;
+    var ponto =".";
+    if(this.dataNascimento.length ==2)  this.dataNascimento = this.dataNascimento + ponto;
+
+      else if(this.dataNascimento.length ==5) this.dataNascimento = this.dataNascimento + ponto;
+    
   }
   salvar(){
     let dados = {

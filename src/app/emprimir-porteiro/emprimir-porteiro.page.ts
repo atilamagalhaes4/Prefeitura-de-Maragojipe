@@ -2,7 +2,8 @@ import { PrintProvider } from './../../assets/providers/print-provider';
 import { Platform, AlertController } from '@ionic/angular';
 import { PostProvider } from './../../assets/providers/post-provider';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-emprimir-porteiro',
@@ -10,6 +11,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./emprimir-porteiro.page.scss'],
 })
 export class EmprimirPorteiroPage implements OnInit {
+
+  @ViewChild('screen') screen: ElementRef;
+  @ViewChild('canvas') canvas: ElementRef;
+  @ViewChild('downloadLink') downloadLink: ElementRef;
+
 
   verificar: boolean = false;
   alternar: boolean = true;
@@ -52,6 +58,25 @@ export class EmprimirPorteiroPage implements OnInit {
     private printProvider: PrintProvider
   ) { }
 
+  downloadImage(){
+    //npm i html2canvas
+    html2canvas(this.screen.nativeElement).then(canvas => {
+      this.canvas.nativeElement.src = canvas.toDataURL();
+      var popup=window.open();
+      popup.document.write ('<img src =' + canvas.toDataURL() + '>');
+      popup.document.close ();
+      popup.focus ();
+      setTimeout(function (){
+        popup.print();
+        popup.close ();
+      }, 1000);
+    })
+      /*
+      this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
+      this.downloadLink.nativeElement.download = this.nomeAluno+'.png';
+      this.downloadLink.nativeElement.click();
+    });*/
+  }
   validar(verificacao, id){
     let dados ={
       requisicao: "verificacao",

@@ -1,6 +1,6 @@
 <ion-content>
 
-  <ion-list id="emprimir">
+  <div #screen id="table" >
   <ion-grid>
     
     <ion-row>
@@ -23,7 +23,7 @@
         <b>Distrito:</b> {{distrito}}
       </ion-col>
     </ion-row>
-
+<br>
 
     <ion-row>
       <ion-col size = 6 style="border: thin silver solid;">
@@ -198,17 +198,14 @@
 
   </ion-grid>
 
-
-</ion-list>
-
+</div>
 
 <br>
-
   <ion-grid>
     <ion-row > 
       <ion-col size = 3></ion-col>
       <ion-col size = 3 >
-        <ion-button expand="block" (click)="print('emprimir')"> Imprimir matrícula </ion-button>
+        <ion-button expand="block" (click)="downloadImage()"> Imprimir matrícula </ion-button>
       </ion-col>
       <ion-col size = 3 >
         <ion-button  expand="block" color = "danger" (click)="voltar()"> Cancelar </ion-button>
@@ -217,5 +214,8 @@
     </ion-row>
   </ion-grid>
 
-
+  <div style="width: 1px;height: 1px;" id="download">
+    <img #canvas>
+    <a #downloadLink></a>
+  </div>
 </ion-content>

@@ -1,0 +1,42 @@
+ion-icon {
+    font-size: 200%;
+}
+.imagem{
+    width: 80%;
+    float: left;
+    height:auto;
+}
+.imagem2{
+    width: 100%;
+    float: left;
+    height:auto;
+}
+div.figura {
+    //    background-color: rgb(236, 236, 236); 
+        margin-left: auto;
+        margin-right: auto;
+        width: auto; 
+        height: auto;
+        border: thin silver solid;
+        img{
+          width: auto;
+        }
+      }
+      div.figura p {
+        text-align: center;
+        font-style: normal;
+        font-size: smaller;
+        text-indent: 0;
+      }
+      
+  .top1{
+    --background: #34cc67 url('../../assets/background/claro.png') no-repeat center center / cover !important;
+  }
+
+  .top2{
+    --background: #339967 url('../../assets/background/escuro.png') no-repeat center center / cover !important;
+  }
+
+  .fundo{
+    background-color: rgb(255, 255, 255);
+  }

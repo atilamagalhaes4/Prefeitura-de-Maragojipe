@@ -145,7 +145,7 @@
       <ion-col size = 3>
         <ion-item>
           <ion-label position="stacked">Data de nascimento</ion-label>
-          <ion-datetime cancelText = "cancelar" doneText = "confirmar" (ionChange) ="botarBarra1()" [(ngModel)] ="dataNascimento"displayFormat="DD/MM/YYYY" placeholder = "Informe data de nascimento."></ion-datetime>
+          <ion-input (ionChange) ="botarBarra1()" [(ngModel)] ="dataNascimento" placeholder = "Informe data de nascimento."></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size = 2>
@@ -207,7 +207,7 @@
       <ion-col size = 3>
         <ion-item>
           <ion-label position="stacked">Data de matrícula</ion-label>
-          <ion-datetime cancelText = "cancelar" doneText = "confirmar" (ionChange) ="botarBarra2()" type = "text" [(ngModel)] ="dataMatricula"displayFormat="DD/MM/YYYY" placeholder = "Informe data de matrícula."></ion-datetime>
+          <ion-input  (ionChange) ="botarBarra2()"  [(ngModel)] ="dataMatricula" placeholder = "Informe data de matrícula."></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size = 3>

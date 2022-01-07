@@ -24,6 +24,7 @@
     "chart.js": "^3.4.1",
     "cordova-browser": "6.0.0",
     "dom-to-image": "^2.6.0",
+    "html2canvas": "^1.4.0",
     "jspdf": "^2.3.1",
     "rxjs": "~6.6.0",
     "rxjs-compat": "^6.6.3",

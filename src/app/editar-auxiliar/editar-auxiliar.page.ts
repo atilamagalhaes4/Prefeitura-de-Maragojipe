@@ -237,17 +237,18 @@ export class EditarAuxiliarPage implements OnInit {
       this.alternar = true;
   }
   teste(){
-    var dia, mes, ano;
-    ano = this.admissao.substring(0,4);
-    mes = this.admissao.substring(5,7)
-    dia = this.admissao.substring(8,10)
-    this.dataAjustada = dia.concat("\\\\")+mes.concat("\\\\")+ano;
+    var ponto =".";
+    if(this.admissao.length ==2)  this.admissao = this.admissao + ponto;
+
+      else if(this.admissao.length ==5) this.admissao = this.admissao + ponto;
+    
   }
   teste2(){
-    var dia, mes, ano;
-    ano = this.dataNascimento.substring(0,4);
-    mes = this.dataNascimento.substring(5,7)
-    dia = this.dataNascimento.substring(8,10)
-    this.dataNascimentoAjustado = dia.concat("\\\\")+mes.concat("\\\\")+ano;
+    
+    var ponto =".";
+    if(this.dataNascimento.length ==2)  this.dataNascimento = this.dataNascimento + ponto;
+
+      else if(this.dataNascimento.length ==5) this.dataNascimento = this.dataNascimento + ponto;
+    
   }
 }

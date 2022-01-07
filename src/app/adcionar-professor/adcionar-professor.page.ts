@@ -216,11 +216,12 @@ export class AdcionarProfessorPage implements OnInit {
   }
   
   teste2(){
-    var dia, mes, ano;
-    ano = this.dataNascimento.substring(0,4);
-    mes = this.dataNascimento.substring(5,7)
-    dia = this.dataNascimento.substring(8,10)
-    this.dataNascimentoAjustado == dia.concat("\\\\")+mes.concat("\\\\")+ano;
+    
+    var ponto =".";
+    if(this.dataNascimento.length ==2)  this.dataNascimento = this.dataNascimento + ponto;
+
+      else if(this.dataNascimento.length ==5) this.dataNascimento = this.dataNascimento + ponto;
+    
   }
 
   validar(verificacao){
