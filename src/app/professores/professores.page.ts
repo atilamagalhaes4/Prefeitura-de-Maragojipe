@@ -83,7 +83,7 @@ export class ProfessoresPage implements OnInit {
           },(error)=>{
             console.log(error)
           }); 
-      //    this.enderecoEscolaDisable = true;
+      //    
   //        this.escolaDisable = true;
         //  this.areaDisable = true;
           //this.distritoDisable = true;

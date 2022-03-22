@@ -1,3 +1,4 @@
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { BaseNoticias } from './interface/json/base-noticias';
 import { PrintProvider } from './../assets/providers/print-provider';
 import { NgModule } from '@angular/core';
@@ -27,6 +28,7 @@ import { HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@an
     PostProvider,
     PrintProvider,
     BaseNoticias,
+    InAppBrowser,
     NavParams,
     Livros
   ],

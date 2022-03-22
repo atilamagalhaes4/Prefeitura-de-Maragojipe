@@ -1,5 +1,5 @@
-import { PostProvider } from '../../assets/providers/post-provider';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PostProvider } from '../../assets/providers/post-provider';
 import { Platform, AlertController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 
@@ -41,9 +41,7 @@ export class EditarPage implements OnInit {
   area: string = "";
   areaAluno: string = "";
   areaEscola: string = "";
-  escolaDisable: boolean = false;
   serieCreche: string = "";
-  dataNascimentoAjustado: string = "";
   tipoDocumento: string = "";
   documento: string = "";
   nomeResponsavel3: string = "";
@@ -51,11 +49,11 @@ export class EditarPage implements OnInit {
   cartaoSUS: string = "";
   profissaoResponsavel1: string = "";
   profissaoResponsavel2: string = "";
-  teletoneResponsavel1: string = "";
-  teletoneResponsavel2: string = "";
-  teletoneResponsavel3: string = "";
+  telefoneResponsavel1: string = "";
+  telefoneResponsavel2: string = "";
+  telefoneResponsavel3: string = "";
   escolaAntiga: string = "";
-  dataMatriculaAjustado: string = "";
+//  dataMatriculaAjustado: string = "";
   raca: string = "";
   religiao: string = "";
   alergia: string = "";
@@ -64,7 +62,7 @@ export class EditarPage implements OnInit {
   pim: string = "";
   nomeResponsavelPegador: string = "";
   talvez: boolean = false;
-  enderecoEscolaDisable: boolean = false;
+  
   areaDisable: boolean = false;
   distritoDisable: boolean = false;
   series = [
@@ -75,70 +73,9 @@ export class EditarPage implements OnInit {
 
   seriesAlfa =[{nome: "De zero 1 ano e 6 meses"}, {nome: "De 1 ano e 7 meses a 3 anos e 11 meses"}]
 
-  escolas = [
-    { "nome": "Antonio Otilio de Andrade"},
-    { "nome": "Antonio Vigílio de Medina" },
-    { "nome": "Catarina Paraguaçu"},
-    { "nome": "Cid Seixas Fragas"},
-    { "nome": "Cleriston Andrade"},
-    { "nome": "Cons. Antonio Rebouças"},
-    { "nome": "Creche Dr. Luis de Souza Santos"},
-    { "nome": "Creche Germana Ines Mencione"},
-    { "nome": "Creche Ieda Barradas"},
-    { "nome": "Creche Igor Seixas"},
-    { "nome": "Creche Semente do Paraguaçu"},
-    { "nome": "Deputado Cleraldo Andrade"},
-    { "nome": "Desembargador Oscar Dantas"},
-    { "nome": "Do Camarão"},
-    { "nome": "Dr. Odilardo Uzeda Rodrigues"},
-    { "nome": "Edith Ribeiro Nunes"},
-    { "nome": "Emídio Dativo Santana"},
-    { "nome": "Engenheiro Júlio dos Santos Sá"},
-    { "nome": "Fernando Presídio"},
-    { "nome": "Gastão Pedreira"},
-    { "nome": "Getulio Vargas (Cachoeirinha)"},
-    { "nome": "Getulio Vargas (Trevo)"},
-    { "nome": "Heráclio Paraguaçu Guerreiro"},
-    { "nome": "Hildérico Pinheiro de Oliveira"},
-    { "nome": "Juvenil de Oliveira"},
-    { "nome": "Luiz Eduardo Magalhães"},
-    { "nome": "Mario Gordilho Pedreira"},
-    { "nome": "Meneleu Batista Soares"},
-    { "nome": "Menino Jesus de Praga"},
-    { "nome": "Mons. Florisvaldo José de Souza"},
-    { "nome": "Nossa Senhora da Piedade"},
-    { "nome": "Nossa Senhora de Fátima"},
-    { "nome": "Nova Jerusalém"},
-    { "nome": "O bom pastor"},
-    { "nome": "Osvaldina Oliveira"},
-    { "nome": "Otaviano Texeira"},
-    { "nome": "Pe. Julian Edward Josef Claes"},
-    { "nome": "Profº Adjovita Marques"},
-    { "nome": "Profº Noêmia do Rosário"},
-    { "nome": "Profº Luis da França Piedade"},
-    { "nome": "Quilombo do Putumuju"},
-    { "nome": "Raio de Luz"},
-    { "nome": "Recanto Verde"},
-    { "nome": "Ref. Plínio Pereira Guedes"},
-    { "nome": "Ruben GUerra Armede"},
-    { "nome": "Creche Guapira"},
-    { "nome": "Luiz Souza Santos"},
-    { "nome": "Santa Helena"},
-    { "nome": "Santa Rita"},
-    { "nome": "Santo Antonio (Cachoeirinha)"},
-    { "nome": "Santo Antonio (Guaruçu)"},
-    { "nome": "Santo Antonio (Irriquitiá)"},
-    { "nome": "Santo Antonio (Rio dos Paus)"},
-    { "nome": "São Gabriel - Bento Sardinha"},
-    { "nome": "São José - Santa Angela"},
-    { "nome": "Sementes do Paraguaçu"},
-    { "nome": "São Roque - Boa Vista"},
-    { "nome": "Senhor do Bonfim - Brinco"},
-    { "nome": "Silvio Vieira de Melo"},
-  ]
+  escolas = []
 
   constructor(
-    private platform: Platform,
     private actRoute: ActivatedRoute,
     private provider: PostProvider,
     private route: Router,
@@ -150,7 +87,7 @@ export class EditarPage implements OnInit {
 
   alternarBotao2(){
     console.log("entrou")
-    if(this.pim2 == "Sim"){//
+    if(this.pim2 == "Sim"){
       this.talvez2 = false;
     }
     else{
@@ -164,6 +101,39 @@ export class EditarPage implements OnInit {
       this.alternar = true;
   }
 
+
+  botarBarra1() {
+    if (this.dataNascimento.length == 2) {
+      this.dataNascimento = this.dataNascimento + ".";
+    }
+    if (this.dataNascimento.length == 5) {
+        this.dataNascimento = this.dataNascimento + ".";
+      }
+  }
+  
+  botarBarra2() {
+    if (this.dataMatricula.length == 2) {
+      this.dataMatricula = this.dataMatricula + ".";
+    }
+    if (this.dataMatricula.length == 5) {
+        this.dataMatricula = this.dataMatricula + ".";
+      }
+  }
+  carregarEscolas() {
+    let dados = {
+      requisicao: "todasEscolas"
+    }
+    this.provider.requisicaoPost(dados, "/educacao.php").subscribe((data) => {
+      this.escolas = [];
+      for (let c of data["dados"]) {
+        if (c.categoria == "escola") {
+          this.escolas.push(c);
+        }
+      }
+    }, (error) => {
+      console.log(error);
+    })
+  }
   validar(verificacao, id){
     let dados ={
       requisicao: "verificacao",
@@ -177,15 +147,18 @@ export class EditarPage implements OnInit {
         this.route.navigate(["/login"]);        
       }else{
         this.pegarDado(id);
-        if(data['dados'][0].categoria == "escola"){ // se for escola
+        if(data['dados'][0].categoria == "escola"){
           this.enderecoEscola = data['dados'][0].endereco;
           this.escola =  data['dados'][0].login;
           this.areaEscola =  data['dados'][0].area;
           this.distrito =  data['dados'][0].distrito;
-          this.enderecoEscolaDisable = true;
-          this.escolaDisable = true;
+          
+          this.escolas = [{ nome: data['dados'][0].login }]
           this.areaDisable = true;
           this.distritoDisable = true;
+        }
+        else{
+          this.carregarEscolas();
         }
       }
     },(error)=>{
@@ -229,9 +202,9 @@ export class EditarPage implements OnInit {
         this.nomeResponsavel3 = c.nomeResponsavel3;
         this.profissaoResponsavel1 = c.profissaoResponsavel1;
         this.profissaoResponsavel2 = c.profissaoResponsavel2;
-        this.teletoneResponsavel1 = c.teletoneResponsavel1;
-        this.teletoneResponsavel2 = c.teletoneResponsavel2;
-        this.teletoneResponsavel3 = c.teletoneResponsavel3;
+        this.telefoneResponsavel1 = c.telefoneResponsavel1;
+        this.telefoneResponsavel2 = c.telefoneResponsavel2;
+        this.telefoneResponsavel3 = c.telefoneResponsavel3;
         this.escolaAntiga = c.escolaAntiga;
         this.raca = c.raca;
         this.idSenso = c.idSenso;
@@ -253,20 +226,6 @@ export class EditarPage implements OnInit {
     this.route.navigate(["/dashboard/"+this.token]);
   }
 
-  teste(){
-    var ponto =".";
-    if(this.dataMatricula.length ==2)  this.dataMatricula = this.dataMatricula + ponto;
-
-      else if(this.dataMatricula.length ==5) this.dataMatricula = this.dataMatricula + ponto;
-    
-  }
-  teste2(){
-    var ponto =".";
-    if(this.dataNascimento.length ==2)  this.dataNascimento = this.dataNascimento + ponto;
-
-      else if(this.dataNascimento.length ==5) this.dataNascimento = this.dataNascimento + ponto;
-    
-  }
   salvar(){
     let dados = {
       requisicao: "salvarMatricula",
@@ -279,7 +238,7 @@ export class EditarPage implements OnInit {
       nomeAluno: this.nomeAluno,
       serie: this.serie,
       documento: this.tipoDocumento +" "+this.documento,
-      dataNascimento: this.dataNascimentoAjustado,
+      dataNascimento: this.dataNascimento,
       idade: this.idade,
       naturalidade: this.naturalidade,
       sexo: this.sexo,
@@ -291,13 +250,13 @@ export class EditarPage implements OnInit {
       nomeResponsavel3: this.nomeResponsavel3,
       profissaoResponsavel1: this.profissaoResponsavel1,
       profissaoResponsavel2: this.profissaoResponsavel2,
-      teletoneResponsavel1: this.teletoneResponsavel1,
-      teletoneResponsavel2: this.teletoneResponsavel2,
-      teletoneResponsavel3: this.teletoneResponsavel3,
+      telefoneResponsavel1: this.telefoneResponsavel1,
+      telefoneResponsavel2: this.telefoneResponsavel2,
+      telefoneResponsavel3: this.telefoneResponsavel3,
       turno: this.turno,
       idSenso: this.idSenso,
       enderecoAluno: this.enderecoAluno,
-      dataMatricula: this.dataMatriculaAjustado,
+      dataMatricula: this.dataMatricula,
       deficiencia: this.deficiencia,
       areaAluno: this.areaAluno,
       areaEscola: this.areaEscola,

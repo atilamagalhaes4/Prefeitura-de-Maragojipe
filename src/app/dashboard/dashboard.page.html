@@ -1,117 +1,118 @@
 <ion-content>
-  <ion-header [translucent]="true">
-    
-    <ion-toolbar class="top2" >
-      <ion-grid>
+    <ion-header [translucent]="true">
+
+        <ion-toolbar class="top2">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="3">
+                        <a style="text-decoration: none;" href="javascript:void(0)">
+                            <img class="imagem" src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+                        </a>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-toolbar>
+    </ion-header>
+
+    <br> <br>
+    <div class="descer"></div>
+    <ion-grid>
         <ion-row>
-          <ion-col size = 3>
-            <a style="text-decoration: none;" href="javascript:void(0)">
-              <img class="imagem"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
-            </a>
+            <ion-col class="independente" size="7">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size="12">
+                            <ion-label color=primary>
+                                <h2>Bem vindo !</h2>
+                            </ion-label>
+                            <ion-label color=primary>
+                                <h1 style="font-size: large;">
+                                    <strong>
+                    Sistema da Secretaria de Educação, Esporte e Lazer.
+                  </strong>
+                                </h1>
+                            </ion-label>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row style="margin-top: -6%;">
+                        <ion-col size="12">
+                            <ion-searchbar (ionChange)="pesquisaRapida()" [(ngModel)]="pesquisa" animated placeholder="Informe o nome do aluno ou número de matrícula."></ion-searchbar>
+                            <ion-list *ngIf="alunos.length >0">
+                                <ion-item-divider button *ngFor="let c of alunos">
+                                    <ion-label (click)="detalhesAluno(c.id)" style="cursor:pointer">
+                                        {{c.nomeAluno}}
+                                    </ion-label>
+                                    <ion-icon slot="end" style="margin-right: 5%; cursor:pointer" (click)="irEditar(c.id)" name="options-outline"></ion-icon>
+                                </ion-item-divider>
+                            </ion-list>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+            <ion-col size="1"></ion-col>
+            <ion-col size="4" style="margin-top: -10%;">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size="12">
+                            <h3 style="text-align: center; color: rgb(0, 0, 0);">
+                                Matrículas
+                            </h3>
+                        </ion-col>
+                    </ion-row>
+                    <br>
+                    <ion-row>
+                        <ion-col class="opcoes" size="3">
+                            <a style="text-decoration: none; color: black;" (click)="ir('adcionar')" title="Adcionar aluno" href="javascript:void(0)">
+                                <img width="100%" height="78px" src="../../assets/educacao/icones/adcionar.png">
+                            </a><br>
+                            <h6 style="text-align: center; margin-top: auto;">Adicionar matrícula</h6>
+                        </ion-col>
+                        <ion-col class="opcoes" size="3">
+                            <a style="text-decoration: none; color: black;" (click)="ir('consultar')" title="Consultar matrículas" href="javascript:void(0)">
+                                <img width="100%" height="78px" src="../../assets/educacao/icones/PESQUISAR.png">
+                            </a><br>
+                            <h6 style="text-align: center; margin-top: auto;">Consultar matrícula</h6>
+                        </ion-col>
+                        <ion-col class="opcoes" size="3">
+                            <a style="text-decoration: none; color: black;" (click)="ir('informacoes')" title="Informações gerais" href="javascript:void(0)">
+                                <img width="100%" height="78px" src="../../assets/educacao/icones/INFORMAÇÕES7.png">
+                            </a><br>
+                            <h6 style="text-align: center; margin-top: auto;">Informações Gerais</h6>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+                <br><br>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size="12">
+                            <h3 style="text-align: center; color: rgb(0, 0, 0);">
+                                Funcionários
+                            </h3>
+                        </ion-col>
+                    </ion-row>
+                    <br>
+                    <ion-row>
+                        <ion-col class="opcoes" size="3">
+                            <a style="text-decoration: none; color: black;" (click)="ir('professores')" title="Professores" href="javascript:void(0)">
+                                <img width="100%" height="78px" src="../../assets/educacao/icones/PREFESSORES.png">
+                            </a><br>
+                            <h6 style="text-align: center; margin-top: auto;">Professores</h6>
+                        </ion-col>
+                        <ion-col class="opcoes" size="3">
+                            <a style="text-decoration: none; color: black;" href="javascript:void(0)" (click)="ir('auxiliares')" title="Auxiliares">
+                                <img width="100%" height="78px" src="../../assets/educacao/icones/AUXILIARES.png">
+                            </a><br>
+                            <h6 style="text-align: center; margin-top: auto;">Auxiliares</h6>
+                        </ion-col>
+                        <ion-col class="opcoes" size="3">
+                            <a style="text-decoration: none; color: black;" href="javascript:void(0)" title="Porteiros" (click)="ir('porteiros')">
+                                <img width="100%" height="78px" src="../../assets/educacao/icones/GUARDA.png">
+                            </a><br>
+                            <h6 style="text-align: center; margin-top: auto;">Porteiros</h6>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
             </ion-col>
         </ion-row>
-      </ion-grid> 
-    </ion-toolbar>
-  </ion-header>
-
-  <br>  <br>
-<div class="descer"></div>
-  <ion-grid>
-    <ion-row >
-      <ion-col class="independente" size =7>
-        <ion-grid>
-          <ion-row>
-            <ion-col size = 12>
-              <ion-label color = primary>
-              <h2>Bem vindo !</h2>
-            </ion-label>
-            <ion-label color = primary>
-              <h1 style="font-size: large;">
-                <strong>
-                  Sistema da Secretaria de Educação, Esporte e Lazer.
-                </strong>
-              </h1>
-            </ion-label>
-            </ion-col>
-          </ion-row>
-          <ion-row style="margin-top: -6%;">
-            <ion-col size = "12">
-              <ion-searchbar (ionChange) ="pesquisaRapida()" [(ngModel)] ="pesquisa" animated placeholder = "Informe o nome do aluno ou número de matrícula."></ion-searchbar>
-              <ion-list *ngIf ="alunos.length >0">
-                <ion-item-divider button *ngFor = "let c of alunos"(click)="detalhesAluno(c.id)">
-                  <ion-label >
-                    {{c.nomeAluno}}
-                  </ion-label>
-                </ion-item-divider>
-              </ion-list>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-col>
-      <ion-col size = 1></ion-col>
-      <ion-col size = 4 style="margin-top: -10%;">
-        <ion-grid>
-          <ion-row>
-            <ion-col size = 12 >
-              <h3  style="text-align: center; color: rgb(0, 0, 0);">
-                Matrículas
-              </h3>  
-            </ion-col>
-          </ion-row>
-<br>
-          <ion-row>
-            <ion-col class="opcoes" size = 3>
-              <a style="text-decoration: none; color: black;" (click) = "ir('adcionar')" title="Adcionar aluno" href="javascript:void(0)">
-                <img width="100%" height="78px" src="../../assets/educacao/icones/adcionar.png">
-              </a><br>
-              <h6 style="text-align: center; margin-top: auto;">Adicionar matrícula</h6>
-            </ion-col> 
-            <ion-col class="opcoes" size = 3>
-              <a style="text-decoration: none; color: black;" (click) = "ir('consultar')" title="Consultar matrículas" href="javascript:void(0)">
-                <img width="100%" height="78px" src="../../assets/educacao/icones/PESQUISAR.png">
-              </a><br>
-              <h6 style="text-align: center; margin-top: auto;">Consultar matrícula</h6>
-            </ion-col>
-            <ion-col class="opcoes" size = 3>
-              <a style="text-decoration: none; color: black;"(click) = "ir('informacoes')" title="Informações gerais"  href="javascript:void(0)">
-                <img width="100%" height="78px" src="../../assets/educacao/icones/INFORMAÇÕES7.png">
-              </a><br>
-              <h6 style="text-align: center; margin-top: auto;">Informações Gerais</h6>
-            </ion-col> 
-          </ion-row>
-          </ion-grid>
-<br><br>
-        <ion-grid>
-          <ion-row>
-            <ion-col size = 12 >
-              <h3  style="text-align: center; color: rgb(0, 0, 0);">
-                Funcionários
-              </h3>  
-            </ion-col>
-          </ion-row>
-<br>
-          <ion-row>
-            <ion-col class="opcoes" size =3>
-              <a style="text-decoration: none; color: black;"(click) = "ir('professores')" title="Professores"  href="javascript:void(0)">
-                <img width="100%" height="78px" src="../../assets/educacao/icones/PREFESSORES.png">
-              </a><br>
-              <h6 style="text-align: center; margin-top: auto;">Professores</h6>
-            </ion-col> 
-            <ion-col class="opcoes" size = 3>
-              <a style="text-decoration: none; color: black;" href="javascript:void(0)"(click) = "ir('auxiliares')" title="Auxiliares" >
-                <img width="100%" height="78px" src="../../assets/educacao/icones/AUXILIARES.png">
-              </a><br>
-              <h6 style="text-align: center; margin-top: auto;">Auxiliares</h6>
-            </ion-col>
-            <ion-col class="opcoes" size = 3>
-              <a style="text-decoration: none; color: black;" href="javascript:void(0)" title="Porteiros" (click) = "ir('porteiros')">
-                <img width="100%" height="78px" src="../../assets/educacao/icones/GUARDA.png">
-              </a><br>
-              <h6 style="text-align: center; margin-top: auto;">Porteiros</h6>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    </ion-grid>
 </ion-content>

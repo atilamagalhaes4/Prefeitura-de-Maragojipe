@@ -13,7 +13,7 @@ export class AdcionarAuxiliarPage implements OnInit {
   alternar: boolean = true;
   verificar: boolean = true;
   token: string = "";
-  enderecoEscolaDisable: boolean = false;
+  
   areaDisable: boolean = false;
   distritoDisable: boolean = false;
   id: string = "";
@@ -35,7 +35,7 @@ export class AdcionarAuxiliarPage implements OnInit {
   dataAjustada = "";
   nascimentoAjustado: string = "";
   observacoes: string = "";
-  escolaDisable: boolean = false;
+
 
   constructor(
     private route: Router,
@@ -45,67 +45,7 @@ export class AdcionarAuxiliarPage implements OnInit {
     private alertController: AlertController
   ) { }
 
-  escolas = [
-    { "nome": "Antonio Otilio de Andrade"},
-    { "nome": "Antonio Vigílio de Medina" },
-    { "nome": "Catarina Paraguaçu"},
-    { "nome": "Cid Seixas Fragas"},
-    { "nome": "Cleriston Andrade"},
-    { "nome": "Cons. Antonio Rebouças"},
-    { "nome": "Creche Dr. Luis de Souza Santos"},
-    { "nome": "Creche Germana Ines Mencione"},
-    { "nome": "Creche Ieda Barradas"},
-    { "nome": "Creche Igor Seixas"},
-    { "nome": "Creche Semente do Paraguaçu"},
-    { "nome": "Deputado Cleraldo Andrade"},
-    { "nome": "Desembargador Oscar Dantas"},
-    { "nome": "Do Camarão"},
-    { "nome": "Dr. Odilardo Uzeda Rodrigues"},
-    { "nome": "Edith Ribeiro Nunes"},
-    { "nome": "Emídio Dativo Santana"},
-    { "nome": "Engenheiro Júlio dos Santos Sá"},
-    { "nome": "Fernando Presídio"},
-    { "nome": "Gastão Pedreira"},
-    { "nome": "Getulio Vargas (Cachoeirinha)"},
-    { "nome": "Getulio Vargas (Trevo)"},
-    { "nome": "Heráclio Paraguaçu Guerreiro"},
-    { "nome": "Hildérico Pinheiro de Oliveira"},
-    { "nome": "Juvenil de Oliveira"},
-    { "nome": "Luiz Eduardo Magalhães"},
-    { "nome": "Mario Gordilho Pedreira"},
-    { "nome": "Meneleu Batista Soares"},
-    { "nome": "Menino Jesus de Praga"},
-    { "nome": "Mons. Florisvaldo José de Souza"},
-    { "nome": "Nossa Senhora da Piedade"},
-    { "nome": "Nossa Senhora de Fátima"},
-    { "nome": "Nova Jerusalém"},
-    { "nome": "O bom pastor"},
-    { "nome": "Osvaldina Oliveira"},
-    { "nome": "Otaviano Texeira"},
-    { "nome": "Pe. Julian Edward Josef Claes"},
-    { "nome": "Profº Adjovita Marques"},
-    { "nome": "Profº Noêmia do Rosário"},
-    { "nome": "Profº Luis da França Piedade"},
-    { "nome": "Quilombo do Putumuju"},
-    { "nome": "Raio de Luz"},
-    { "nome": "Recanto Verde"},
-    { "nome": "Ref. Plínio Pereira Guedes"},
-    { "nome": "Creche Guapira"},
-    { "nome": "Luiz Souza Santos"},
-    { "nome": "Ruben GUerra Armede"},
-    { "nome": "Santa Helena"},
-    { "nome": "Santa Rita"},
-    { "nome": "Santo Antonio (Cachoeirinha)"},
-    { "nome": "Santo Antonio (Guaruçu)"},
-    { "nome": "Santo Antonio (Irriquitiá)"},
-    { "nome": "Santo Antonio (Rio dos Paus)"},
-    { "nome": "São Gabriel - Bento Sardinha"},
-    { "nome": "Sementes do Paraguaçu"},
-    { "nome": "São José - Santa Angela"},
-    { "nome": "São Roque - Boa Vista"},
-    { "nome": "Senhor do Bonfim - Brinco"},
-    { "nome": "Silvio Vieira de Melo"},
-  ]
+  escolas = []
 
   ngOnInit() {
   }
@@ -123,10 +63,43 @@ export class AdcionarAuxiliarPage implements OnInit {
     }
   }
   
+  carregarEscolas() {
+    let dados = {
+      requisicao: "todasEscolas"
+    }
+    this.provider.requisicaoPost(dados, "/educacao.php").subscribe((data) => {
+      this.escolas = [];
+      for (let c of data["dados"]) {
+        if (c.categoria == "escola") {
+          this.escolas.push(c);
+        }
+      }
+    }, (error) => {
+      console.log(error);
+    })
+  }
   inicio(){
     this.route.navigate(["/dashboard/"+this.token]);
   }
 
+  botarBarra1() {
+    if (this.dataNascimento.length == 2) {
+      this.dataNascimento = this.dataNascimento + ".";
+    }
+    if (this.dataNascimento.length == 5) {
+        this.dataNascimento = this.dataNascimento + ".";
+      }
+  }
+  
+  botarBarra2() {
+    if (this.admissao.length == 2) {
+      this.admissao = this.admissao + ".";
+    }
+    if (this.admissao.length == 5) {
+        this.admissao = this.admissao + ".";
+      }
+  }
+  
   validar(verificacao){
     let dados ={
       requisicao: "verificacao",
@@ -144,12 +117,14 @@ export class AdcionarAuxiliarPage implements OnInit {
           this.nomeEscola =  data['dados'][0].login;
           this.zonaEscolar =  data['dados'][0].area;
           this.distritoEscolar =  data['dados'][0].distrito;
-          this.enderecoEscolaDisable = true;
-          this.escolaDisable = true;
+          
           this.areaDisable = true;
           this.distritoDisable = true;
+          this.escolas = [{ nome: data['dados'][0].login }]
         }
-
+        else{
+          this.carregarEscolas();
+        }
       }
 
     },(error)=>{
@@ -199,17 +174,19 @@ export class AdcionarAuxiliarPage implements OnInit {
     })
   } 
   teste2(){
-    var ponto =".";
-    if(this.dataNascimento.length ==2)  this.dataNascimento = this.dataNascimento + ponto;
+    var dia, mes, ano;
+    ano = this.dataNascimento.substring(0,4);
+    mes = this.dataNascimento.substring(5,7)
+    dia = this.dataNascimento.substring(8,10)
+    this.nascimentoAjustado = dia.concat("\\\\")+mes.concat("\\\\")+ano;
 
-      else if(this.dataNascimento.length ==5) this.dataNascimento = this.dataNascimento + ponto;
-    
   }
-  teste(){    
-    var ponto =".";
-  if(this.admissao.length ==2)  this.admissao = this.admissao + ponto;
-
-    else if(this.admissao.length ==5) this.admissao = this.admissao + ponto;
+  teste(){
+    var dia, mes, ano;
+    ano = this.admissao.substring(0,4);
+    mes = this.admissao.substring(5,7)
+    dia = this.admissao.substring(8,10)
+    this.dataAjustada = dia.concat("\\\\")+mes.concat("\\\\")+ano;
   }
 
   async presentAlert(mensagem) {

@@ -82,6 +82,9 @@ export class DashboardPage implements OnInit {
     })
   }
 
+  irEditar(id){
+    this.route.navigate(["/editar/" + id + "/" + this.token]);
+  }
   validar(verificacao){
     let dados ={
       requisicao: "verificacao",
@@ -105,7 +108,7 @@ export class DashboardPage implements OnInit {
           this.escola =  data['dados'][0].login;
   //        this.areaEscola =  data['dados'][0].area;
     //      this.distrito =  data['dados'][0].distrito;
-      //    this.enderecoEscolaDisable = true;
+      //    
         //  this.escolaDisable = true;
         //  this.areaDisable = true;
           //this.distritoDisable = true;

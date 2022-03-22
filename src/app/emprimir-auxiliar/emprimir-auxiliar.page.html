@@ -15,7 +15,7 @@
 
   <br>  <br>
 
-<div #screen id="table">
+<ion-list id = "emprimir">
   <ion-grid>
  
     <ion-row>
@@ -97,14 +97,13 @@
       </ion-col>
     </ion-row>
     </ion-grid>
-  </div>
-  
+  </ion-list>
     <br><br>
     <ion-grid>
     <ion-row>
       <ion-col size = "4"></ion-col>
       <ion-col size = "2">
-        <ion-button expand="full" (click)="downloadImage()" color = "tertiary" >Imprimir</ion-button>
+        <ion-button expand="full" (click)="print('emprimir')" color = "tertiary" >Imprimir</ion-button>
       </ion-col>
       <ion-col size = "2">
         <ion-button expand="full" (click)="voltar()" color = "danger" >Cancelar</ion-button>
@@ -112,10 +111,4 @@
       <ion-col size = "4"></ion-col>
     </ion-row>
   </ion-grid>
-
-  
-  <div style="width: 1px;height: 1px;" id="download">
-    <img #canvas>
-    <a #downloadLink></a>
-  </div>
 </ion-content>

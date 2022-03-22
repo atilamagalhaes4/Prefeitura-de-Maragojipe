@@ -39,137 +39,15 @@ export class EditarProfessorPage implements OnInit {
   formacao: string = "";
   dataNascimento: string = "";
   nome: string = "";
-  escolaDisable: boolean = false;
   distritoEscolaAtua: string = "";
   dataNascimentoAjustado: string = "";
-  enderecoEscolaDisable: boolean = false;
+  
   areaDisable: boolean = false;
   distritoDisable: boolean = false;
-  escolas = [
-    { "nome": "Antonio Otilio de Andrade"},
-    { "nome": "Antonio Vigílio de Medina" },
-    { "nome": "Catarina Paraguaçu"},
-    { "nome": "Cid Seixas Fragas"},
-    { "nome": "Cleriston Andrade"},
-    { "nome": "Cons. Antonio Rebouças"},
-    { "nome": "Creche Dr. Luis de Souza Santos"},
-    { "nome": "Creche Germana Ines Mencione"},
-    { "nome": "Creche Ieda Barradas"},
-    { "nome": "Creche Igor Seixas"},
-    { "nome": "Creche Semente do Paraguaçu"},
-    { "nome": "Deputado Cleraldo Andrade"},
-    { "nome": "Desembargador Oscar Dantas"},
-    { "nome": "Do Camarão"},
-    { "nome": "Dr. Odilardo Uzeda Rodrigues"},
-    { "nome": "Edith Ribeiro Nunes"},
-    { "nome": "Emídio Dativo Santana"},
-    { "nome": "Engenheiro Júlio dos Santos Sá"},
-    { "nome": "Fernando Presídio"},
-    { "nome": "Gastão Pedreira"},
-    { "nome": "Getulio Vargas (Cachoeirinha)"},
-    { "nome": "Getulio Vargas (Trevo)"},
-    { "nome": "Heráclio Paraguaçu Guerreiro"},
-    { "nome": "Hildérico Pinheiro de Oliveira"},
-    { "nome": "Juvenil de Oliveira"},
-    { "nome": "Luiz Eduardo Magalhães"},
-    { "nome": "Mario Gordilho Pedreira"},
-    { "nome": "Meneleu Batista Soares"},
-    { "nome": "Menino Jesus de Praga"},
-    { "nome": "Mons. Florisvaldo José de Souza"},
-    { "nome": "Nossa Senhora da Piedade"},
-    { "nome": "Nossa Senhora de Fátima"},
-    { "nome": "Nova Jerusalém"},
-    { "nome": "O bom pastor"},
-    { "nome": "Osvaldina Oliveira"},
-    { "nome": "Otaviano Texeira"},
-    { "nome": "Pe. Julian Edward Josef Claes"},
-    { "nome": "Profº Adjovita Marques"},
-    { "nome": "Profº Noêmia do Rosário"},
-    { "nome": "Profº Luis da França Piedade"},
-    { "nome": "Quilombo do Putumuju"},
-    { "nome": "Raio de Luz"},
-    { "nome": "Recanto Verde"},
-    { "nome": "Ref. Plínio Pereira Guedes"},
-    { "nome": "Creche Guapira"},
-    { "nome": "Luiz Souza Santos"},
-    { "nome": "Ruben GUerra Armede"},
-    { "nome": "Santa Helena"},
-    { "nome": "Santa Rita"},
-    { "nome": "Santo Antonio (Cachoeirinha)"},
-    { "nome": "Santo Antonio (Guaruçu)"},
-    { "nome": "Santo Antonio (Irriquitiá)"},
-    { "nome": "Santo Antonio (Rio dos Paus)"},
-    { "nome": "São Gabriel - Bento Sardinha"},
-    { "nome": "São José - Santa Angela"},
-    { "nome": "Sementes do Paraguaçu"},
-    { "nome": "São Roque - Boa Vista"},
-    { "nome": "Senhor do Bonfim - Brinco"},
-    { "nome": "Silvio Vieira de Melo"},
-  ]
 
-  escolas2 = [
-    { "nome": "Antonio Otilio de Andrade"},
-    { "nome": "Antonio Vigílio de Medina" },
-    { "nome": "Catarina Paraguaçu"},
-    { "nome": "Cid Seixas Fragas"},
-    { "nome": "Cleriston Andrade"},
-    { "nome": "Cons. Antonio Rebouças"},
-    { "nome": "Creche Dr. Luis de Souza Santos"},
-    { "nome": "Creche Germana Ines Mencione"},
-    { "nome": "Creche Ieda Barradas"},
-    { "nome": "Creche Igor Seixas"},
-    { "nome": "Creche Semente do Paraguaçu"},
-    { "nome": "Deputado Cleraldo Andrade"},
-    { "nome": "Desembargador Oscar Dantas"},
-    { "nome": "Do Camarão"},
-    { "nome": "Dr. Odilardo Uzeda Rodrigues"},
-    { "nome": "Edith Ribeiro Nunes"},
-    { "nome": "Emídio Dativo Santana"},
-    { "nome": "Engenheiro Júlio dos Santos Sá"},
-    { "nome": "Fernando Presídio"},
-    { "nome": "Gastão Pedreira"},
-    { "nome": "Getulio Vargas (Cachoeirinha)"},
-    { "nome": "Getulio Vargas (Trevo)"},
-    { "nome": "Heráclio Paraguaçu Guerreiro"},
-    { "nome": "Hildérico Pinheiro de Oliveira"},
-    { "nome": "Juvenil de Oliveira"},
-    { "nome": "Luiz Eduardo Magalhães"},
-    { "nome": "Mario Gordilho Pedreira"},
-    { "nome": "Meneleu Batista Soares"},
-    { "nome": "Menino Jesus de Praga"},
-    { "nome": "Mons. Florisvaldo José de Souza"},
-    { "nome": "Nossa Senhora da Piedade"},
-    { "nome": "Nossa Senhora de Fátima"},
-    { "nome": "Nova Jerusalém"},
-    { "nome": "O bom pastor"},
-    { "nome": "Osvaldina Oliveira"},
-    { "nome": "Otaviano Texeira"},
-    { "nome": "Pe. Julian Edward Josef Claes"},
-    { "nome": "Profº Adjovita Marques"},
-    { "nome": "Profº Noêmia do Rosário"},
-    { "nome": "Profº Luis da França Piedade"},
-    { "nome": "Quilombo do Putumuju"},
-    { "nome": "Raio de Luz"},
-    { "nome": "Recanto Verde"},
-    { "nome": "Ref. Plínio Pereira Guedes"},
-    { "nome": "Creche Guapira"},
-    { "nome": "Luiz Souza Santos"},
-    { "nome": "Ruben GUerra Armede"},
-    { "nome": "Santa Helena"},
-    { "nome": "Santa Rita"},
-    { "nome": "Santo Antonio (Cachoeirinha)"},
-    { "nome": "Santo Antonio (Guaruçu)"},
-    { "nome": "Santo Antonio (Irriquitiá)"},
-    { "nome": "Santo Antonio (Rio dos Paus)"},
-    { "nome": "São Gabriel - Bento Sardinha"},
-    { "nome": "São José - Santa Angela"},
-    { "nome": "São Roque - Boa Vista"},
-    { "nome": "Sementes do Paraguaçu"},
-    { "nome": "Senhor do Bonfim - Brinco"},
-    { "nome": "Silvio Vieira de Melo"},
-    { "nome": "Outros"},
-    { "nome": "Não se aplica"},
-  ]
+  escolas = []
+  escolas2 = []
+
   constructor(
     private actRoute: ActivatedRoute,
     private platform: Platform,
@@ -182,31 +60,54 @@ export class EditarProfessorPage implements OnInit {
   }
 
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this.professores = [];
     this.actRoute.params.subscribe((data) => {
-      this.validar(data.obs,data.id);
+      this.validar(data.obs, data.id);
       this.id = data.id;
     });
-    
-    if(this.platform.is("mobile")){
+
+    if (this.platform.is("mobile")) {
       this.alternar = false;
     }
-    if(this.platform.is("desktop")){
+    if (this.platform.is("desktop")) {
       this.alternar = true;
     }
   }
-  
-  inicio(){
-    this.route.navigate(["/dashboard/"+this.token]);
-  }
 
-  alternarBotao2(){
+  carregarEscolas() {
+    let dados = {
+      requisicao: "todasEscolas"
+    }
+    this.provider.requisicaoPost(dados, "/educacao.php").subscribe((data) => {
+      this.escolas = [];
+      for (let c of data["dados"]) {
+        if (c.categoria == "escola") {
+          this.escolas.push(c);
+        }
+      }
+      this.escolas2 = this.escolas;
+    }, (error) => {
+      console.log(error);
+    })
+  }
+  inicio() {
+    this.route.navigate(["/dashboard/" + this.token]);
+  }
+  botarBarra1() {
+    if (this.dataNascimento.length == 2) {
+      this.dataNascimento = this.dataNascimento + ".";
+    }
+    if (this.dataNascimento.length == 5) {
+      this.dataNascimento = this.dataNascimento + ".";
+    }
+  }
+  alternarBotao2() {
     console.log("entrou")
-    if(this.pim2 == "Sim"){//
+    if (this.pim2 == "Sim") {//
       this.talvez2 = false;
     }
-    else{
+    else {
       this.talvez2 = true;
       this.QualEscolaHoraExtra = "";
       this.cargaHorariaAdcional = "";
@@ -219,32 +120,32 @@ export class EditarProfessorPage implements OnInit {
       this.zonaEscolaExtra = "";
     }
   }
-  teste2(){
-    var ponto =".";
-    if(this.dataNascimento.length ==2)  this.dataNascimento = this.dataNascimento + ponto;
-
-      else if(this.dataNascimento.length ==5) this.dataNascimento = this.dataNascimento + ponto;
-    
+  teste2() {
+    var dia, mes, ano;
+    ano = this.dataNascimento.substring(0, 4);
+    mes = this.dataNascimento.substring(5, 7)
+    dia = this.dataNascimento.substring(8, 10)
+    this.dataNascimentoAjustado = dia.concat("\\\\") + mes.concat("\\\\") + ano;
   }
-  validar(verificacao, id){
-    let dados ={
+  validar(verificacao, id) {
+    let dados = {
       requisicao: "verificacao",
       token: verificacao
     }
     this.token = verificacao;
 
-    this.provider.requisicaoPost(dados,"/educacao.php").subscribe((data)=>{
+    this.provider.requisicaoPost(dados, "/educacao.php").subscribe((data) => {
       this.verificar = data['resultado'];
-      if(this.verificar == false){
-        this.route.navigate(["/login"]);        
-      }else{
+      if (this.verificar == false) {
+        this.route.navigate(["/login"]);
+      } else {
         let dados2 = {
           requisicao: "editar1Perfil",
           id: id
         }
         this.id = id;
-        this.provider.requisicaoPost(dados2,"/professores.php").subscribe((data)=>{
-          for(let c of data['resultado']){
+        this.provider.requisicaoPost(dados2, "/professores.php").subscribe((data) => {
+          for (let c of data['resultado']) {
             this.escolaEnsino = c.escolaEnsino;
             this.diretorDele = c.diretorDele;
             this.enderecoEscolaAtua = c.enderecoEscolaAtua;
@@ -268,31 +169,34 @@ export class EditarProfessorPage implements OnInit {
             this.distritoEscolaAtua = c.distritoEscolaAtua;
             this.disciplinaAtuacao = c.disciplinaAtuacao;
           }
-        },(error)=>{
+        }, (error) => {
           console.log(error)
         });
-        if(data['dados'][0].categoria == "escola"){ // se for escola
+        if (data['dados'][0].categoria == "escola") { // se for escola
           this.enderecoEscolaAtua = data['dados'][0].endereco;
-          this.escolaEnsino =  data['dados'][0].login;
-          this.zonaEscolaAtua =  data['dados'][0].area;
-          this.distritoEscolaAtua =  data['dados'][0].distrito;
-          this.enderecoEscolaDisable = true;
-          this.escolaDisable = true;
+          this.escolaEnsino = data['dados'][0].login;
+          this.zonaEscolaAtua = data['dados'][0].area;
+          this.distritoEscolaAtua = data['dados'][0].distrito;
+          
           this.areaDisable = true;
           this.distritoDisable = true;
+          this.escolas = [{ nome: data['dados'][0].login }]
+        }
+        else{
+          this.carregarEscolas();
         }
       }
-    },(error)=>{
+    }, (error) => {
       this.route.navigate(["/login"]);
       console.log(error)
     })
   }
 
-  Salvar(){
-    
+  Salvar() {
+
     let dados;
-    if(this.QualEscolaHoraExtra == "Outros"){
-      dados= {
+    if (this.QualEscolaHoraExtra == "Outros") {
+      dados = {
         requisicao: "editarProfessor",
         id: this.id,
         escolaEnsino: this.escolaEnsino,
@@ -317,9 +221,9 @@ export class EditarProfessorPage implements OnInit {
         dataNascimento: this.dataNascimentoAjustado,
         nome: this.nome,
         distritoEscolaAtua: this.distritoEscolaAtua,
-      }      
-    }else{
-      dados= {
+      }
+    } else {
+      dados = {
         requisicao: "editarProfessor",
         id: this.id,
         escolaEnsino: this.escolaEnsino,
@@ -344,15 +248,15 @@ export class EditarProfessorPage implements OnInit {
         dataNascimento: this.dataNascimentoAjustado,
         nome: this.nome,
         distritoEscolaAtua: this.distritoEscolaAtua,
-      }  
+      }
     }
-    this.provider.requisicaoPost(dados,"/professores.php").subscribe((data)=>{
-      this.route.navigate(["/professores/"+this.token]);
-    },(error)=>{
+    this.provider.requisicaoPost(dados, "/professores.php").subscribe((data) => {
+      this.route.navigate(["/professores/" + this.token]);
+    }, (error) => {
       console.log(error)
     })
   }
-  cancelar(){
-    this.route.navigate(["/professores/"+this.token]);
+  cancelar() {
+    this.route.navigate(["/professores/" + this.token]);
   }
 }

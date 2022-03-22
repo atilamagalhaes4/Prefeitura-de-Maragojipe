@@ -1,202 +1,202 @@
 <ion-content>
 
-  <ion-header >
-    <ion-toolbar class="top2" >
-      <ion-grid>
-        <ion-row >
-          <ion-col size = 3>
-            <a style="text-decoration: none;"  (click) = "inicio()" href="javascript:void(0)">
-              <img class="imagem"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
-            </a>
-            </ion-col>
-            <ion-col *ngIf = "1>2" size = 9>
-              <ion-item lines = none color = transparent>
-                <ion-label color = light position="stacked">Pesquisa rápida</ion-label>
-                <ion-input (ionChange) = "pesquisaAutomatica()" [(ngModel)] = "pesquisa" placeholder = "Informe o nome do aluno, nome da escola ou qualquer outro dado."></ion-input>
-              </ion-item>
-            </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-toolbar>
-  </ion-header>
-  <br>
-  <ion-grid>
-    <ion-row>
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position = "stacked">Escola</ion-label>
-          <ion-select [disabled] ="escolaDisable" interface="popover" [(ngModel)] ="pesquisaEscola" placeholder="Selecione uma escola"  okText="Ok" cancelText="Cancelar">
-            <ion-select-option *ngFor = "let c of escolas" [value]="c.nome">{{c.nome}}</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 2>
-        <ion-item> 
-          <ion-label position = "stacked">Turno</ion-label>
-          <ion-select interface="popover" [(ngModel)] ="pesquisaTurno" placeholder="Selecione um turno"  okText="Ok" cancelText="Cancelar">
-            <ion-select-option value="integral">Integral</ion-select-option>
-            <ion-select-option value="matutino">Matutino</ion-select-option>
-            <ion-select-option value="noturno">Noturno</ion-select-option>
-            <ion-select-option value="vespertino">Vespertino</ion-select-option>
-
-          </ion-select>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position = "stacked">Série</ion-label>
-          <ion-select interface="popover" [(ngModel)] ="pesquisaSerie" placeholder="Selecione uma série"  okText="Ok" cancelText="Cancelar">
-            <ion-select-option *ngFor = "let c of series" [value]="c.nome">{{c.nome}}</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-col>
-      <ion-col size =1>
-        <ion-button (click) ="pesquisaAvancada()" title = "Pesquisar" style="height: 100%;" fill="outline" shape="round">
-          <ion-icon name="search-outline"></ion-icon>
-        </ion-button>
-      </ion-col>
-      <ion-col size =1>
-        <ion-button (click)="print('emprimir')" title = "Emprimir" style="height: 100%;" fill="outline" shape="round">
-          <ion-icon name="print-outline"></ion-icon>
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <br><br>
-  <ion-list id = emprimir>
+    <ion-header>
+        <ion-toolbar class="top2">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size=3>
+                        <a style="text-decoration: none;" (click)="inicio()" href="javascript:void(0)">
+                            <img class="imagem" src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+                        </a>
+                    </ion-col>
+                    <ion-col *ngIf="1>2" size=9>
+                        <ion-item lines="none" color="transparent">
+                            <ion-label color="light" position="stacked">Pesquisa rápida</ion-label>
+                            <ion-input (ionChange)="pesquisaAutomatica()" [(ngModel)]="pesquisa" placeholder="Informe o nome do aluno, nome da escola ou qualquer outro dado."></ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-toolbar>
+    </ion-header>
+    <br>
     <ion-grid>
-      <ion-row style="margin: 0px;">
-        <ion-col size = 3></ion-col>
-        <ion-col style="text-align: center;" size = 6>
-          <img src = "../../assets/educacao/banner/cabecalho.png">
-        </ion-col>
-        <ion-col size = 3></ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size =1></ion-col>
-        <ion-col size = 4>
-          <b>Escola :</b> {{escola}}
-        </ion-col>
-        <ion-col size =2>
-          <b>Zona: </b> {{zona}}
-        </ion-col>
-        <ion-col size = 1></ion-col>
-        <ion-col size =2>
-          <b>Total de alunos:</b> {{qtd}}
-        </ion-col>
-        <ion-col size = 1>
-          NTE 21
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size =1></ion-col>
-        <ion-col size = 4>
-          <b>Diretor(a): </b> {{diretora}}
-        </ion-col>
-        <ion-col size = 5>
-          <b>Escolaridade: </b>{{escolaridade}}
-        </ion-col>
-        </ion-row>
         <ion-row>
-          <ion-col size =1></ion-col>
-        <ion-col size = 4>
-          <b>Turno: </b>{{turno}}
-        </ion-col>
-        <ion-col size = 4>
-          <b>Série: </b> {{serie}}
-        </ion-col>
-        <ion-col size =3>
-          <b>Ano letivo: </b> {{anoLetivo}}
-        </ion-col>
-      </ion-row>
-      
-      <ion-row>
-        <ion-col size = 12>
-          <h2 style="text-align: center;"><strong>MAPA DE MATRíCULA</strong></h2>
-        </ion-col>
-      </ion-row>
-<br>
-      <ion-row>
-        <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =1>
-          <b>Nome</b>
-        </ion-col>
-        <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =1>
-          <b>Documento</b>
-        </ion-col>
-        <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =1>
-          <b>Data de Nascimento</b>
-        </ion-col>
-        <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =1>
-          <b>Naturalidade</b>
-        </ion-col>
-        <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =1>
-          <b>Sexo</b>
-        </ion-col>
-        <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =1>
-          <b>Pai</b>
-        </ion-col>
-        <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =1>
-          <b>Mãe</b>
-        </ion-col>
-        <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =1>
-          <b>Endereço</b>
-        </ion-col>
-        <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =1>
-          <b>Deficiencia</b>
-        </ion-col>
-        <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =1>
-          <b>Zona</b>
-        </ion-col>
-        <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =1>
-          <b>Responsável</b>
-        </ion-col>
-        <ion-col style="border: thin silver solid; background-color: #d1dad1;" size =1>
-          <b>Data de matrícula</b>
-        </ion-col>
-      </ion-row>
-      
-    <ion-list *ngFor ="let c of alunos" style="padding: 0px;">
-      <a style="text-decoration: none; color: black;" (click) = "exibir(c.id, c.nomeAluno)" href="javascript:void(0)">
-        <ion-row>
-           <ion-col style="border: thin silver solid;" size =1>
-            {{c.nomeAluno}}
-          </ion-col>
-          <ion-col style="border: thin silver solid;" size =1>
-            {{c.documento}}
-          </ion-col>
-          <ion-col style="border: thin silver solid;" size =1>
-            {{c.dataNascimento}}
-          </ion-col>
-          <ion-col style="border: thin silver solid;" size =1>
-            {{c.naturalidade}}
-          </ion-col>
-          <ion-col style="border: thin silver solid;" size =1>
-            {{c.sexo}}
-          </ion-col>
-          <ion-col style="border: thin silver solid;" size =1>
-            {{c.nomeResponsavel1}}
-          </ion-col>
-          <ion-col style="border: thin silver solid;" size =1>
-            {{c.nomeResponsavel2}}
-          </ion-col>
-          <ion-col style="border: thin silver solid;" size =1>
-            {{c.enderecoAluno}}
-          </ion-col>
-          <ion-col style="border: thin silver solid;" size =1>
-            {{c.deficiencia}}
-          </ion-col>
-          <ion-col style="border: thin silver solid;" size =1>
-            {{c.areaAluno}}
-          </ion-col>
-          <ion-col style="border: thin silver solid;" size =1>
-            {{c.nomeResponsavel3}}
-          </ion-col>
-          <ion-col style="border: thin silver solid;" size =1>
-            {{c.dataMatricula}}
-          </ion-col>
+            <ion-col size=4>
+                <ion-item>
+                    <ion-label position="stacked">Escola</ion-label>
+                    <ion-select interface="popover" [(ngModel)]="pesquisaEscola" placeholder="Selecione uma escola" okText="Ok" cancelText="Cancelar">
+                        <ion-select-option *ngFor="let c of escolas" [value]="c.nome">{{c.nome}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size=2>
+                <ion-item>
+                    <ion-label position="stacked">Turno</ion-label>
+                    <ion-select interface="popover" [(ngModel)]="pesquisaTurno" placeholder="Selecione um turno" okText="Ok" cancelText="Cancelar">
+                        <ion-select-option value="integral">Integral</ion-select-option>
+                        <ion-select-option value="matutino">Matutino</ion-select-option>
+                        <ion-select-option value="noturno">Noturno</ion-select-option>
+                        <ion-select-option value="vespertino">Vespertino</ion-select-option>
+
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size=4>
+                <ion-item>
+                    <ion-label position="stacked">Série</ion-label>
+                    <ion-select interface="popover" [(ngModel)]="pesquisaSerie" placeholder="Selecione uma série" okText="Ok" cancelText="Cancelar">
+                        <ion-select-option *ngFor="let c of series" [value]="c.nome">{{c.nome}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size=1>
+                <ion-button (click)="pesquisaAvancada()" title="Pesquisar" style="height: 100%;" fill="outline" shape="round">
+                    <ion-icon name="search-outline"></ion-icon>
+                </ion-button>
+            </ion-col>
+            <ion-col size=1>
+                <ion-button (click)="print('emprimir')" title="Emprimir" style="height: 100%;" fill="outline" shape="round">
+                    <ion-icon name="print-outline"></ion-icon>
+                </ion-button>
+            </ion-col>
         </ion-row>
-      </a>
+    </ion-grid>
+    <br><br>
+    <ion-list id=e mprimir>
+        <ion-grid>
+            <ion-row style="margin: 0px;">
+                <ion-col size=3></ion-col>
+                <ion-col style="text-align: center;" size=6>
+                    <img src="../../assets/educacao/banner/cabecalho.png">
+                </ion-col>
+                <ion-col size=3></ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size=1></ion-col>
+                <ion-col size=4>
+                    <b>Escola :</b> {{escola}}
+                </ion-col>
+                <ion-col size=2>
+                    <b>Zona: </b> {{zona}}
+                </ion-col>
+                <ion-col size=1></ion-col>
+                <ion-col size=2>
+                    <b>Total de alunos:</b> {{qtd}}
+                </ion-col>
+                <ion-col size=1>
+                    NTE 21
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size=1></ion-col>
+                <ion-col size=4>
+                    <b>Diretor(a): </b> {{diretora}}
+                </ion-col>
+                <ion-col size=5>
+                    <b>Escolaridade: </b>{{escolaridade}}
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size=1></ion-col>
+                <ion-col size=4>
+                    <b>Turno: </b>{{turno}}
+                </ion-col>
+                <ion-col size=4>
+                    <b>Série: </b> {{serie}}
+                </ion-col>
+                <ion-col size=3>
+                    <b>Ano letivo: </b> {{anoLetivo}}
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="12">
+                    <h2 style="text-align: center;"><strong>MAPA DE MATRíCULA</strong></h2>
+                </ion-col>
+            </ion-row>
+            <br>
+            <ion-row>
+                <ion-col style="border: thin silver solid; background-color: #d1dad1;" size=1>
+                    <b>Nome</b>
+                </ion-col>
+                <ion-col style="border: thin silver solid; background-color: #d1dad1;" size=1>
+                    <b>Documento</b>
+                </ion-col>
+                <ion-col style="border: thin silver solid; background-color: #d1dad1;" size=1>
+                    <b>Data de Nascimento</b>
+                </ion-col>
+                <ion-col style="border: thin silver solid; background-color: #d1dad1;" size=1>
+                    <b>Naturalidade</b>
+                </ion-col>
+                <ion-col style="border: thin silver solid; background-color: #d1dad1;" size=1>
+                    <b>Sexo</b>
+                </ion-col>
+                <ion-col style="border: thin silver solid; background-color: #d1dad1;" size=1>
+                    <b>Pai</b>
+                </ion-col>
+                <ion-col style="border: thin silver solid; background-color: #d1dad1;" size=1>
+                    <b>Mãe</b>
+                </ion-col>
+                <ion-col style="border: thin silver solid; background-color: #d1dad1;" size=1>
+                    <b>Endereço</b>
+                </ion-col>
+                <ion-col style="border: thin silver solid; background-color: #d1dad1;" size=1>
+                    <b>Deficiencia</b>
+                </ion-col>
+                <ion-col style="border: thin silver solid; background-color: #d1dad1;" size=1>
+                    <b>Zona</b>
+                </ion-col>
+                <ion-col style="border: thin silver solid; background-color: #d1dad1;" size=1>
+                    <b>Responsável</b>
+                </ion-col>
+                <ion-col style="border: thin silver solid; background-color: #d1dad1;" size=1>
+                    <b>Data de matrícula</b>
+                </ion-col>
+            </ion-row>
+
+            <ion-list *ngFor="let c of alunos" style="padding: 0px;">
+                <a style="text-decoration: none; color: black;" (click)="exibir(c.id, c.nomeAluno)" href="javascript:void(0)">
+                    <ion-row>
+                        <ion-col style="border: thin silver solid;" size=1>
+                            {{c.nomeAluno}}
+                        </ion-col>
+                        <ion-col style="border: thin silver solid;" size=1>
+                            {{c.documento}}
+                        </ion-col>
+                        <ion-col style="border: thin silver solid;" size=1>
+                            {{c.dataNascimento}}
+                        </ion-col>
+                        <ion-col style="border: thin silver solid;" size=1>
+                            {{c.naturalidade}}
+                        </ion-col>
+                        <ion-col style="border: thin silver solid;" size=1>
+                            {{c.sexo}}
+                        </ion-col>
+                        <ion-col style="border: thin silver solid;" size=1>
+                            {{c.nomeResponsavel1}}
+                        </ion-col>
+                        <ion-col style="border: thin silver solid;" size=1>
+                            {{c.nomeResponsavel2}}
+                        </ion-col>
+                        <ion-col style="border: thin silver solid;" size=1>
+                            {{c.enderecoAluno}}
+                        </ion-col>
+                        <ion-col style="border: thin silver solid;" size=1>
+                            {{c.deficiencia}}
+                        </ion-col>
+                        <ion-col style="border: thin silver solid;" size=1>
+                            {{c.areaAluno}}
+                        </ion-col>
+                        <ion-col style="border: thin silver solid;" size=1>
+                            {{c.nomeResponsavel3}}
+                        </ion-col>
+                        <ion-col style="border: thin silver solid;" size=1>
+                            {{c.dataMatricula}}
+                        </ion-col>
+                    </ion-row>
+                </a>
+            </ion-list>
+        </ion-grid>
     </ion-list>
-  </ion-grid>
-  </ion-list>
 </ion-content>

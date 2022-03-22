@@ -20,11 +20,11 @@
     "@angular/platform-browser-dynamic": "~11.0.5",
     "@angular/router": "~11.0.5",
     "@ionic-native/core": "^5.31.1",
+    "@ionic-native/in-app-browser": "^5.36.0",
     "@ionic/angular": "^5.5.2",
     "chart.js": "^3.4.1",
     "cordova-browser": "6.0.0",
     "dom-to-image": "^2.6.0",
-    "html2canvas": "^1.4.0",
     "jspdf": "^2.3.1",
     "rxjs": "~6.6.0",
     "rxjs-compat": "^6.6.3",
@@ -43,6 +43,7 @@
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
     "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-inappbrowser": "^5.0.0",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^4.2.1",
     "cordova-plugin-splashscreen": "^5.0.2",
@@ -69,7 +70,8 @@
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
       "browser"

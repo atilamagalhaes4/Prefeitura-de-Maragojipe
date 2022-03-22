@@ -2,8 +2,7 @@ import { PrintProvider } from './../../assets/providers/print-provider';
 import { PostProvider } from './../../assets/providers/post-provider';
 import { Platform, AlertController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import html2canvas from 'html2canvas';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-emprimir-professor',
@@ -11,11 +10,6 @@ import html2canvas from 'html2canvas';
   styleUrls: ['./emprimir-professor.page.scss'],
 })
 export class EmprimirProfessorPage implements OnInit {
-
-  @ViewChild('screen') screen: ElementRef;
-  @ViewChild('canvas') canvas: ElementRef;
-  @ViewChild('downloadLink') downloadLink: ElementRef;
-
 
   professores = [];
   alternar: boolean = true;
@@ -45,67 +39,7 @@ export class EmprimirProfessorPage implements OnInit {
   nome: string = "";
   distritoEscolaAtua: string = "";
 
-  escolas = [
-    { "nome": "Antonio Otilio de Andrade"},
-    { "nome": "Antonio Vigílio de Medina" },
-    { "nome": "Catarina Paraguaçu"},
-    { "nome": "Cid Seixas Fragas"},
-    { "nome": "Cleriston Andrade"},
-    { "nome": "Cons. Antonio Rebouças"},
-    { "nome": "Creche Dr. Luis de Souza Santos"},
-    { "nome": "Creche Germana Ines Mencione"},
-    { "nome": "Creche Ieda Barradas"},
-    { "nome": "Creche Igor Seixas"},
-    { "nome": "Creche Semente do Paraguaçu"},
-    { "nome": "Deputado Cleraldo Andrade"},
-    { "nome": "Desembargador Oscar Dantas"},
-    { "nome": "Do Camarão"},
-    { "nome": "Dr. Odilardo Uzeda Rodrigues"},
-    { "nome": "Edith Ribeiro Nunes"},
-    { "nome": "Emídio Dativo Santana"},
-    { "nome": "Engenheiro Júlio dos Santos Sá"},
-    { "nome": "Fernando Presídio"},
-    { "nome": "Gastão Pedreira"},
-    { "nome": "Getulio Vargas (Cachoeirinha)"},
-    { "nome": "Getulio Vargas (Trevo)"},
-    { "nome": "Heráclio Paraguaçu Guerreiro"},
-    { "nome": "Hildérico Pinheiro de Oliveira"},
-    { "nome": "Juvenil de Oliveira"},
-    { "nome": "Luiz Eduardo Magalhães"},
-    { "nome": "Mario Gordilho Pedreira"},
-    { "nome": "Meneleu Batista Soares"},
-    { "nome": "Menino Jesus de Praga"},
-    { "nome": "Mons. Florisvaldo José de Souza"},
-    { "nome": "Nossa Senhora da Piedade"},
-    { "nome": "Nossa Senhora de Fátima"},
-    { "nome": "Nova Jerusalém"},
-    { "nome": "O bom pastor"},
-    { "nome": "Osvaldina Oliveira"},
-    { "nome": "Otaviano Texeira"},
-    { "nome": "Pe. Julian Edward Josef Claes"},
-    { "nome": "Profº Adjovita Marques"},
-    { "nome": "Profº Noêmia do Rosário"},
-    { "nome": "Profº Luis da França Piedade"},
-    { "nome": "Quilombo do Putumuju"},
-    { "nome": "Raio de Luz"},
-    { "nome": "Recanto Verde"},
-    { "nome": "Ref. Plínio Pereira Guedes"},
-    { "nome": "Creche Guapira"},
-    { "nome": "Luiz Souza Santos"},
-    { "nome": "Ruben GUerra Armede"},
-    { "nome": "Santa Helena"},
-    { "nome": "Santa Rita"},
-    { "nome": "Santo Antonio (Cachoeirinha)"},
-    { "nome": "Santo Antonio (Guaruçu)"},
-    { "nome": "Santo Antonio (Irriquitiá)"},
-    { "nome": "Santo Antonio (Rio dos Paus)"},
-    { "nome": "São Gabriel - Bento Sardinha"},
-    { "nome": "São José - Santa Angela"},
-    { "nome": "São Roque - Boa Vista"},
-    { "nome": "Sementes do Paraguaçu"},
-    { "nome": "Senhor do Bonfim - Brinco"},
-    { "nome": "Silvio Vieira de Melo"},
-  ]
+  escolas = []
 
   constructor(
     private actRoute: ActivatedRoute,
@@ -125,6 +59,7 @@ export class EmprimirProfessorPage implements OnInit {
     this.actRoute.params.subscribe((data) => {
       this.validar(data.obs,data.id);
       this.id = data.id;
+      this.carregarEscolas();
     });
     
     if(this.platform.is("mobile")){
@@ -135,24 +70,20 @@ export class EmprimirProfessorPage implements OnInit {
     }
   }
   
-  downloadImage(){
-    //npm i html2canvas
-    html2canvas(this.screen.nativeElement).then(canvas => {
-      this.canvas.nativeElement.src = canvas.toDataURL();
-      var popup=window.open();
-      popup.document.write ('<img src =' + canvas.toDataURL() + '>');
-      popup.document.close ();
-      popup.focus ();
-      setTimeout(function (){
-        popup.print();
-        popup.close ();
-      }, 1000);
+  carregarEscolas() {
+    let dados = {
+      requisicao: "todasEscolas"
+    }
+    this.provider.requisicaoPost(dados, "/educacao.php").subscribe((data) => {
+      this.escolas = [];
+      for (let c of data["dados"]) {
+        if (c.categoria == "escola") {
+          this.escolas.push(c);
+        }
+      }
+    }, (error) => {
+      console.log(error);
     })
-      /*
-      this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
-      this.downloadLink.nativeElement.download = this.nomeAluno+'.png';
-      this.downloadLink.nativeElement.click();
-    });*/
   }
   inicio(){
     this.route.navigate(["/dashboard/"+this.token]);

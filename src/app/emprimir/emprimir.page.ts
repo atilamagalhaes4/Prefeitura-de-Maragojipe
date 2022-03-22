@@ -2,10 +2,7 @@ import { PrintProvider } from './../../assets/providers/print-provider';
 import { PostProvider } from './../../assets/providers/post-provider';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Platform, AlertController } from '@ionic/angular';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import html2canvas from 'html2canvas';
-
-
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-emprimir',
@@ -14,19 +11,6 @@ import html2canvas from 'html2canvas';
 })
 export class EmprimirPage implements OnInit {
 
-  @ViewChild('screen') screen: ElementRef;
-  @ViewChild('canvas') canvas: ElementRef;
-  @ViewChild('downloadLink') downloadLink: ElementRef;
-
-  constructor(
-    private platform: Platform,
-    private actRoute: ActivatedRoute,
-    private provider: PostProvider,
-    private route: Router,
-    private alertController: AlertController,
-    private printProvider:PrintProvider
-  ) { }
-  
   alternar: boolean = true;
   token: string = "";
   verificar: boolean = false; // se pode mostrar ou nao
@@ -71,6 +55,14 @@ export class EmprimirPage implements OnInit {
   alergia:"";
   raca: string = "";
   numeroMatricula: string = "";
+  constructor(
+    private platform: Platform,
+    private actRoute: ActivatedRoute,
+    private provider: PostProvider,
+    private route: Router,
+    private alertController: AlertController,
+    private printProvider:PrintProvider
+  ) { }
 
   ngOnInit() {
   }
@@ -78,9 +70,9 @@ export class EmprimirPage implements OnInit {
   voltar(){
     this.route.navigate(["/consulta/"+this.token]);
   }
-  
+
   print(componentName) {
-      this.printProvider.print(componentName);
+    this.printProvider.print(componentName);
   }
   
   ionViewWillEnter(){
@@ -110,25 +102,6 @@ export class EmprimirPage implements OnInit {
     })
   }
 
-  downloadImage(){
-    //npm i html2canvas
-    html2canvas(this.screen.nativeElement).then(canvas => {
-      this.canvas.nativeElement.src = canvas.toDataURL();
-      var popup=window.open();
-      popup.document.write ('<img src =' + canvas.toDataURL() + '>');
-      popup.document.close ();
-      popup.focus ();
-      setTimeout(function (){
-        popup.print();
-        popup.close ();
-      }, 1000);
-    })
-      /*
-      this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
-      this.downloadLink.nativeElement.download = this.nomeAluno+'.png';
-      this.downloadLink.nativeElement.click();
-    });*/
-  }
   pegarDado(id){
     let dados ={
       requisicao: "pesquisaIndividual",

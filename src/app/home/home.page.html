@@ -1,587 +1,553 @@
 <ion-content [fullscreen]="true">
-  <ion-header [translucent]="true">
-    <ion-toolbar class="top1">
-      <ion-buttons slot="end">
-        <a style="text-decoration: none;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
-          <ion-icon color=light button name="logo-facebook"></ion-icon>&nbsp;&nbsp;
-        </a>
-      </ion-buttons>
+    <ion-header [translucent]="true">
+        <ion-toolbar class="top1">
+            <ion-buttons slot="end">
+                <a style="text-decoration: none;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
+                    <ion-icon color=light button name="logo-facebook"></ion-icon>&nbsp;&nbsp;
+                </a>
+            </ion-buttons>
 
-      <ion-buttons slot="end">
-        <a style="text-decoration: none;" target="_blank"
-          href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
-          <ion-icon color=light name="logo-instagram"></ion-icon> &nbsp;&nbsp;
-        </a>
-      </ion-buttons>
+            <ion-buttons slot="end">
+                <a style="text-decoration: none;" target="_blank" href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
+                    <ion-icon color=light name="logo-instagram"></ion-icon> &nbsp;&nbsp;
+                </a>
+            </ion-buttons>
 
-      <ion-buttons slot="end">
-        <a style="text-decoration: none;" target="_blank" href="">
-          <ion-icon color=light name="logo-youtube"></ion-icon>&nbsp;&nbsp;
-        </a>
-      </ion-buttons>
-      <ion-title>
-      </ion-title>
-    </ion-toolbar>
+            <ion-buttons slot="end">
+                <a style="text-decoration: none;" target="_blank" href="">
+                    <ion-icon color=light name="logo-youtube"></ion-icon>&nbsp;&nbsp;
+                </a>
+            </ion-buttons>
+            <ion-title>
+            </ion-title>
+        </ion-toolbar>
 
-    <ion-toolbar class="top2">
-      <ion-grid>
-        <ion-row *ngIf="alternar ==true">
-          <ion-col size=3>
-            <a style="text-decoration: none;" routerLink = "/">
-              <img class="imagem" src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
-            </a>
-          </ion-col>
-          <ion-col size=3>
-            <ion-searchbar type="text" [(ngModel)]="pesquisa" (keyup.enter)="pesquisarNoticias()" class="inputAjuda"
-              placeholder="O que deseja procurar ?"></ion-searchbar>
-          </ion-col>
-          <ion-col class="centralizarTexto" size=2>
-            <ion-item button routerLink="/o-municipio" color=transparent lines=none>
-              <ion-label color=light>
-                O municipio
-              </ion-label>
-            </ion-item>
-          </ion-col>
-          <ion-col class="centralizarTexto" size=2>
-            <ion-item button routerLink="/a-prefeitura" color=transparent lines=none>
-              <ion-label color=light>
-                A prefeitura
-              </ion-label>
-            </ion-item>
-          </ion-col>
-          <ion-col class="centralizarTexto" size=2>
-            <ion-item routerLink="/telefones-uteis" button color=transparent lines=none>
-              <ion-label color=light>
-                Telefones úteis
-              </ion-label>
-            </ion-item>
-          </ion-col>
-        </ion-row>
+        <ion-toolbar class="top2">
+            <ion-grid>
+                <ion-row *ngIf="alternar ==true">
+                    <ion-col size=3>
+                        <a style="text-decoration: none;" href="/">
+                            <img class="imagem" src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+                        </a>
+                    </ion-col>
+                    <ion-col size=3>
+                        <ion-searchbar type="text" [(ngModel)]="pesquisa" (keyup.enter)="pesquisarNoticias()" class="inputAjuda" placeholder="O que deseja procurar ?"></ion-searchbar>
+                    </ion-col>
+                    <ion-col class="centralizarTexto" size=2>
+                        <ion-item button routerLink="/o-municipio" color=transparent lines=none>
+                            <ion-label color=light>
+                                O municipio
+                            </ion-label>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col class="centralizarTexto" size=2>
+                        <ion-item button routerLink="/a-prefeitura" color=transparent lines=none>
+                            <ion-label color=light>
+                                A prefeitura
+                            </ion-label>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col class="centralizarTexto" size=2>
+                        <ion-item routerLink="/telefones-uteis" button color=transparent lines=none>
+                            <ion-label color=light>
+                                Telefones úteis
+                            </ion-label>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
 
-        <ion-row *ngIf="alternar ==false">
-          <ion-col routerLink = "/" size=3>
-            <img class="imagem2" src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
-          </ion-col>
-          <ion-col routerLink="/o-municipio" size=3>
-            <ion-label color=light class="tamanho">
-              O municipio
-            </ion-label>
-          </ion-col>
-          <ion-col routerLink="/a-prefeitura" size=3>
-            <ion-label color=light class="tamanho">
-              A prefeitura
-            </ion-label>
-          </ion-col>
-          <ion-col routerLink="/telefones-uteis" size=3>
-            <ion-label color=light class="tamanho">
-              Telefones úteis
-            </ion-label>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-toolbar>
-  </ion-header>
+                <ion-row *ngIf="alternar ==false">
+                    <ion-col routerLink="/" size=3>
+                        <img class="imagem2" src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+                    </ion-col>
+                    <ion-col routerLink="/o-municipio" size=3>
+                        <ion-label color=light class="tamanho">
+                            O municipio
+                        </ion-label>
+                    </ion-col>
+                    <ion-col routerLink="/a-prefeitura" size=3>
+                        <ion-label color=light class="tamanho">
+                            A prefeitura
+                        </ion-label>
+                    </ion-col>
+                    <ion-col routerLink="/telefones-uteis" size=3>
+                        <ion-label color=light class="tamanho">
+                            Telefones úteis
+                        </ion-label>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-toolbar>
+    </ion-header>
 
-  <div id="background">
-    <br><br>
-    <ion-grid>
-      <ion-row>
-        <ion-col size=2>
-          <img class="igreja" width="90%" src="../../assets/icones prefeitura/O-Q-EU-BUSCO.png">
-        </ion-col>
-        <ion-col size=10>
-          <img src="../../assets/background/cabeçalho2.png">
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <div id="background">
+        <br><br>
+        <ion-grid>
+            <ion-row>
+                <ion-col size=2>
+                    <img class="igreja" width="90%" src="../../assets/icones prefeitura/O-Q-EU-BUSCO.png">
+                </ion-col>
+                <ion-col size=10>
+                    <img src="../../assets/background/cabeçalho2.png">
+                </ion-col>
+            </ion-row>
+        </ion-grid>
 
 
-    <ion-grid *ngIf="alternar == true">
-      <ion-row>
-        <ion-col size=1> </ion-col>
-        <ion-col size=2>
-          <div class="figura">
-            <a target="_blank" href="https://dom.imap.org.br/sitesMunicipios/imprensaOficial.cfm?varCodigo=497"
-              style="text-decoration: none; color: black;">
-              <p><img src="../../assets/icones prefeitura/DIARIO.png" alt="Diario oficial" title="Diario oficial"></p>
-              <p>Diário Oficial</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=2>
-          <div class="figura">
-            <a color=dark target="_blank" href="https://sai.io.org.br/ba/maragojipe/site"
-              style=" color: black;text-decoration: none;">
-              <p><img src="../../assets/icones prefeitura/TRANSPARENCIA.png" alt="Transparencia" title="transparencia">
-              </p>
-              <p>Transparência</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=2>
-          <div class="figura">
-            <a color=dark target="_blank"
-              href="https://maragojipe.saatri.com.br/Imobiliario/EmitirIptu?Pbol_ComMenuEsquerdo=true"
-              style="text-decoration: none; color: black;">
-              <p><img src="../../assets/icones prefeitura/IPTU.png" alt="IPTU" title="IPTU"></p>
-              <p>IPTU</p>
-            </a>
-          </div>
-        </ion-col>
+        <ion-grid *ngIf="alternar == true">
+            <ion-row>
+                <ion-col size=1> </ion-col>
+                <ion-col size=2>
+                    <div class="figura">
+                        <a target="_blank" href="https://dom.imap.org.br/sitesMunicipios/imprensaOficial.cfm?varCodigo=497" style="text-decoration: none; color: black;">
+                            <p><img src="../../assets/icones prefeitura/DIARIO.png" alt="Diario oficial" title="Diario oficial"></p>
+                            <p>Diário Oficial</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura">
+                        <a color=dark target="_blank" href="https://sai.io.org.br/ba/maragojipe/site" style=" color: black;text-decoration: none;">
+                            <p><img src="../../assets/icones prefeitura/TRANSPARENCIA.png" alt="Transparencia" title="transparencia">
+                            </p>
+                            <p>Transparência</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura">
+                        <a color=dark target="_blank" href="https://maragojipe.saatri.com.br/Imobiliario/EmitirIptu?Pbol_ComMenuEsquerdo=true" style="text-decoration: none; color: black;">
+                            <p><img src="../../assets/icones prefeitura/IPTU.png" alt="IPTU" title="IPTU"></p>
+                            <p>IPTU</p>
+                        </a>
+                    </div>
+                </ion-col>
 
-        <ion-col size=2>
-          <div class="figura">
-            <a color=dark target="_blank" href="https://www.tcm.ba.gov.br/portal-da-cidadania/pessoal/"
-              style="text-decoration: none; color: black;">
-              <p><img src="../../assets/icones prefeitura/RECURSOS2.png" alt="Recursos Humanos"
-                  title="Recursos humanos"></p>
-              <p>Recursos Humanos</p>
-            </a>
-          </div>
-        </ion-col>
+                <ion-col size=2>
+                    <div class="figura">
+                        <a color=dark target="_blank" href="https://www.tcm.ba.gov.br/portal-da-cidadania/pessoal/" style="text-decoration: none; color: black;">
+                            <p><img src="../../assets/icones prefeitura/RECURSOS2.png" alt="Recursos Humanos" title="Recursos humanos"></p>
+                            <p>Recursos Humanos</p>
+                        </a>
+                    </div>
+                </ion-col>
 
-        <ion-col size=2>
-          <div class="figura">
-            <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/meio-ambiente">
-              <p><img src="../../assets/icones prefeitura/cema.png" alt="Meio Ambiente" title="Meio Ambiente"></p>
-              <p>CEMA</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=1> </ion-col>
-      </ion-row>
-      <br>
-      <ion-row>
-        <ion-col size=1> </ion-col>
+                <ion-col size=2 routerLink="/meio-ambiente">
+                    <div class="figura">
+                        <a color=dark style=" color: black;text-decoration: none; cursor: pointer;">
+                            <p><img src="../../assets/icones prefeitura/cema.png" style="height: auto; width: auto;" alt="CEMA" title="CEMA"></p>
+                            <p>Coordenadoria Especial de Meio Ambiente</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=1> </ion-col>
+            </ion-row>
+            <br>
+            <ion-row>
+                <ion-col size=1> </ion-col>
 
-        <ion-col size=2>
-          <div class="figura">
-            <a color=dark target="_blank"
-              href="https://maragojipe.saatri.com.br/Certidao/Emitir?Pint_TipoCertidao=1&Pbol_ComMenuEsquerdo=true"
-              style=" color: black;text-decoration: none;">
-              <p><img src="../../assets/icones prefeitura/certidao.png" alt="Certidão negativa"
-                  title="Certidão negativa"></p>
-              <p>Certidão Negativa</p>
-            </a>
-          </div>
-        </ion-col>
+                <ion-col size=2>
+                    <div class="figura">
+                        <a color=dark target="_blank" href="https://sai.io.org.br/ba/maragojipe/site/licitacoes" style=" color: black;text-decoration: none;">
+                            <p><img src="../../assets/icones prefeitura/LICITAÇÃO.png" alt="Licitações" title="Licitações"></p>
+                            <p>Licitações</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura">
+                        <a color=dark target="_blank" href="https://maragojipe.saatri.com.br/Certidao/Emitir?Pint_TipoCertidao=1&Pbol_ComMenuEsquerdo=true" style=" color: black;text-decoration: none;">
+                            <p><img src="../../assets/icones prefeitura/certidao.png" alt="Certidão negativa" title="Certidão negativa"></p>
+                            <p>Certidão Negativa</p>
+                        </a>
+                    </div>
+                </ion-col>
 
-        <ion-col size=2>
-          <div class="figura">
-            <a color=dark target="_blank"
-              href="https://login.betha.cloud/servicelogin/login.faces?app=1c8315b6-1fb9-4a4c-b545-9f585d9fbd10&continue=dUt3pl7deSJcIfYbNgSBvyszrVx7CtLXMQ8SyjaTDIyAxIspOkXzLADGEjv59FmVkDvvSbpRV9h8ufTnTBpXO7RI651ay-4WmGKXeVTIjMkChFiJp09kXAw470h7bbL8oUHjYCAXMXlECtofVqS6JH_AsUaEICqRqBtvHR3H6EaV7xj-zMFKvctuq3OpBd0D2bm7ZGKL5FW87THOHVMFfCYNgtZ2oeINkVji2JMgRgpgEmplkHxPU7CCKQz54GOFyVHN6Py_dJPIiQgEJb2aMxxO4-4gBYMZSodmxwlxuDUijw_JmfDyFSV2hZjXVSq4yVpUjHY90IlU5PDTWqLLkZiCA7nt3vBiG9idkyjrDFS084mMoC_XNC7ftxRNM-FtRC8LFMRsNmQLkFWYvvdRq2--lccIxbZMoOHfS6KHsafZ1-yTX6wyrpAWa8rBF493HKae-xkaNo_PT_ecUeG1zJlNG-hIazU6krIrtQraJlvEVFUWaWUVmVSk-oWbJN-p2mgSt9oBYxfkse7NEuz-wF3kxSAQf9XobkVbxVCGcBkqabbFVgOuGc1_WhjcIwpZz4-eXQOfT1QFR9dhepHOc47n4fXUj4jQgFZg5DFW-fs=&mobile=false"
-              style=" color: black;text-decoration: none;">
-              <p><img src="../../assets/icones prefeitura/DINHEIRO.png" alt="Contra cheque" title="Contra cheque"></p>
-              <p>Contra Cheque</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=2>
-          <div class="figura">
-            <a color=dark target="_blank" href="https://portal.tcu.gov.br/inicio/"
-              style="text-decoration: none; color: black;">
-              <p><img src="../../assets/icones prefeitura/TCU.png" alt="TCU" title="TCU"></p>
-              <p>TCU</p>
-            </a>
-          </div>
-        </ion-col>
+                <ion-col size=2>
+                    <div class="figura">
+                        <a color=dark target="_blank" href="https://login.betha.cloud/servicelogin/login.faces?app=1c8315b6-1fb9-4a4c-b545-9f585d9fbd10&continue=dUt3pl7deSJcIfYbNgSBvyszrVx7CtLXMQ8SyjaTDIyAxIspOkXzLADGEjv59FmVkDvvSbpRV9h8ufTnTBpXO7RI651ay-4WmGKXeVTIjMkChFiJp09kXAw470h7bbL8oUHjYCAXMXlECtofVqS6JH_AsUaEICqRqBtvHR3H6EaV7xj-zMFKvctuq3OpBd0D2bm7ZGKL5FW87THOHVMFfCYNgtZ2oeINkVji2JMgRgpgEmplkHxPU7CCKQz54GOFyVHN6Py_dJPIiQgEJb2aMxxO4-4gBYMZSodmxwlxuDUijw_JmfDyFSV2hZjXVSq4yVpUjHY90IlU5PDTWqLLkZiCA7nt3vBiG9idkyjrDFS084mMoC_XNC7ftxRNM-FtRC8LFMRsNmQLkFWYvvdRq2--lccIxbZMoOHfS6KHsafZ1-yTX6wyrpAWa8rBF493HKae-xkaNo_PT_ecUeG1zJlNG-hIazU6krIrtQraJlvEVFUWaWUVmVSk-oWbJN-p2mgSt9oBYxfkse7NEuz-wF3kxSAQf9XobkVbxVCGcBkqabbFVgOuGc1_WhjcIwpZz4-eXQOfT1QFR9dhepHOc47n4fXUj4jQgFZg5DFW-fs=&mobile=false"
+                            style=" color: black;text-decoration: none;">
+                            <p><img src="../../assets/icones prefeitura/DINHEIRO.png" alt="Contra cheque" title="Contra cheque"></p>
+                            <p>Contra Cheque</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura">
+                        <a color=dark target="_blank" href="https://portal.tcu.gov.br/inicio/" style="text-decoration: none; color: black;">
+                            <p><img src="../../assets/icones prefeitura/TCU.png" alt="TCU" title="TCU"></p>
+                            <p>TCU</p>
+                        </a>
+                    </div>
+                </ion-col>
 
-        <ion-col size=2>
-          <div class="figura">
-            <a color=dark target="_blank" href="http://www.tcm.ba.gov.br/" style=" color: black;text-decoration: none;">
-              <p><img src="../../assets/icones prefeitura/TCM.png" alt="TCM" title="TCM"></p>
-              <p>TCM</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=2>
-          <div class="figura">
-            <a color=dark target="_blank" href="https://sai.io.org.br/ba/maragojipe/site/licitacoes"
-              style=" color: black;text-decoration: none;">
-              <p><img src="../../assets/icones prefeitura/LICITAÇÃO.png" alt="Licitações" title="Licitações"></p>
-              <p>Licitações</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=1> </ion-col>
-      </ion-row>
-      <br>
-      <ion-row>
-        <ion-col size=1> </ion-col>
+                <ion-col size=2>
+                    <div class="figura">
+                        <a color=dark target="_blank" href="http://www.tcm.ba.gov.br/" style=" color: black;text-decoration: none;">
+                            <p><img src="../../assets/icones prefeitura/TCM.png" alt="TCM" title="TCM"></p>
+                            <p>TCM</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=1> </ion-col>
+            </ion-row>
+            <br>
+            <ion-row>
+                <ion-col size=1> </ion-col>
 
-        <ion-col size=2>
-          <div class="figura">
-            <a color=dark target="_blank" href="https://www.cgu.gov.br/" style=" color: black;text-decoration: none;">
-              <p><img src="../../assets/icones prefeitura/CGU.png" alt="CGU" title="CGU"></p>
-              <p>CGU</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=2>
-          <a style="text-decoration: none; color: black;" href="javascript:void(0)" routerLink="/ouvidoria">
-            <div class="figura">
-              <p><img src="../../assets/icones prefeitura/FALE-AQUI.png" alt="Ouvidoria" title="Ouvidoria"></p>
-              <p>Solicite Aqui</p>
-            </div>
-          </a>
-        </ion-col>
+                <ion-col size=2>
+                    <div class="figura">
+                        <a color=dark target="_blank" href="https://www.cgu.gov.br/" style=" color: black;text-decoration: none;">
+                            <p><img src="../../assets/icones prefeitura/CGU.png" alt="CGU" title="CGU"></p>
+                            <p>CGU</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <a style="text-decoration: none; color: black;" href="javascript:void(0)" routerLink="/ouvidoria">
+                        <div class="figura">
+                            <p><img src="../../assets/icones prefeitura/FALE-AQUI.png" alt="Ouvidoria" title="Ouvidoria"></p>
+                            <p>Solicite Aqui</p>
+                        </div>
+                    </a>
+                </ion-col>
 
-        <ion-col size=2>
-          <div class="figura">
-            <a target="_blank" href="https://www.maragojipe.ba.gov.br/calendario.pdf"
-              style="text-decoration: none;color: black;">
-              <p><img src="../../assets/icones prefeitura/CALENDARIO.png" alt="Calendario escolar"
-                  title="Calendario escolar"></p>
-              <p>Calendário Escolar</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=2>
-          <div class="figura" routerLink="/defesa-civil">
-            <a href="javascript:void(0)" style="text-decoration: none;color: black;">
-              <p><img src="../../assets/icones prefeitura/defesa-civil.png" alt="Defesa Civil" title="Defesa Civil"></p>
-              <p>Defesa Civil</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=2>
-          <div class="figura">
-            <a href="javascript:void(0)" style="text-decoration: none;color: black;">
-              <p><img src="../../assets/icones prefeitura/TURISMO.png" alt="Pontos turisticos"
-                  title="Pontos turisticos"></p>
-              <p>Pontos Turísticos</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=1> </ion-col>
-      </ion-row>
+                <ion-col size=2>
+                    <div class="figura">
+                        <a target="_blank" href="https://www.maragojipe.ba.gov.br/calendario.pdf" style="text-decoration: none;color: black;">
+                            <p><img src="../../assets/icones prefeitura/CALENDARIO.png" alt="Calendario escolar" title="Calendario escolar"></p>
+                            <p>Calendário Escolar</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura" routerLink="/defesa-civil">
+                        <a href="javascript:void(0)" style="text-decoration: none;color: black;">
+                            <p><img src="../../assets/icones prefeitura/defesa-civil.png" alt="Defesa Civil" title="Defesa Civil"></p>
+                            <p>Defesa Civil</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura">
+                        <a href="javascript:void(0)" style="text-decoration: none;color: black;">
+                            <p><img src="../../assets/icones prefeitura/TURISMO.png" alt="Pontos turisticos" title="Pontos turisticos"></p>
+                            <p>Pontos Turísticos</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=1> </ion-col>
+            </ion-row>
 
-      <ion-row>
-        <ion-col size=1></ion-col>
-        
-        <ion-col size=2>
-          <div class="figura">
-            <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/onde-ficar">
-              <p><img src="../../assets/icones prefeitura/ONDEFICAR.png" alt="Onde fica" title="Onde fica"></p>
-              <p>Onde Ficar</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=2>
-          <div class="figura">
-            <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/onde-comer">
-              <p><img src="../../assets/icones prefeitura/ONDECOMER.png" alt="Onde comer" title="Onde comer"></p>
-              <p>Onde Comer</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=2 *ngIf="1>2" >
-          <div class="figura">
-            <a target="_blank"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSfcCXyavkRsBErtkQaSiQ1ozP7FWqZKollEDI24RtI2TWbuxQ/viewform?usp=sf_link"
-              style="text-decoration: none;color: black;">
-              <p><img src="../../assets/icones prefeitura/vacina.png" alt="Cadastro para a Covid 19"
-                  title="Cadastro para a Covid 19"></p>
-              <p>Cadastro Vacina COVID-19</p>
-            </a>
-          </div>
-        </ion-col>
+            <ion-row>
+                <ion-col size=1></ion-col>
 
-        <ion-col *ngIf="1>2" size=2>
-          <div class="figura">
-            <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/educacao">
-              <p><img src="../../assets/icones prefeitura/educacao.png" alt="Educação" title="Educação"></p>
-              <p>Educação</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=1> </ion-col>
-      </ion-row>
-    </ion-grid>
+                <ion-col size=2>
+                    <div class="figura">
+                        <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/onde-ficar">
+                            <p><img src="../../assets/icones prefeitura/ONDEFICAR.png" alt="Onde fica" title="Onde fica"></p>
+                            <p>Onde Ficar</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura">
+                        <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/onde-comer">
+                            <p><img src="../../assets/icones prefeitura/ONDECOMER.png" alt="Onde comer" title="Onde comer"></p>
+                            <p>Onde Comer</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <!--
+                <ion-col size=2>
+                    <div class="figura">
+                        <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScTikrFdk_NZ5t6_mIhC6h1n37zCvGJ7IC47s0EKwjWDnbwkg/viewform?vc=0&c=0&w=1&flr=0" style="text-decoration: none;color: black;">
+                            <p><img src="../../assets/icones prefeitura/vacina.png" alt="Cadastro para a Covid 19" title="Cadastro para a Covid 19"></p>
+                            <p style="text-align: center;">Cadastro Vacinação<br>(12 a 17 anos)</p>
+                        </a>
+                    </div>
+                </ion-col>
+-->
+                <ion-col *ngIf="1>2" size=2>
+                    <div class="figura">
+                        <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/educacao">
+                            <p><img src="../../assets/icones prefeitura/educacao.png" alt="Educação" title="Educação"></p>
+                            <p>Educação</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=1> </ion-col>
+            </ion-row>
+        </ion-grid>
 
 
 
-    <!-- Remodelacao para celular -->
-    <ion-grid *ngIf="alternar == false">
-      <ion-row>
-        <ion-col size=1> </ion-col>
-        <ion-col size=2>
-          <div class="figura2">
-            <a target="_blank" href="https://dom.imap.org.br/sitesMunicipios/imprensaOficial.cfm?varCodigo=497"
-              style="text-decoration: none; color: black;">
-              <p><img src="../../assets/icones prefeitura/DIARIO.png" alt="Diario oficial" title="Diario oficial"></p>
-              <p>Diário Oficial</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=2>
-          <div class="figura2">
-            <a color=dark target="_blank" href="https://sai.io.org.br/ba/maragojipe/site"
-              style=" color: black;text-decoration: none;">
-              <p><img src="../../assets/icones prefeitura/TRANSPARENCIA.png" alt="Transparencia" title="transparencia">
-              </p>
-              <p>Transparência</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=2>
-          <div class="figura2">
-            <a color=dark target="_blank"
-              href="https://maragojipe.saatri.com.br/Imobiliario/EmitirIptu?Pbol_ComMenuEsquerdo=true"
-              style="text-decoration: none; color: black;">
-              <p><img src="../../assets/icones prefeitura/IPTU.png" alt="IPTU" title="IPTU"></p>
-              <p>IPTU</p>
-            </a>
-          </div>
-        </ion-col>
+        <!-- Remodelacao para celular -->
+        <ion-grid *ngIf="alternar == false">
+            <ion-row>
+                <ion-col size=1> </ion-col>
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a target="_blank" href="https://dom.imap.org.br/sitesMunicipios/imprensaOficial.cfm?varCodigo=497" style="text-decoration: none; color: black;">
+                            <p><img src="../../assets/icones prefeitura/DIARIO.png" alt="Diario oficial" title="Diario oficial"></p>
+                            <p>Diário Oficial</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a color=dark target="_blank" href="https://sai.io.org.br/ba/maragojipe/site" style=" color: black;text-decoration: none;">
+                            <p><img src="../../assets/icones prefeitura/TRANSPARENCIA.png" alt="Transparencia" title="transparencia">
+                            </p>
+                            <p>Transparência</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a color=dark target="_blank" href="https://maragojipe.saatri.com.br/Imobiliario/EmitirIptu?Pbol_ComMenuEsquerdo=true" style="text-decoration: none; color: black;">
+                            <p><img src="../../assets/icones prefeitura/IPTU.png" alt="IPTU" title="IPTU"></p>
+                            <p>IPTU</p>
+                        </a>
+                    </div>
+                </ion-col>
 
-        <ion-col size=2>
-          <div class="figura2">
-            <a color=dark target="_blank" href="https://www.tcm.ba.gov.br/portal-da-cidadania/pessoal/"
-              style="text-decoration: none; color: black;">
-              <p><img src="../../assets/icones prefeitura/RECURSOS2.png" alt="Recursos Humanos"
-                  title="Recursos humanos"></p>
-              <p>Recursos Humanos</p>
-            </a>
-          </div>
-        </ion-col>
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a color=dark target="_blank" href="https://www.tcm.ba.gov.br/portal-da-cidadania/pessoal/" style="text-decoration: none; color: black;">
+                            <p><img src="../../assets/icones prefeitura/RECURSOS2.png" alt="Recursos Humanos" title="Recursos humanos"></p>
+                            <p>Recursos Humanos</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2 routerLink="/meio-ambiente">
+                    <div class="figura2">
+                        <a style="text-decoration: none;color: black;">
+                            <p><img src="../../assets/icones prefeitura/cema.png" style="height: auto; width: auto;" alt="CEMA" title="CEMA"></p>
+                            <p>Meio Ambiente</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=1> </ion-col>
+            </ion-row>
+            <br>
+            <ion-row>
+                <ion-col size=1> </ion-col>
 
-        <ion-col routerLink="/meio-ambiente" size=2>
-          <div class="figura2">
-            <p><img src="../../assets/icones prefeitura/cema.png" alt="Meio Ambiente" title="Meio Ambiente"></p>
-            <p>CEMA</p>
-          </div>
-        </ion-col>
-        <ion-col size=1> </ion-col>
-      </ion-row>
-      <br>
-      <ion-row>
-        <ion-col size=1> </ion-col>
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a color=dark target="_blank" href="https://maragojipe.saatri.com.br/Certidao/Emitir?Pint_TipoCertidao=1&Pbol_ComMenuEsquerdo=true" style=" color: black;text-decoration: none;">
+                            <p><img src="../../assets/icones prefeitura/certidao.png" alt="Certidão negativa" title="Certidão negativa"></p>
+                            <p>Certidão Negativa</p>
+                        </a>
+                    </div>
+                </ion-col>
 
-        <ion-col size=2>
-          <div class="figura2">
-            <a color=dark target="_blank"
-              href="https://maragojipe.saatri.com.br/Certidao/Emitir?Pint_TipoCertidao=1&Pbol_ComMenuEsquerdo=true"
-              style=" color: black;text-decoration: none;">
-              <p><img src="../../assets/icones prefeitura/certidao.png" alt="Certidão negativa"
-                  title="Certidão negativa"></p>
-              <p>Certidão Negativa</p>
-            </a>
-          </div>
-        </ion-col>
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a color=dark target="_blank" href="https://login.betha.cloud/servicelogin/login.faces?app=1c8315b6-1fb9-4a4c-b545-9f585d9fbd10&continue=dUt3pl7deSJcIfYbNgSBvyszrVx7CtLXMQ8SyjaTDIyAxIspOkXzLADGEjv59FmVkDvvSbpRV9h8ufTnTBpXO7RI651ay-4WmGKXeVTIjMkChFiJp09kXAw470h7bbL8oUHjYCAXMXlECtofVqS6JH_AsUaEICqRqBtvHR3H6EaV7xj-zMFKvctuq3OpBd0D2bm7ZGKL5FW87THOHVMFfCYNgtZ2oeINkVji2JMgRgpgEmplkHxPU7CCKQz54GOFyVHN6Py_dJPIiQgEJb2aMxxO4-4gBYMZSodmxwlxuDUijw_JmfDyFSV2hZjXVSq4yVpUjHY90IlU5PDTWqLLkZiCA7nt3vBiG9idkyjrDFS084mMoC_XNC7ftxRNM-FtRC8LFMRsNmQLkFWYvvdRq2--lccIxbZMoOHfS6KHsafZ1-yTX6wyrpAWa8rBF493HKae-xkaNo_PT_ecUeG1zJlNG-hIazU6krIrtQraJlvEVFUWaWUVmVSk-oWbJN-p2mgSt9oBYxfkse7NEuz-wF3kxSAQf9XobkVbxVCGcBkqabbFVgOuGc1_WhjcIwpZz4-eXQOfT1QFR9dhepHOc47n4fXUj4jQgFZg5DFW-fs=&mobile=false"
+                            style=" color: black;text-decoration: none;">
+                            <p><img src="../../assets/icones prefeitura/DINHEIRO.png" alt="Contra cheque" title="Contra cheque"></p>
+                            <p>Contra Cheque</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a color=dark target="_blank" href="https://portal.tcu.gov.br/inicio/" style="text-decoration: none; color: black;">
+                            <p><img src="../../assets/icones prefeitura/TCU.png" alt="TCU" title="TCU"></p>
+                            <p>TCU</p>
+                        </a>
+                    </div>
+                </ion-col>
 
-        <ion-col size=2>
-          <div class="figura2">
-            <a color=dark target="_blank"
-              href="https://login.betha.cloud/servicelogin/login.faces?app=1c8315b6-1fb9-4a4c-b545-9f585d9fbd10&continue=dUt3pl7deSJcIfYbNgSBvyszrVx7CtLXMQ8SyjaTDIyAxIspOkXzLADGEjv59FmVkDvvSbpRV9h8ufTnTBpXO7RI651ay-4WmGKXeVTIjMkChFiJp09kXAw470h7bbL8oUHjYCAXMXlECtofVqS6JH_AsUaEICqRqBtvHR3H6EaV7xj-zMFKvctuq3OpBd0D2bm7ZGKL5FW87THOHVMFfCYNgtZ2oeINkVji2JMgRgpgEmplkHxPU7CCKQz54GOFyVHN6Py_dJPIiQgEJb2aMxxO4-4gBYMZSodmxwlxuDUijw_JmfDyFSV2hZjXVSq4yVpUjHY90IlU5PDTWqLLkZiCA7nt3vBiG9idkyjrDFS084mMoC_XNC7ftxRNM-FtRC8LFMRsNmQLkFWYvvdRq2--lccIxbZMoOHfS6KHsafZ1-yTX6wyrpAWa8rBF493HKae-xkaNo_PT_ecUeG1zJlNG-hIazU6krIrtQraJlvEVFUWaWUVmVSk-oWbJN-p2mgSt9oBYxfkse7NEuz-wF3kxSAQf9XobkVbxVCGcBkqabbFVgOuGc1_WhjcIwpZz4-eXQOfT1QFR9dhepHOc47n4fXUj4jQgFZg5DFW-fs=&mobile=false"
-              style=" color: black;text-decoration: none;">
-              <p><img src="../../assets/icones prefeitura/DINHEIRO.png" alt="Contra cheque" title="Contra cheque"></p>
-              <p>Contra Cheque</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=2>
-          <div class="figura2">
-            <a color=dark target="_blank" href="https://portal.tcu.gov.br/inicio/"
-              style="text-decoration: none; color: black;">
-              <p><img src="../../assets/icones prefeitura/TCU.png" alt="TCU" title="TCU"></p>
-              <p>TCU</p>
-            </a>
-          </div>
-        </ion-col>
-
-        <ion-col size=2>
-          <div class="figura2">
-            <a color=dark target="_blank" href="http://www.tcm.ba.gov.br/" style=" color: black;text-decoration: none;">
-              <p><img src="../../assets/icones prefeitura/TCM.png" alt="TCM" title="TCM"></p>
-              <p>TCM</p>
-            </a>
-          </div>
-        </ion-col>
-        
-        <ion-col size=2>
-          <div class="figura2">
-            <a color=dark target="_blank" href="https://sai.io.org.br/ba/maragojipe/site/licitacoes"
-              style=" color: black;text-decoration: none;">
-              <p><img src="../../assets/icones prefeitura/LICITAÇÃO.png" alt="Licitações" title="Licitações"></p>
-              <p>Licitações</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=1> </ion-col>
-      </ion-row>
-      <br>
-      <ion-row>
-        <ion-col size=1> </ion-col>
-        
-        <ion-col size=2>
-          <div class="figura2">
-            <a color=dark target="_blank" href="https://www.cgu.gov.br/" style=" color: black;text-decoration: none;">
-              <p><img src="../../assets/icones prefeitura/CGU.png" alt="CGU" title="CGU"></p>
-              <p>CGU</p>
-            </a>
-          </div>
-        </ion-col>
-        
-        <ion-col routerLink="/ouvidoria" size=2>
-          <div class="figura2">
-            <p><img src="../../assets/icones prefeitura/FALE-AQUI.png" alt="Ouvidoria" title="Ouvidoria"></p>
-            <p>Solicite Aqui</p>
-          </div>
-        </ion-col>
-        <ion-col size=2>
-          <div class="figura2">
-            <a href="https://www.maragojipe.ba.gov.br/calendario.pdf" target="_blank"
-              style="text-decoration: none;color: black;">
-              <p><img src="../../assets/icones prefeitura/CALENDARIO.png" alt="Calendario escolar"
-                  title="Calendario escolar"></p>
-              <p>Calendário Escolar</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=2>
-          <div class="figura2" routerLink="/defesa-civil">
-            <p><img src="../../assets/icones prefeitura/defesa-civil.png" alt="Desconhecido" title="Desconhecido"></p>
-            <p>Defesa Civil</p>
-          </div>
-        </ion-col>
-        <ion-col size=2>
-          <div class="figura2">
-            <a href="javascript:void(0)" style="text-decoration: none;color: black;">
-              <p><img src="../../assets/icones prefeitura/TURISMO.png" alt="Desconhecido" title="Desconhecido"></p>
-              <p>Pontos Turísticos</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=1></ion-col>
-      </ion-row>
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a color=dark target="_blank" href="http://www.tcm.ba.gov.br/" style=" color: black;text-decoration: none;">
+                            <p><img src="../../assets/icones prefeitura/TCM.png" alt="TCM" title="TCM"></p>
+                            <p>TCM</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a color=dark target="_blank" href="https://www.cgu.gov.br/" style=" color: black;text-decoration: none;">
+                            <p><img src="../../assets/icones prefeitura/CGU.png" alt="CGU" title="CGU"></p>
+                            <p>CGU</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=1> </ion-col>
+            </ion-row>
+            <br>
+            <ion-row>
+                <ion-col size=1> </ion-col>
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a color=dark target="_blank" href="https://sai.io.org.br/ba/maragojipe/site/licitacoes" style=" color: black;text-decoration: none;">
+                            <p><img src="../../assets/icones prefeitura/LICITAÇÃO.png" alt="Licitações" title="Licitações"></p>
+                            <p>Licitações</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a href="https://www.maragojipe.ba.gov.br/calendario.pdf" target="_blank" style="text-decoration: none;color: black;">
+                            <p><img src="../../assets/icones prefeitura/CALENDARIO.png" alt="Calendario escolar" title="Calendario escolar"></p>
+                            <p>Calendário Escolar</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura2" routerLink="/defesa-civil">
+                        <p><img src="../../assets/icones prefeitura/defesa-civil.png" alt="Desconhecido" title="Desconhecido"></p>
+                        <p>Defesa Civil</p>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a href="javascript:void(0)" style="text-decoration: none;color: black;">
+                            <p><img src="../../assets/icones prefeitura/TURISMO.png" alt="Desconhecido" title="Desconhecido"></p>
+                            <p>Pontos Turísticos</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/onde-ficar">
+                            <p><img src="../../assets/icones prefeitura/ONDEFICAR.png" alt="Onde fica" title="Onde fica"></p>
+                            <p>Onde Ficar</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=1></ion-col>
+            </ion-row>
 
 
-      <ion-row>
-        <ion-col size=1></ion-col>
-        
-        <ion-col size=2>
-          <div class="figura2">
-            <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/onde-ficar">
-              <p><img src="../../assets/icones prefeitura/ONDEFICAR.png" alt="Onde fica" title="Onde fica"></p>
-              <p>Onde Ficar</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=2>
-          <div class="figura2">
-            <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/onde-comer">
-              <p><img src="../../assets/icones prefeitura/ONDECOMER.png" alt="Onde comer" title="Onde comer"></p>
-              <p>Onde Comer</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=2 *ngIf="1>2" >
-          <div class="figura2">
-            <a target="_blank"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSfcCXyavkRsBErtkQaSiQ1ozP7FWqZKollEDI24RtI2TWbuxQ/viewform?usp=sf_link"
-              style="text-decoration: none;color: black;">
-              <p><img src="../../assets/icones prefeitura/vacina.png" alt="Cadastro para a Covid 19"
-                  title="Cadastro para a Covid 19"></p>
-              <p>Cadastro Vacina COVID-19</p>
-            </a>
-          </div>
-        </ion-col>
+            <ion-row>
+                <ion-col size=1></ion-col>
+                <ion-col routerLink="/ouvidoria" size=2>
+                    <div class="figura2">
+                        <p><img src="../../assets/icones prefeitura/FALE-AQUI.png" alt="Ouvidoria" title="Ouvidoria"></p>
+                        <p>Solicite Aqui</p>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/onde-comer">
+                            <p><img src="../../assets/icones prefeitura/ONDECOMER.png" alt="Onde comer" title="Onde comer"></p>
+                            <p>Onde Comer</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <!--
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScTikrFdk_NZ5t6_mIhC6h1n37zCvGJ7IC47s0EKwjWDnbwkg/viewform?vc=0&c=0&w=1&flr=0" style="text-decoration: none;color: black;">
+                            <p><img src="../../assets/icones prefeitura/vacina.png" alt="Cadastro para a Covid 19" title="Cadastro para a Covid 19"></p>
+                            <p style="text-align: center;">Cadastro Vacinação<br>(12 a 17 anos)</p>
+                        </a>
+                    </div>
+                </ion-col>
+-->
+                <ion-col *ngIf="1>2" size=2>
+                    <div class="figura2">
+                        <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/educacao">
+                            <p><img src="../../assets/icones prefeitura/educacao.png" alt="Educação" title="Educação"></p>
+                            <p>Educação</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=1></ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
 
-        <ion-col *ngIf="1>2" size=2>
-          <div class="figura2">
-            <a href="javascript:void(0)" style="text-decoration: none;color: black;" routerLink="/educacao">
-              <p><img src="../../assets/icones prefeitura/educacao.png" alt="Educação" title="Educação"></p>
-              <p>Educação</p>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=1></ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
+    <div class="banner">
+        <br>
+        <ion-slides class="slides" pager="false" [options]="slideOptsOne">
+            <ion-slide>
+                <img class="banner2" src="../../assets/banner/banner.png">
+            </ion-slide>
+            <!--
+            <ion-slide>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScTikrFdk_NZ5t6_mIhC6h1n37zCvGJ7IC47s0EKwjWDnbwkg/viewform?vc=0&c=0&w=1&flr=0" target="_blank">
+                    <img height="50%" class="banner2" src="../../assets/banner/banner2.jpeg">
+                </a>
+            </ion-slide>-->
+        </ion-slides>
+        <br>
+    </div>
 
-  <div class="banner">
-    <br>
-    <ion-slides class="slides" pager="true" [options]="slideOptsOne">
-      <ion-slide>
-        <a href="javascript:void(0)" style="text-decoration: none;color: black;">
-          <img class ="banner2" src="https://maragojipe.ba.gov.br/assets/banner/banner.png">
-        </a>
-      </ion-slide>
-    </ion-slides>
-    <br>
-  </div>
+    <div id="fundoCInza">
+        <br>
+        <ion-grid>
+            <ion-row>
+                <ion-col size=3>
+                    <img width="100%" src="../../assets/icones prefeitura/destaques.png">
+                </ion-col>
+                <ion-col size=9></ion-col>
+            </ion-row>
+            <br>
+            <ion-row style="margin-left: 3%; margin-right: 3%;" *ngIf="alternar == true">
+                <ion-col size=3>
+                    <ion-label style="text-align: center;">
+                        BOLETIM
+                    </ion-label>
+                </ion-col>
+                <ion-col size=3>
+                    <ion-label style="text-align: center;">
+                        VACINÔMETRO
+                    </ion-label>
+                </ion-col>
+                <ion-col size=3>
+                    <ion-label style="text-align: center;">
+                        PAINEL DE INFORMAÇÕES
+                    </ion-label>
+                </ion-col>
+                <ion-col size=3>
+                    <ion-label style="text-align: center;">
+                        CAMPANHAS
+                    </ion-label>
+                </ion-col>
+            </ion-row>
 
-  <div id="fundoCInza">
-    <br>
-    <ion-grid>
-      <ion-row>
-        <ion-col size=3>
-          <img width="100%" src="../../assets/icones prefeitura/destaques.png">
-        </ion-col>
-        <ion-col size=9></ion-col>
-      </ion-row>
-      <br>
-      <ion-row style="margin-left: 3%; margin-right: 3%;" *ngIf="alternar == true">
-        <ion-col size=3>
-          <ion-label style="text-align: center;">
-            BOLETIM
-          </ion-label>
-        </ion-col>
-        <ion-col size=3>
-          <ion-label style="text-align: center;">
-            VACINÔMETRO
-          </ion-label>
-        </ion-col>
-        <ion-col size=3>
-          <ion-label style="text-align: center;">
-            PAINEL DE INFORMAÇÕES
-          </ion-label>
-        </ion-col>
-        <ion-col size=3>
-          <ion-label style="text-align: center;">
-            CAMPANHAS
-          </ion-label>
-        </ion-col>
-      </ion-row>
+            <ion-row style="margin-left: 3%; margin-right: 3%;" *ngIf="alternar == false">
+                <ion-col size=3>
+                    <ion-label style="font-size: xx-small;">
+                        BOLETIM
+                    </ion-label>
+                </ion-col>
+                <ion-col size=3>
+                    <ion-label style="font-size: xx-small;">
+                        VACINÔMETRO
+                    </ion-label>
+                </ion-col>
+                <ion-col size=3>
+                    <ion-label style="font-size: xx-small;">
+                        PAINEL DE INFORMAÇÕES
+                    </ion-label>
+                </ion-col>
+                <ion-col size=3>
+                    <ion-label style="font-size: xx-small;">
+                        CAMPANHAS
+                    </ion-label>
+                </ion-col>
+            </ion-row>
 
-      <ion-row style="margin-left: 3%; margin-right: 3%;" *ngIf="alternar == false">
-        <ion-col size=3>
-          <ion-label style="font-size: xx-small;">
-            BOLETIM
-          </ion-label>
-        </ion-col>
-        <ion-col size=3>
-          <ion-label style="font-size: xx-small;">
-            VACINÔMETRO
-          </ion-label>
-        </ion-col>
-        <ion-col size=3>
-          <ion-label style="font-size: xx-small;">
-            PAINEL DE INFORMAÇÕES
-          </ion-label>
-        </ion-col>
-        <ion-col size=3>
-          <ion-label style="font-size: xx-small;">
-            CAMPANHAS
-          </ion-label>
-        </ion-col>
-      </ion-row>
-
-      <ion-row style="margin-left: 3%; margin-right: 3%;">
-        <ion-col size=3>
-          <img [src]="boletim" id="myImg1" alt="Boletim" title="Boletim">
-        </ion-col>
-        <ion-col size=3>
-          <img [src]="vacinometro" id="myImg2" alt="Vacinômetro" title="Vacinômetro">
-        </ion-col>
-        <ion-col size=3>
-          <img [src]="corona" alt="Painel de informações" id="myImg3"title="Painel de informações">
-        </ion-col>
-        <ion-col size=3>
-          <img [src]="campanhas" alt="Campanhas"id="myImg4" title="Campanhas">
-          <!--
+            <ion-row style="margin-left: 3%; margin-right: 3%;">
+                <ion-col size=3>
+                    <img [src]="boletim" id="myImg1" alt="Boletim" title="Boletim">
+                </ion-col>
+                <ion-col size=3>
+                    <img [src]="vacinometro" id="myImg2" alt="Vacinômetro" title="Vacinômetro">
+                </ion-col>
+                <ion-col size=3>
+                    <img [src]="corona" alt="Painel de informações" id="myImg3" title="Painel de informações">
+                </ion-col>
+                <ion-col size=3>
+                    <img [src]="campanhas" alt="Campanhas" id="myImg4" title="Campanhas">
+                    <!--
             <ion-slides class="slides" pager="true" [options]="slideOptsOne">
               <ion-slide >
                 <img width="90%" src="../../assets/outros/campanhas/001.jpeg" title="Campanhas"> 
@@ -594,238 +560,225 @@
               </ion-slide>
             </ion-slides>
           -->
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
-  <div class="fundoBaixo">
-    <ion-grid *ngIf="titulo1.length>0 && alternar == false">
-      <ion-row>
-        <ion-col size=3>
-          <img src="../../assets/icones prefeitura/NOTICIAS.png" width="65%" alt="Noticias" title="Noticias">
-        </ion-col>
-        <ion-col size=9></ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size=1></ion-col>
-        <ion-col size=5>
-          <div class="figura4">
-            <a style="text-decoration: none; color: black;" href=" javascript:void(0)" (click)="visualizar(titulo1)">
-              <p><img [src]="thumb1" [alt]="introducao1" [title]="introducao1"></p>
-              <h6>{{titulo1}}</h6>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=5>
-          <div class="figura4">
-            <a style="text-decoration: none; color: black;" href=" javascript:void(0)" (click)="visualizar(titulo2)">
-              <p><img [src]="thumb2" [alt]="introducao2" [title]="introducao2"></p>
-              <h6>{{titulo2}}</h6>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=1></ion-col>
-      </ion-row>
-    </ion-grid>
-    <ion-grid *ngIf="titulo1.length>0 && alternar == true">
-      <ion-row>
-        <ion-col size=3>
-          <img src="../../assets/icones prefeitura/NOTICIAS.png" width="65%" alt="Noticias" title="Noticias">
-        </ion-col>
-        <ion-col size=9></ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size=1></ion-col>
-        <ion-col size=5>
-          <div class="figura3">
-            <a style="text-decoration: none; color: black;" href=" javascript:void(0)" (click)="visualizar(titulo1)">
-              <p><img [src]="thumb1" [alt]="introducao1" [title]="introducao1"></p>
-              <h1><b>{{titulo1}}</b></h1>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=5>
-          <div class="figura3">
-            <a style="text-decoration: none; color: black;" href=" javascript:void(0)" (click)="visualizar(titulo2)">
-              <p><img [src]="thumb2" [alt]="introducao2" [title]="introducao2"></p>
-              <h1><b>{{titulo2}}</b></h1>
-            </a>
-          </div>
-        </ion-col>
-        <ion-col size=1></ion-col>
-      </ion-row>
-    </ion-grid>
-    <br>
-    <ion-grid *ngIf="alternar == true">
-      <ion-row>
-        <ion-col size=1></ion-col>
-        <ion-col class="textoPequeno1" size=5>
-          <ion-item color="transparent" lines=none>
-            <img class="imagemPequena" [src]="thumb3">
-            &nbsp;
-            <a style="text-decoration: none; color: black;" href=" javascript:void(0)" (click)="visualizar(titulo3)">
-              <p>{{titulo3}}</p>
-            </a>
-          </ion-item>
-        </ion-col>
-        &nbsp;
-        <ion-col class="textoPequeno2" size=5>
-          <ion-item color="transparent" lines=none>
-            <img class="imagemPequena" [src]="thumb4">
-            &nbsp;
-            <a style="text-decoration: none; color: black;" href=" javascript:void(0)" (click)="visualizar(titulo4)">
-              <p>{{titulo4}}</p>
-            </a>
-          </ion-item>
-        </ion-col>
-        <ion-col size=1></ion-col>
-      </ion-row>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <div class="fundoBaixo">
+        <ion-grid *ngIf="titulo1.length>0 && alternar == false">
+            <ion-row>
+                <ion-col size=3>
+                    <img src="../../assets/icones prefeitura/NOTICIAS.png" width="65%" alt="Noticias" title="Noticias">
+                </ion-col>
+                <ion-col size=9></ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size=1></ion-col>
+                <ion-col size=5>
+                    <div class="figura4">
+                        <a style="text-decoration: none; color: black;" href=" javascript:void(0)" (click)="visualizar(titulo1)">
+                            <p><img [src]="thumb1" [alt]="introducao1" [title]="introducao1"></p>
+                            <h6>{{titulo1}}</h6>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=5>
+                    <div class="figura4">
+                        <a style="text-decoration: none; color: black;" href=" javascript:void(0)" (click)="visualizar(titulo2)">
+                            <p><img [src]="thumb2" [alt]="introducao2" [title]="introducao2"></p>
+                            <h6>{{titulo2}}</h6>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=1></ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-grid *ngIf="titulo1.length>0 && alternar == true">
+            <ion-row>
+                <ion-col size=3>
+                    <img src="../../assets/icones prefeitura/NOTICIAS.png" width="65%" alt="Noticias" title="Noticias">
+                </ion-col>
+                <ion-col size=9></ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size=1></ion-col>
+                <ion-col size=5>
+                    <div class="figura3">
+                        <a style="text-decoration: none; color: black;" href=" javascript:void(0)" (click)="visualizar(titulo1)">
+                            <p><img [src]="thumb1" [alt]="introducao1" [title]="introducao1"></p>
+                            <h1><b>{{titulo1}}</b></h1>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=5>
+                    <div class="figura3">
+                        <a style="text-decoration: none; color: black;" href=" javascript:void(0)" (click)="visualizar(titulo2)">
+                            <p><img [src]="thumb2" [alt]="introducao2" [title]="introducao2"></p>
+                            <h1><b>{{titulo2}}</b></h1>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=1></ion-col>
+            </ion-row>
+        </ion-grid>
+        <br>
+        <ion-grid *ngIf="alternar == true">
+            <ion-row>
+                <ion-col size=1></ion-col>
+                <ion-col class="textoPequeno1" size=5>
+                    <ion-item color="transparent" lines=none>
+                        <img class="imagemPequena" [src]="thumb3"> &nbsp;
+                        <a style="text-decoration: none; color: black;" href=" javascript:void(0)" (click)="visualizar(titulo3)">
+                            <p>{{titulo3}}</p>
+                        </a>
+                    </ion-item>
+                </ion-col>
+                &nbsp;
+                <ion-col class="textoPequeno2" size=5>
+                    <ion-item color="transparent" lines=none>
+                        <img class="imagemPequena" [src]="thumb4"> &nbsp;
+                        <a style="text-decoration: none; color: black;" href=" javascript:void(0)" (click)="visualizar(titulo4)">
+                            <p>{{titulo4}}</p>
+                        </a>
+                    </ion-item>
+                </ion-col>
+                <ion-col size=1></ion-col>
+            </ion-row>
 
-      <ion-row>
-        <ion-col size=1></ion-col>
-        <ion-col class="textoPequeno1" size=5>
-          <ion-item color="transparent" lines=none>
-            <img class="imagemPequena" [src]="thumb5">
-            &nbsp;
-            <a style="text-decoration: none; color: black;" href=" javascript:void(0)" (click)="visualizar(titulo5)">
-              <p>{{titulo5}}</p>
-            </a>
-          </ion-item>
-        </ion-col>
-        &nbsp;
-        <ion-col class="textoPequeno2" size=5>
-          <ion-item color="transparent" lines=none>
-            <img class="imagemPequena" [src]="thumb6">
-            &nbsp;
-            <a style="text-decoration: none; color: black;" href=" javascript:void(0)" (click)="visualizar(titulo6)">
-              <p>{{titulo6}}</p>
-            </a>
-          </ion-item>
-        </ion-col>
-        <ion-col size=1></ion-col>
-      </ion-row>
+            <ion-row>
+                <ion-col size=1></ion-col>
+                <ion-col class="textoPequeno1" size=5>
+                    <ion-item color="transparent" lines=none>
+                        <img class="imagemPequena" [src]="thumb5"> &nbsp;
+                        <a style="text-decoration: none; color: black;" href=" javascript:void(0)" (click)="visualizar(titulo5)">
+                            <p>{{titulo5}}</p>
+                        </a>
+                    </ion-item>
+                </ion-col>
+                &nbsp;
+                <ion-col class="textoPequeno2" size=5>
+                    <ion-item color="transparent" lines=none>
+                        <img class="imagemPequena" [src]="thumb6"> &nbsp;
+                        <a style="text-decoration: none; color: black;" href=" javascript:void(0)" (click)="visualizar(titulo6)">
+                            <p>{{titulo6}}</p>
+                        </a>
+                    </ion-item>
+                </ion-col>
+                <ion-col size=1></ion-col>
+            </ion-row>
 
-    </ion-grid>
+        </ion-grid>
 
-    <ion-grid *ngIf="alternar == false">
-      <ion-row>
-        <ion-col class="textoPequeno3" size=6>
-          <ion-item color="transparent" lines=none>
-            <img class="imagemPequena" [src]="thumb3">
-            &nbsp;
-            <a style="text-decoration: none; color: black;margin-left: 5%;text-align: left;" href=" javascript:void(0)" (click)="visualizar(titulo3)">
-              <p style="font-size: x-small;"> {{titulo3}}</p>
-            </a>
-          </ion-item>
-        </ion-col>
-        <ion-col class="textoPequeno4" size=6>
-          <ion-item color="transparent" lines=none>
-            <img class="imagemPequena" [src]="thumb4">
-            &nbsp;
-            <a style="text-decoration: none; color: black;margin-left: 5%; text-align: left;" href=" javascript:void(0)" (click)="visualizar(titulo4)">
-              <p style="font-size: x-small;"> {{titulo4}}</p>
-            </a>
-          </ion-item>
-        </ion-col>
-      </ion-row>
+        <ion-grid *ngIf="alternar == false">
+            <ion-row>
+                <ion-col class="textoPequeno3" size=6>
+                    <ion-item color="transparent" lines=none>
+                        <img class="imagemPequena" [src]="thumb3"> &nbsp;
+                        <a style="text-decoration: none; color: black;margin-left: 5%;text-align: left;" href=" javascript:void(0)" (click)="visualizar(titulo3)">
+                            <p style="font-size: x-small;"> {{titulo3}}</p>
+                        </a>
+                    </ion-item>
+                </ion-col>
+                <ion-col class="textoPequeno4" size=6>
+                    <ion-item color="transparent" lines=none>
+                        <img class="imagemPequena" [src]="thumb4"> &nbsp;
+                        <a style="text-decoration: none; color: black;margin-left: 5%; text-align: left;" href=" javascript:void(0)" (click)="visualizar(titulo4)">
+                            <p style="font-size: x-small;"> {{titulo4}}</p>
+                        </a>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
 
-      <ion-row>
-        <ion-col class="textoPequeno3" size=6>
-          <ion-item color="transparent" lines=none>
-            <img class="imagemPequena" [src]="thumb5">
-            <a style="text-decoration: none; color: black;margin-left: 5%;text-align: left;" href=" javascript:void(0)" (click)="visualizar(titulo5)">
-              <p style="font-size: x-small;"> {{titulo5}}</p>
-            </a>
-          </ion-item>
-        </ion-col>
-        <ion-col class="textoPequeno4" size=6>
-          <ion-item color="transparent" lines=none>
-            <img class="imagemPequena" [src]="thumb6">
-            &nbsp;
-            <a style="text-decoration: none; color: black;margin-left: 5%;text-align: left;" href=" javascript:void(0)" (click)="visualizar(titulo6)">
-              <p style="font-size: x-small;"> {{titulo6}}</p>
-            </a>
-          </ion-item>
-        </ion-col>
-      </ion-row>
+            <ion-row>
+                <ion-col class="textoPequeno3" size=6>
+                    <ion-item color="transparent" lines=none>
+                        <img class="imagemPequena" [src]="thumb5">
+                        <a style="text-decoration: none; color: black;margin-left: 5%;text-align: left;" href=" javascript:void(0)" (click)="visualizar(titulo5)">
+                            <p style="font-size: x-small;"> {{titulo5}}</p>
+                        </a>
+                    </ion-item>
+                </ion-col>
+                <ion-col class="textoPequeno4" size=6>
+                    <ion-item color="transparent" lines=none>
+                        <img class="imagemPequena" [src]="thumb6"> &nbsp;
+                        <a style="text-decoration: none; color: black;margin-left: 5%;text-align: left;" href=" javascript:void(0)" (click)="visualizar(titulo6)">
+                            <p style="font-size: x-small;"> {{titulo6}}</p>
+                        </a>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
 
-    </ion-grid>
+        </ion-grid>
 
 
 
 
-    <ion-grid *ngIf="titulo1.length>0 && alternar == true">
-      <ion-row>
-        <ion-col size=1></ion-col>
-        <ion-col size=2>
-          <ion-button color=primary (click)="maisNoticias()" style="margin-left: 5%;" expand="block"> Mais notícias
-          </ion-button>
-        </ion-col>
-        <ion-col size=9></ion-col>
-      </ion-row>
-    </ion-grid>
-    <ion-button color=primary *ngIf="titulo1.length>0 && alternar == false" (click)="maisNoticias()"
-      style="margin-left: 5%;" expand="block"> Mais notícias</ion-button>
+        <ion-grid *ngIf="titulo1.length>0 && alternar == true">
+            <ion-row>
+                <ion-col size=1></ion-col>
+                <ion-col size=2>
+                    <ion-button color=primary (click)="maisNoticias()" style="margin-left: 5%;" expand="block"> Mais notícias
+                    </ion-button>
+                </ion-col>
+                <ion-col size=9></ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-button color=primary *ngIf="titulo1.length>0 && alternar == false" (click)="maisNoticias()" style="margin-left: 5%;" expand="block"> Mais notícias</ion-button>
 
 
 
-    <br>
-    <ion-grid>
-      <ion-row>
-        <ion-col size=3>
-          <img src="../../assets/icones prefeitura/FALE-CONOSCO.png" width="60%" alt="Fale conosco"
-            title="Fale conosco">
-        </ion-col>
-        <ion-col size=9></ion-col>
-      </ion-row>
-      <ion-row *ngIf="alternar == true">
-        <ion-col size=2></ion-col>
-        <ion-col size=3>
-          <a style="text-decoration: none; color: black;" target="_blank"
-            href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
-            <p><img class="rodape2" src="../../assets/icones prefeitura/INSTAGRAM.png" alt=""></p>
-          </a>
-        </ion-col>
-        <ion-col size=2></ion-col>
-        <ion-col size=3>
-          <a style="text-decoration: none; color: black;" target="_blank"
-            href="https://www.facebook.com/prefeiturademaragojipe">
-            <p><img class="rodape2" src="../../assets/icones prefeitura/FACEBOOK.png" alt=""></p>
-          </a>
-        </ion-col>
-        <ion-col size=2></ion-col>
-      </ion-row>
+        <br>
+        <ion-grid>
+            <ion-row>
+                <ion-col size=3>
+                    <img src="../../assets/icones prefeitura/FALE-CONOSCO.png" width="60%" alt="Fale conosco" title="Fale conosco">
+                </ion-col>
+                <ion-col size=9></ion-col>
+            </ion-row>
+            <ion-row *ngIf="alternar == true">
+                <ion-col size=2></ion-col>
+                <ion-col size=3>
+                    <a style="text-decoration: none; color: black;" target="_blank" href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
+                        <p><img class="rodape2" src="../../assets/icones prefeitura/INSTAGRAM.png" alt=""></p>
+                    </a>
+                </ion-col>
+                <ion-col size=2></ion-col>
+                <ion-col size=3>
+                    <a style="text-decoration: none; color: black;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
+                        <p><img class="rodape2" src="../../assets/icones prefeitura/FACEBOOK.png" alt=""></p>
+                    </a>
+                </ion-col>
+                <ion-col size=2></ion-col>
+            </ion-row>
 
-      <ion-row *ngIf="alternar == false">
-        <ion-col size=1></ion-col>
-        <ion-col size=4>
-          <a style="text-decoration: none; color: black;" target="_blank"
-            href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
-            <p><img class="rodape" src="../../assets/icones prefeitura/INSTAGRAM.png" alt=""></p>
-          </a>
-        </ion-col>
-        <ion-col size=2></ion-col>
-        <ion-col size=4>
-          <a style="text-decoration: none; color: black;" target="_blank"
-            href="https://www.facebook.com/prefeiturademaragojipe">
-            <p><img class="rodape" src="../../assets/icones prefeitura/FACEBOOK.png" alt=""></p>
-          </a>
-        </ion-col>
-        <ion-col size=1></ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
+            <ion-row *ngIf="alternar == false">
+                <ion-col size=1></ion-col>
+                <ion-col size=4>
+                    <a style="text-decoration: none; color: black;" target="_blank" href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
+                        <p><img class="rodape" src="../../assets/icones prefeitura/INSTAGRAM.png" alt=""></p>
+                    </a>
+                </ion-col>
+                <ion-col size=2></ion-col>
+                <ion-col size=4>
+                    <a style="text-decoration: none; color: black;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
+                        <p><img class="rodape" src="../../assets/icones prefeitura/FACEBOOK.png" alt=""></p>
+                    </a>
+                </ion-col>
+                <ion-col size=1></ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
 
-  <!-- The Modal -->
-<div id="myModal" class="modal">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
 
-  <!-- The Close Button -->
-  <span class="close">&times;</span>
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
 
-  <!-- Modal Content (The Image) -->
-  <img class="modal-content" id="img01">
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
 
-  <!-- Modal Caption (Image Text) -->
-  <div id="caption"></div>
-</div>
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
 </ion-content>

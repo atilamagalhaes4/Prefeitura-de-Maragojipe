@@ -27,7 +27,7 @@
       <ion-grid>
         <ion-row  *ngIf ="alternar ==true">
           <ion-col size = 3>
-            <a style="text-decoration: none;"routerLink = "/">
+            <a style="text-decoration: none;"href="/">
               <img class="imagem"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
             </a>
             </ion-col>
@@ -58,7 +58,7 @@
         </ion-row>
   
         <ion-row *ngIf ="alternar ==false">
-          <ion-col routerLink = "/home" size = 3>
+          <ion-col routerLink = "/" size = 3>
             <img class="imagem2"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
           </ion-col>
           <ion-col  routerLink ="/o-municipio" size = 3>
@@ -164,7 +164,7 @@
 
 
 
-<ion-grid *ngIf = "alternar == true && noticiasDuplas != []">
+<ion-grid *ngIf = "alternar == true ">
   <ion-row>
     <ion-col size =1></ion-col>
     <ion-col size =2>
@@ -173,7 +173,7 @@
     <ion-col size =9></ion-col>
   </ion-row>
 </ion-grid>
-<ion-button color = primary  *ngIf = "alternar == false  && noticiasDuplas != []" (click)="maisNoticias1()" style="margin-left: 5%;" expand="block">  Mais notícias</ion-button>
+<ion-button color = primary  *ngIf = "alternar == false  " (click)="maisNoticias1()" style="margin-left: 5%;" expand="block">  Mais notícias</ion-button>
 
 <div *ngIf = "noticiasDuplas.length ==0"  class="container">
   <p><img src="../../assets/background/404.jpg" alt="Transparencia" title="transparencia"></p>

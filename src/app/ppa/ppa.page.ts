@@ -1,9 +1,9 @@
+import { Router } from '@angular/router';
 import { PostProvider } from './../../assets/providers/post-provider';
 import { AlertController, LoadingController, Platform } from '@ionic/angular';
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-import { Router } from '@angular/router';
-//import { Chart, registerables } from 'chart.js';
-//Chart.register(...registerables);
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
 @Component({
   selector: 'app-ppa',
   templateUrl: './ppa.page.html',
@@ -11,42 +11,18 @@ import { Router } from '@angular/router';
 })
 export class PpaPage implements OnInit {
 
-  
-  pesquisa: string = "";
-  alternar: boolean = true;
-
-  constructor(
-    private platform: Platform,
-    private route: Router
-  ) { }
-
-  ionViewWillEnter() {
-    
-    if(this.platform.is("desktop")){
-      this.alternar = true;
-    }
-    if(this.platform.is("mobile")){
-      this.alternar = false;
-    }
-  }
-  
-  ngOnInit() {
-  }
-
-  pesquisarNoticias(){
-    this.route.navigate(["/mais-noticias/"+this.pesquisa]);
-  }
-/*
 
   @ViewChild('barCanvas') private barCanvas: ElementRef;
   formulario: boolean = false;
   barChart: any;
 
+  pesquisa: string = "";
   nome: string = "";
   cpf: string = "";
   distrito: string = "";
   comentario: string = "";
   email: string = "";
+  alternar: boolean = true;
   public form = [
     { val: 'Saúde', isChecked: false },
     { val: 'Educação, esporte e lazer', isChecked: false },
@@ -70,6 +46,19 @@ export class PpaPage implements OnInit {
       //      console.log(this.checkeds);
     }
   }
+  constructor(
+    private alertController: AlertController,
+    private provider: PostProvider,
+    private loadingController: LoadingController,
+    private platform: Platform,
+    private route: Router
+  ) { }
+
+  
+  pesquisarNoticias(){
+    this.route.navigate(["/mais-noticias/"+this.pesquisa]);
+  }
+
   pegaPega = {
     dado1: 0,
     dado2: 0,
@@ -81,7 +70,7 @@ export class PpaPage implements OnInit {
     dado8: 0,
     dado9: 0,
   }
-  pegarDados() {
+  pegarDados() { 
     this.pegaPega.dado1 =0;
     this.pegaPega.dado2 =0;
     this.pegaPega.dado3 =0;
@@ -135,6 +124,16 @@ export class PpaPage implements OnInit {
 /*
   ngAfterViewInit() {
     this.barChartMethod();
+  }*/
+  ionViewWillEnter() {
+    
+    if(this.platform.is("desktop")){
+      this.alternar = true;
+    }
+    if(this.platform.is("mobile")){
+      this.alternar = false;
+    }
+//    this.pegarDados();
   }
 
   barChartMethod() {
@@ -177,7 +176,7 @@ export class PpaPage implements OnInit {
             ticks: {
               beginAtZero: true
             }
-          }] 
+          }] */
         }
       }
     });
@@ -346,6 +345,8 @@ export class PpaPage implements OnInit {
 
     await alert.present();
   }
+  ngOnInit() {
+  }
   async presentAlert(mensagem) {
     const alert = await this.alertController.create({
       cssClass: 'primary',
@@ -357,5 +358,5 @@ export class PpaPage implements OnInit {
 
     const { role } = await alert.onDidDismiss();
     console.log('onDidDismiss resolved with role', role);
-  }*/
+  }
 }

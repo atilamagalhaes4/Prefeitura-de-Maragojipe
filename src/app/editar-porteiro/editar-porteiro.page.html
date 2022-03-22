@@ -1,142 +1,142 @@
 <ion-content>
-  <ion-header [translucent]="true">
-    <ion-toolbar class="top2" >
-      <ion-grid>
+    <ion-header [translucent]="true">
+        <ion-toolbar class="top2">
+            <ion-grid>
+                <ion-row>
+                    <ion-col (click)="inicio()" size=3>
+                        <a style="text-decoration: none;" href="javascript:void(0)">
+                            <img class="imagem" src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+                        </a>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-toolbar>
+    </ion-header>
+
+    <br> <br>
+
+
+    <ion-grid>
+
         <ion-row>
-          <ion-col (click) = "inicio()" size = 3>
-            <a style="text-decoration: none;" href="javascript:void(0)">
-              <img class="imagem"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
-            </a>
+            <ion-col size=6>
+                <ion-item>
+                    <ion-label position="stacked">Escola em que atua</ion-label>
+                    <ion-select interface="popover" [(ngModel)]="nomeEscola" okText="Confirmar" cancelText="Cancelar" placeholder="Informe o nome do escola">
+                        <ion-select-option *ngFor="let c of escolas" [value]="c.nome">{{c.nome}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+
+            <ion-col size=6>
+                <ion-item>
+                    <ion-label position="stacked">Diretor (a) responsável</ion-label>
+                    <ion-input [(ngModel)]="diretorResponsavel" placeholder="Informe responsável pelo professor"></ion-input>
+                </ion-item>
             </ion-col>
         </ion-row>
-      </ion-grid>
-    </ion-toolbar>
-  </ion-header>
 
-  <br>  <br>
+        <ion-row>
+            <ion-col size=5>
+                <ion-item>
+                    <ion-label position="stacked">Endereço da escola</ion-label>
+                    <ion-input [(ngModel)]="enderecoEscola" placeholder="Informe o endereço da escola"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size=2>
+                <ion-item>
+                    <ion-label position="stacked">Informe a zona da escola</ion-label>
+                    <ion-select interface="popover" [(ngModel)]="zonaEscolar" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione a zona">
+                        <ion-select-option value="rural">Rural</ion-select-option>
+                        <ion-select-option value="urbano">Urbana</ion-select-option>
+                        <ion-select-option value="quilombola">Quilombola</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size=5>
+                <ion-item>
+                    <ion-label position="stacked">Distrito</ion-label>
+                    <ion-input [(ngModel)]="distritoEscolar" placeholder="Informe a localidade da escola"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size=5>
+                <ion-item>
+                    <ion-label position="stacked">Nome</ion-label>
+                    <ion-input [(ngModel)]="nome" placeholder="Informe o nome do auxiliar"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size=2>
+                <ion-item>
+                    <ion-label position="stacked">Data de nascimento</ion-label>
+                    <ion-input (ionChange)="botarBarra1()" [(ngModel)]="dataNascimento" placeholder="Informe data de nascimento."></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size=5>
+                <ion-item>
+                    <ion-label position="stacked">Graduação do Auxiliar</ion-label>
+                    <ion-input [(ngModel)]="escolaridade" placeholder="Informe o curso de sua formação"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size=5>
+                <ion-item>
+                    <ion-label position="stacked">Endereco</ion-label>
+                    <ion-input [(ngModel)]="endereco" placeholder="Informe o endereço do auxiliar"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size=2>
+                <ion-item>
+                    <ion-label position="stacked">Número da casa</ion-label>
+                    <ion-input [(ngModel)]="numeroCasa" placeholder="Informe o número da casa."></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size=5>
+                <ion-item>
+                    <ion-label position="stacked">Informe a cidade</ion-label>
+                    <ion-input [(ngModel)]="cidade" placeholder="Informe a cidade"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
 
-  
-  <ion-grid>
- 
-    <ion-row>
-      <ion-col size = 6>
-        <ion-item>
-          <ion-label position="stacked">Escola em que atua</ion-label>
-          <ion-select [disabled] ="escolaDisable" interface="popover" [(ngModel)] ="nomeEscola"  okText="Confirmar" cancelText="Cancelar"placeholder = "Informe o nome do escola">
-            <ion-select-option *ngFor = "let c of escolas" [value]="c.nome">{{c.nome}}</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-col> 
-      
-      <ion-col size = 6>
-        <ion-item>
-          <ion-label position="stacked">Diretor (a) responsável</ion-label>
-          <ion-input [(ngModel)] ="diretorResponsavel" placeholder = "Informe responsável pelo professor"></ion-input>
-        </ion-item>
-      </ion-col>
-      </ion-row>
-
-    <ion-row>
-      <ion-col size = 5>
-        <ion-item>
-          <ion-label position="stacked">Endereço da escola</ion-label>
-          <ion-input [disabled] ="enderecoEscolaDisable" [(ngModel)] ="enderecoEscola" placeholder = "Informe o endereço da escola"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 2>
-        <ion-item>
-          <ion-label position="stacked">Informe a zona da escola</ion-label>
-          <ion-select [disabled] ="areaDisable" interface="popover" [(ngModel)] ="zonaEscolar"  okText="Confirmar" cancelText="Cancelar"placeholder = "Selecione a zona">
-            <ion-select-option value="rural">Rural</ion-select-option>
-            <ion-select-option value="urbano">Urbana</ion-select-option>
-            <ion-select-option value="quilombola">Quilombola</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 5>
-        <ion-item>
-          <ion-label position="stacked">Distrito</ion-label>
-          <ion-input [disabled]="distritoDisable" [(ngModel)] ="distritoEscolar" placeholder = "Informe a localidade da escola"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size = 5>
-        <ion-item>
-          <ion-label position="stacked">Nome</ion-label>
-          <ion-input [(ngModel)] ="nome" placeholder = "Informe o nome do auxiliar"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 2>
-        <ion-item>
-          <ion-label position="stacked">Data de nascimento</ion-label>
-          <ion-input (ionChange) ="teste2()" [(ngModel)] ="dataNascimento"placeholder = "Informe data de nascimento."></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 5>
-        <ion-item>
-          <ion-label position="stacked">Graduação do Auxiliar</ion-label>
-          <ion-input [(ngModel)] ="escolaridade" placeholder = "Informe o curso de sua formação"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size = 5> 
-        <ion-item>
-          <ion-label position="stacked">Endereco</ion-label>
-          <ion-input [(ngModel)] ="endereco" placeholder = "Informe o endereço do auxiliar"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 2>
-        <ion-item>
-          <ion-label position="stacked">Número da casa</ion-label>
-          <ion-input [(ngModel)] ="numeroCasa" placeholder = "Informe o número da casa."></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 5>
-        <ion-item>
-          <ion-label position="stacked">Informe a cidade</ion-label>
-          <ion-input [(ngModel)] ="cidade" placeholder = "Informe a cidade"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col size = 3>
-        <ion-item>
-          <ion-label position="stacked">Situação</ion-label>
-          <ion-input [(ngModel)] ="situacao" placeholder = "Efetivo, contratado ..."></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position="stacked">Data de admissão</ion-label>
-          <ion-input (ionChange) ="teste()" [(ngModel)] ="admissao" placeholder = "Informe data de admissão."></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 3>
-        <ion-item>
-          <ion-label position="stacked">Turno</ion-label>
-          <ion-input [(ngModel)] ="turno" placeholder = "Matutino, verpertino ou noturno."></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 2>
-        <ion-item>
-          <ion-label position="stacked">Carga horária</ion-label>
-          <ion-input [(ngModel)] ="cargaHoraria" placeholder = "Informe a carga horária."></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <br><br> 
-    <ion-row>
-      <ion-col size = "4"></ion-col>
-      <ion-col size = "2">
-        <ion-button expand="full" color = "primary" (click) ="editar()">Salvar</ion-button>
-      </ion-col>
-      <ion-col size = "2">
-        <ion-button expand="full" color = "danger" (click) ="voltar()">Cancelar</ion-button>
-      </ion-col>
-      <ion-col size = "4"></ion-col>
-    </ion-row>
-  </ion-grid>
+        <ion-row>
+            <ion-col size=3>
+                <ion-item>
+                    <ion-label position="stacked">Situação</ion-label>
+                    <ion-input [(ngModel)]="situacao" placeholder="Efetivo, contratado ..."></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size=4>
+                <ion-item>
+                    <ion-label position="stacked">Data de admissão</ion-label>
+                    <ion-input (ionChange)="botarBarra2()" [(ngModel)]="admissao" placeholder="Informe data de admissão."></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size=3>
+                <ion-item>
+                    <ion-label position="stacked">Turno</ion-label>
+                    <ion-input [(ngModel)]="turno" placeholder="Matutino, verpertino ou noturno."></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size=2>
+                <ion-item>
+                    <ion-label position="stacked">Carga horária</ion-label>
+                    <ion-input [(ngModel)]="cargaHoraria" placeholder="Informe a carga horária."></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row>
+            <ion-col size="4"></ion-col>
+            <ion-col size="2">
+                <ion-button expand="full" color="primary" (click)="editar()">Salvar</ion-button>
+            </ion-col>
+            <ion-col size="2">
+                <ion-button expand="full" color="danger" (click)="voltar()">Cancelar</ion-button>
+            </ion-col>
+            <ion-col size="4"></ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

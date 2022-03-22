@@ -29,7 +29,7 @@ export class AdcionarAlunoPage implements OnInit {
   nomeAluno: string = "";
   serie: string = "";
   documento: string = "";
-  dataNascimento: string = "";
+//  dataNascimento: string = "";
   idade: string = "";
   naturalidade: string = "";
   sexo: string = "";
@@ -42,9 +42,9 @@ export class AdcionarAlunoPage implements OnInit {
   turno: string = "";
   cartaoSUS: string = ""; 
   numeroCamisa: string = ""; 
-  teletoneResponsavel1: string = "";
-  teletoneResponsavel2: string = "";
-  teletoneResponsavel3: string = "";
+  telefoneResponsavel1: string = "";
+  telefoneResponsavel2: string = "";
+  telefoneResponsavel3: string = "";
   profissaoResponsavel1: string = "";
   profissaoResponsavel2: string = "";
   enderecoAluno: string = "";
@@ -60,12 +60,11 @@ export class AdcionarAlunoPage implements OnInit {
   contatoEmergenciaTelefone: string = "";
   nomeResponsavelPegador: string = "";
   dataAjustadaNascimento: string = "";
-  dataMatriculaAjuste: string = "";
   orientacaoSexual: string = "";
   numeroMatricula: string = "";
 //
-enderecoEscolaDisable: boolean = false;
-escolaDisable: boolean = false;
+
+
 areaDisable: boolean = false;
 distritoDisable: boolean = false;
 
@@ -76,67 +75,7 @@ distritoDisable: boolean = false;
   ]
 
   
-  escolas = [
-    { "nome": "Antonio Otilio de Andrade"},
-    { "nome": "Antonio Vigílio de Medina" },
-    { "nome": "Catarina Paraguaçu"},
-    { "nome": "Cid Seixas Fragas"},
-    { "nome": "Cleriston Andrade"},
-    { "nome": "Cons. Antonio Rebouças"},
-    { "nome": "Creche Dr. Luis de Souza Santos"},
-    { "nome": "Creche Germana Ines Mencione"},
-    { "nome": "Creche Ieda Barradas"},
-    { "nome": "Creche Igor Seixas"},
-    { "nome": "Creche Semente do Paraguaçu"},
-    { "nome": "Deputado Cleraldo Andrade"},
-    { "nome": "Desembargador Oscar Dantas"},
-    { "nome": "Do Camarão"},
-    { "nome": "Dr. Odilardo Uzeda Rodrigues"},
-    { "nome": "Edith Ribeiro Nunes"},
-    { "nome": "Emídio Dativo Santana"},
-    { "nome": "Engenheiro Júlio dos Santos Sá"},
-    { "nome": "Fernando Presídio"},
-    { "nome": "Gastão Pedreira"},
-    { "nome": "Getulio Vargas (Cachoeirinha)"},
-    { "nome": "Getulio Vargas (Trevo)"},
-    { "nome": "Heráclio Paraguaçu Guerreiro"},
-    { "nome": "Hildérico Pinheiro de Oliveira"},
-    { "nome": "Juvenil de Oliveira"},
-    { "nome": "Luiz Eduardo Magalhães"},
-    { "nome": "Mario Gordilho Pedreira"},
-    { "nome": "Meneleu Batista Soares"},
-    { "nome": "Menino Jesus de Praga"},
-    { "nome": "Mons. Florisvaldo José de Souza"},
-    { "nome": "Nossa Senhora da Piedade"},
-    { "nome": "Nossa Senhora de Fátima"},
-    { "nome": "Nova Jerusalém"},
-    { "nome": "O bom pastor"},
-    { "nome": "Osvaldina Oliveira"},
-    { "nome": "Otaviano Texeira"},
-    { "nome": "Pe. Julian Edward Josef Claes"},
-    { "nome": "Profº Adjovita Marques"},
-    { "nome": "Profº Noêmia do Rosário"},
-    { "nome": "Profº Luis da França Piedade"},
-    { "nome": "Quilombo do Putumuju"},
-    { "nome": "Raio de Luz"},
-    { "nome": "Recanto Verde"},
-    { "nome": "Ref. Plínio Pereira Guedes"},
-    { "nome": "Creche Guapira"},
-    { "nome": "Luiz Souza Santos"},
-    { "nome": "Ruben GUerra Armede"},
-    { "nome": "Santa Helena"},
-    { "nome": "Santa Rita"},
-    { "nome": "Santo Antonio (Cachoeirinha)"},
-    { "nome": "Santo Antonio (Guaruçu)"},
-    { "nome": "Santo Antonio (Irriquitiá)"},
-    { "nome": "Santo Antonio (Rio dos Paus)"},
-    { "nome": "São Gabriel - Bento Sardinha"},
-    { "nome": "Sementes do Paraguaçu"},
-    { "nome": "São José - Santa Angela"},
-    { "nome": "São Roque - Boa Vista"},
-    { "nome": "Senhor do Bonfim - Brinco"},
-    { "nome": "Silvio Vieira de Melo"},
-  ]
+  escolas = []
 
   constructor(
     private actRoute: ActivatedRoute,
@@ -161,6 +100,21 @@ distritoDisable: boolean = false;
       this.alternar = true;
   }
 
+  carregarEscolas() {
+    let dados = {
+      requisicao: "todasEscolas"
+    }
+    this.provider.requisicaoPost(dados, "/educacao.php").subscribe((data) => {
+      this.escolas = [];
+      for (let c of data["dados"]) {
+        if (c.categoria == "escola") {
+          this.escolas.push(c);
+        }
+      }
+    }, (error) => {
+      console.log(error);
+    })
+  }
   print(componentName) {
     this.printProvider.print(componentName);
   }
@@ -210,12 +164,14 @@ distritoDisable: boolean = false;
           this.escola =  data['dados'][0].login;
           this.areaEscola =  data['dados'][0].area;
           this.distrito =  data['dados'][0].distrito;
-          this.enderecoEscolaDisable = true;
-          this.escolaDisable = true;
+          
           this.areaDisable = true;
           this.distritoDisable = true; 
+          this.escolas = [{ nome: data['dados'][0].login }]
         }
-
+        else{
+          this.carregarEscolas();
+        }
       }
     },(error)=>{
       this.route.navigate(["/login"]);
@@ -268,14 +224,14 @@ distritoDisable: boolean = false;
         nomeResponsavel3: this.nomeResponsavel3,
         profissaoResponsavel1: this.profissaoResponsavel1,
         profissaoResponsavel2: this.profissaoResponsavel2,
-        teletoneResponsavel1: this.teletoneResponsavel1,
-        teletoneResponsavel2: this.teletoneResponsavel2,
-        teletoneResponsavel3: this.teletoneResponsavel3,
+        telefoneResponsavel1: this.telefoneResponsavel1,
+        telefoneResponsavel2: this.telefoneResponsavel2,
+        telefoneResponsavel3: this.telefoneResponsavel3,
         turno: this.turno,
         cartaoSUS: this.cartaoSUS,
         numeroCamisa: this.numeroCamisa,
         enderecoAluno: this.enderecoAluno,
-        dataMatricula: this.dataMatriculaAjuste,
+        dataMatricula: this.dataMatricula,
         deficiencia: this.deficiencia,
         areaAluno: this.areaAluno,
         observacoes: this.observacoes,
@@ -330,14 +286,7 @@ distritoDisable: boolean = false;
       this.talvez = false;
     }
   }
-
-  botarBarra1(){
-    var ponto =".";
-    if(this.dataNascimento.length ==2)  this.dataNascimento = this.dataNascimento + ponto;
-
-    else if(this.dataNascimento.length ==5) this.dataNascimento = this.dataNascimento + ponto;
-  }
-
+  
   async presentAlertConfirm(mensagem, id) {
     const alert = await this.alertController.create({
       cssClass: 'primary',
@@ -371,12 +320,22 @@ distritoDisable: boolean = false;
 
     await alert.present();
   }
+  botarBarra1() {
+    if (this.dataAjustadaNascimento.length == 2) {
+      this.dataAjustadaNascimento = this.dataAjustadaNascimento + ".";
+    }
+    if (this.dataAjustadaNascimento.length == 5) {
+        this.dataAjustadaNascimento = this.dataAjustadaNascimento + ".";
+      }
+  }
   
-  botarBarra2(){
-    var ponto =".";
-    if(this.dataMatricula.length ==2)  this.dataMatricula = this.dataMatricula + ponto;
-
-    else if(this.dataMatricula.length ==5) this.dataMatricula = this.dataMatricula + ponto;
+  botarBarra2() {
+    if (this.dataMatricula.length == 2) {
+      this.dataMatricula = this.dataMatricula + ".";
+    }
+    if (this.dataMatricula.length == 5) {
+        this.dataMatricula = this.dataMatricula + ".";
+      }
   }
 
   gerarMatricula(){

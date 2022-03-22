@@ -167,6 +167,7 @@ export class MaisNoticiasPage implements OnInit {
           i++;
         }
       }
+      this.posicaoAtual = i;
       /*for(let c of data['resultado']){
         this.noticias.push(c);
       }*/

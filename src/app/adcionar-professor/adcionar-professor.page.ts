@@ -34,12 +34,10 @@ export class AdcionarProfessorPage implements OnInit {
   diretorSegundaEscola = "";
   materia2 = "";
   outraEscola: string = "";
-  escolaDisable: boolean = false;
   distritoEscolaExtra = "";
   enderecoEscolaHoraExtra = "";
   zonaEscolaExtra = "";
   dataNascimentoAjustado: string = "";
-  enderecoEscolaDisable:boolean  = false;
   areaDisable:boolean  = false;
   distritoDisable:boolean  = false;
   pim2 ="Sim"
@@ -52,130 +50,8 @@ export class AdcionarProfessorPage implements OnInit {
     private alertController: AlertController
   ) { }
 
-  escolas2 = [
-    { "nome": "Antonio Otilio de Andrade"},
-    { "nome": "Antonio Vigílio de Medina" },
-    { "nome": "Catarina Paraguaçu"},
-    { "nome": "Cid Seixas Fragas"},
-    { "nome": "Cleriston Andrade"},
-    { "nome": "Cons. Antonio Rebouças"},
-    { "nome": "Creche Dr. Luis de Souza Santos"},
-    { "nome": "Creche Germana Ines Mencione"},
-    { "nome": "Creche Ieda Barradas"},
-    { "nome": "Creche Igor Seixas"},
-    { "nome": "Creche Semente do Paraguaçu"},
-    { "nome": "Deputado Cleraldo Andrade"},
-    { "nome": "Desembargador Oscar Dantas"},
-    { "nome": "Do Camarão"},
-    { "nome": "Dr. Odilardo Uzeda Rodrigues"},
-    { "nome": "Edith Ribeiro Nunes"},
-    { "nome": "Emídio Dativo Santana"},
-    { "nome": "Engenheiro Júlio dos Santos Sá"},
-    { "nome": "Fernando Presídio"},
-    { "nome": "Gastão Pedreira"},
-    { "nome": "Getulio Vargas (Cachoeirinha)"},
-    { "nome": "Getulio Vargas (Trevo)"},
-    { "nome": "Heráclio Paraguaçu Guerreiro"},
-    { "nome": "Hildérico Pinheiro de Oliveira"},
-    { "nome": "Juvenil de Oliveira"},
-    { "nome": "Luiz Eduardo Magalhães"},
-    { "nome": "Mario Gordilho Pedreira"},
-    { "nome": "Meneleu Batista Soares"},
-    { "nome": "Menino Jesus de Praga"},
-    { "nome": "Mons. Florisvaldo José de Souza"},
-    { "nome": "Nossa Senhora da Piedade"},
-    { "nome": "Nossa Senhora de Fátima"},
-    { "nome": "Nova Jerusalém"},
-    { "nome": "O bom pastor"},
-    { "nome": "Osvaldina Oliveira"},
-    { "nome": "Otaviano Texeira"},
-    { "nome": "Pe. Julian Edward Josef Claes"},
-    { "nome": "Profº Adjovita Marques"},
-    { "nome": "Profº Noêmia do Rosário"},
-    { "nome": "Profº Luis da França Piedade"},
-    { "nome": "Quilombo do Putumuju"},
-    { "nome": "Raio de Luz"},
-    { "nome": "Recanto Verde"},
-    { "nome": "Ref. Plínio Pereira Guedes"},
-    { "nome": "Creche Guapira"},
-    { "nome": "Luiz Souza Santos"},
-    { "nome": "Ruben GUerra Armede"},
-    { "nome": "Santa Helena"},
-    { "nome": "Santa Rita"},
-    { "nome": "Santo Antonio (Cachoeirinha)"},
-    { "nome": "Santo Antonio (Guaruçu)"},
-    { "nome": "Santo Antonio (Irriquitiá)"},
-    { "nome": "Santo Antonio (Rio dos Paus)"},
-    { "nome": "São Gabriel - Bento Sardinha"},
-    { "nome": "São José - Santa Angela"},
-    { "nome": "Sementes do Paraguaçu"},
-    { "nome": "São Roque - Boa Vista"},
-    { "nome": "Senhor do Bonfim - Brinco"},
-    { "nome": "Silvio Vieira de Melo"},
-    { "nome": "Outros"},
-    { "nome": "Não se aplica"},
-  ]
-  escolas = [
-    { "nome": "Antonio Otilio de Andrade"},
-    { "nome": "Antonio Vigílio de Medina" },
-    { "nome": "Catarina Paraguaçu"},
-    { "nome": "Cid Seixas Fragas"},
-    { "nome": "Cleriston Andrade"},
-    { "nome": "Cons. Antonio Rebouças"},
-    { "nome": "Creche Dr. Luis de Souza Santos"},
-    { "nome": "Creche Germana Ines Mencione"},
-    { "nome": "Creche Ieda Barradas"},
-    { "nome": "Creche Igor Seixas"},
-    { "nome": "Creche Semente do Paraguaçu"},
-    { "nome": "Deputado Cleraldo Andrade"},
-    { "nome": "Desembargador Oscar Dantas"},
-    { "nome": "Do Camarão"},
-    { "nome": "Dr. Odilardo Uzeda Rodrigues"},
-    { "nome": "Edith Ribeiro Nunes"},
-    { "nome": "Emídio Dativo Santana"},
-    { "nome": "Engenheiro Júlio dos Santos Sá"},
-    { "nome": "Fernando Presídio"},
-    { "nome": "Gastão Pedreira"},
-    { "nome": "Getulio Vargas (Cachoeirinha)"},
-    { "nome": "Getulio Vargas (Trevo)"},
-    { "nome": "Heráclio Paraguaçu Guerreiro"},
-    { "nome": "Hildérico Pinheiro de Oliveira"},
-    { "nome": "Juvenil de Oliveira"},
-    { "nome": "Luiz Eduardo Magalhães"},
-    { "nome": "Mario Gordilho Pedreira"},
-    { "nome": "Meneleu Batista Soares"},
-    { "nome": "Menino Jesus de Praga"},
-    { "nome": "Mons. Florisvaldo José de Souza"},
-    { "nome": "Nossa Senhora da Piedade"},
-    { "nome": "Nossa Senhora de Fátima"},
-    { "nome": "Nova Jerusalém"},
-    { "nome": "O bom pastor"},
-    { "nome": "Osvaldina Oliveira"},
-    { "nome": "Otaviano Texeira"},
-    { "nome": "Pe. Julian Edward Josef Claes"},
-    { "nome": "Profº Adjovita Marques"},
-    { "nome": "Profº Noêmia do Rosário"},
-    { "nome": "Profº Luis da França Piedade"},
-    { "nome": "Quilombo do Putumuju"},
-    { "nome": "Raio de Luz"},
-    { "nome": "Recanto Verde"},
-    { "nome": "Ref. Plínio Pereira Guedes"},
-    { "nome": "Creche Guapira"},
-    { "nome": "Luiz Souza Santos"},
-    { "nome": "Ruben GUerra Armede"},
-    { "nome": "Santa Helena"},
-    { "nome": "Santa Rita"},
-    { "nome": "Santo Antonio (Cachoeirinha)"},
-    { "nome": "Santo Antonio (Guaruçu)"},
-    { "nome": "Santo Antonio (Irriquitiá)"},
-    { "nome": "Santo Antonio (Rio dos Paus)"},
-    { "nome": "São Gabriel - Bento Sardinha"},
-    { "nome": "São José - Santa Angela"},
-    { "nome": "Sementes do Paraguaçu"},
-    { "nome": "São Roque - Boa Vista"},
-    { "nome": "Senhor do Bonfim - Brinco"},
-    { "nome": "Silvio Vieira de Melo"},
-  ]
+  escolas2 = []
+  escolas = []
 
   ngOnInit() {
   }
@@ -193,6 +69,30 @@ export class AdcionarProfessorPage implements OnInit {
     }
   }
   
+  botarBarra1() {
+    if (this.dataNascimento.length == 2) {
+      this.dataNascimento = this.dataNascimento + ".";
+    }
+    if (this.dataNascimento.length == 5) {
+        this.dataNascimento = this.dataNascimento + ".";
+      }
+  }
+  carregarEscolas() {
+    let dados = {
+      requisicao: "todasEscolas"
+    }
+    this.provider.requisicaoPost(dados, "/educacao.php").subscribe((data) => {
+      this.escolas = [];
+      for (let c of data["dados"]) {
+        if (c.categoria == "escola") {
+          this.escolas.push(c);
+        }
+      }
+      this.escolas2 = this.escolas;
+    }, (error) => {
+      console.log(error);
+    })
+  }
   inicio(){
     this.route.navigate(["/dashboard/"+this.token]);
   }
@@ -216,12 +116,11 @@ export class AdcionarProfessorPage implements OnInit {
   }
   
   teste2(){
-    
-    var ponto =".";
-    if(this.dataNascimento.length ==2)  this.dataNascimento = this.dataNascimento + ponto;
-
-      else if(this.dataNascimento.length ==5) this.dataNascimento = this.dataNascimento + ponto;
-    
+    var dia, mes, ano;
+    ano = this.dataNascimento.substring(0,4);
+    mes = this.dataNascimento.substring(5,7)
+    dia = this.dataNascimento.substring(8,10)
+    this.dataNascimentoAjustado == dia.concat("\\\\")+mes.concat("\\\\")+ano;
   }
 
   validar(verificacao){
@@ -241,10 +140,12 @@ export class AdcionarProfessorPage implements OnInit {
           this.escolaEnsino =  data['dados'][0].login;
           this.zonaEscolaAtua =  data['dados'][0].area;
           this.distritoEscolaAtua =  data['dados'][0].distrito;
-          this.enderecoEscolaDisable = true;
-          this.escolaDisable = true;
           this.areaDisable = true;
           this.distritoDisable = true;
+          this.escolas = [{ nome: data['dados'][0].login }]
+        }
+        else{
+          this.carregarEscolas();
         }
       }
     },(error)=>{

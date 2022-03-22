@@ -1,124 +1,127 @@
 <ion-content>
 
-  <ion-header [translucent]="true">
-    <ion-toolbar class="top1" >
-      <ion-buttons slot="end">
-        <a style="text-decoration: none;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
-          <ion-icon color = light button  name="logo-facebook"></ion-icon>&nbsp;&nbsp;
-        </a>
-      </ion-buttons>
-      
-      <ion-buttons slot="end">
-        <a style="text-decoration: none;" target="_blank"  href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br"  >
-          <ion-icon color = light name="logo-instagram"></ion-icon> &nbsp;&nbsp; 
-        </a>
-      </ion-buttons>
-      
-      <ion-buttons slot="end">
-        <a style="text-decoration: none;" target="_blank"  href="">
-         <ion-icon color = light  name="logo-youtube"></ion-icon>&nbsp;&nbsp;
-        </a>
-      </ion-buttons>
-      <ion-title>
-      </ion-title>
-    </ion-toolbar>
-    
-    <ion-toolbar class="top2" >
-      <ion-grid>
-        <ion-row  *ngIf ="alternar ==true">
-          <ion-col size = 3>
-            <a style="text-decoration: none;"routerLink = "/">
-              <img class="imagem"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+    <ion-header [translucent]="true">
+        <ion-toolbar class="top1">
+
+            <ion-buttons slot="end">
+                <a style="text-decoration: none;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
+                    <ion-icon color="light" button name="logo-facebook"></ion-icon>&nbsp;&nbsp;
+                </a>
+            </ion-buttons>
+
+            <ion-buttons slot="end">
+                <a style="text-decoration: none;" target="_blank" href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
+                    <ion-icon color="light" name="logo-instagram"></ion-icon> &nbsp;&nbsp;
+                </a>
+            </ion-buttons>
+
+            <ion-buttons slot="end">
+                <a style="text-decoration: none;" target="_blank" href="">
+                    <ion-icon color="light" name="logo-youtube"></ion-icon>&nbsp;&nbsp;
+                </a>
+            </ion-buttons>
+            <ion-title>
+            </ion-title>
+        </ion-toolbar>
+
+        <ion-toolbar class="top2">
+            <ion-grid>
+                <ion-row *ngIf="alternar ==true">
+                    <ion-col size=3>
+                        <a style="text-decoration: none;" href="/">
+                            <img class="imagem" src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+                        </a>
+                    </ion-col>
+                    <ion-col size=3>
+                        <ion-searchbar type="text" [(ngModel)]="pesquisa" (keyup.enter)="pesquisarNoticias()" class="inputAjuda" placeholder="O que deseja procurar ?"></ion-searchbar>
+                    </ion-col>
+                    <ion-col class="centralizarTexto" size=2>
+                        <ion-item button routerLink="/o-municipio" color="transparent" lines="none">
+                            <ion-label color="light" style="text-decoration: none;">
+                                O municipio
+                            </ion-label>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col class="centralizarTexto" size=2>
+                        <ion-item button routerLink="/a-prefeitura" color="transparent" lines="none">
+                            <ion-label color="light" style="text-decoration: none;">
+                                A prefeitura
+                            </ion-label>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col class="centralizarTexto" size=2>
+                        <ion-item routerLink="/telefones-uteis" button color="transparent" lines="none">
+                            <ion-label color="light" style="text-decoration: none;">
+                                Telefones úteis
+                            </ion-label>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row *ngIf="alternar ==false">
+                    <ion-col routerLink="/" size=3>
+                        <img class="imagem2" src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+                    </ion-col>
+                    <ion-col routerLink="/o-municipio" size=3>
+                        <ion-label color="light" class="tamanho">
+                            O municipio
+                        </ion-label>
+                    </ion-col>
+                    <ion-col routerLink="/a-prefeitura" size=3>
+                        <ion-label color="light" class="tamanho">
+                            A prefeitura
+                        </ion-label>
+                    </ion-col>
+                    <ion-col routerLink="/telefones-uteis" size=3>
+                        <ion-label color="light" class="tamanho">
+                            Telefones úteis
+                        </ion-label>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-toolbar>
+    </ion-header>
+
+    <!------------------------------------------------------->
+
+    <ion-grid style="margin: 5%;">
+        <ion-item button lines="none" (click)="verRequisicoes()">
+            Formulários
+            <ion-icon slot="start" color="primary" *ngIf="opcaoFormulario == true" name="chevron-down-outline"></ion-icon>
+            <ion-icon slot="start" color="primary" *ngIf="opcaoFormulario == false" name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+        <ion-row style="margin-left: 5%;" *ngIf="opcaoFormulario == true">
+            <label style="text-align: center; margin-left: 5%;" *ngIf="meioAmbienteFormularios.length == 0 && alternar == true">
+            Nenhum formulário encontrado.
+          </label>
+            <label *ngIf="meioAmbienteFormularios.length == 0 && alternar == false">
+            Nenhum formulário encontrado.
+          </label>
+            <ion-col size="12" *ngFor="let c of meioAmbienteFormularios">
+                <a style="text-decoration: none;" (click)="ir(c.link)" href="javascript:void(0)">
+                    {{c.titulo}}
+              </a>
+            </ion-col>
+        </ion-row>
+
+        <ion-item button lines="none" (click)="verPortarias()">
+            Portarias
+            <ion-icon slot="start" color="primary" *ngIf="opcaoPortaria == true" name="chevron-down-outline"></ion-icon>
+            <ion-icon slot="start" color="primary" *ngIf="opcaoPortaria == false" name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+        <ion-row style="margin-left: 5%;" *ngIf="opcaoPortaria == true">
+            <label style="text-align: center; margin-left: 5%;" *ngIf="meioAmbientePortaria.length == 0 && alternar == true">
+          Nenhuma portaria foi encontrada.
+        </label>
+            <label *ngIf="meioAmbientePortaria.length == 0 && alternar == false">
+          Nenhuma portaria foi encontrada.
+        </label>
+            <ion-col size="12" *ngFor="let c of meioAmbientePortaria">
+                <a style="text-decoration: none;" (click)="ir(c.link)" href="javascript:void(0)">
+                  {{c.titulo}}
             </a>
             </ion-col>
-          <ion-col size = 3>
-              <ion-searchbar  type="text"[(ngModel)]="pesquisa" (keyup.enter)="pesquisarNoticias()" class="inputAjuda" placeholder = "O que deseja procurar ?"></ion-searchbar>
-          </ion-col>
-          <ion-col class="centralizarTexto" size = 2>
-            <ion-item button routerLink ="/o-municipio" color = transparent lines = none>
-              <ion-label color = light>
-                O municipio
-              </ion-label>
-            </ion-item>
-          </ion-col>
-          <ion-col class="centralizarTexto" size = 2>
-            <ion-item button routerLink ="/a-prefeitura" color = transparent lines = none>
-              <ion-label color = light>
-                A prefeitura
-              </ion-label>
-            </ion-item>
-          </ion-col>
-          <ion-col class="centralizarTexto" size = 2>
-            <ion-item  routerLink ="/telefones-uteis" button color = transparent lines = none>
-              <ion-label color = light>
-                Telefones úteis
-              </ion-label>
-            </ion-item>
-          </ion-col>
         </ion-row>
-  
-        <ion-row *ngIf ="alternar ==false">
-          <ion-col routerLink = "/home" size = 3>
-            <img class="imagem2"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
-          </ion-col>
-          <ion-col  routerLink ="/o-municipio" size = 3>
-              <ion-label color = light class="tamanho">
-                O municipio
-              </ion-label>
-          </ion-col>
-          <ion-col  routerLink ="/a-prefeitura"  size = 3>
-              <ion-label color = light class="tamanho">
-                A prefeitura
-              </ion-label>
-          </ion-col>
-          <ion-col routerLink ="/telefones-uteis" size = 3>
-              <ion-label color = light class="tamanho">
-                Telefones úteis
-              </ion-label>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-toolbar>
-  </ion-header>
-
-<!----------------------------------------------------------------------------------------------->
-
-<div style="margin-left: 5%;margin-right: 5%; margin-top: 5%; cursor: pointer;">
-  <ion-item lines="none" (click) ="opcoesViewFormularios()">
-    <ion-icon slot="start" color="primary"  *ngIf="visualizarFormularios == false" name="chevron-forward-outline"></ion-icon>
-    <ion-icon slot="start" color="primary"  *ngIf="visualizarFormularios == true" name="chevron-down-outline"></ion-icon>
-    <ion-label>
-      Formulários
-    </ion-label>
-  </ion-item>
-
-  <ion-list  *ngIf="visualizarFormularios == true">
-    <ion-item lines="none" *ngFor="let c of arrayFormulario">
-      <a target="_blank" [href]="c.link" style="margin-left: 5%;text-decoration: none; color: #339967;">
-      <p>{{c.titulo}}</p>
-    </a>
-    </ion-item>
-  </ion-list>
-</div>
-
-<div style="margin-left: 5%;margin-right: 5%; cursor: pointer;">
-  <ion-item lines="none" (click) ="opcoesViewPortarias()">
-    <ion-icon slot="start" *ngIf="visualizarPortarias == false" color="primary" name="chevron-forward-outline"></ion-icon>
-    <ion-icon slot="start" *ngIf="visualizarPortarias == true" color="primary" name="chevron-down-outline"></ion-icon>
-    <ion-label>
-      Portarias
-    </ion-label>
-  </ion-item>
-  
-  <ion-list  *ngIf="visualizarPortarias == true">
-    <ion-item lines="none" *ngFor="let c of arrayPortaria">
-      <a target="_blank" [href]="c.link" style="margin-left: 5%;text-decoration: none; color: #339967;">
-        <p>{{c.titulo}}</p>
-      </a>
-    </ion-item>
-  </ion-list>
-</div>
-
-
+    </ion-grid>
 
 </ion-content>

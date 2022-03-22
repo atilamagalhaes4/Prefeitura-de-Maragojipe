@@ -1,418 +1,406 @@
 <ion-content>
-  <ion-header [translucent]="true">
-    <ion-toolbar class="top2" >
-      <ion-grid>
-        <ion-row >
-          <ion-col size = 3>
-            <a style="text-decoration: none;"  (click) = "inicio()" href="javascript:void(0)">
-              <img class="imagem"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
-            </a>
+    <ion-header [translucent]="true">
+        <ion-toolbar class="top2">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size=3>
+                        <a style="text-decoration: none;" (click)="inicio()" href="javascript:void(0)">
+                            <img class="imagem" src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+                        </a>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-toolbar>
+    </ion-header>
+    <br> <br>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-label>
+                    <b>Sobre a escola/colégio</b>
+                </ion-label>
             </ion-col>
         </ion-row>
-      </ion-grid>
-    </ion-toolbar>
-  </ion-header> 
+        <ion-row>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked">Escola/Colégio</ion-label>
+                    <ion-select interface="popover" [(ngModel)]="escola" okText="Confirmar" cancelText="Cancelar" placeholder="Informe o nome do escola">
+                        <ion-select-option *ngFor="let c of escolas" [value]="c.nome">{{c.nome}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="5">
+                <ion-item>
+                    <ion-label position="stacked">Endereço</ion-label>
+                    <ion-input [(ngModel)]="enderecoEscola" placeholder="Informe o endereco da escola"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="2">
+                <ion-item>
+                    <ion-label position="stacked">Informe a área da escola</ion-label>
+                    <ion-select interface="popover" [(ngModel)]="areaEscola" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione o turno">
+                        <ion-select-option value="rural">Rural</ion-select-option>
+                        <ion-select-option value="urbano">Urbana</ion-select-option>
+                        <ion-select-option value="quilombola">Quilombola</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="5">
+                <ion-item>
+                    <ion-label position="stacked">Distrito</ion-label>
+                    <ion-input [(ngModel)]="distrito" placeholder="Informe a localidade da escola"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row>
+            <ion-col>
+                <ion-label>
+                    <b>Sobre o diretor(a)</b>
+                </ion-label>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="7">
+                <ion-item>
+                    <ion-label position="stacked">Diretor(a)</ion-label>
+                    <ion-input [(ngModel)]="diretora" placeholder="Nome da diretor(a)"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="5">
+                <ion-item>
+                    <ion-label position="stacked">Grau de instrução</ion-label>
+                    <ion-input [(ngModel)]="escolaridadeDiretora" placeholder="Grau de escolaridade"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row>
+            <ion-col>
+                <ion-label>
+                    <b>Sobre o aluno</b>
+                </ion-label>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="6">
+                <ion-item>
+                    <ion-label position="stacked">Nome do aluno</ion-label>
+                    <ion-input [(ngModel)]="nomeAluno" placeholder="Informe o nome do aluno"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="2">
+                <ion-item>
+                    <ion-label position="stacked">Turno</ion-label>
+                    <ion-select interface="popover" [(ngModel)]="turno" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione o turno">
+                        <ion-select-option value="matutino">Matutino</ion-select-option>
+                        <ion-select-option value="vespertino">Vespertino</ion-select-option>
+                        <ion-select-option value="noturno">Noturno</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="4">
+                <ion-item>
+                    <ion-label position="stacked">Serie/Ano</ion-label>
+                    <ion-select interface="popover" placeholder="Serie do aluno" [(ngModel)]="serie" okText="Confirmar" cancelText="Cancelar">
+                        <ion-select-option *ngFor="let c of series" [value]="c.nome">{{c.nome}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="2">
+                <ion-item>
+                    <ion-label position="stacked">Documento</ion-label>
+                    <ion-select interface="popover" [(ngModel)]="tipoDocumento" placeholder="Informe o tipo de documento" okText="Confirmar" cancelText="Cancelar">
+                        <ion-select-option value="RG : ">RG</ion-select-option>
+                        <ion-select-option value="CPF : ">CPF</ion-select-option>
+                        <ion-select-option value="Certidão de nascimento : ">Certidao de nascimento</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="3">
+                <ion-item>
+                    <ion-label position="stacked">Numeração</ion-label>
+                    <ion-input [(ngModel)]="documento" placeholder="Informe os digitos"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="3">
+                <ion-item>
+                    <ion-label position="stacked">Data de nascimento</ion-label>
+                    <ion-input (ionChange)="botarBarra1()" [(ngModel)]="dataNascimento" placeholder="Informe data de nascimento."></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="2">
+                <ion-item>
+                    <ion-label position="stacked">ID censo</ion-label>
+                    <ion-input [(ngModel)]="idSenso" placeholder="Informe o censo"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="2">
+                <ion-item>
+                    <ion-label position="stacked">Idade</ion-label>
+                    <ion-input [(ngModel)]="idade" placeholder="Informe a idade do aluno"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="5">
+                <ion-item>
+                    <ion-label position="stacked">Naturalidade</ion-label>
+                    <ion-input [(ngModel)]="naturalidade" placeholder="Naturalidade do aluno"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="5">
+                <ion-item>
+                    <ion-label position="stacked">Sexo</ion-label>
+                    <ion-select interface="popover" [(ngModel)]="sexo" okText="Confirmar" cancelText="Cancelar" placeholder="Sexo do aluno">
+                        <ion-select-option value="Feminino">Feminino</ion-select-option>
+                        <ion-select-option value="Masculino">Masculino</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="2">
+                <ion-item>
+                    <ion-label position="stacked">Ano letivo</ion-label>
+                    <ion-input [(ngModel)]="anoLetivo" placeholder="Ano letivo atual"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="4">
+                <ion-item>
+                    <ion-label position="stacked">Endereço</ion-label>
+                    <ion-input [(ngModel)]="enderecoAluno" placeholder="Informe o endereco do aluno"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="2">
+                <ion-item>
+                    <ion-label position="stacked">Informe sua área</ion-label>
+                    <ion-select interface="popover" [(ngModel)]="areaAluno" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione o turno">
+                        <ion-select-option value="rural">Rural</ion-select-option>
+                        <ion-select-option value="urbano">Urbana</ion-select-option>
+                        <ion-select-option value="quilombola">Quilombola</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="3">
+                <ion-item>
+                    <ion-label position="stacked">Data de matrícula</ion-label>
+                    <ion-input (ionChange)="botarBarra2()" [(ngModel)]="dataMatricula" placeholder="Informe a data de matrícula"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="3">
+                <ion-item>
+                    <ion-label position="stacked">Tipo de Necessidade</ion-label>
+                    <ion-input [(ngModel)]="deficiencia" placeholder="Algum tipo de deficiencia ?"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row>
+            <ion-col>
+                <ion-label>
+                    <b>Sobre o responsável</b>
+                </ion-label>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="4">
+                <ion-item>
+                    <ion-label position="stacked">Nome do pai</ion-label>
+                    <ion-input [(ngModel)]="nomeResponsavel2" placeholder="Informe o nome do pai"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="4">
+                <ion-item>
+                    <ion-label position="stacked">Telefone do pai</ion-label>
+                    <ion-input [(ngModel)]="telefoneResponsavel2" placeholder="Informe o telefone do pai"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="4">
+                <ion-item>
+                    <ion-label position="stacked">Profissão do pai</ion-label>
+                    <ion-input [(ngModel)]="profissaoResponsavel2" placeholder="Informe a profissão do pai"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="4">
+                <ion-item>
+                    <ion-label position="stacked">Nome da mãe</ion-label>
+                    <ion-input [(ngModel)]="nomeResponsavel1" placeholder="Informe o nome da mãe"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="4">
+                <ion-item>
+                    <ion-label position="stacked">Telefone da mãe</ion-label>
+                    <ion-input [(ngModel)]="telefoneResponsavel1" placeholder="Informe o telefone da mãe"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="4">
+                <ion-item>
+                    <ion-label position="stacked">Profissão da mãe</ion-label>
+                    <ion-input [(ngModel)]="profissaoResponsavel1" placeholder="Informe a profissão da mãe"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label position="stacked">Responsável - parentesco</ion-label>
+                    <ion-input [(ngModel)]="nomeResponsavel3" placeholder="Informe o nome do responsável - parentesco"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="4">
+                <ion-item>
+                    <ion-label position="stacked">Telefone do responsável</ion-label>
+                    <ion-input [(ngModel)]="telefoneResponsavel3" placeholder="Informe o telefone do responsável"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="4"></ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row>
+            <ion-col>
+                <ion-label>
+                    <b>Outros</b>
+                </ion-label>
+            </ion-col>
+        </ion-row>
 
-  <br>  <br>
-
-  <ion-grid>
-     
-    <ion-row>
-      <ion-col>
-        <ion-label>
-          <b>Sobre a escola/colégio</b>
-        </ion-label>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col size = 12>
-        <ion-item> 
-          <ion-label position="stacked">Escola/Colégio</ion-label>
-          <ion-select [disabled] ="escolaDisable" interface="popover" [(ngModel)] ="escola"  okText="Confirmar" cancelText="Cancelar"placeholder = "Informe o nome do escola">
-            <ion-select-option *ngFor = "let c of escolas" [value]="c.nome">{{c.nome}}</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size = 5>
-        <ion-item>
-          <ion-label position="stacked">Endereço</ion-label>
-          <ion-input [disabled] ="enderecoEscolaDisable" [(ngModel)] ="enderecoEscola" placeholder = "Informe o endereco da escola"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 2>
-        <ion-item>
-          <ion-label position="stacked">Informe a área da escola</ion-label>
-          <ion-select [disabled] ="areaDisable" interface="popover" [(ngModel)] ="areaEscola"  okText="Confirmar" cancelText="Cancelar"placeholder = "Selecione o turno">
-            <ion-select-option value="rural">Rural</ion-select-option>
-            <ion-select-option value="urbano">Urbana</ion-select-option>
-            <ion-select-option value="quilombola">Quilombola</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 5>
-        <ion-item>
-          <ion-label position="stacked">Distrito</ion-label>
-          <ion-input  [disabled] ="distritoDisable" [(ngModel)] ="distrito" placeholder = "Informe a localidade da escola"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-<br><br>
-    <ion-row>
-      <ion-col>
-        <ion-label>
-          <b>Sobre o diretor(a)</b>
-        </ion-label>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size = 7>
-        <ion-item>
-          <ion-label position="stacked">Diretor(a)</ion-label>
-          <ion-input [(ngModel)] ="diretora" placeholder = "Nome da diretor(a)"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 5>
-        <ion-item>
-          <ion-label position="stacked">Grau de instrução</ion-label>
-          <ion-input [(ngModel)] ="escolaridadeDiretora" placeholder = "Grau de escolaridade"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-<br><br>
-    <ion-row>
-      <ion-col>
-        <ion-label>
-          <b>Sobre o aluno</b>
-        </ion-label>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size = 6>
-        <ion-item>
-          <ion-label position="stacked">Nome do aluno</ion-label>
-          <ion-input [(ngModel)] ="nomeAluno" placeholder = "Informe o nome do aluno"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 2>
-        <ion-item>
-          <ion-label position="stacked">Turno</ion-label>
-          <ion-select  interface="popover" [(ngModel)] ="turno"  okText="Confirmar" cancelText="Cancelar"placeholder = "Selecione o turno">
-              <ion-select-option value="matutino">Matutino</ion-select-option>
-              <ion-select-option value="vespertino">Vespertino</ion-select-option>
-              <ion-select-option value="noturno">Noturno</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position="stacked">Serie/Ano</ion-label>
-            <ion-select  interface="popover" placeholder = "Serie do aluno" [(ngModel)] ="serie"  okText="Confirmar" cancelText="Cancelar">
-            <ion-select-option *ngFor ="let c of series" [value]="c.nome">{{c.nome}}</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size = 2>
-        <ion-item>
-          <ion-label position="stacked">Documento</ion-label>
-            <ion-select  interface="popover"  [(ngModel)] ="tipoDocumento" placeholder ="Informe o tipo de documento"  okText="Confirmar" cancelText="Cancelar">
-              <ion-select-option  value="RG : ">RG</ion-select-option>
-              <ion-select-option  value="CPF : ">CPF</ion-select-option>
-              <ion-select-option  value="Certidão de nascimento : ">Certidao de nascimento</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 3>
-        <ion-item>
-          <ion-label position="stacked">Numeração</ion-label>
-          <ion-input [(ngModel)] ="documento" placeholder = "Informe os digitos"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 3>
-        <ion-item>
-          <ion-label position="stacked">Data de nascimento</ion-label>
-          <ion-input  (ionChange) ="teste2()" [(ngModel)] ="dataNascimento" placeholder = "Informe data de nascimento."></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 2>
-        <ion-item>
-          <ion-label position="stacked">ID censo</ion-label>
-          <ion-input [(ngModel)] ="idSenso" placeholder = "Informe o censo"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 2>
-        <ion-item>
-          <ion-label position="stacked">Idade</ion-label>
-          <ion-input [(ngModel)] ="idade" placeholder = "Informe a idade do aluno"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size = 5>
-        <ion-item>
-          <ion-label position="stacked">Naturalidade</ion-label>
-          <ion-input [(ngModel)] ="naturalidade" placeholder = "Naturalidade do aluno"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 5>
-        <ion-item>
-          <ion-label position="stacked">Sexo</ion-label>
-          <ion-select  interface="popover" [(ngModel)] ="sexo"  okText="Confirmar" cancelText="Cancelar"placeholder = "Sexo do aluno">
-            <ion-select-option value="Feminino">Feminino</ion-select-option>
-            <ion-select-option value="Masculino">Masculino</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 2>
-        <ion-item>
-          <ion-label position="stacked">Ano letivo</ion-label>
-          <ion-input [(ngModel)] ="anoLetivo" placeholder = "Ano letivo atual"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position="stacked">Endereço</ion-label>
-          <ion-input [(ngModel)] ="enderecoAluno" placeholder = "Informe o endereco do aluno"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 2>
-        <ion-item>
-          <ion-label position="stacked">Informe sua área</ion-label>
-          <ion-select  interface="popover" [(ngModel)] ="areaAluno"  okText="Confirmar" cancelText="Cancelar"placeholder = "Selecione o turno">
-            <ion-select-option value="rural">Rural</ion-select-option>
-            <ion-select-option value="urbano">Urbana</ion-select-option>
-            <ion-select-option value="quilombola">Quilombola</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 3>
-        <ion-item>
-          <ion-label position="stacked">Data de matrícula</ion-label>
-          <ion-input  (ionChange) ="teste()" [(ngModel)] ="dataMatricula" placeholder = "Informe a data de matrícula"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 3>
-        <ion-item>
-          <ion-label position="stacked">Tipo de Necessidade</ion-label>
-          <ion-input [(ngModel)] ="deficiencia" placeholder = "Algum tipo de deficiencia ?"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <br><br>
-    <ion-row>
-      <ion-col>
-        <ion-label>
-          <b>Sobre o responsável</b>
-        </ion-label>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position="stacked">Nome do pai</ion-label>
-          <ion-input [(ngModel)] ="nomeResponsavel2" placeholder = "Informe o nome do pai"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position="stacked">Telefone do pai</ion-label>
-          <ion-input [(ngModel)] ="teletoneResponsavel2" placeholder = "Informe o telefone do pai"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position="stacked">Profissão do pai</ion-label>
-          <ion-input [(ngModel)] ="profissaoResponsavel2" placeholder = "Informe a profissão do pai"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>      
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position="stacked">Nome da mãe</ion-label>
-          <ion-input [(ngModel)] ="nomeResponsavel1" placeholder = "Informe o nome da mãe"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position="stacked">Telefone da mãe</ion-label>
-          <ion-input [(ngModel)] ="teletoneResponsavel1" placeholder = "Informe o telefone da mãe"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position="stacked">Profissão da mãe</ion-label>
-          <ion-input [(ngModel)] ="profissaoResponsavel1" placeholder = "Informe a profissão da mãe"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label position="stacked">Responsável - parentesco</ion-label>
-          <ion-input [(ngModel)] ="nomeResponsavel3" placeholder = "Informe o nome do responsável - parentesco"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position="stacked">Telefone do responsável</ion-label>
-          <ion-input [(ngModel)] ="teletoneResponsavel3" placeholder = "Informe o telefone do responsável"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 4></ion-col>
-    </ion-row>
-    <br><br>
-    <ion-row>
-      <ion-col>
-        <ion-label>
-          <b>Outros</b>
-        </ion-label>
-      </ion-col>
-    </ion-row>
-    
-    <ion-row>
-      <ion-col size = 8>
-        <ion-item>
-          <ion-label position="stacked">Escola de onde veio</ion-label>
-          <ion-input [(ngModel)] ="escolaAntiga" placeholder = "Informe o nome da escola"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position="stacked">Religião</ion-label>
-          <ion-input [(ngModel)] ="religiao" placeholder = "Informe a religião do aluno"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    
-    <ion-row>
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position="stacked">Cartão do SUS</ion-label>
-          <ion-input [(ngModel)] ="cartaoSUS" placeholder = "Informe o cartão do SUS"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position="stacked">Raça</ion-label>
-          <ion-input [(ngModel)] ="raca" placeholder = "Informe a raça do aluno"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position="stacked">Uniforme escolar</ion-label>
-          <ion-input [(ngModel)] ="numeroCamisa" placeholder = "Informe o tamanho do uniforme"></ion-input>
-        </ion-item>
-      </ion-col>
-      </ion-row>
-      
-    <ion-row><!--
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position="stacked">Alergico a algum alimento ?</ion-label>
-          <ion-input [(ngModel)] ="alergia" placeholder = "Informe o alimento."></ion-input>
-        </ion-item>
-      </ion-col>-->
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position="stacked">Em caso de emergencia quem contactar ?</ion-label>
-          <ion-input [(ngModel)] ="contatoEmergenciaNome" placeholder = "Informe um contato proximo."></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 4>
-        <ion-item>
-          <ion-label position="stacked">Telefone</ion-label>
-          <ion-input [(ngModel)] ="contatoEmergenciaTelefone" placeholder = "Informe o telefone deste contato"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size = 3>
-        <ion-item>
-          <ion-list-header>
-            Algum tipo de alergia ?
-          </ion-list-header>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 1>
-        <ion-radio-group [(ngModel)] = "pim2"(ionChange) ="alternarBotao2()">
-          <ion-item>
-            <ion-label>Sim</ion-label>
-            <ion-radio value="Sim"></ion-radio>
-          </ion-item>
-        </ion-radio-group>
-      </ion-col>
-      <ion-col size = 1>
-        <ion-radio-group  [(ngModel)] = "pim2" (ionChange) ="alternarBotao2()">
-          <ion-item>
-            <ion-label>Não</ion-label>
-            <ion-radio value="Não" ></ion-radio>
-          </ion-item>
-        </ion-radio-group>
-      </ion-col>
-      <ion-col size = 7>
-        <ion-item lines = none>
-          <ion-label position="stacked">Qual ?</ion-label>
-          <ion-input [disabled] =talvez2 [(ngModel)] ="alergia" placeholder = "Informe aqui."></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size = 3>
-        <ion-item>
-          <ion-list-header>
-            O aluno pode voltar sozinho ?
-          </ion-list-header>
-        </ion-item>
-      </ion-col>
-      <ion-col size = 1>
-        <ion-radio-group [(ngModel)] = "pim"(ionChange) ="alternarBotao()">
-          <ion-item>
-            <ion-label>Sim</ion-label>
-            <ion-radio value="Sim"></ion-radio>
-          </ion-item>
-      </ion-radio-group>
-      </ion-col>
-      <ion-col size = 1>
-        <ion-radio-group  [(ngModel)] = "pim" (ionChange) ="alternarBotao()">
-          <ion-item>
-            <ion-label>Não</ion-label>
-            <ion-radio value="Não" ></ion-radio>
-          </ion-item>
-        </ion-radio-group>
-      </ion-col>
-      <ion-col size = 7 >
-        <ion-item>
-          <ion-label position="stacked">Informe o nome do responsável</ion-label>
-          <ion-input [disabled] =talvez [(ngModel)] ="nomeResponsavelPegador" placeholder = "Informe o nome da pessoa que irá buscar o aluno."></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size = 12>
-      <ion-item>
-        <ion-label position="stacked">Observações</ion-label>
-          <ion-textarea [(ngModel)] ="observacoes" rows="6" placeholder ="Opcional" cols="20" >
-          </ion-textarea>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <br><br>
-    <ion-row>
-      <ion-col size = "4"></ion-col>
-      <ion-col size = "2">
-        <ion-button expand="full" color = "tertiary" (click) ="salvar()">Salvar</ion-button>
-      </ion-col>
-      <ion-col size = "2">
-        <ion-button expand="full" color = danger (click) ="excluir()">Excluir matrícula</ion-button>
-      </ion-col>
-      <ion-col size = "4"></ion-col>
-    </ion-row>
-  </ion-grid>
+        <ion-row>
+            <ion-col size="8">
+                <ion-item>
+                    <ion-label position="stacked">Escola de onde veio</ion-label>
+                    <ion-input [(ngModel)]="escolaAntiga" placeholder="Informe o nome da escola"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="4">
+                <ion-item>
+                    <ion-label position="stacked">Religião</ion-label>
+                    <ion-input [(ngModel)]="religiao" placeholder="Informe a religião do aluno"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="4">
+                <ion-item>
+                    <ion-label position="stacked">Cartão do SUS</ion-label>
+                    <ion-input [(ngModel)]="cartaoSUS" placeholder="Informe o cartão do SUS"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="4">
+                <ion-item>
+                    <ion-label position="stacked">Raça</ion-label>
+                    <ion-input [(ngModel)]="raca" placeholder="Informe a raça do aluno"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="4">
+                <ion-item>
+                    <ion-label position="stacked">Uniforme escolar</ion-label>
+                    <ion-input [(ngModel)]="numeroCamisa" placeholder="Informe o tamanho do uniforme"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="4">
+                <ion-item>
+                    <ion-label position="stacked">Em caso de emergencia quem contactar ?</ion-label>
+                    <ion-input [(ngModel)]="contatoEmergenciaNome" placeholder="Informe um contato proximo."></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="4">
+                <ion-item>
+                    <ion-label position="stacked">Telefone</ion-label>
+                    <ion-input [(ngModel)]="contatoEmergenciaTelefone" placeholder="Informe o telefone deste contato"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="3">
+                <ion-item>
+                    <ion-list-header>
+                        Algum tipo de alergia ?
+                    </ion-list-header>
+                </ion-item>
+            </ion-col>
+            <ion-col size="1">
+                <ion-radio-group [(ngModel)]="pim2" (ionChange)="alternarBotao2()">
+                    <ion-item>
+                        <ion-label>Sim</ion-label>
+                        <ion-radio value="Sim"></ion-radio>
+                    </ion-item>
+                </ion-radio-group>
+            </ion-col>
+            <ion-col size="1">
+                <ion-radio-group [(ngModel)]="pim2" (ionChange)="alternarBotao2()">
+                    <ion-item>
+                        <ion-label>Não</ion-label>
+                        <ion-radio value="Não"></ion-radio>
+                    </ion-item>
+                </ion-radio-group>
+            </ion-col>
+            <ion-col size="7">
+                <ion-item lines="none">
+                    <ion-label position="stacked">Qual ?</ion-label>
+                    <ion-input [disabled]=talvez2 [(ngModel)]="alergia" placeholder="Informe aqui."></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="3">
+                <ion-item>
+                    <ion-list-header>
+                        O aluno pode voltar sozinho ?
+                    </ion-list-header>
+                </ion-item>
+            </ion-col>
+            <ion-col size="1">
+                <ion-radio-group [(ngModel)]="pim" (ionChange)="alternarBotao()">
+                    <ion-item>
+                        <ion-label>Sim</ion-label>
+                        <ion-radio value="Sim"></ion-radio>
+                    </ion-item>
+                </ion-radio-group>
+            </ion-col>
+            <ion-col size="1">
+                <ion-radio-group [(ngModel)]="pim" (ionChange)="alternarBotao()">
+                    <ion-item>
+                        <ion-label>Não</ion-label>
+                        <ion-radio value="Não"></ion-radio>
+                    </ion-item>
+                </ion-radio-group>
+            </ion-col>
+            <ion-col size="7">
+                <ion-item>
+                    <ion-label position="stacked">Informe o nome do responsável</ion-label>
+                    <ion-input [disabled]=talvez [(ngModel)]="nomeResponsavelPegador" placeholder="Informe o nome da pessoa que irá buscar o aluno."></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked">Observações</ion-label>
+                    <ion-textarea [(ngModel)]="observacoes" rows="6" placeholder="Opcional" cols="20">
+                    </ion-textarea>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row>
+            <ion-col size="4"></ion-col>
+            <ion-col size="2">
+                <ion-button expand="full" color="tertiary" (click)="salvar()">Salvar</ion-button>
+            </ion-col>
+            <ion-col size="2">
+                <ion-button expand="full" color="danger" (click)="excluir()">Excluir matrícula</ion-button>
+            </ion-col>
+            <ion-col size="4"></ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

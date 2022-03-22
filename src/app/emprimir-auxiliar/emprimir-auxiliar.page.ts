@@ -2,8 +2,7 @@ import { PrintProvider } from './../../assets/providers/print-provider';
 import { Platform, AlertController } from '@ionic/angular';
 import { PostProvider } from '../../assets/providers/post-provider';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import html2canvas from 'html2canvas';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-emprimir-auxiliar',
@@ -13,10 +12,6 @@ import html2canvas from 'html2canvas';
 export class EmprimirAuxiliarPage implements OnInit {
 
  
-  @ViewChild('screen') screen: ElementRef;
-  @ViewChild('canvas') canvas: ElementRef;
-  @ViewChild('downloadLink') downloadLink: ElementRef;
-
   verificar: boolean = false;
   alternar: boolean = true;
   pesquisa: string = "";
@@ -40,7 +35,7 @@ export class EmprimirAuxiliarPage implements OnInit {
   escolaridade: string = "";
   nome: string = "";
   turno: string = "";
-  observacoes: string = "";
+  observacoes: string = "Alto do Cruzeiro. Deques e torres de observação.  Porto do Caijá Pontos de interesse.  Ilha dos Franceses. Ilhas.  Ponta do Souza / Praia do Pina. Praias.  Matriz de Sao Bartolomeu. Igrejas e catedrais.  Cachoeira da Gruta do Sol.";
 
   ngOnInit() {
   }
@@ -54,7 +49,8 @@ export class EmprimirAuxiliarPage implements OnInit {
     private provider: PostProvider,
     private platform: Platform,
     private route: Router,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private printProvider: PrintProvider
   ) { }
 
   validar(verificacao, id){
@@ -112,27 +108,9 @@ export class EmprimirAuxiliarPage implements OnInit {
       this.alternar = true;
   }
 
-
-  downloadImage(){
-    //npm i html2canvas
-    html2canvas(this.screen.nativeElement).then(canvas => {
-      this.canvas.nativeElement.src = canvas.toDataURL();
-      var popup=window.open();
-      popup.document.write ('<img src =' + canvas.toDataURL() + '>');
-      popup.document.close ();
-      popup.focus ();
-      setTimeout(function (){
-        popup.print();
-        popup.close ();
-      }, 1000);
-    })
-      /*
-      this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
-      this.downloadLink.nativeElement.download = this.nomeAluno+'.png';
-      this.downloadLink.nativeElement.click();
-    });*/
+  print(componentName) {
+    this.printProvider.print(componentName);
   }
-
   voltar(){
       this.route.navigate(["/auxiliares/"+this.token]);
   }

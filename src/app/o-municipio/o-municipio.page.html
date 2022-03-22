@@ -1,122 +1,186 @@
 <ion-content>
 
-  <ion-header [translucent]="true">
-    <ion-toolbar class="top1" >
-      
-      <ion-buttons slot="end">
-        <a style="text-decoration: none;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
-          <ion-icon color = light button  name="logo-facebook"></ion-icon>&nbsp;&nbsp;
-        </a>
-      </ion-buttons>
-      
-      <ion-buttons slot="end">
-        <a style="text-decoration: none;" target="_blank"  href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br"  >
-          <ion-icon color = light name="logo-instagram"></ion-icon> &nbsp;&nbsp; 
-        </a>
-      </ion-buttons>
-      
-      <ion-buttons slot="end">
-        <a style="text-decoration: none;" target="_blank"  href="">
-         <ion-icon color = light  name="logo-youtube"></ion-icon>&nbsp;&nbsp;
-        </a>
-      </ion-buttons>
-      <ion-title>
-      </ion-title>
-    </ion-toolbar>
-    
-    <ion-toolbar class="top2" >
-      <ion-grid>
-        <ion-row  *ngIf ="alternar ==true">
-          <ion-col size = 3>
-            <a style="text-decoration: none;"routerLink = "/">
-              <img class="imagem"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
-            </a>
-            </ion-col>
-          <ion-col size = 3>
-              <ion-searchbar  type="text"[(ngModel)]="pesquisa" (keyup.enter)="pesquisarNoticias()" class="inputAjuda" placeholder = "O que deseja procurar ?"></ion-searchbar>
-          </ion-col>
-          <ion-col class="centralizarTexto" size = 2>
-            <ion-item button routerLink ="/o-municipio" color = transparent lines = none>
-              <ion-label color = light>
-                O municipio
-              </ion-label>
-            </ion-item>
-          </ion-col>
-          <ion-col class="centralizarTexto" size = 2>
-            <ion-item button routerLink ="/a-prefeitura" color = transparent lines = none>
-              <ion-label color = light>
-                A prefeitura
-              </ion-label>
-            </ion-item>
-          </ion-col>
-          <ion-col class="centralizarTexto" size = 2>
-            <ion-item  routerLink ="/telefones-uteis" button color = transparent lines = none>
-              <ion-label color = light>
-                Telefones úteis
-              </ion-label>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-  
-        <ion-row *ngIf ="alternar ==false">
-          <ion-col routerLink = "/home" size = 3>
-            <img class="imagem2"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
-          </ion-col>
-          <ion-col  routerLink ="/o-municipio" size = 3>
-              <ion-label color = light class="tamanho">
-                O municipio
-              </ion-label>
-          </ion-col>
-          <ion-col  routerLink ="/a-prefeitura"  size = 3>
-              <ion-label color = light class="tamanho">
-                A prefeitura
-              </ion-label>
-          </ion-col>
-          <ion-col routerLink ="/telefones-uteis" size = 3>
-              <ion-label color = light class="tamanho">
-                Telefones úteis
-              </ion-label>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header [translucent]="true">
+        <ion-toolbar class="top1">
 
-  <!------------------------------------------------------->
-  <div class="corpoTodo">
+            <ion-buttons slot="end">
+                <a style="text-decoration: none;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
+                    <ion-icon color="light" button name="logo-facebook"></ion-icon>&nbsp;&nbsp;
+                </a>
+            </ion-buttons>
 
-    <br>
-  <div class="corpo">
-    <h1> <b>O Município</b>  </h1><br><br>
-    <h2><b>História</b></h2><br>
-    Maragojipe é um município localizado no Recôncavo da Bahia, a 133 km de Salvador. Com população estimada em 46.260 habitantes, possui uma vasta extensão territorial totalizando 438.182 km² e faz divisa com São Felipe, Cruz das Almas, São Félix, Salinas da Margarida, Nazaré, entre outros.
-    O município possui seis distritos: São Roque do Paraguaçu, Nagé, Coqueiros, Guaí, Guapira e Sede. O aniversário de Maragojipe é em 08 de maio, data que celebra a elevação à categoria de cidade.
-    <br>
-    <h2><b>Festas e Celebrações</b></h2><br>
-    O Carnaval de Maragojipe é reconhecido e registrado como Patrimônio Imaterial da Bahia pelo Instituto do Patrimônio Artístico e Cultural do Estado (IPAC), desde 2009. O destaque são as marchinhas entoadas por orquestras de sopro e percussão tocadas pelas centenárias filarmônicas Terpsícore Popular e Dois de Julho. As máscaras e fantasias são os símbolos principais da festa que tem origem nos entrudos europeus, comparando-se ao Carnaval de Veneza, e acrescido pela alegria contagiante do povo baiano.
-    A Festa Junina tradicional de Maragojipe é forte, emana do seu povo festeiro e hospitaleiro que mantém viva suas tradições. São celebradas as Trezenas em louvor a Santo Antônio nas igrejas de todo o município. O Forró do Cais é a principal festa de largo da cidade no São João. O São Pedro também é celebrado com muita festa no distrito de Guapira.
-    A Festa de São Bartolomeu, padroeiro da cidade, acontece durante todo o mês de agosto. Além do Pregão de Abertura que acontece no primeiro sábado de Julho, o festejo conta com um mês inteiro repleto de festas e celebrações religiosas. A festa é dividida em profrana e religiosa e vai do bando anunciador, lavagem popular e shows ao novenário, missas, lavagem da igreja e procissão.
-    <br>
-    <h2><b>Arquitetura</b></h2><br>
-    Maragojipe possui uma expressiva estrutura arquitetônica que remonta ao período colonial. A Igreja Matriz de São Bartolomeu, a Casa de Câmara e Cadeia, atual Câmara de Vereadores e o prédio do Fórum, são algumas das edificações mais antigas da cidade.
-    <br>
-    <h2><b>Gastronomia</b></h2><br>
-    O dendê e o marisco são os principais ingredientes da culinária maragojipana.
-    Além disso, a carne de fumeiro produzida no município tem grande destaque, com produção de origem centenária.
-    <br>
-    <h2><b>Música</b></h2><br>
-    O Samba de Roda é uma das mais antigas tradições musicais de Maragojipe, o qual tem origem no século XIX. Tradição passada de pai para filho, no município, há diversos grupos que se apresentam por todo o Estado.
-    Além disso, as centenárias filarmônicas Terpsícore Popular e Dois de Julho também fazem parte da cultura musical do município.
-    <br>
-    <h2><b>Artesanato</b></h2><br>
-    Maragojipe é considerado um dos maiores centros de produção artesanal de cerâmica do Brasil. O maior pólo de fabricação está localizado no distrito de Coqueiros, em que há décadas a tradição da cerâmica é passada de geração em geração.
-    <br>
-    <h2><b>Belezas Naturais</b></h2><br>
-    O município é muito rico em recursos naturais com paisagens exuberantes, o que oferece atrativos para o turismo ecológico, rural e náutico. Localizado ao fundo da Baía de Todos os Santos e mais precisamente situado no ponto de encontro do Rio Paraguaçu com o Rio Guaí, apresenta condições excelentes para a pesca desportiva, além de passeios náuticos.
-    <br>
-    <br>
-    <br>
-  </div>
-  </div>
+            <ion-buttons slot="end">
+                <a style="text-decoration: none;" target="_blank" href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
+                    <ion-icon color="light" name="logo-instagram"></ion-icon> &nbsp;&nbsp;
+                </a>
+            </ion-buttons>
 
+            <ion-buttons slot="end">
+                <a style="text-decoration: none;" target="_blank" href="">
+                    <ion-icon color="light" name="logo-youtube"></ion-icon>&nbsp;&nbsp;
+                </a>
+            </ion-buttons>
+            <ion-title>
+            </ion-title>
+        </ion-toolbar>
+
+        <ion-toolbar class="top2">
+            <ion-grid>
+                <ion-row *ngIf="alternar ==true">
+                    <ion-col size=3>
+                        <a style="text-decoration: none;" href="/">
+                            <img class="imagem" src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+                        </a>
+                    </ion-col>
+                    <ion-col size=3>
+                        <ion-searchbar type="text" [(ngModel)]="pesquisa" (keyup.enter)="pesquisarNoticias()" class="inputAjuda" placeholder="O que deseja procurar ?"></ion-searchbar>
+                    </ion-col>
+                    <ion-col class="centralizarTexto" size=2>
+                        <ion-item button routerLink="/o-municipio" color="transparent" lines="none">
+                            <ion-label color="light">
+                                O municipio
+                            </ion-label>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col class="centralizarTexto" size=2>
+                        <ion-item button routerLink="/a-prefeitura" color="transparent" lines="none">
+                            <ion-label color="light">
+                                A prefeitura
+                            </ion-label>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col class="centralizarTexto" size=2>
+                        <ion-item routerLink="/telefones-uteis" button color="transparent" lines="none">
+                            <ion-label color="light">
+                                Telefones úteis
+                            </ion-label>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row *ngIf="alternar ==false">
+                    <ion-col routerLink="/" size=3>
+                        <img class="imagem2" src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+                    </ion-col>
+                    <ion-col routerLink="/o-municipio" size=3>
+                        <ion-label color="light" class="tamanho">
+                            O municipio
+                        </ion-label>
+                    </ion-col>
+                    <ion-col routerLink="/a-prefeitura" size=3>
+                        <ion-label color="light" class="tamanho">
+                            A prefeitura
+                        </ion-label>
+                    </ion-col>
+                    <ion-col routerLink="/telefones-uteis" size=3>
+                        <ion-label color="light" class="tamanho">
+                            Telefones úteis
+                        </ion-label>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-toolbar>
+    </ion-header>
+
+    <!------------------------------------------------------->
+    <div class="corpoTodo">
+
+        <br>
+        <div class="corpo">
+            <h1> <b>O Município</b> </h1><br><br>
+
+
+            <p style="font-weight: bold;color: #339967; text-align: center;font-size: x-large;">HISTÓRIA</p>
+
+            <div class="t1">
+                <img src="https://maragojipe.ba.gov.br/assets/background/FUNDO5.png" alt="Barco Wagner Mar C20" title="Barco Wagner Mar C20" />
+                <p style="font-size: small; color:gray;margin-left: 5%; left:0; margin-top: auto; text-align: left;">
+                    Barco Wagner Mar C20
+                </p>
+            </div>
+            Maragojipe é um município localizado no Recôncavo da Bahia, a 133 km de Salvador. Com população estimada em 46.260 habitantes, possui uma vasta extensão territorial totalizando 438.182 km² e faz divisa com São Felipe, Cruz das Almas, São Félix, Salinas
+            da Margarida, Nazaré, entre outros. O município possui seis distritos: São Roque do Paraguaçu, Nagé, Coqueiros, Guaí, Guapira e Sede. O aniversário de Maragojipe é em 08 de maio, data que celebra a elevação à categoria de cidade.
+            <br><br>
+
+
+
+            <p style="font-weight: bold;color: #339967; text-align: center;font-size: x-large;">FESTAS E CELEBRAÇÕES</p>
+            <div class="t1">
+                <img src="https://maragojipe.ba.gov.br/assets/background/FUNDO7.png" alt="Carnaval em Maragojipe" title="Carnaval em Maragojipe" />
+                <p style="font-size: small; color:gray;margin-left: 5%; left:0; margin-top: auto; text-align: left;">
+                    Carnaval em Maragojipe
+                </p>
+            </div>
+            O Carnaval de Maragojipe é reconhecido e registrado como Patrimônio Imaterial da Bahia pelo Instituto do Patrimônio Artístico e Cultural do Estado (IPAC), desde 2009. O destaque são as marchinhas entoadas por orquestras de sopro e percussão tocadas pelas
+            centenárias filarmônicas Terpsícore Popular e Dois de Julho. As máscaras e fantasias são os símbolos principais da festa que tem origem nos entrudos europeus, comparando-se ao Carnaval de Veneza, e acrescido pela alegria contagiante do povo
+            baiano. A Festa Junina tradicional de Maragojipe é forte, emana do seu povo festeiro e hospitaleiro que mantém viva suas tradições. São celebradas as Trezenas em louvor a Santo Antônio nas igrejas de todo o município. O Forró do Cais é a principal
+            festa de largo da cidade no São João. O São Pedro também é celebrado com muita festa no distrito de Guapira. A Festa de São Bartolomeu, padroeiro da cidade, acontece durante todo o mês de agosto. Além do Pregão de Abertura que acontece no
+            primeiro sábado de Julho, o festejo conta com um mês inteiro repleto de festas e celebrações religiosas. A festa é dividida em profrana e religiosa e vai do bando anunciador, lavagem popular e shows ao novenário, missas, lavagem da igreja
+            e procissão.
+            <br><br>
+
+
+
+            <p style="font-weight: bold;color: #339967; text-align: center;font-size: x-large;">ARQUITETURA</p>
+            <div class="t1">
+                <img src="https://maragojipe.ba.gov.br/assets/background/FUNDO1.png" alt="Interior da igreja matriz" title="Interior da igreja matriz" />
+                <p style="font-size: small; color:gray;margin-left: 5%; left:0; margin-top: auto; text-align: left;">
+                    Interior da igreja matriz
+                </p>
+            </div>
+            Maragojipe possui uma expressiva estrutura arquitetônica que remonta ao período colonial. A Igreja Matriz de São Bartolomeu, a Casa de Câmara e Cadeia, atual Câmara de Vereadores e o prédio do Fórum, são algumas das edificações mais antigas da cidade.
+            <br><br>
+
+
+
+            <p style="font-weight: bold;color: #339967; text-align: center;font-size: x-large;">GASTRONOMIA</p>
+            <div class="t1">
+                <img src="https://maragojipe.ba.gov.br/assets/background/FUNDO8.png" alt="Comida Maragojipana" title="Comida Maragojipana" />
+                <p style="font-size: small; color:gray;margin-left: 5%; left:0; margin-top: auto; text-align: left;">
+                    Comida Maragojipana
+                </p>
+            </div>
+            O dendê e o marisco são os principais ingredientes da culinária maragojipana. Além disso, a carne de fumeiro produzida no município tem grande destaque, com produção de origem centenária.
+            <br><br>
+
+
+
+            <p style="font-weight: bold;color: #339967; text-align: center;font-size: x-large;">MÚSICA</p>
+            <div class="t1">
+                <img src="https://maragojipe.ba.gov.br/assets/background/FUNDO9.png" alt="Samba de roda" title="Samba de roda" />
+                <p style="font-size: small; color:gray;margin-left: 5%; left:0; margin-top: auto; text-align: left;">
+                    Samba de roda
+                </p>
+            </div>
+            O Samba de Roda é uma das mais antigas tradições musicais de Maragojipe, o qual tem origem no século XIX. Tradição passada de pai para filho, no município, há diversos grupos que se apresentam por todo o Estado. Além disso, as centenárias filarmônicas
+            Terpsícore Popular e Dois de Julho também fazem parte da cultura musical do município.
+            <br><br>
+
+
+
+            <p style="font-weight: bold;color: #339967; text-align: center;font-size: x-large;">ARTESANATO</p>
+            <div class="t1">
+                <img src="https://maragojipe.ba.gov.br/assets/background/FUNDO10.png" alt="Feira de artesanato em Maragojipe" title="Feira de artesanato em Maragojipe" />
+                <p style="font-size: small; color:gray;margin-left: 5%; left:0; margin-top: auto; text-align: left;">
+                    Feira de artesanato em Maragojipe
+                </p>
+            </div>
+            Maragojipe é considerado um dos maiores centros de produção artesanal de cerâmica do Brasil. O maior pólo de fabricação está localizado no distrito de Coqueiros, em que há décadas a tradição da cerâmica é passada de geração em geração.
+            <br><br>
+
+
+
+            <p style="font-weight: bold;color: #339967; text-align: center;font-size: x-large;">BELEZAS NATURAIS</p>
+            <div class="t1">
+                <img src="https://maragojipe.ba.gov.br/assets/background/FUNDO11.png" alt="Belezas de Maragojipe" title="Belezas de Maragojipe" />
+                <p style="font-size: small; color:gray;margin-left: 5%; left:0; margin-top: auto; text-align: left;">
+                    Belezas de Maragojipe
+                </p>
+            </div>
+            O município é muito rico em recursos naturais com paisagens exuberantes, o que oferece atrativos para o turismo ecológico, rural e náutico. Localizado ao fundo da Baía de Todos os Santos e mais precisamente situado no ponto de encontro do Rio Paraguaçu
+            com o Rio Guaí, apresenta condições excelentes para a pesca desportiva, além de passeios náuticos.
+            <br><br>
+        </div>
+    </div>
+    <br>
 </ion-content>
