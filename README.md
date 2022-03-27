@@ -33,7 +33,8 @@
   <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white"/>
 </p>
 ## 🖥️  Sobre o site
- - `Curiosidades`: O site em questão está publicado no dominio da prefeitura municipal de Maragojipe<br>https://maragojipe.ba.gov.br/
+
+- `Curiosidades`: O site em questão está publicado no dominio da prefeitura municipal de Maragojipe<br>https://maragojipe.ba.gov.br/
 - `Curiosidades`: O mesmo site está implementando o sistema de matriculas utilizado na prefeitura de Maragojipe e disponibiliza de mais de 8 mil alunos matriculados para a secretaria de educação da cidade.
 - `Data de ingresso`: O site está no ar desde o dia 14 de fevereiro de 2021.
 
