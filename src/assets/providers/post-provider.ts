@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 @Injectable()
 export class PostProvider{
-    server: string = "https://www.suaUrl.com.br/assets/api";
+    server: string = "";
   constructor(
       private http : HttpClient
     ){  } 
