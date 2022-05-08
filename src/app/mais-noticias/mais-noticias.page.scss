@@ -12,22 +12,27 @@ ion-icon {
     height:auto;
   }
 
-  div.figura {
-//    background-color: rgb(236, 236, 236); 
-    margin-left:  4%;
-    margin-right: 4%;
-    width: 90%; 
-    height: auto;
-    border: thin silver solid;
-    img{
-      margin-top: 5% !important;
-      width: auto;
-    }
+  .footer2 {
+    margin-top: 0;
+    background-color: #49d390;
+    margin-left: 0;
+    margin-right: 0;
   }
+  
+  
+  .footer {
+    margin-top: 5%;
+    min-width: 100%;
+    background-color: #339967;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  
   div.figura p {
     text-align: center;
     font-style: normal;
-    font-size: smaller;
+    font-size: large;
     text-indent: 0;
   }
   
@@ -37,19 +42,19 @@ div.figura {
   margin-right: 4%;
   width: 90%; 
   height: auto;
-  border: thin silver solid;
+  border: thin rgb(236, 236, 236) dashed;
   img{
     margin-top: 5% !important;
     width: auto;
   }
 }
-div.figura p {
-  text-align: center;
-  font-style: normal;
-  font-size: xx-small;
-  text-indent: 0;
-}
-      
+  div.figura2{
+    img{
+      min-height: 75px;
+      max-height: 150px;
+      width: 100% !important;
+    }
+  }
 .container {
   display: flex;
   flex-direction: row;
