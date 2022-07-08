@@ -36,10 +36,40 @@ export class VisualizarPage implements OnInit {
     private route: Router
   ) { }
 
-  pesquisarNoticias(){
-    this.route.navigate(["/mais-noticias/"+this.pesquisa]);
+  
+  AlterarData(data: string) {
+    var aux = "";
+    aux = aux + data[8];
+    aux = aux + data[9];
+    aux = aux + "/";
+    aux = aux + data[5];
+    aux = aux + data[6];
+    aux = aux + "/";
+    aux = aux + data[0];
+    aux = aux + data[1];
+    aux = aux + data[2];
+    aux = aux + data[3];
+    aux = aux + " ás ";
+    aux = aux + data[10];
+    aux = aux + data[11];
+    aux = aux + data[12];
+    aux = aux + data[13];
+    aux = aux + data[14];
+    aux = aux + data[15];
+    aux = aux + data[16];
+    aux = aux + data[17];
+    aux = aux + data[18];
+    return aux;
   }
   
+  pesquisarNoticias() {
+    this.route.navigate(["/mais-noticias/" + this.pesquisa]);
+  }
+
+  ir(url) {
+    this.route.navigate([url]);
+  }
+
   visualizar(titulo){
     this.route.navigate(['/visualizar/'+titulo]);
   }
@@ -79,7 +109,7 @@ export class VisualizarPage implements OnInit {
         this.imagem = c.imagem;
         this.mensagem = c.mensagem;
         this.autor = c.autor;
-        this.dataPost = c.dataPost;
+        this.dataPost = this.AlterarData(c.dataPost);
         this.visualizacoes = c.visualizacoes;
         this.id = c.id;
         this.alterarView(c.id, c.visualizacoes)

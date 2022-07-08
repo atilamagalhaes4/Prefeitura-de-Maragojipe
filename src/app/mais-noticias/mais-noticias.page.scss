@@ -55,6 +55,74 @@ div.figura {
       width: 100% !important;
     }
   }
+
+   
+.top1 {
+  --background: #34cc67 url("../../assets/background/claro.png") no-repeat
+    center center / cover !important;
+}
+
+.top2 {
+  --background: #339967 url("../../assets/background/escuro.png") no-repeat
+    center center / cover !important;
+}
+ion-icon {
+  font-size: 200%;
+}
+.imagem {
+  width: 80%;
+  float: left;
+  height: auto;
+} 
+.imagem2 {
+  width: 100%;
+  float: left;
+  height: auto;
+}
+ion-searchbar {
+  margin-top: 1cm;
+}
+
+.inputAjuda {
+  margin-top: auto;
+}
+
+.footer2 {
+  margin-top: 0;
+  background-color: #49d390;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+.footer {
+  margin-top: 5%;
+  min-width: 100%; 
+  background-color: #339967;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+//roda´pé desktop
+.rodape2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  width: 80%;
+}
+
+
+div.rodape {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 100%;
+}
+.tamanho {
+  font-size: smaller;
+  text-align: center;
+}
 .container {
   display: flex;
   flex-direction: row;

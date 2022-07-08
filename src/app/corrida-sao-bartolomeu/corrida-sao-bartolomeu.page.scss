@@ -1,0 +1,353 @@
+
+.igreja {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #background {
+    background-image: url("../../assets/background/istockphoto-1193608799-1024x1024.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  /*
+  
+  
+  */
+  div.figura {
+    background-color: rgb(236, 236, 236);
+    width: 80%;
+    height: auto;
+    //  border: thin silver solid;
+    img {
+      margin-top: 5% !important;
+      width: 40%;
+    }
+  }
+  div.figura p {
+    text-align: center;
+    font-style: normal;
+    font-size: smaller;
+    text-indent: 0;
+  }
+  ion-content {
+    font-family: Roboto Light, sans-serif;
+  }
+  #fundoCInza {
+    background-color: rgb(241, 241, 240);
+  }
+  
+  div.figura2 {
+    background-color: rgb(236, 236, 236);
+    width: 100%;
+    height: auto;
+    //    border: thin silver solid;
+  }
+  div.figura2 p {
+    text-align: center;
+    font-style: normal;
+    font-size: xx-small;
+    text-indent: 0;
+  }
+  
+  div.figura3 {
+    //  background-color: yellowgreen;
+    //  width: 100%;
+    //    height: 60%;
+    //  border: thin silver solid;
+    img {
+      height: 9cm !important;
+      width: 90%;
+    }
+  }
+  div.figura3 p {
+    text-align: center;
+    font-style: normal;
+    font-size: large;
+    text-indent: 0;
+  }
+   
+  /*
+  .tamanho {
+    font-size: smaller;
+    text-align: center;
+  }
+    .figura3:hover img {
+      -moz-transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+      
+    }
+  
+  
+  .top1 {
+    --background: #34cc67 url("../../assets/background/claro.png") no-repeat
+      center center / cover !important;
+  }
+  
+  .top2 {
+    --background: #339967 url("../../assets/background/escuro.png") no-repeat
+      center center / cover !important;
+  }
+  ion-icon {
+    font-size: 200%;
+  }
+  .imagem {
+    width: 80%;
+    float: left;
+    height: auto;
+  }
+  .imagem2 {
+    width: 100%;
+    float: left;
+    height: auto;
+  }
+  ion-searchbar {
+    margin-top: 1cm;
+  }
+  
+  .inputAjuda {
+    margin-top: auto;
+  }
+  */
+  .banner {
+    background-color: #ffffff;
+  }
+  .fundoBaixo {
+    background-color: #ffffff;
+  } 
+  .banner2 {
+    width: 100% !important;
+    height: auto;
+  }
+  
+  div.figura4 {
+    //  background-color: yellowgreen;
+    //  width: 100%;
+    //    height: 60%;
+    //  border: thin silver solid;
+    img {
+      height: auto !important;
+      width: 90%;
+    }
+  }
+  div.figura4 p {
+    text-align: center;
+    font-style: normal;
+    font-size: x-small;
+    text-indent: 0;
+  }
+  
+  
+  .textoPequeno1 {
+    border: thin rgb(245,245,245) dashed;
+    background-color: rgb(250, 250, 250);
+    height: auto;
+    .imagemPequena {
+      width: 25%;
+      height: auto;
+    }
+  }
+  
+  .textoPequeno2 {
+    border: thin rgb(245,245,245) dashed;
+    background-color: rgb(250, 250, 250);
+    height: auto;
+    .imagemPequena {
+      width: 25%;
+      height: auto;
+    }
+  }
+  
+  
+  .textoPequeno3 {
+    border: thin rgb(240, 240, 240) solid;
+    //background-color: rgb(236, 236, 236);
+    .imagemPequena {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  .textoPequeno4 {
+    border: thin rgb(240, 240, 240) solid;
+    //background-color: rgb(236, 236, 236);
+    .imagemPequena {
+      width: 100%;
+      height: 25mm;
+    }
+  }
+  
+  
+   
+  .top1 {
+    --background: #34cc67 url("../../assets/background/claro.png") no-repeat
+      center center / cover !important;
+  }
+  
+  .top2 {
+    --background: #339967 url("../../assets/background/escuro.png") no-repeat
+      center center / cover !important;
+  }
+  ion-icon {
+    font-size: 200%;
+  }
+  .imagem {
+    width: 80%;
+    float: left;
+    height: auto;
+  } 
+  .imagem2 {
+    width: 100%;
+    float: left;
+    height: auto;
+  }
+  ion-searchbar {
+    margin-top: 1cm;
+  }
+  
+  .footer2 {
+    margin-top: 0;
+    background-color: #49d390;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  
+  .footer {
+    margin-top: 5%;
+    min-width: 100%; 
+    background-color: #339967;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  //roda´pé desktop
+  .rodape2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 80%;
+  }
+  
+  
+  div.rodape {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  }
+  .inputAjuda {
+    margin-top: auto;
+  }
+  
+  .tamanho {
+    font-size: smaller;
+    text-align: center;
+  }
+  
+  
+  // CSS para abrir imagem ao clicar
+  
+     /* Style the Image Used to Trigger the Modal */
+     #myImg1 {
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    #myImg1:hover {opacity: 0.7;}
+    
+    #myImg2 {
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    #myImg2:hover {opacity: 0.7;}
+    
+    #myImg3 {
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    #myImg3:hover {opacity: 0.7;}
+    
+    #myImg4 {
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    #myImg4:hover {opacity: 0.7;}
+    
+    /* The Modal (background) */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    }
+    
+    /* Modal Content (Image) */
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+    }
+  
+  /* Caption of Modal Image (Image Text) - Same Width as the Image */
+  #caption {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+      color: #ccc;
+      padding: 10px 0;
+      height: 150px;
+    }
+    
+    /* Add Animation - Zoom in the Modal */
+    .modal-content, #caption {
+      animation-name: zoom;
+      animation-duration: 0.6s;
+    }
+    
+    @keyframes zoom {
+      from {transform:scale(0)}
+      to {transform:scale(1)}
+    }
+    
+    /* The Close Button */
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    
+    /* 100% Image Width on Smaller Screens */
+    @media only screen and (max-width: 700px){
+      .modal-content {
+        width: 100%;
+      }
+    }  

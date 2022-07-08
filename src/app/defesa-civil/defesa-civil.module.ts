@@ -8,6 +8,7 @@ import { DefesaCivilPageRoutingModule } from './defesa-civil-routing.module';
 
 import { DefesaCivilPage } from './defesa-civil.page';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +16,8 @@ import { DefesaCivilPage } from './defesa-civil.page';
     IonicModule,
     DefesaCivilPageRoutingModule
   ],
-  declarations: [DefesaCivilPage]
+  declarations: [
+    DefesaCivilPage
+  ]
 })
 export class DefesaCivilPageModule {}

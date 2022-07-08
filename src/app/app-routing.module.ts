@@ -39,7 +39,14 @@ const routes: Routes = [
   { path: 'ppa', loadChildren: () => import('./ppa/ppa.module').then( m => m.PpaPageModule)},
   { path: 'graca', loadChildren: () => import('./graca/graca.module').then( m => m.GracaPageModule)},
   { path: 'meio-ambiente', loadChildren: () => import('./meio-ambiente/meio-ambiente.module').then( m => m.MeioAmbientePageModule)},
+  { path: 'reparacao-racial-mulher', loadChildren: () => import('./reparacao-racial-mulher/reparacao-racial-mulher.module').then( m => m.ReparacaoRacialMulherPageModule)},
+  { path: 'publicar-noticias', loadChildren: () => import('./publicar-noticias/publicar-noticias.module').then( m => m.PublicarNoticiasPageModule)},
+  {
+    path: 'corrida-sao-bartolomeu',
+    loadChildren: () => import('./corrida-sao-bartolomeu/corrida-sao-bartolomeu.module').then( m => m.CorridaSaoBartolomeuPageModule)
+  }
 ];
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })

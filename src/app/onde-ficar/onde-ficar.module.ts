@@ -9,6 +9,7 @@ import { OndeFicarPageRoutingModule } from './onde-ficar-routing.module';
 import { OndeFicarPage } from './onde-ficar.page';
 import { PostProvider } from '../../assets/providers/post-provider';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -16,7 +17,9 @@ import { PostProvider } from '../../assets/providers/post-provider';
     IonicModule,
     OndeFicarPageRoutingModule
   ],
-  declarations: [OndeFicarPage],
+  declarations: [
+    OndeFicarPage
+  ],
   providers: [
     PostProvider
   ],

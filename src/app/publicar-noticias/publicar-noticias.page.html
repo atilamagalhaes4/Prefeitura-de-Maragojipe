@@ -1,0 +1,153 @@
+<ion-content>
+
+  <ion-header [translucent]="true">
+    <ion-toolbar class="top1">
+      <ion-buttons slot="end">
+        <a style="text-decoration: none;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
+          <ion-icon color=light button name="logo-facebook"></ion-icon>&nbsp;&nbsp;
+        </a>
+      </ion-buttons>
+
+      <ion-buttons slot="end">
+        <a style="text-decoration: none;" target="_blank"
+          href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
+          <ion-icon color=light name="logo-instagram"></ion-icon> &nbsp;&nbsp;
+        </a>
+      </ion-buttons>
+
+      <ion-buttons slot="end">
+        <a style="text-decoration: none;" target="_blank" href="">
+          <ion-icon color=light name="logo-youtube"></ion-icon>&nbsp;&nbsp;
+        </a>
+      </ion-buttons>
+      <ion-title>
+      </ion-title>
+    </ion-toolbar>
+
+    <ion-toolbar class="top2">
+      <ion-grid>
+        <ion-row *ngIf="alternar ==true">
+          <ion-col size=3>
+            <a style="text-decoration: none;" href="/">
+              <img class="imagem" src="../../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+            </a>
+          </ion-col>
+          <ion-col size=3>
+          </ion-col>
+          <ion-col class="centralizarTexto" size=2>
+            <ion-item button (click)='ir("/o-municipio")' color=transparent lines=none>
+              <ion-label color=light>
+                O MUNICIPIO
+              </ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col class="centralizarTexto" size=2>
+            <ion-item button (click)='ir("/a-prefeitura")' color=transparent lines=none>
+              <ion-label color=light>
+                A PREFEITURA
+              </ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col class="centralizarTexto" size=2>
+            <ion-item (click)='ir("/telefones-uteis")' button color=transparent lines=none>
+              <ion-label color=light>
+                TELEFONES ÚTEIS
+              </ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="alternar ==false">
+          <ion-col (click)='ir("/")' size=3>
+            <img class="imagem2" src="../../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+          </ion-col>
+          <ion-col (click)='ir("/o-municipio")' size=3>
+            <ion-label style="font-size: x-small;" color=light class="tamanho">
+              O MUNICIPIO
+            </ion-label>
+          </ion-col>
+          <ion-col (click)='ir("/a-prefeitura")' size=3>
+            <ion-label style="font-size: x-small;" color=light class="tamanho">
+              A PREFEITURA
+            </ion-label>
+          </ion-col>
+          <ion-col (click)='ir("/telefones-uteis")' size=3>
+            <ion-label style="font-size: x-small;" color=light class="tamanho">
+              TELEFONES ÚTEIS
+            </ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-grid *ngIf="mostrar == true">
+    <ion-row>
+      <ion-col style="margin: auto;" size="10">
+        <ion-item>
+          <ion-label position="stacked">Titulo</ion-label>
+          <ion-input [(ngModel)]="titulo" placeholder="Titulo da noticia"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="margin: auto;" size="10">
+        <ion-item>
+          <ion-label position="stacked">Introdução</ion-label>
+          <ion-textarea [(ngModel)]="introducao" rows="10" cols="20" placeholder="Introdução da noticia.">
+          </ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="margin: auto;" size="10">
+        <ion-item>
+          <ion-label position="stacked">Mensagem principal</ion-label>
+          <ion-textarea [(ngModel)]="mensagem" rows="15" cols="20" placeholder="O corpo da mensagem.">
+          </ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col style="margin: auto;" size="10">
+        <ion-item lines = "full">
+          <ion-label position="stacked">Autora</ion-label>
+          <ion-input [(ngModel)]="autor" placeholder="O seu nome Sintia ;-;"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col style="margin: auto;" size="10">
+        <ion-item lines = "full">
+          <ion-label position="stacked">Visualizações</ion-label>
+          <ion-input [(ngModel)]="visualizacoes" type="number" placeholder="Quantidade de visualizações iniciais">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row  *ngIf="alternar == true">
+      <ion-col style="margin: auto;" size="10">
+        <ion-item lines = "full">
+          <ion-label>Selecione uma imagem</ion-label>
+          <p style="font-size: small;">
+            <input type="file" accept="image/png, image/jpeg" (change)="uploadImagem($event)">
+          </p>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="margin: auto;" size="5">
+        <ion-button expand="full" color="danger" (click)="limparCampos()">Limpar todos os dados</ion-button>
+      </ion-col>
+      <ion-col style="margin: auto;" size="5">
+        <ion-button expand="full" color="primary" (click)="enviarNoticia()">Enviar pro banco de dados. </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+</ion-content>

@@ -21,6 +21,11 @@ export class TelefonesUteisPage implements OnInit {
   ngOnInit() {
   }
 
+
+  ir(url) {
+    this.route.navigate([url]);
+  }
+
   ionViewWillEnter(){
     if(this.platform.is("desktop")){
       this.alternar = true;

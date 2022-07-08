@@ -1,0 +1,120 @@
+.top1 {
+  --ion-background-color: #34cc67;
+}
+
+.top2 {
+  --ion-background-color: #339967;
+}
+
+/////////////////////////// WEB /////////////////////////////
+.botoesFlutuante1 {
+  width: 220px;
+  height: 90px;
+  //    background:#f00;
+  position: absolute;
+  z-index: 100;
+  //    margin-top: 0;
+  margin-left: 50%;
+  left: 40;
+}
+.botoesFlutuante2 {
+  width: 220px;
+  height: 100px;
+  //    background:#f00;
+  position: absolute;
+  z-index: 100;
+  //    top:20%;
+  margin-left: 60%;
+  left: 40;
+}
+.botoesFlutuante3 {
+  width: 220px;
+  height: 100px;
+  //    background:#f00;
+  position: absolute;
+  z-index: 100;
+  //    top:20%;
+  margin-left: 75%;
+  left: 40;
+}
+
+.botoesFlutuante4 {
+  width: 220px;
+  height: 100px;
+  //    background:#f00;
+  position: absolute;
+  z-index: 100;
+  //    top:20%;
+  margin-left: 84%;
+  left: 40;
+}
+
+/////////////////////////Mobille ////////////////
+
+.botoesFLutuanteMobille {
+  width: auto;
+  height: auto;
+  //    background:#f00;
+  position: absolute;
+  z-index: 100;
+  //    margin-top: 0;
+  margin-left: 0%;
+  left: 40;
+}
+
+.dropbtn {
+  background-color: transparent;
+  color: white;
+  //  padding: 16px;
+  //  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  border-radius: 10px;
+  width: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: gray;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn1 {
+  box-shadow: 0px 0px #185cb4, 0px 2px #185cb4, 0px 3px #185cb4;
+}
+.dropdown:hover .dropbtn2 {
+  box-shadow: 0px 0px orange, 0px 2px orange, 0px 3px orange;
+}
+.dropdown:hover .dropbtn3 {
+  box-shadow: 0px 0px deepskyblue, 0px 2px deepskyblue, 0px 3px deepskyblue;
+}
+.dropdown:hover .dropbtn4 {
+  box-shadow: 0px 0px magenta, 0px 2px magenta, 0px 3px magenta;
+}
+.dropdown:hover .dropbtn5 {
+  box-shadow: 0px 0px firebrick, 0px 2px firebrick, 0px 3px firebrick;
+}

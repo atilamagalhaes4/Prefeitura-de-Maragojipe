@@ -8,6 +8,7 @@ import { APrefeituraPageRoutingModule } from './a-prefeitura-routing.module';
 
 import { APrefeituraPage } from './a-prefeitura.page';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +16,8 @@ import { APrefeituraPage } from './a-prefeitura.page';
     IonicModule,
     APrefeituraPageRoutingModule
   ],
-  declarations: [APrefeituraPage]
+  declarations: [
+    APrefeituraPage
+  ]
 })
 export class APrefeituraPageModule {}

@@ -25,6 +25,11 @@ export class OuvidoriaPage implements OnInit {
     private route: Router
   ) {}
 
+
+  ir(url) {
+    this.route.navigate([url]);
+  }
+
   async presentAlert(mensagem) {
     const alert = await this.alertController.create({
       cssClass: 'primary',

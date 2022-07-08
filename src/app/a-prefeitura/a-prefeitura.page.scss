@@ -1,110 +1,170 @@
 ion-icon {
-    font-size: 200%;
-  }
-  .imagem{
-    width: 80%;
-    float: left;
-    height:auto;
-  }
-  .imagem2{
-    width: 100%;
-    float: left;
-    height:auto;
-  }
-  ion-searchbar{
-    margin-top: 1cm;
-  }
-  
-  .inputAjuda{
-    margin-top: auto;
-  }
-  .igreja{
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-  }
-  #background{
-    background-image: url('../../assets/background/istockphoto-1193608799-1024x1024.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;}
-  .tamanho{
-    font-size: smaller;
-    text-align: center;
-  }
-  div.figura {
-  //  background-color: yellowgreen;
-    width: 80%;
-    height: auto;
-    border: thin silver solid;
-    img{
-      width: 40%;
-    }
-  }
-  div.figura p {
-    text-align: center;
-    font-style: normal;
-    font-size: smaller;
-    text-indent: 0;
-  }
-  
-  #fundoCInza{
-    background-color: rgb(241, 241, 240);
-  }
-  
-  div.figura2 {
-    //  background-color: yellowgreen;
-      width: 100%;
-      height: auto;
-      border: thin silver solid;
-    }
-    div.figura2 p {
-      text-align: center;
-      font-style: normal;
-      font-size: xx-small;
-      text-indent: 0;
-    }
-  
-    
-  div.figura3 {
-    //  background-color: yellowgreen;
-      width: 100%;
-      height: auto;
-      border: thin silver solid;
-    }
-    div.figura3 p {
-      text-align: center;
-      font-style: normal;
-      font-size: large;
-      text-indent: 0;
-    }
-  
-.bordaSecretaria{
-    border: thin silver solid;   
+  font-size: 200%;
 }
-  
-.centralizarContent{
+
+.imagem {
+  width: 80%;
+  float: left;
+  height: auto;
+}
+
+.imagem2 {
+  width: 100%;
+  float: left;
+  height: auto;
+}
+
+ion-searchbar {
+  margin-top: 1cm;
+}
+
+.inputAjuda {
+  margin-top: auto;
+}
+
+.igreja {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+#background {
+  background-image: url('../../assets/background/istockphoto-1193608799-1024x1024.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tamanho {
+  font-size: smaller;
+  text-align: center;
+}
+
+div.figura {
+  //  background-color: yellowgreen;
+  width: 80%;
+  height: auto;
+  border: thin silver solid;
+
+  img {
+    width: 40%;
+  }
+}
+
+div.figura p {
+  text-align: center;
+  font-style: normal;
+  font-size: smaller;
+  text-indent: 0;
+}
+
+#fundoCInza {
+  background-color: rgb(241, 241, 240);
+}
+
+div.figura2 {
+  //  background-color: yellowgreen;
+  width: 100%;
+  height: auto;
+  border: thin silver solid;
+}
+
+div.figura2 p {
+  text-align: center;
+  font-style: normal;
+  font-size: xx-small;
+  text-indent: 0;
+}
+
+
+div.figura3 {
+  //  background-color: yellowgreen;
+  width: 100%;
+  height: auto;
+  border: thin silver solid;
+}
+
+div.figura3 p {
+  text-align: center;
+  font-style: normal;
+  font-size: large;
+  text-indent: 0;
+}
+
+.bordaSecretaria {
+  border: thin silver solid;
+}
+
+.centralizarContent {
   margin-left: 10%;
   margin-right: 10%;
 
 }
-    div.rodape {    display: block;
-      margin-left: auto;
-      margin-right: auto;
+
+div.rodape {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   //    margin-left: 5%;
-    //  margin-right: 5%;
-      //  background-color: yellowgreen;
-        width: 40%;
-        height: auto;
+  //  margin-right: 5%;
+  //  background-color: yellowgreen;
+  width: 40%;
+  height: auto;
   //      border: thin silver solid;
-      }
-  div.rodape p {
-    text-align: center;
-    font-style: normal;
-    font-size: large;
-    text-indent: 0;
-  }
-    
-      
+}
+
+div.rodape p {
+  text-align: center;
+  font-style: normal;
+  font-size: large;
+  text-indent: 0;
+}
+
+
+.top1 {
+  --background: #34cc67 url("../../assets/background/claro.png") no-repeat center center / cover !important;
+}
+
+.top2 {
+  --background: #339967 url("../../assets/background/escuro.png") no-repeat center center / cover !important;
+}
+
+ion-icon {
+  font-size: 200%;
+}
+
+.imagem {
+  width: 80%;
+  float: left;
+  height: auto;
+}
+
+.imagem2 {
+  width: 100%;
+  float: left;
+  height: auto;
+}
+
+ion-searchbar {
+  margin-top: 1cm;
+}
+
+.inputAjuda {
+  margin-top: auto;
+}
+
+.tamanho {
+  font-size: smaller;
+  text-align: center;
+}
+
+.footer2 {
+  margin-top: 0;
+  background-color: #49d390;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
 .footer2 {
   margin-top: 0;
   background-color: #49d390;
@@ -115,6 +175,30 @@ ion-icon {
 
 .footer {
   margin-top: 5%;
+  min-width: 100%; 
+  background-color: #339967;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+//roda´pé desktop
+.rodape2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  width: 80%;
+}
+
+
+div.rodape {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 100%;
+}
+.footer {
+  margin-top: 5%;
   min-width: 100%;
   background-color: #339967;
   margin-left: 0;
@@ -122,14 +206,14 @@ ion-icon {
   margin-bottom: 0;
 }
 
-  .top1{
-    --background: #34cc67 url('../../assets/background/claro.png') no-repeat center center / cover !important;
-  }
+.top1 {
+  --background: #34cc67 url('../../assets/background/claro.png') no-repeat center center / cover !important;
+}
 
-  .top2{
-    --background: #339967 url('../../assets/background/escuro.png') no-repeat center center / cover !important;
-  }
+.top2 {
+  --background: #339967 url('../../assets/background/escuro.png') no-repeat center center / cover !important;
+}
 
-  .fundo{
-    background-color: #ffffff;
-  }
+.fundo {
+  background-color: #ffffff;
+}

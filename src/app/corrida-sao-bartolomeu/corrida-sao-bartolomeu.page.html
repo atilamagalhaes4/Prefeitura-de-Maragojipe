@@ -1,0 +1,835 @@
+<ion-content>
+
+    <ion-header [translucent]="true">
+        <ion-toolbar class="top1">
+            <ion-buttons slot="end">
+                <a style="text-decoration: none;" target="_blank"
+                    href="https://www.facebook.com/prefeiturademaragojipe">
+                    <ion-icon color=light button name="logo-facebook"></ion-icon>&nbsp;&nbsp;
+                </a>
+            </ion-buttons>
+
+            <ion-buttons slot="end">
+                <a style="text-decoration: none;" target="_blank"
+                    href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
+                    <ion-icon color=light name="logo-instagram"></ion-icon> &nbsp;&nbsp;
+                </a>
+            </ion-buttons>
+
+            <ion-buttons slot="end">
+                <a style="text-decoration: none;" target="_blank" href="">
+                    <ion-icon color=light name="logo-youtube"></ion-icon>&nbsp;&nbsp;
+                </a>
+            </ion-buttons>
+            <ion-title>
+            </ion-title>
+        </ion-toolbar>
+
+        <ion-toolbar class="top2">
+            <ion-grid>
+                <ion-row *ngIf="alternar ==true">
+                    <ion-col size=3>
+                        <a style="text-decoration: none;" href="/">
+                            <img class="imagem" src="../../../assets/logo-prefeitura/logo2.png"
+                                alt="Prefeitura de Maragojipe">
+                        </a>
+                    </ion-col>
+                    <ion-col size=3>
+                        <ion-searchbar type="text" [(ngModel)]="pesquisa" (keyup.enter)="pesquisarNoticias()"
+                            class="inputAjuda" placeholder="O que deseja procurar ?"></ion-searchbar>
+                    </ion-col>
+                    <ion-col class="centralizarTexto" size=2>
+                        <ion-item button (click)='ir("/o-municipio")' color=transparent lines=none>
+                            <ion-label color=light>
+                                O MUNICIPIO
+                            </ion-label>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col class="centralizarTexto" size=2>
+                        <ion-item button (click)='ir("/a-prefeitura")' color=transparent lines=none>
+                            <ion-label color=light>
+                                A PREFEITURA
+                            </ion-label>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col class="centralizarTexto" size=2>
+                        <ion-item (click)='ir("/telefones-uteis")' button color=transparent lines=none>
+                            <ion-label color=light>
+                                TELEFONES ÚTEIS
+                            </ion-label>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row *ngIf="alternar ==false">
+                    <ion-col (click)='ir("/")' size=3>
+                        <img class="imagem2" src="../../../assets/logo-prefeitura/logo2.png"
+                            alt="Prefeitura de Maragojipe">
+                    </ion-col>
+                    <ion-col (click)='ir("/o-municipio")' size=3>
+                        <ion-label style="font-size: x-small;" color=light class="tamanho">
+                            O MUNICIPIO
+                        </ion-label>
+                    </ion-col>
+                    <ion-col (click)='ir("/a-prefeitura")' size=3>
+                        <ion-label style="font-size: x-small;" color=light class="tamanho">
+                            A PREFEITURA
+                        </ion-label>
+                    </ion-col>
+                    <ion-col (click)='ir("/telefones-uteis")' size=3>
+                        <ion-label style="font-size: x-small;" color=light class="tamanho">
+                            TELEFONES ÚTEIS
+                        </ion-label>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-toolbar>
+    </ion-header>
+    <br>
+    <img *ngIf="alternar ==false" src="../../assets/logo-prefeitura/logo.png" height="100px" width="auto"
+        style="display: block;margin-left: auto;margin-right: auto;" alt="">
+    <img *ngIf="alternar ==true" src="../../assets/logo-prefeitura/logo.png" height="200px" width="auto"
+        style="display: block;margin-left: auto;margin-right: auto;" alt="">
+
+
+
+    <ion-grid *ngIf="alternar ==true">
+        <ion-row style="height: 400px;border: thin #c7e4c2 dashed; margin-left: 5%; margin-right: 5%;">
+
+            <ion-col style="border: thin #34cc67 dashed; background-color: #c7e4c2;" size="4">
+                <ion-item color=light lines=none>
+                    <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">Nome Completo
+                    </ion-label>
+                    <ion-input [(ngModel)]="nome" placeholder="Insira aqui o seu nome"></ion-input>
+                </ion-item>
+                <br>
+                <ion-item color=light lines=none>
+                    <ion-label  position="stacked">Data de nascimento
+                    </ion-label>
+                    <span slot="title">Data de nascimento</span>
+                    <ion-datetime [(ngModel)]="dataNascimento" locale="pt-BR"
+                    monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez" displayFormat="DD-MMM-YYYY"  doneText="Confirmar" cancelText="Cancelar" placeholder="Data de nascimento" presentation="date"></ion-datetime>
+                </ion-item>
+                <br>
+                <ion-item color=light lines=none>
+                    <ion-label position="stacked">
+                        Gênero
+                    </ion-label>
+                    <ion-select  okText="Confirmar" cancelText="Cancelar" [(ngModel)]="sexo" 
+                        placeholder="Selecionar sexo" [multiple]="false">
+                        <ion-select-option value="Masculino">Masculino</ion-select-option>
+                        <ion-select-option value="Feminino">Feminino</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <br>
+                <ion-item color=light lines=none>
+                    <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">CPF
+                    </ion-label>
+                    <ion-input [(ngModel)]="cpf" (ionChange)="arrumarCPF1()" type="tel" placeholder="Informe seu CPF"></ion-input>
+                </ion-item>
+                <br>
+                <ion-item color=light lines=none>
+                    <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">Cidade
+                    </ion-label>
+                    <ion-input [(ngModel)]="cidade" type="text" placeholder="Informe sua Cidade"></ion-input>
+                </ion-item>
+            </ion-col>
+
+            <ion-col style="border: thin #34cc67 dashed; background-color: #c7e4c2;" size="4">
+                <iframe src="../../assets/pdf/REGULAMENTO CORRIDA DE SAO BARTOLOMEU 2022.pdf#toolbar=0" width="100%"
+                    height="100%" style="border: none;"></iframe>
+
+            </ion-col>
+
+            <ion-col style="border: thin #34cc67 dashed; background-color: #c7e4c2;" size="4">
+
+                <ion-item color=light lines=none>
+                    <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">Equipe
+                        </ion-label>
+                        <ion-select  okText="Confirmar" cancelText="Cancelar" [(ngModel)]="equipe" 
+                        placeholder="Possui equipe ?" [multiple]="false">
+                        <ion-select-option value="Sim">Sim</ion-select-option>
+                        <ion-select-option value="Não">Não</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <br>
+                <ion-item color=light lines=none>
+                    <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">Celular
+                    </ion-label>
+                    <ion-input [(ngModel)]="celular" type="tel" placeholder="(DDD) + Telefone"></ion-input>
+                </ion-item>
+                <br>
+                <ion-item color=light lines=none>
+                    <ion-label position="stacked">
+                        Categoria
+                    </ion-label>
+                    <ion-select  okText="Confirmar" cancelText="Cancelar" [(ngModel)]="categoria"  [(ngModel)]="categoria"
+                        placeholder="Selecionar categoria" [multiple]="false">
+                        <ion-select-option value="local">Local</ion-select-option>
+                        <ion-select-option value="geral">Geral</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <br>
+
+                <ion-item color=light lines=none>
+                    <ion-label position="stacked">
+                        Distância
+                    </ion-label>
+                    <ion-select  okText="Confirmar" cancelText="Cancelar" [(ngModel)]="distancia"  [(ngModel)]="distancia"
+                        placeholder="Selecionar distancia" [multiple]="false">
+                        <ion-select-option value="5 Km">5 Km</ion-select-option>
+                        <ion-select-option value="10 km">10 Km</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <br>
+                <ion-item lines="none">
+                    <label>Li e aceito
+                        <a target="_blank"
+                            href="https://maragojipe.ba.gov.br/assets/pdf/REGULAMENTO%20CORRIDA%20DE%20SAO%20BARTOLOMEU%202022.pdf"
+                            style=" color: #339967; text-decoration: dashed;">
+                            todos os termos
+                        </a> citado ao lado.
+                    </label>
+                    <ion-checkbox slot="end" [(ngModel)]="aceito"></ion-checkbox>
+                </ion-item>
+                <br>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size=5>
+                            <ion-button expand="block" style="font-family: 'Times New Roman', Times, serif;"
+                                color="danger" (click)="limpar()" size="small">Limpar</ion-button>
+                        </ion-col>
+                        <ion-col size=2></ion-col>
+                        <ion-col size=5>
+                            <ion-button expand="block" style="font-family: 'Times New Roman', Times, serif;"
+                                color="primary" (click)="enviarInscricao()" size="small">Me cadastrar</ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-list *ngIf="alternar ==false">
+
+        <ion-item color=light lines=none>
+            <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">Nome Completo
+            </ion-label>
+            <ion-input [(ngModel)]="nome" placeholder="Insira aqui o seu nome"></ion-input>
+        </ion-item>
+        <ion-item color=light lines=none>
+            <ion-label  position="stacked">Data de nascimento
+            </ion-label>
+            <span slot="title">Data de nascimento</span>
+            <ion-datetime [(ngModel)]="dataNascimento" locale="pt-BR"
+            monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez" displayFormat="DD-MMM-YYYY"  doneText="Confirmar" cancelText="Cancelar" placeholder="Data de nascimento" presentation="date"></ion-datetime>
+        </ion-item>
+
+        <ion-item color=light lines=none>
+            <ion-label position="stacked">
+                Gênero
+            </ion-label>
+            <ion-select  okText="Confirmar" cancelText="Cancelar" [(ngModel)]="sexo" 
+                placeholder="Selecionar sexo" [multiple]="false">
+                <ion-select-option value="Masculino">Masculino</ion-select-option>
+                <ion-select-option value="Feminino">Feminino</ion-select-option>
+            </ion-select>
+        </ion-item>
+    
+        <ion-item color=light lines=none>
+            <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">CPF
+            </ion-label>
+            <ion-input [(ngModel)]="cpf" (ionChange)="arrumarCPF1()" type="tel" placeholder="Informe seu CPF"></ion-input>
+        </ion-item>
+    
+        <ion-item color=light lines=none>
+            <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">Cidade
+            </ion-label>
+            <ion-input [(ngModel)]="cidade" type="text" placeholder="Informe sua Cidade"></ion-input>
+        </ion-item>
+    
+        <ion-item color=light lines=none>
+            <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">Equipe
+                </ion-label>
+                <ion-select  okText="Confirmar" cancelText="Cancelar" [(ngModel)]="equipe" 
+                placeholder="Possui equipe ?" [multiple]="false">
+                <ion-select-option value="Sim">Sim</ion-select-option>
+                <ion-select-option value="Não">Não</ion-select-option>
+            </ion-select>
+        </ion-item>
+    
+        <ion-item color=light lines=none>
+            <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">Celular
+            </ion-label>
+            <ion-input [(ngModel)]="celular" type="tel" placeholder="(DDD) + Telefone"></ion-input>
+        </ion-item>
+    
+        <ion-item color=light lines=none>
+            <ion-label position="stacked">
+                Categoria
+            </ion-label>
+            <ion-select  okText="Confirmar" cancelText="Cancelar" [(ngModel)]="categoria"  [(ngModel)]="categoria"
+                placeholder="Selecionar categoria" [multiple]="false">
+                <ion-select-option value="local">Local</ion-select-option>
+                <ion-select-option value="geral">Geral</ion-select-option>
+            </ion-select>
+        </ion-item>
+    
+    
+        <ion-item color=light lines=none>
+            <ion-label position="stacked">
+                Distância
+            </ion-label>
+            <ion-select  okText="Confirmar" cancelText="Cancelar" [(ngModel)]="distancia"  [(ngModel)]="distancia"
+                placeholder="Selecionar distancia" [multiple]="false">
+                <ion-select-option value="5 Km">5 Km</ion-select-option>
+                <ion-select-option value="10 km">10 Km</ion-select-option>
+            </ion-select>
+        </ion-item>
+    
+        <ion-item lines="none">
+            <label>Li e aceito
+                <a target="_blank"
+                    href="https://maragojipe.ba.gov.br/assets/pdf/REGULAMENTO%20CORRIDA%20DE%20SAO%20BARTOLOMEU%202022.pdf"
+                    style=" color: #339967; text-decoration: dashed;">
+                    todos os termos
+                </a> citado ao lado.
+            </label>
+            <ion-checkbox slot="end" [(ngModel)]="aceito"></ion-checkbox>
+        </ion-item>
+    </ion-list>
+    
+    <ion-grid *ngIf="alternar ==false">
+        <ion-row>
+            <ion-col size=6>
+                <ion-button expand="block" style="font-family: 'Times New Roman', Times, serif;" color="danger"
+                    (click)="limpar()" size="small">Limpar</ion-button>
+            </ion-col>
+            <ion-col size=6>
+                <ion-button expand="block" style="font-family: 'Times New Roman', Times, serif;" color="primary"
+                    (click)="enviarInscricao()" size="small">Me cadastrar</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <p *ngIf="alternar ==false" style="margin: 5%; font-size: large; color: #339967;">
+        Já realizou a inscrição ?
+    </p>
+
+    <ion-item lines="full" style="margin: 5%;" *ngIf="alternar ==false">
+        <ion-label position="stacked" color="primary">
+            CPF
+        </ion-label>
+        <ion-input type="tel" [(ngModel)]="pesquisaDadosCPF" (ionChange)="arrumarCPF2()"
+            placeholder="Informe o seu CPF"></ion-input>
+        <ion-icon slot="end" color="primary" style="cursor: pointer;" (click)="pesquisarCPF()" name="search-outline">
+        </ion-icon>
+    </ion-item>
+    <p *ngIf="alternar ==true" style="margin: 5%; font-size: xx-large; color: #339967;">
+        Já realizou a inscrição ?
+    </p>
+
+    <ion-item lines="full" style="margin: 5%;" *ngIf="alternar ==true">
+        <ion-label position="fixed" color="primary">
+            CPF
+        </ion-label>
+        <ion-input type="tel" [(ngModel)]="pesquisaDadosCPF" (ionChange)="arrumarCPF2()"
+            placeholder="Para consultar sua inscrição, confirme o seu CPF aqui."></ion-input>
+        <ion-icon slot="end" color="primary" style="cursor: pointer;" (click)="pesquisarCPF()" name="search-outline">
+        </ion-icon>
+    </ion-item>
+
+    <br>
+    <ion-list *ngIf="candidato.length > 0">
+        <ion-list *ngFor="let c of candidato" id="emprimir">
+            <ion-card *ngIf="alternar ==true"  style="background: rgb(249,249,249); margin-left: 10%; margin-right: 10%;">
+                <ion-card-header>
+                    <ion-card-title>{{c.nome}}</ion-card-title>
+                    <ion-card-subtitle>
+                        <strong>CPF:</strong> {{c.cpf}}
+                    </ion-card-subtitle>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <strong>Cidade natal:</strong> {{c.cidade}}&nbsp;
+                    <strong>Sexo:</strong> {{c.sexo}}<br>
+                    <strong>Data de nascimento:</strong> {{c.dataNascimento}}&nbsp;
+                    <strong>Categoria:</strong> {{c.categoria}}<br>
+                    <strong>Celular:</strong> {{c.celular}}&nbsp;
+                    <strong>Distancia:</strong> {{c.distancia}}<br>
+                    <strong>Equipe:</strong> {{c.equipe}}<br>
+                    <strong>Data de inscrição:</strong> {{c.dataInscricao}}<br>
+                </ion-card-content>
+            </ion-card>
+            <ion-card *ngIf="alternar ==false"  style="background: rgb(249,249,249); margin-left: 10%; margin-right: 10%;">
+                <ion-card-header>
+                    <ion-card-title>{{c.nome}}</ion-card-title>
+                    <ion-card-subtitle>
+                        <strong>CPF:</strong> {{c.cpf}}
+                    </ion-card-subtitle>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <strong>Cidade natal:</strong> {{c.cidade}}&nbsp;
+                    <strong>Sexo:</strong> {{c.sexo}}<br>
+                    <strong>Data de nascimento:</strong> {{c.dataNascimento}}&nbsp;
+                    <strong>Categoria:</strong> {{c.categoria}}<br>
+                    <strong>Celular:</strong> {{c.celular}}&nbsp;
+                    <strong>Distancia:</strong> {{c.distancia}}<br>
+                    <strong>Equipe:</strong> {{c.equipe}}<br>
+                    <strong>Data de inscrição:</strong> {{c.dataInscricao}}<br>
+                </ion-card-content>
+            </ion-card>
+        </ion-list>
+    </ion-list>
+
+    <ion-grid *ngIf="candidato.length > 0">
+        <ion-row *ngIf="alternar ==true" >
+            <ion-col size=3></ion-col>
+            <ion-col size=6>
+                <ion-button expand="block" color="danger" (click)="voltarPesquisa()"> Nova pesquisa </ion-button>
+            </ion-col>
+            <ion-col size=3></ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="alternar ==false" >
+            <ion-col size=3>            </ion-col>
+            <ion-col size=6>
+                <ion-button expand="block" color="danger" (click)="voltarPesquisa()"> Nova pesquisa </ion-button>
+            </ion-col>
+            <ion-col size=3></ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="footer">
+        <ion-grid>
+            <ion-row style="margin: auto; margin-top: 2%; margin-bottom: 2%;" *ngIf="alternar ==true">
+                <ion-col size="1"></ion-col>
+                <ion-col size="2" style="margin-left: 5%;">
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="bookmark-outline">
+                    </ion-icon>
+                    <ion-label
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-weight: bold;font-size: medium;">
+                        MARAGOJIPE
+                    </ion-label>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a (click)='ir("/a-prefeitura")'
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;"
+                        href="javascript:void(0)">
+                        A prefeitura
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a (click)='ir("/defesa-civil")'
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;"
+                        href="javascript:void(0)">
+                        Defesa Civil
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a (click)='ir("/ouvidoria")'
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;"
+                        href="javascript:void(0)">
+                        Fale conosco
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a (click)='ir("/meio-ambiente")'
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;"
+                        href="javascript:void(0)">
+                        Meio ambiente
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a (click)='ir("/o-municipio")'
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;"
+                        href="javascript:void(0)">
+                        O município
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a (click)='ir("/onde-comer")'
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;"
+                        href="javascript:void(0)">
+                        Onde comer
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a (click)='ir("/onde-ficar")'
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;"
+                        href="javascript:void(0)">
+                        Onde ficar
+                    </a>
+                </ion-col>
+
+                <ion-col size="1"></ion-col>
+                <ion-col size="2" style="margin-left: 5%;">
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="bookmark-outline">
+                    </ion-icon>
+                    <ion-label
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-weight: bold;font-size: medium;">
+                        MARAGOJIPE EM JURÍDICO
+                    </ion-label>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;"
+                        href="https://maragojipe.saatri.com.br/Certidao/Emitir?Pint_TipoCertidao=1&Pbol_ComMenuEsquerdo=true">
+                        Certidão de debito
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank" href="https://dom.imap.org.br/sitesMunicipios/imprensaOficial.cfm?varCodigo=497"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;">
+                        Diário Oficial
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;"
+                        href="https://maragojipe.saatri.com.br/Imobiliario/EmitirIptu?Pbol_ComMenuEsquerdo=true">
+                        IPTU
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;"
+                        href="https://sai.io.org.br/ba/maragojipe/site/licitacoes">
+                        Licitações
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;"
+                        href="https://sai.io.org.br/ba/maragojipe/site">
+                        Transparencia
+                    </a>
+                </ion-col>
+
+
+                <ion-col size="1"></ion-col>
+                <ion-col size="2" style="margin-left: 5%;">
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="bookmark-outline">
+                    </ion-icon>
+                    <ion-label
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-weight: bold;font-size: medium;">
+                        OUTRAS OPÇÕES
+                    </ion-label>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;"
+                        href="https://login.betha.cloud/servicelogin/login.faces?app=1c8315b6-1fb9-4a4c-b545-9f585d9fbd10&continue=dUt3pl7deSJcIfYbNgSBvyszrVx7CtLXMQ8SyjaTDIyAxIspOkXzLADGEjv59FmVkDvvSbpRV9h8ufTnTBpXO7RI651ay-4WmGKXeVTIjMkChFiJp09kXAw470h7bbL8oUHjYCAXMXlECtofVqS6JH_AsUaEICqRqBtvHR3H6EaV7xj-zMFKvctuq3OpBd0D2bm7ZGKL5FW87THOHVMFfKa78RGLE1rHG4-C9orarg3P6FWJxPv3ECi_-6l9Bk1p6H2lZLFDkaYqMaknTip-yIqNvEXBB5m_rT9djaI6-xVfpbEl6XvGlmmv0Ys5W3G800KXcdR3de07j3Zd4EffI5RW-_2EfDE5dS7z1UqPjzCG1GR7_U0Qh-_a_IKV5zzIe3RelIaxIAMqGnBWm1QcSGMqD_qvzLN4c0OqZvSoi2TkmEkXaMw5g2AK3hroF5r1lx0Z-q5JR9_pZ5QKRCeLErzjRO7V5iy57tVTQsEmgO7jmOvo4M1PJ03hFP4cj3shMhnfeZnzKu015H9xdnO5nyTcSfXRLopmPA7ptqfCFGR8gTPXEhX094eroQsIQ83c5b6FCwea7mCmJ_lNpVUU7YDPB-IWeCDx&mobile=false">
+                        Contra Cheque
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;"
+                        href="https://www.gov.br/cgu/pt-br">
+                        Controladoria geral da união
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;"
+                        href="https://www.tcm.ba.gov.br/portal-da-cidadania/pessoal/">
+                        Recursos Humanos
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;"
+                        href="https://portal.tcu.gov.br/inicio/">
+                        Tribunal de Contas da União
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;"
+                        href="https://www.tcm.ba.gov.br/">
+                        Tribunal de Contas do Município
+                    </a>
+                </ion-col>
+            </ion-row>
+
+
+            <ion-row style="margin: auto; margin-top: 2%; margin-bottom: 2%;" *ngIf="alternar ==false">
+                <ion-col size="3" style="margin-left: 5%;">
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="bookmark-outline">
+                    </ion-icon>
+                    <ion-label
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-weight: bold;font-size: xx-small;">
+                        MARAGOJIPE
+                    </ion-label>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a (click)='ir("/a-prefeitura")'
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;"
+                        href="javascript:void(0)">
+                        A prefeitura
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a (click)='ir("/defesa-civil")'
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;"
+                        href="javascript:void(0)">
+                        Defesa Civil
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a (click)='ir("/ouvidoria")'
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;"
+                        href="javascript:void(0)">
+                        Fale conosco
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a (click)='ir("/meio-ambiente")'
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;"
+                        href="javascript:void(0)">
+                        Meio ambiente
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a (click)='ir("/o-municipio")'
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;"
+                        href="javascript:void(0)">
+                        O município
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a (click)='ir("/onde-comer")'
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;"
+                        href="javascript:void(0)">
+                        Onde comer
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a (click)='ir("/onde-ficar")'
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;"
+                        href="javascript:void(0)">
+                        Onde ficar
+                    </a>
+                </ion-col>
+
+                <ion-col size="3" style="margin-left: 5%;">
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="bookmark-outline">
+                    </ion-icon>
+                    <ion-label
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-weight: bold;font-size: xx-small;">
+                        MARAGOJIPE EM JURÍDICO
+                    </ion-label>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;"
+                        href="https://maragojipe.saatri.com.br/Certidao/Emitir?Pint_TipoCertidao=1&Pbol_ComMenuEsquerdo=true">
+                        Certidão de debito
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank" href="https://dom.imap.org.br/sitesMunicipios/imprensaOficial.cfm?varCodigo=497"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;">
+                        Diário Oficial
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;"
+                        href="https://maragojipe.saatri.com.br/Imobiliario/EmitirIptu?Pbol_ComMenuEsquerdo=true">
+                        IPTU
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;"
+                        href="https://sai.io.org.br/ba/maragojipe/site/licitacoes">
+                        Licitações
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;"
+                        href="https://sai.io.org.br/ba/maragojipe/site">
+                        Transparencia
+                    </a>
+                </ion-col>
+
+
+
+                <ion-col size="3" style="margin-left: 5%;">
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="bookmark-outline">
+                    </ion-icon>
+                    <ion-label
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-weight: bold;font-size: xx-small;">
+                        OUTRAS OPÇÕES
+                    </ion-label>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;"
+                        href="https://login.betha.cloud/servicelogin/login.faces?app=1c8315b6-1fb9-4a4c-b545-9f585d9fbd10&continue=dUt3pl7deSJcIfYbNgSBvyszrVx7CtLXMQ8SyjaTDIyAxIspOkXzLADGEjv59FmVkDvvSbpRV9h8ufTnTBpXO7RI651ay-4WmGKXeVTIjMkChFiJp09kXAw470h7bbL8oUHjYCAXMXlECtofVqS6JH_AsUaEICqRqBtvHR3H6EaV7xj-zMFKvctuq3OpBd0D2bm7ZGKL5FW87THOHVMFfKa78RGLE1rHG4-C9orarg3P6FWJxPv3ECi_-6l9Bk1p6H2lZLFDkaYqMaknTip-yIqNvEXBB5m_rT9djaI6-xVfpbEl6XvGlmmv0Ys5W3G800KXcdR3de07j3Zd4EffI5RW-_2EfDE5dS7z1UqPjzCG1GR7_U0Qh-_a_IKV5zzIe3RelIaxIAMqGnBWm1QcSGMqD_qvzLN4c0OqZvSoi2TkmEkXaMw5g2AK3hroF5r1lx0Z-q5JR9_pZ5QKRCeLErzjRO7V5iy57tVTQsEmgO7jmOvo4M1PJ03hFP4cj3shMhnfeZnzKu015H9xdnO5nyTcSfXRLopmPA7ptqfCFGR8gTPXEhX094eroQsIQ83c5b6FCwea7mCmJ_lNpVUU7YDPB-IWeCDx&mobile=false">
+                        Contra Cheque
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;"
+                        href="https://www.gov.br/cgu/pt-br">
+                        Controladoria geral da união
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;"
+                        href="https://www.tcm.ba.gov.br/portal-da-cidadania/pessoal/">
+                        Recursos Humanos
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;"
+                        href="https://portal.tcu.gov.br/inicio/">
+                        Tribunal de Contas da União
+                    </a>
+                    <br> <br>
+                    <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline">
+                    </ion-icon>
+                    <a target="_blank"
+                        style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;"
+                        href="https://www.tcm.ba.gov.br/">
+                        Tribunal de Contas do Município
+                    </a>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <div class="footer2">
+        <ion-grid style="margin-left: 5%;margin-right: 5%;">
+            <ion-row *ngIf="alternar==false">
+                <ion-col size=6 style="text-align: center; font-size: x-small; color: #ffffff;">
+                    &copy; 2022 Prefeitura de Maragojipe. Todos direitos reservados.
+                </ion-col>
+                <ion-col size=3 style="text-align: center; font-size: x-small; color: #ffffff;">
+                    Termos de uso
+                </ion-col>
+                <ion-col size=3 style="text-align: center; font-size: x-small; color: #ffffff;">
+                    Política de privacidade
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="alternar==true">
+                <ion-col size=6 style="text-align: center; color: #ffffff;">
+                    &copy; 2022 Prefeitura de Maragojipe. Todos direitos reservados.
+                </ion-col>
+                <ion-col size=3 style="text-align: center; color: #ffffff;cursor: pointer;">
+                    Termos de uso
+                </ion-col>
+                <ion-col size=3 style="text-align: center; color: #ffffff;cursor: pointer;">
+                    Política de privacidade
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <br>
+    <ion-grid>
+        <ion-row>
+            <ion-col size=3>
+                <img src="../../../assets/icones prefeitura/FALE-CONOSCO.png" width="60%" alt="Fale conosco"
+                    title="Fale conosco">
+            </ion-col>
+            <ion-col size=9></ion-col>
+        </ion-row>
+        <ion-row *ngIf="alternar == true">
+            <ion-col size=2></ion-col>
+            <ion-col size=3>
+                <a style="text-decoration: none; color: black;" target="_blank"
+                    href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
+                    <p><img class="rodape2" src="../../../assets/icones prefeitura/INSTAGRAM.png" alt=""></p>
+                </a>
+            </ion-col>
+            <ion-col size=2></ion-col>
+            <ion-col size=3>
+                <a style="text-decoration: none; color: black;" target="_blank"
+                    href="https://www.facebook.com/prefeiturademaragojipe">
+                    <p><img class="rodape2" src="../../../assets/icones prefeitura/FACEBOOK.png" alt=""></p>
+                </a>
+            </ion-col>
+            <ion-col size=2></ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="alternar == false">
+            <ion-col size=1></ion-col>
+            <ion-col size=4>
+                <a style="text-decoration: none; color: black;" target="_blank"
+                    href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
+                    <p><img class="rodape" src="../../../assets/icones prefeitura/INSTAGRAM.png" alt=""></p>
+                </a>
+            </ion-col>
+            <ion-col size=2></ion-col>
+            <ion-col size=4>
+                <a style="text-decoration: none; color: black;" target="_blank"
+                    href="https://www.facebook.com/prefeiturademaragojipe">
+                    <p><img class="rodape" src="../../../assets/icones prefeitura/FACEBOOK.png" alt=""></p>
+                </a>
+            </ion-col>
+            <ion-col size=1></ion-col>
+        </ion-row>
+    </ion-grid>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+</ion-content>

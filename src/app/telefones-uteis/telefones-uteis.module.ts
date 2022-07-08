@@ -8,6 +8,7 @@ import { TelefonesUteisPageRoutingModule } from './telefones-uteis-routing.modul
 
 import { TelefonesUteisPage } from './telefones-uteis.page';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +16,8 @@ import { TelefonesUteisPage } from './telefones-uteis.page';
     IonicModule,
     TelefonesUteisPageRoutingModule
   ],
-  declarations: [TelefonesUteisPage]
+  declarations: [
+    TelefonesUteisPage
+  ]
 })
 export class TelefonesUteisPageModule {}

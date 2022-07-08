@@ -9,17 +9,19 @@ import { OndeComerPageRoutingModule } from './onde-comer-routing.module';
 import { OndeComerPage } from './onde-comer.page';
 import { PostProvider } from '../../assets/providers/post-provider';
 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    OndeComerPageRoutingModule,
-
+    OndeComerPageRoutingModule
   ],
   providers: [
     PostProvider 
   ],
-  declarations: [OndeComerPage]
+  declarations: [
+    OndeComerPage
+  ]
 })
 export class OndeComerPageModule {}
