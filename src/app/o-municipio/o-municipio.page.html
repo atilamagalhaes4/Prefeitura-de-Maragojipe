@@ -1,79 +1,81 @@
 <ion-content>
-
+    
     <ion-header [translucent]="true">
         <ion-toolbar class="top1">
-
             <ion-buttons slot="end">
                 <a style="text-decoration: none;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
-                    <ion-icon color="light" button name="logo-facebook"></ion-icon>&nbsp;&nbsp;
+                    <ion-icon color=light button name="logo-facebook"></ion-icon>&nbsp;&nbsp;
                 </a>
             </ion-buttons>
-
+    
             <ion-buttons slot="end">
-                <a style="text-decoration: none;" target="_blank" href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
-                    <ion-icon color="light" name="logo-instagram"></ion-icon> &nbsp;&nbsp;
+                <a style="text-decoration: none;" target="_blank"
+                    href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
+                    <ion-icon color=light name="logo-instagram"></ion-icon> &nbsp;&nbsp;
                 </a>
             </ion-buttons>
-
+    
             <ion-buttons slot="end">
                 <a style="text-decoration: none;" target="_blank" href="">
-                    <ion-icon color="light" name="logo-youtube"></ion-icon>&nbsp;&nbsp;
+                    <ion-icon color=light name="logo-youtube"></ion-icon>&nbsp;&nbsp;
                 </a>
             </ion-buttons>
             <ion-title>
             </ion-title>
         </ion-toolbar>
-
+    
         <ion-toolbar class="top2">
             <ion-grid>
                 <ion-row *ngIf="alternar ==true">
                     <ion-col size=3>
                         <a style="text-decoration: none;" href="/">
-                            <img class="imagem" src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+                            <img class="imagem" src="../../../assets/logo-prefeitura/logo2.png"
+                                alt="Prefeitura de Maragojipe">
                         </a>
                     </ion-col>
                     <ion-col size=3>
-                        <ion-searchbar type="text" [(ngModel)]="pesquisa" (keyup.enter)="pesquisarNoticias()" class="inputAjuda" placeholder="O que deseja procurar ?"></ion-searchbar>
+                        <ion-searchbar type="text" [(ngModel)]="pesquisa" (keyup.enter)="pesquisarNoticias()"
+                            class="inputAjuda" placeholder="O que deseja procurar ?"></ion-searchbar>
                     </ion-col>
                     <ion-col class="centralizarTexto" size=2>
-                        <ion-item button routerLink="/o-municipio" color="transparent" lines="none">
-                            <ion-label color="light">
+                        <ion-item button (click)='ir("/o-municipio")' color=transparent lines=none>
+                            <ion-label color=light>
                                 O MUNICIPIO
                             </ion-label>
                         </ion-item>
                     </ion-col>
                     <ion-col class="centralizarTexto" size=2>
-                        <ion-item button routerLink="/a-prefeitura" color="transparent" lines="none">
-                            <ion-label color="light">
+                        <ion-item button (click)='ir("/a-prefeitura")' color=transparent lines=none>
+                            <ion-label color=light>
                                 A PREFEITURA
                             </ion-label>
                         </ion-item>
                     </ion-col>
                     <ion-col class="centralizarTexto" size=2>
-                        <ion-item routerLink="/telefones-uteis" button color="transparent" lines="none">
-                            <ion-label color="light">
+                        <ion-item (click)='ir("/telefones-uteis")' button color=transparent lines=none>
+                            <ion-label color=light>
                                 TELEFONES ÚTEIS
                             </ion-label>
                         </ion-item>
                     </ion-col>
                 </ion-row>
-
+    
                 <ion-row *ngIf="alternar ==false">
-                    <ion-col routerLink="/" size=3>
-                        <img class="imagem2" src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+                    <ion-col (click)='ir("/")' size=3>
+                        <img class="imagem2" src="../../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
                     </ion-col>
-                    <ion-col routerLink="/o-municipio" size=3>
-                        <ion-label  style="font-size: x-small;" color="light" class="tamanho">
+                    <ion-col (click)='ir("/o-municipio")' size=3>
+                        <ion-label style="font-size: x-small;" color=light class="tamanho">
                             O MUNICIPIO
                         </ion-label>
                     </ion-col>
-                    <ion-col routerLink="/a-prefeitura" size=3>
-                        <ion-label  style="font-size: x-small;" color="light" class="tamanho">
+                    <ion-col (click)='ir("/a-prefeitura")' size=3>
+                        <ion-label style="font-size: x-small;" color=light class="tamanho">
                             A PREFEITURA
                         </ion-label>
                     </ion-col>
-                    <ion-col routerLink="/telefones-uteis" size=3>
-                        <ion-label  style="font-size: x-small;" color="light" class="tamanho">
+                    <ion-col (click)='ir("/telefones-uteis")' size=3>
+                        <ion-label style="font-size: x-small;" color=light class="tamanho">
                             TELEFONES ÚTEIS
                         </ion-label>
                     </ion-col>
@@ -82,7 +84,6 @@
         </ion-toolbar>
     </ion-header>
 
-    <!------------------------------------------------------->
     <div class="corpoTodo">
 
         <br>
@@ -184,297 +185,299 @@
     </div>
     <br><br>
     
-  <div class="footer">
-    <ion-grid>
-    <ion-row style="margin: auto; margin-top: 2%; margin-bottom: 2%;" *ngIf="alternar ==true">
-        <ion-col size="1"></ion-col>
-        <ion-col size="2" style="margin-left: 5%;">
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="bookmark-outline"></ion-icon>
-            <ion-label style="text-align: center; text-decoration: none; color: #ffffff; font-weight: bold;font-size: medium;">
-                MARAGOJIPE
-            </ion-label>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
-            <a routerLink="/a-prefeitura" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="javascript:void(0)">
-                A prefeitura
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
-            <a routerLink="/defesa-civil" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="javascript:void(0)">
-                Defesa Civil
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
-            <a routerLink="/ouvidoria" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="javascript:void(0)">
-                Fale conosco
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
-            <a routerLink="/meio-ambiente" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="javascript:void(0)">
-                Meio ambiente
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
-            <a routerLink="/o-municipio" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="javascript:void(0)">
-                O município
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
-            <a routerLink="/onde-comer" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="javascript:void(0)">
-                Onde comer
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
-            <a routerLink="/onde-ficar" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="javascript:void(0)">
-                Onde ficar
-            </a>
-        </ion-col>
-        
-        <ion-col size="1"></ion-col>
-        <ion-col size="2" style="margin-left: 5%;">
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="bookmark-outline"></ion-icon>
-            <ion-label style="text-align: center; text-decoration: none; color: #ffffff; font-weight: bold;font-size: medium;">
-                MARAGOJIPE EM JURÍDICO
-            </ion-label>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="https://maragojipe.saatri.com.br/Certidao/Emitir?Pint_TipoCertidao=1&Pbol_ComMenuEsquerdo=true">
-                Certidão de debito
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" href="https://dom.imap.org.br/sitesMunicipios/imprensaOficial.cfm?varCodigo=497" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;">
-                Diário Oficial
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="https://maragojipe.saatri.com.br/Imobiliario/EmitirIptu?Pbol_ComMenuEsquerdo=true">
-                IPTU
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="https://sai.io.org.br/ba/maragojipe/site/licitacoes">
-                Licitações
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="https://sai.io.org.br/ba/maragojipe/site">
-                Transparencia
-            </a>
-        </ion-col>
 
-        
-        <ion-col size="1"></ion-col>
-        <ion-col size="2" style="margin-left: 5%;">
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="bookmark-outline"></ion-icon>
-            <ion-label style="text-align: center; text-decoration: none; color: #ffffff; font-weight: bold;font-size: medium;">
-                OUTRAS OPÇÕES
-            </ion-label>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="https://login.betha.cloud/servicelogin/login.faces?app=1c8315b6-1fb9-4a4c-b545-9f585d9fbd10&continue=dUt3pl7deSJcIfYbNgSBvyszrVx7CtLXMQ8SyjaTDIyAxIspOkXzLADGEjv59FmVkDvvSbpRV9h8ufTnTBpXO7RI651ay-4WmGKXeVTIjMkChFiJp09kXAw470h7bbL8oUHjYCAXMXlECtofVqS6JH_AsUaEICqRqBtvHR3H6EaV7xj-zMFKvctuq3OpBd0D2bm7ZGKL5FW87THOHVMFfKa78RGLE1rHG4-C9orarg3P6FWJxPv3ECi_-6l9Bk1p6H2lZLFDkaYqMaknTip-yIqNvEXBB5m_rT9djaI6-xVfpbEl6XvGlmmv0Ys5W3G800KXcdR3de07j3Zd4EffI5RW-_2EfDE5dS7z1UqPjzCG1GR7_U0Qh-_a_IKV5zzIe3RelIaxIAMqGnBWm1QcSGMqD_qvzLN4c0OqZvSoi2TkmEkXaMw5g2AK3hroF5r1lx0Z-q5JR9_pZ5QKRCeLErzjRO7V5iy57tVTQsEmgO7jmOvo4M1PJ03hFP4cj3shMhnfeZnzKu015H9xdnO5nyTcSfXRLopmPA7ptqfCFGR8gTPXEhX094eroQsIQ83c5b6FCwea7mCmJ_lNpVUU7YDPB-IWeCDx&mobile=false">
-                Contra Cheque
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="https://www.gov.br/cgu/pt-br">
-                Controladoria geral da união
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="https://www.tcm.ba.gov.br/portal-da-cidadania/pessoal/">
-                Recursos Humanos
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="https://portal.tcu.gov.br/inicio/">
-                Tribunal de Contas da União
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="https://www.tcm.ba.gov.br/">
-                Tribunal de Contas do Município
-            </a>
-        </ion-col>
-    </ion-row>
-
-    
-    <ion-row style="margin: auto; margin-top: 2%; margin-bottom: 2%;" *ngIf="alternar ==false">
-        <ion-col size="3" style="margin-left: 5%;">
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="bookmark-outline"></ion-icon>
-            <ion-label style="text-align: center; text-decoration: none; color: #ffffff; font-weight: bold;font-size: xx-small;">
-                MARAGOJIPE
-            </ion-label>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
-            <a routerLink="/a-prefeitura" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="javascript:void(0)">
-                A prefeitura
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
-            <a routerLink="/defesa-civil" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="javascript:void(0)">
-                Defesa Civil
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
-            <a routerLink="/ouvidoria" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="javascript:void(0)">
-                Fale conosco
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
-            <a routerLink="/meio-ambiente" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="javascript:void(0)">
-                Meio ambiente
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
-            <a routerLink="/o-municipio" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="javascript:void(0)">
-                O município
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
-            <a routerLink="/onde-comer" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="javascript:void(0)">
-                Onde comer
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
-            <a routerLink="/onde-ficar" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="javascript:void(0)">
-                Onde ficar
-            </a>
-        </ion-col>
-        
-        <ion-col size="3" style="margin-left: 5%;">
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="bookmark-outline"></ion-icon>
-            <ion-label style="text-align: center; text-decoration: none; color: #ffffff; font-weight: bold;font-size: xx-small;">
-                MARAGOJIPE EM JURÍDICO
-            </ion-label>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="https://maragojipe.saatri.com.br/Certidao/Emitir?Pint_TipoCertidao=1&Pbol_ComMenuEsquerdo=true">
-                Certidão de debito
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" href="https://dom.imap.org.br/sitesMunicipios/imprensaOficial.cfm?varCodigo=497" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;">
-                Diário Oficial
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="https://maragojipe.saatri.com.br/Imobiliario/EmitirIptu?Pbol_ComMenuEsquerdo=true">
-                IPTU
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="https://sai.io.org.br/ba/maragojipe/site/licitacoes">
-                Licitações
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="https://sai.io.org.br/ba/maragojipe/site">
-                Transparencia
-            </a>
-        </ion-col>
-
-        
-
-        <ion-col size="3" style="margin-left: 5%;">
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="bookmark-outline"></ion-icon>
-            <ion-label style="text-align: center; text-decoration: none; color: #ffffff; font-weight: bold;font-size: xx-small;">
-                OUTRAS OPÇÕES
-            </ion-label>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="https://login.betha.cloud/servicelogin/login.faces?app=1c8315b6-1fb9-4a4c-b545-9f585d9fbd10&continue=dUt3pl7deSJcIfYbNgSBvyszrVx7CtLXMQ8SyjaTDIyAxIspOkXzLADGEjv59FmVkDvvSbpRV9h8ufTnTBpXO7RI651ay-4WmGKXeVTIjMkChFiJp09kXAw470h7bbL8oUHjYCAXMXlECtofVqS6JH_AsUaEICqRqBtvHR3H6EaV7xj-zMFKvctuq3OpBd0D2bm7ZGKL5FW87THOHVMFfKa78RGLE1rHG4-C9orarg3P6FWJxPv3ECi_-6l9Bk1p6H2lZLFDkaYqMaknTip-yIqNvEXBB5m_rT9djaI6-xVfpbEl6XvGlmmv0Ys5W3G800KXcdR3de07j3Zd4EffI5RW-_2EfDE5dS7z1UqPjzCG1GR7_U0Qh-_a_IKV5zzIe3RelIaxIAMqGnBWm1QcSGMqD_qvzLN4c0OqZvSoi2TkmEkXaMw5g2AK3hroF5r1lx0Z-q5JR9_pZ5QKRCeLErzjRO7V5iy57tVTQsEmgO7jmOvo4M1PJ03hFP4cj3shMhnfeZnzKu015H9xdnO5nyTcSfXRLopmPA7ptqfCFGR8gTPXEhX094eroQsIQ83c5b6FCwea7mCmJ_lNpVUU7YDPB-IWeCDx&mobile=false">
-                Contra Cheque
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="https://www.gov.br/cgu/pt-br">
-                Controladoria geral da união
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="https://www.tcm.ba.gov.br/portal-da-cidadania/pessoal/">
-                Recursos Humanos
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="https://portal.tcu.gov.br/inicio/">
-                Tribunal de Contas da União
-            </a>
-            <br> <br>
-            <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
-            <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="https://www.tcm.ba.gov.br/">
-                Tribunal de Contas do Município
-            </a>
-        </ion-col>
-    </ion-row>
-</ion-grid>
-</div>
-<div class="footer2">
-    <ion-grid style="margin-left: 5%;margin-right: 5%;">
-        <ion-row *ngIf="alternar==false">
-            <ion-col size=6 style="text-align: center; font-size: x-small; color: #ffffff;">
-                &copy; 2022 Prefeitura de Maragojipe. Todos direitos reservados.
+    <div class="footer">
+        <ion-grid>
+        <ion-row style="margin: auto; margin-top: 2%; margin-bottom: 2%;" *ngIf="alternar ==true">
+            <ion-col size="1"></ion-col>
+            <ion-col size="2"  style="margin-left: 5%;">
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="bookmark-outline"></ion-icon>
+                <ion-label style="text-align: center; text-decoration: none; color: #ffffff; font-weight: bold;font-size: medium;">
+                    MARAGOJIPE
+                </ion-label>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
+                <a  (click)='ir("/a-prefeitura")' style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="javascript:void(0)">
+                    A prefeitura
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
+                <a  (click)='ir("/defesa-civil")' style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="javascript:void(0)">
+                    Defesa Civil
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
+                <a  (click)='ir("/ouvidoria")' style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="javascript:void(0)">
+                    Fale conosco
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
+                <a  (click)='ir("/meio-ambiente")' style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="javascript:void(0)">
+                    Meio ambiente
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
+                <a  (click)='ir("/o-municipio")' style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="javascript:void(0)">
+                    O município
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
+                <a  (click)='ir("/onde-comer")' style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="javascript:void(0)">
+                    Onde comer
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
+                <a  (click)='ir("/onde-ficar")' style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="javascript:void(0)">
+                    Onde ficar
+                </a>
             </ion-col>
-            <ion-col size=3 style="text-align: center; font-size: x-small; color: #ffffff;">
-                Termos de uso
+            
+            <ion-col size="1"></ion-col>
+            <ion-col size="2" style="margin-left: 5%;">
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="bookmark-outline"></ion-icon>
+                <ion-label style="text-align: center; text-decoration: none; color: #ffffff; font-weight: bold;font-size: medium;">
+                    MARAGOJIPE EM JURÍDICO
+                </ion-label>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="https://maragojipe.saatri.com.br/Certidao/Emitir?Pint_TipoCertidao=1&Pbol_ComMenuEsquerdo=true">
+                    Certidão de debito
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" href="https://dom.imap.org.br/sitesMunicipios/imprensaOficial.cfm?varCodigo=497" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;">
+                    Diário Oficial
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="https://maragojipe.saatri.com.br/Imobiliario/EmitirIptu?Pbol_ComMenuEsquerdo=true">
+                    IPTU
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="https://sai.io.org.br/ba/maragojipe/site/licitacoes">
+                    Licitações
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="https://sai.io.org.br/ba/maragojipe/site">
+                    Transparencia
+                </a>
             </ion-col>
-            <ion-col size=3 style="text-align: center; font-size: x-small; color: #ffffff;">
-                Política de privacidade
+
+            
+            <ion-col size="1"></ion-col>
+            <ion-col size="2" style="margin-left: 5%;">
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="bookmark-outline"></ion-icon>
+                <ion-label style="text-align: center; text-decoration: none; color: #ffffff; font-weight: bold;font-size: medium;">
+                    OUTRAS OPÇÕES
+                </ion-label>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="https://login.betha.cloud/servicelogin/login.faces?app=1c8315b6-1fb9-4a4c-b545-9f585d9fbd10&continue=dUt3pl7deSJcIfYbNgSBvyszrVx7CtLXMQ8SyjaTDIyAxIspOkXzLADGEjv59FmVkDvvSbpRV9h8ufTnTBpXO7RI651ay-4WmGKXeVTIjMkChFiJp09kXAw470h7bbL8oUHjYCAXMXlECtofVqS6JH_AsUaEICqRqBtvHR3H6EaV7xj-zMFKvctuq3OpBd0D2bm7ZGKL5FW87THOHVMFfKa78RGLE1rHG4-C9orarg3P6FWJxPv3ECi_-6l9Bk1p6H2lZLFDkaYqMaknTip-yIqNvEXBB5m_rT9djaI6-xVfpbEl6XvGlmmv0Ys5W3G800KXcdR3de07j3Zd4EffI5RW-_2EfDE5dS7z1UqPjzCG1GR7_U0Qh-_a_IKV5zzIe3RelIaxIAMqGnBWm1QcSGMqD_qvzLN4c0OqZvSoi2TkmEkXaMw5g2AK3hroF5r1lx0Z-q5JR9_pZ5QKRCeLErzjRO7V5iy57tVTQsEmgO7jmOvo4M1PJ03hFP4cj3shMhnfeZnzKu015H9xdnO5nyTcSfXRLopmPA7ptqfCFGR8gTPXEhX094eroQsIQ83c5b6FCwea7mCmJ_lNpVUU7YDPB-IWeCDx&mobile=false">
+                    Contra Cheque
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="https://www.gov.br/cgu/pt-br">
+                    Controladoria geral da união
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="https://www.tcm.ba.gov.br/portal-da-cidadania/pessoal/">
+                    Recursos Humanos
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="https://portal.tcu.gov.br/inicio/">
+                    Tribunal de Contas da União
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: medium;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;" href="https://www.tcm.ba.gov.br/">
+                    Tribunal de Contas do Município
+                </a>
             </ion-col>
         </ion-row>
-        <ion-row *ngIf="alternar==true">
-            <ion-col size=6 style="text-align: center; color: #ffffff;">
-                &copy; 2022 Prefeitura de Maragojipe. Todos direitos reservados.
+
+        
+        <ion-row style="margin: auto; margin-top: 2%; margin-bottom: 2%;" *ngIf="alternar ==false">
+            <ion-col size="3" style="margin-left: 5%;">
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="bookmark-outline"></ion-icon>
+                <ion-label style="text-align: center; text-decoration: none; color: #ffffff; font-weight: bold;font-size: xx-small;">
+                    MARAGOJIPE
+                </ion-label>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
+                <a  (click)='ir("/a-prefeitura")' style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="javascript:void(0)">
+                    A prefeitura
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
+                <a  (click)='ir("/defesa-civil")' style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="javascript:void(0)">
+                    Defesa Civil
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
+                <a  (click)='ir("/ouvidoria")' style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="javascript:void(0)">
+                    Fale conosco
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
+                <a  (click)='ir("/meio-ambiente")' style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="javascript:void(0)">
+                    Meio ambiente
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
+                <a  (click)='ir("/o-municipio")' style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="javascript:void(0)">
+                    O município
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
+                <a  (click)='ir("/onde-comer")' style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="javascript:void(0)">
+                    Onde comer
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
+                <a  (click)='ir("/onde-ficar")' style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="javascript:void(0)">
+                    Onde ficar
+                </a>
             </ion-col>
-            <ion-col size=3 style="text-align: center; color: #ffffff;cursor: pointer;">
-                Termos de uso
+            
+            <ion-col size="3" style="margin-left: 5%;">
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="bookmark-outline"></ion-icon>
+                <ion-label style="text-align: center; text-decoration: none; color: #ffffff; font-weight: bold;font-size: xx-small;">
+                    MARAGOJIPE EM JURÍDICO
+                </ion-label>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="https://maragojipe.saatri.com.br/Certidao/Emitir?Pint_TipoCertidao=1&Pbol_ComMenuEsquerdo=true">
+                    Certidão de debito
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" href="https://dom.imap.org.br/sitesMunicipios/imprensaOficial.cfm?varCodigo=497" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;">
+                    Diário Oficial
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="https://maragojipe.saatri.com.br/Imobiliario/EmitirIptu?Pbol_ComMenuEsquerdo=true">
+                    IPTU
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="https://sai.io.org.br/ba/maragojipe/site/licitacoes">
+                    Licitações
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="https://sai.io.org.br/ba/maragojipe/site">
+                    Transparencia
+                </a>
             </ion-col>
-            <ion-col size=3 style="text-align: center; color: #ffffff;cursor: pointer;">
-                Política de privacidade
+
+            
+
+            <ion-col size="3" style="margin-left: 5%;">
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="bookmark-outline"></ion-icon>
+                <ion-label style="text-align: center; text-decoration: none; color: #ffffff; font-weight: bold;font-size: xx-small;">
+                    OUTRAS OPÇÕES
+                </ion-label>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="https://login.betha.cloud/servicelogin/login.faces?app=1c8315b6-1fb9-4a4c-b545-9f585d9fbd10&continue=dUt3pl7deSJcIfYbNgSBvyszrVx7CtLXMQ8SyjaTDIyAxIspOkXzLADGEjv59FmVkDvvSbpRV9h8ufTnTBpXO7RI651ay-4WmGKXeVTIjMkChFiJp09kXAw470h7bbL8oUHjYCAXMXlECtofVqS6JH_AsUaEICqRqBtvHR3H6EaV7xj-zMFKvctuq3OpBd0D2bm7ZGKL5FW87THOHVMFfKa78RGLE1rHG4-C9orarg3P6FWJxPv3ECi_-6l9Bk1p6H2lZLFDkaYqMaknTip-yIqNvEXBB5m_rT9djaI6-xVfpbEl6XvGlmmv0Ys5W3G800KXcdR3de07j3Zd4EffI5RW-_2EfDE5dS7z1UqPjzCG1GR7_U0Qh-_a_IKV5zzIe3RelIaxIAMqGnBWm1QcSGMqD_qvzLN4c0OqZvSoi2TkmEkXaMw5g2AK3hroF5r1lx0Z-q5JR9_pZ5QKRCeLErzjRO7V5iy57tVTQsEmgO7jmOvo4M1PJ03hFP4cj3shMhnfeZnzKu015H9xdnO5nyTcSfXRLopmPA7ptqfCFGR8gTPXEhX094eroQsIQ83c5b6FCwea7mCmJ_lNpVUU7YDPB-IWeCDx&mobile=false">
+                    Contra Cheque
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="https://www.gov.br/cgu/pt-br">
+                    Controladoria geral da união
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="https://www.tcm.ba.gov.br/portal-da-cidadania/pessoal/">
+                    Recursos Humanos
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="https://portal.tcu.gov.br/inicio/">
+                    Tribunal de Contas da União
+                </a>
+                <br> <br>
+                <ion-icon style="text-align: left; color: #ffffff;font-size: xx-small;" name="arrow-redo-outline"></ion-icon>
+                <a target="_blank" style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;" href="https://www.tcm.ba.gov.br/">
+                    Tribunal de Contas do Município
+                </a>
             </ion-col>
         </ion-row>
     </ion-grid>
-</div>
-<br>
-<ion-grid>
-    <ion-row>
-        <ion-col size=3>
-            <img src="../../assets/icones prefeitura/FALE-CONOSCO.png" width="60%" alt="Fale conosco" title="Fale conosco">
-        </ion-col>
-        <ion-col size=9></ion-col>
-    </ion-row>
-    <ion-row *ngIf="alternar == true">
-        <ion-col size=2></ion-col>
-        <ion-col size=3>
-            <a style="text-decoration: none; color: black;" target="_blank" href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
-                <p><img class="rodape2" src="../../assets/icones prefeitura/INSTAGRAM.png" alt=""></p>
-            </a>
-        </ion-col>
-        <ion-col size=2></ion-col>
-        <ion-col size=3>
-            <a style="text-decoration: none; color: black;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
-                <p><img class="rodape2" src="../../assets/icones prefeitura/FACEBOOK.png" alt=""></p>
-            </a>
-        </ion-col>
-        <ion-col size=2></ion-col>
-    </ion-row>
+    </div>
+    <div class="footer2">
+        <ion-grid style="margin-left: 5%;margin-right: 5%;">
+            <ion-row *ngIf="alternar==false">
+                <ion-col size=6 style="text-align: center; font-size: x-small; color: #ffffff;">
+                    &copy; 2022 Prefeitura de Maragojipe. Todos direitos reservados.
+                </ion-col>
+                <ion-col size=3 style="text-align: center; font-size: x-small; color: #ffffff;">
+                    Termos de uso
+                </ion-col>
+                <ion-col size=3 style="text-align: center; font-size: x-small; color: #ffffff;">
+                    Política de privacidade
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="alternar==true">
+                <ion-col size=6 style="text-align: center; color: #ffffff;">
+                    &copy; 2022 Prefeitura de Maragojipe. Todos direitos reservados.
+                </ion-col>
+                <ion-col size=3 style="text-align: center; color: #ffffff;cursor: pointer;">
+                    Termos de uso
+                </ion-col>
+                <ion-col size=3 style="text-align: center; color: #ffffff;cursor: pointer;">
+                    Política de privacidade
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <br>
+    <ion-grid>
+        <ion-row>
+            <ion-col size=3>
+                <img src="../../../assets/icones prefeitura/FALE-CONOSCO.png" width="60%" alt="Fale conosco" title="Fale conosco">
+            </ion-col>
+            <ion-col size=9></ion-col>
+        </ion-row>
+        <ion-row *ngIf="alternar == true">
+            <ion-col size=2></ion-col>
+            <ion-col size=3>
+                <a style="text-decoration: none; color: black;" target="_blank" href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
+                    <p><img class="rodape2" src="../../../assets/icones prefeitura/INSTAGRAM.png" alt=""></p>
+                </a>
+            </ion-col>
+            <ion-col size=2></ion-col>
+            <ion-col size=3>
+                <a style="text-decoration: none; color: black;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
+                    <p><img class="rodape2" src="../../../assets/icones prefeitura/FACEBOOK.png" alt=""></p>
+                </a>
+            </ion-col>
+            <ion-col size=2></ion-col>
+        </ion-row>
 
-    <ion-row *ngIf="alternar == false">
-        <ion-col size=1></ion-col>
-        <ion-col size=4>
-            <a style="text-decoration: none; color: black;" target="_blank" href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
-                <p><img class="rodape" src="../../assets/icones prefeitura/INSTAGRAM.png" alt=""></p>
-            </a>
-        </ion-col>
-        <ion-col size=2></ion-col>
-        <ion-col size=4>
-            <a style="text-decoration: none; color: black;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
-                <p><img class="rodape" src="../../assets/icones prefeitura/FACEBOOK.png" alt=""></p>
-            </a>
-        </ion-col>
-        <ion-col size=1></ion-col>
-    </ion-row>
-</ion-grid>
+        <ion-row *ngIf="alternar == false">
+            <ion-col size=1></ion-col>
+            <ion-col size=4>
+                <a style="text-decoration: none; color: black;" target="_blank" href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
+                    <p><img class="rodape" src="../../../assets/icones prefeitura/INSTAGRAM.png" alt=""></p>
+                </a>
+            </ion-col>
+            <ion-col size=2></ion-col>
+            <ion-col size=4>
+                <a style="text-decoration: none; color: black;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
+                    <p><img class="rodape" src="../../../assets/icones prefeitura/FACEBOOK.png" alt=""></p>
+                </a>
+            </ion-col>
+            <ion-col size=1></ion-col>
+        </ion-row>
+    </ion-grid>
 
+    
 </ion-content>

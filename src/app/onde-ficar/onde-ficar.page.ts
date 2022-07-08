@@ -27,6 +27,10 @@ export class OndeFicarPage implements OnInit {
 
   
 
+  ir(url) {
+    this.route.navigate([url]);
+  }
+
   ionViewWillEnter(){
     if(this.platform.is("desktop")){
       this.alternar = true;

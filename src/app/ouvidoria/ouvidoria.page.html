@@ -1,88 +1,89 @@
 <ion-content>
 
-  <ion-header [translucent]="true">
-    <ion-toolbar class="top1" >
-      
-      <ion-buttons slot="end">
-        <a style="text-decoration: none;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
-          <ion-icon color = light button  name="logo-facebook"></ion-icon>&nbsp;&nbsp;
-        </a>
-      </ion-buttons>
-      
-      <ion-buttons slot="end">
-        <a style="text-decoration: none;" target="_blank"  href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br"  >
-          <ion-icon color = light name="logo-instagram"></ion-icon> &nbsp;&nbsp; 
-        </a>
-      </ion-buttons>
-      
-      <ion-buttons slot="end">
-        <a style="text-decoration: none;" target="_blank"  href="">
-         <ion-icon color = light  name="logo-youtube"></ion-icon>&nbsp;&nbsp;
-        </a>
-      </ion-buttons>
-      <ion-title>
-      </ion-title>
-    </ion-toolbar>
+    <ion-header [translucent]="true">
+        <ion-toolbar class="top1">
+            <ion-buttons slot="end">
+                <a style="text-decoration: none;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
+                    <ion-icon color=light button name="logo-facebook"></ion-icon>&nbsp;&nbsp;
+                </a>
+            </ion-buttons>
     
-    <ion-toolbar class="top2" >
-      <ion-grid>
-        <ion-row  *ngIf ="alternar ==true">
-          <ion-col size = 3>
-            <a style="text-decoration: none;"href="/">
-              <img class="imagem"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
-            </a>
-            </ion-col>
-          <ion-col size = 3>
-              <ion-searchbar  type="text"[(ngModel)]="pesquisa" (keyup.enter)="pesquisarNoticias()" class="inputAjuda" placeholder = "O que deseja procurar ?"></ion-searchbar>
-          </ion-col>
-          <ion-col class="centralizarTexto" size = 2>
-            <ion-item button routerLink ="/o-municipio" color = transparent lines = none>
-              <ion-label color = light>
-                O MUNICIPIO
-              </ion-label>
-            </ion-item>
-          </ion-col>
-          <ion-col class="centralizarTexto" size = 2>
-            <ion-item button routerLink ="/a-prefeitura" color = transparent lines = none>
-              <ion-label color = light>
-                A PREFEITURA
-              </ion-label>
-            </ion-item>
-          </ion-col>
-          <ion-col class="centralizarTexto" size = 2>
-            <ion-item  routerLink ="/telefones-uteis" button color = transparent lines = none>
-              <ion-label color = light>
-                TELEFONES ÚTEIS
-              </ion-label>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-  
-        <ion-row *ngIf ="alternar ==false">
-          <ion-col routerLink = "/" size = 3>
-            <img class="imagem2"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
-          </ion-col>
-          <ion-col  routerLink ="/o-municipio" size = 3>
-              <ion-label style="font-size: x-small;" color = light class="tamanho">
-                O MUNICIPIO
-              </ion-label>
-          </ion-col>
-          <ion-col  routerLink ="/a-prefeitura"  size = 3>
-              <ion-label style="font-size: x-small;" color = light class="tamanho">
-                A PREFEITURA
-              </ion-label>
-          </ion-col>
-          <ion-col routerLink ="/telefones-uteis" size = 3>
-              <ion-label style="font-size: x-small;" color = light class="tamanho">
-                TELEFONES ÚTEIS
-              </ion-label>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-toolbar>
-  </ion-header>
+            <ion-buttons slot="end">
+                <a style="text-decoration: none;" target="_blank"
+                    href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
+                    <ion-icon color=light name="logo-instagram"></ion-icon> &nbsp;&nbsp;
+                </a>
+            </ion-buttons>
+    
+            <ion-buttons slot="end">
+                <a style="text-decoration: none;" target="_blank" href="">
+                    <ion-icon color=light name="logo-youtube"></ion-icon>&nbsp;&nbsp;
+                </a>
+            </ion-buttons>
+            <ion-title>
+            </ion-title>
+        </ion-toolbar>
+    
+        <ion-toolbar class="top2">
+            <ion-grid>
+                <ion-row *ngIf="alternar ==true">
+                    <ion-col size=3>
+                        <a style="text-decoration: none;" href="/">
+                            <img class="imagem" src="../../../assets/logo-prefeitura/logo2.png"
+                                alt="Prefeitura de Maragojipe">
+                        </a>
+                    </ion-col>
+                    <ion-col size=3>
+                        <ion-searchbar type="text" [(ngModel)]="pesquisa" (keyup.enter)="pesquisarNoticias()"
+                            class="inputAjuda" placeholder="O que deseja procurar ?"></ion-searchbar>
+                    </ion-col>
+                    <ion-col class="centralizarTexto" size=2>
+                        <ion-item button (click)='ir("/o-municipio")' color=transparent lines=none>
+                            <ion-label color=light>
+                                O MUNICIPIO
+                            </ion-label>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col class="centralizarTexto" size=2>
+                        <ion-item button (click)='ir("/a-prefeitura")' color=transparent lines=none>
+                            <ion-label color=light>
+                                A PREFEITURA
+                            </ion-label>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col class="centralizarTexto" size=2>
+                        <ion-item (click)='ir("/telefones-uteis")' button color=transparent lines=none>
+                            <ion-label color=light>
+                                TELEFONES ÚTEIS
+                            </ion-label>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+    
+                <ion-row *ngIf="alternar ==false">
+                    <ion-col (click)='ir("/")' size=3>
+                        <img class="imagem2" src="../../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+                    </ion-col>
+                    <ion-col (click)='ir("/o-municipio")' size=3>
+                        <ion-label style="font-size: x-small;" color=light class="tamanho">
+                            O MUNICIPIO
+                        </ion-label>
+                    </ion-col>
+                    <ion-col (click)='ir("/a-prefeitura")' size=3>
+                        <ion-label style="font-size: x-small;" color=light class="tamanho">
+                            A PREFEITURA
+                        </ion-label>
+                    </ion-col>
+                    <ion-col (click)='ir("/telefones-uteis")' size=3>
+                        <ion-label style="font-size: x-small;" color=light class="tamanho">
+                            TELEFONES ÚTEIS
+                        </ion-label>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-toolbar>
+    </ion-header>
 
-<!-------------------------------------------------------------------------->
 <div *ngIf="alternar == false" >
     <ion-item>
       <ion-label position="stacked">Nome Completo</ion-label>

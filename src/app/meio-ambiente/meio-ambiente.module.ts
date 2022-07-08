@@ -8,6 +8,7 @@ import { MeioAmbientePageRoutingModule } from './meio-ambiente-routing.module';
 
 import { MeioAmbientePage } from './meio-ambiente.page';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +16,8 @@ import { MeioAmbientePage } from './meio-ambiente.page';
     IonicModule,
     MeioAmbientePageRoutingModule
   ],
-  declarations: [MeioAmbientePage]
+  declarations: [
+    MeioAmbientePage
+  ]
 })
 export class MeioAmbientePageModule {}

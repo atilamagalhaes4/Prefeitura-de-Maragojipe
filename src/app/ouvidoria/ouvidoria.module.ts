@@ -8,6 +8,7 @@ import { OuvidoriaPageRoutingModule } from './ouvidoria-routing.module';
 
 import { OuvidoriaPage } from './ouvidoria.page';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +16,8 @@ import { OuvidoriaPage } from './ouvidoria.page';
     IonicModule,
     OuvidoriaPageRoutingModule
   ],
-  declarations: [OuvidoriaPage]
+  declarations: [
+    OuvidoriaPage
+  ]
 })
 export class OuvidoriaPageModule {}

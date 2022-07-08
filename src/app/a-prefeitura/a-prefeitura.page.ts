@@ -25,7 +25,10 @@ export class APrefeituraPage implements OnInit {
   ngOnInit() {
   }
 
-  
+  ir(url) {
+    this.route.navigate([url]);
+  }
+
   pesquisarNoticias(){
     this.route.navigate(["/mais-noticias/"+this.pesquisa]);
   }

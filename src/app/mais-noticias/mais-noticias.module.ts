@@ -8,6 +8,7 @@ import { MaisNoticiasPageRoutingModule } from './mais-noticias-routing.module';
 
 import { MaisNoticiasPage } from './mais-noticias.page';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +16,8 @@ import { MaisNoticiasPage } from './mais-noticias.page';
     IonicModule,
     MaisNoticiasPageRoutingModule
   ],
-  declarations: [MaisNoticiasPage]
+  declarations: [
+    MaisNoticiasPage
+  ]
 })
 export class MaisNoticiasPageModule {}

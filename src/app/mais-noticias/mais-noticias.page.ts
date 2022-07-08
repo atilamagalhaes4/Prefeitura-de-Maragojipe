@@ -104,6 +104,13 @@ export class MaisNoticiasPage implements OnInit {
   visualizar(titulo){
     this.route.navigate(['/visualizar/'+titulo]);
   }
+  
+  
+  ir(url) {
+    this.route.navigate([url]);
+  }
+
+
   pegarNoticias(){
     var primo =0;
     var i = 0;

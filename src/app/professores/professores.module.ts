@@ -8,6 +8,7 @@ import { ProfessoresPageRoutingModule } from './professores-routing.module';
 
 import { ProfessoresPage } from './professores.page';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +16,8 @@ import { ProfessoresPage } from './professores.page';
     IonicModule,
     ProfessoresPageRoutingModule
   ],
-  declarations: [ProfessoresPage]
+  declarations: [
+    ProfessoresPage
+  ]
 })
 export class ProfessoresPageModule {}

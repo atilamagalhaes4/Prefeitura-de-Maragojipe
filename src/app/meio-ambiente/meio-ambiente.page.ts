@@ -77,7 +77,10 @@ export class MeioAmbientePage implements OnInit {
     })
 }
 
-  ir(titulo){
+ir2(url){
+  this.route.navigate([url]);
+}
+  ir(titulo){ 
     const browser = this.iab.create(titulo,"_blank");
     browser.show();
   }

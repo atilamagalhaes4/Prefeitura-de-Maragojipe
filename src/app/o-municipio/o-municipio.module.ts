@@ -8,6 +8,7 @@ import { OMunicipioPageRoutingModule } from './o-municipio-routing.module';
 
 import { OMunicipioPage } from './o-municipio.page';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +16,8 @@ import { OMunicipioPage } from './o-municipio.page';
     IonicModule,
     OMunicipioPageRoutingModule
   ],
-  declarations: [OMunicipioPage]
+  declarations: [
+    OMunicipioPage
+  ]
 })
 export class OMunicipioPageModule {}

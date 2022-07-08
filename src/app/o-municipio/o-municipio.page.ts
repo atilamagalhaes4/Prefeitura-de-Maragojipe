@@ -18,9 +18,7 @@ export class OMunicipioPage implements OnInit {
 
   ngOnInit() {
   }
-  pesquisarNoticias(){
-    this.route.navigate(["/mais-noticias/"+this.pesquisa]);
-  }
+  
   ionViewWillEnter(){
     if(this.platform.is("desktop")){
       this.alternar = true;
@@ -29,4 +27,13 @@ export class OMunicipioPage implements OnInit {
       this.alternar = false;
     }
   }
+  
+  pesquisarNoticias() {
+    this.route.navigate(["/mais-noticias/" + this.pesquisa]);
+  }
+
+  ir(url) {
+    this.route.navigate([url]);
+  }
+
 }

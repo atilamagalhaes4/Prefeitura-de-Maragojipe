@@ -1,23 +1,4 @@
-ion-icon {
-  font-size: 200%;
-}
-.imagem {
-  width: 80%;
-  float: left;
-  height: auto;
-}
-.imagem2 {
-  width: 100%;
-  float: left;
-  height: auto;
-}
-ion-searchbar {
-  margin-top: 1cm;
-}
 
-.inputAjuda {
-  margin-top: auto;
-}
 .igreja {
   margin-left: auto;
   margin-right: auto;
@@ -27,10 +8,10 @@ ion-searchbar {
   background-repeat: no-repeat;
   background-size: cover;
 }
-.tamanho {
-  font-size: smaller;
-  text-align: center;
-}
+/*
+
+
+*/
 div.figura {
   background-color: rgb(236, 236, 236);
   width: 80%;
@@ -83,20 +64,20 @@ div.figura3 p {
   font-size: large;
   text-indent: 0;
 }
-
-div.rodape {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
+ 
+/*
+.tamanho {
+  font-size: smaller;
+  text-align: center;
 }
-/*  .figura3:hover img {
+  .figura3:hover img {
     -moz-transform: scale(1.1);
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
     
   }
-*/
+
+
 .top1 {
   --background: #34cc67 url("../../assets/background/claro.png") no-repeat
     center center / cover !important;
@@ -106,6 +87,27 @@ div.rodape {
   --background: #339967 url("../../assets/background/escuro.png") no-repeat
     center center / cover !important;
 }
+ion-icon {
+  font-size: 200%;
+}
+.imagem {
+  width: 80%;
+  float: left;
+  height: auto;
+}
+.imagem2 {
+  width: 100%;
+  float: left;
+  height: auto;
+}
+ion-searchbar {
+  margin-top: 1cm;
+}
+
+.inputAjuda {
+  margin-top: auto;
+}
+*/
 .banner {
   background-color: #ffffff;
 }
@@ -132,31 +134,6 @@ div.figura4 p {
   font-style: normal;
   font-size: x-small;
   text-indent: 0;
-}
-
-//roda´pé desktop
-.rodape2 {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: auto;
-  width: 80%;
-}
-.footer2 {
-  margin-top: 0;
-  background-color: #49d390;
-  margin-left: 0;
-  margin-right: 0;
-}
-
-
-.footer {
-  margin-top: 5%;
-  min-width: 100%;
-  background-color: #339967;
-  margin-left: 0;
-  margin-right: 0;
-  margin-bottom: 0;
 }
 
 
@@ -200,7 +177,73 @@ div.figura4 p {
 }
 
 
+ 
+.top1 {
+  --background: #34cc67 url("../../assets/background/claro.png") no-repeat
+    center center / cover !important;
+}
 
+.top2 {
+  --background: #339967 url("../../assets/background/escuro.png") no-repeat
+    center center / cover !important;
+}
+ion-icon {
+  font-size: 200%;
+}
+.imagem {
+  width: 80%;
+  float: left;
+  height: auto;
+} 
+.imagem2 {
+  width: 100%;
+  float: left;
+  height: auto;
+}
+ion-searchbar {
+  margin-top: 1cm;
+}
+
+.footer2 {
+  margin-top: 0;
+  background-color: #49d390;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+.footer {
+  margin-top: 5%;
+  min-width: 100%; 
+  background-color: #339967;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+//roda´pé desktop
+.rodape2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  width: 80%;
+}
+
+
+div.rodape {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 100%;
+}
+.inputAjuda {
+  margin-top: auto;
+}
+
+.tamanho {
+  font-size: smaller;
+  text-align: center;
+}
 
 
 // CSS para abrir imagem ao clicar
