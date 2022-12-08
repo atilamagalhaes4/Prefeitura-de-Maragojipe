@@ -5,10 +5,11 @@
 
 ![GitHub Org's stars](https://img.shields.io/github/stars/camilafernanda?style=social)
 
-![Primeira tela dentro do app](https://i.imgur.com/tJkpCYD.png)
+![Primeira tela dentro do app](https://i.imgur.com/zPigfCP.png)
 
-
-
+<p align="center">
+  Disponível em https://maragojipe.ba.gov.br
+</p>
 
 
 ## 📁 Alguns recursos utilizados
