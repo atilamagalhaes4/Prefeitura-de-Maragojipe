@@ -2,7 +2,8 @@ import { PostProvider } from './../../assets/providers/post-provider';
 import { Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+
 
 
 @Component({

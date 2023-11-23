@@ -1,102 +1,104 @@
 .imagem {
-    width: 80%;
-    float: left;
-    height: auto;
+  width: 80%;
+  float: left;
+  height: auto;
 }
 
 #imagem {
-    display: inline-block;
-    position: relative;
-    left: 50%;
-    webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    width: auto;
-    height: 60%;
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: auto;
+  height: 60%;
 }
 
 .corpoMensagem {
-    margin-left: 15%;
-    margin-right: 15%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .corpo {
-    margin-left: 5%;
-    margin-right: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .corpoTodo {
-    background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
 }
 
 ion-icon {
-    font-size: 200%;
+  font-size: 200%;
 }
 
 .imagem {
-    width: 80%;
-    float: left;
-    height: auto;
+  width: 80%;
+  float: left;
+  height: auto;
 }
 
 .imagem2 {
-    width: 100%;
-    float: left;
-    height: auto;
+  width: 100%;
+  float: left;
+  height: auto;
 }
 
 .top1 {
-    --background: #34cc67 url('../../assets/background/claro.png') no-repeat center center / cover !important;
+  --background: #34cc67 url('../../assets/background/claro.png') no-repeat center center / cover !important;
 }
 
 .top2 {
-    --background: #339967 url('../../assets/background/escuro.png') no-repeat center center / cover !important;
+  --background: #339967 url('../../assets/background/escuro.png') no-repeat center center / cover !important;
 }
 
 
 
 .footer2 {
-    margin-top: 0;
-    background-color: #49d390;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  
-   
+  margin-top: 0;
+  background-color: #49d390;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
 .top1 {
-    --background: #34cc67 url("../../assets/background/claro.png") no-repeat
-      center center / cover !important;
-  }
-  
-  .top2 {
-    --background: #339967 url("../../assets/background/escuro.png") no-repeat
-      center center / cover !important;
-  }
-  ion-icon {
-    font-size: 200%;
-  }
-  .imagem {
-    width: 80%;
-    float: left;
-    height: auto;
-  } 
-  .imagem2 {
-    width: 100%;
-    float: left;
-    height: auto;
-  }
-  ion-searchbar {
-    margin-top: 1cm;
-  }
-  
-  .inputAjuda {
-    margin-top: auto;
-  }
-  
+  --background: #34cc67 url("../../assets/background/claro.png") no-repeat center center / cover !important;
+}
+
+.top2 {
+  --background: #339967 url("../../assets/background/escuro.png") no-repeat center center / cover !important;
+}
+
+ion-icon {
+  font-size: 200%;
+}
+
+.imagem {
+  width: 80%;
+  float: left;
+  height: auto;
+}
+
+.imagem2 {
+  width: 100%;
+  float: left;
+  height: auto;
+}
+
+ion-searchbar {
+  margin-top: 1cm;
+}
+
+.inputAjuda {
+  margin-top: auto;
+}
+
 .tamanho {
-    font-size: smaller;
-    text-align: center;
-  }
-  
+  font-size: smaller;
+  text-align: center;
+}
+
 .footer2 {
   margin-top: 0;
   background-color: #49d390;
@@ -107,12 +109,13 @@ ion-icon {
 
 .footer {
   margin-top: 5%;
-  min-width: 100%; 
+  min-width: 100%;
   background-color: #339967;
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 0;
 }
+
 //roda´pé desktop
 .rodape2 {
   display: block;
@@ -124,16 +127,38 @@ ion-icon {
 
 
 div.rodape {
-display: block;
-margin-left: auto;
-margin-right: auto;
-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
-  .footer {
-    margin-top: 5%;
-    min-width: 100%;
-    background-color: #339967;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-  }
+
+.footer {
+  margin-top: 5%;
+  min-width: 100%;
+  background-color: #339967;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+
+
+.texto-Titulos {
+  font-size: 32px;
+  color: #96989a;
+  border-radius: 5px;
+  font-weight: 600;
+  padding: 2px;
+  border-style: double;
+}
+
+
+.texto-Titulos:hover {
+  font-weight: bold;
+  cursor: pointer;
+  border-style: double;
+  border-bottom: 4px #339967 solid;
+  border-left: 4px #339967 solid;
+  background-color: transparent;
+}

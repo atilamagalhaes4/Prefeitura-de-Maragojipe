@@ -123,3 +123,23 @@ width: 100%;
   .fundo{
     background-color: rgb(255, 255, 255);
   }
+
+  .texto-Titulos {
+    font-size: 32px;
+    color: #96989a;
+    border-radius: 5px;
+    font-weight: 600;
+    padding: 2px;
+    border-style: double;
+  }
+  
+  
+  .texto-Titulos:hover {
+    font-weight: bold;
+    cursor: pointer;
+    border-style: double;
+    border-bottom: 4px #339967 solid;
+    border-left: 4px #339967 solid;
+    background-color: transparent;
+  }
+  

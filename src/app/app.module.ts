@@ -1,4 +1,4 @@
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { BaseNoticias } from './interface/json/base-noticias';
 import { PrintProvider } from './../assets/providers/print-provider';
 import { NgModule } from '@angular/core';

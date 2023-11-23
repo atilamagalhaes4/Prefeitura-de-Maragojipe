@@ -3,10 +3,7 @@ import { Router } from '@angular/router';
 import { AlertController, Platform } from '@ionic/angular';
 import { PrintProvider } from 'src/assets/providers/print-provider';
 import { PostProvider } from '../../assets/providers/post-provider';
-declare var viewDados1: any;
-declare var viewDados2: any;
-declare var viewDados3: any;
-declare var viewDados4: any;
+
 
 
 @Component({
@@ -18,19 +15,34 @@ export class CorridaSaoBartolomeuPage implements OnInit {
 
   candidato: any = [];
 
-  pesquisa: string = "";
-  alternar: boolean = true;
-  aceito: boolean = false;
-  dataNascimento: string = "";
   nome: string = "";
-  sexo: string = "";
-  categoria: string = "";
+  dataNascimento: string = "";
   cpf: string = "";
+  sexo: string = "";
   cidade: string = "";
   equipe: string = "";
-  celular: string = "";
+  telefone: string = "";
+  categoria: string = "Ampla concorrência";
+  subCategoria: string = "";
   distancia: string = "";
-  pesquisaDadosCPF: string = "";
+
+
+  pesquisa: string = "";
+  alternar: boolean = true;
+  desativarOpcoes: boolean = false;
+  termo: boolean = false;
+  cpf2: string = "";
+
+  aux_nome: string = "";
+  aux_cpf: string = "";
+  aux_dataNascimento: string = "";
+  aux_sexo: string = "";
+  aux_categoria: string = "";
+  aux_subCategoria: string = "";
+  aux_distancia: string = "";
+  aux_equipe: string = "";
+  aux_celular: string = "";
+  aux_dataInscricao: string = "";
 
   constructor(
     private route: Router,
@@ -39,67 +51,6 @@ export class CorridaSaoBartolomeuPage implements OnInit {
     private alertController: AlertController,
     private printProvider: PrintProvider
   ) { }
-
-
-  enviarInscricao() {
-
-    if (this.nome == "") {
-      this.presentAlert("Informe o seu nome.");
-    }
-    else if (this.categoria == "") {
-      this.presentAlert("Informe a categoria.");
-    }
-    else if (this.cpf == "" || this.cpf.length != 14) {
-      this.presentAlert("CPF incompleto.");
-    }
-    else if (this.cidade == "") {
-      this.presentAlert("Informe sua naturalidade.");
-    }
-    else if (this.sexo == "") {
-      this.presentAlert("Informe o seu sexo.");
-    }
-    else if (this.equipe == "") {
-      this.presentAlert("Preencha o campo equipe.");
-    }
-    else if (this.dataNascimento == "") {
-      this.presentAlert("Informe sua data de nascimento.");
-    }
-    else if (this.celular == "") {
-      this.presentAlert("Informe seu numero/celular.");
-    }
-    else if (this.distancia == "") {
-      this.presentAlert("Informe a distancia do percurso.");
-    }
-    else if (this.aceito == false) {
-      this.presentAlert("Concorde com os termos impostos para continuar.");
-    }
-    else {
-      let dados = {
-        requisicao: "salvarCandidato",
-        dataNascimento: this.AlterarData(this.dataNascimento),
-        nome: this.nome,
-        sexo: this.sexo,
-        categoria: this.categoria,
-        cpf: this.cpf,
-        cidade: this.cidade,
-        equipe: this.equipe,
-        celular: this.celular,
-        distancia: this.distancia,
-      }
-      console.log(dados)
-      this.provider.requisicaoPost(dados, "/corrida-sao-bartolomeu.php").subscribe((data) => {
-        this.presentAlert(data['mensagem']);
-        if (data['status'] == 201) {
-          this.limpar();
-        }
-        return true;
-      }, (err) => {
-        return false;
-        console.log(err);
-      })
-    }
-  }
-
 
   AlterarData(data: string) {
     var aux = "";
@@ -112,7 +63,7 @@ export class CorridaSaoBartolomeuPage implements OnInit {
     aux = aux + data[0];
     aux = aux + data[1];
     aux = aux + data[2];
-    aux = aux + data[3];/*
+    aux = aux + data[3];
     aux = aux + " ás ";
     aux = aux + data[10];
     aux = aux + data[11];
@@ -122,63 +73,12 @@ export class CorridaSaoBartolomeuPage implements OnInit {
     aux = aux + data[15];
     aux = aux + data[16];
     aux = aux + data[17];
-    aux = aux + data[18];*/
+    aux = aux + data[18];
     return aux;
   }
-  limpar() {
-    this.aceito = false;
-    this.dataNascimento = "";
-    this.nome = "";
-    this.sexo = "";
-    this.categoria = "";
-    this.cpf = "";
-    this.cidade = "";
-    this.equipe = "";
-    this.celular = "";
-    this.distancia = "";
-  }
-
 
   print(componentName) {
     this.printProvider.print(componentName);
-  }
-
-  pesquisarCPF() {
-    this.candidato = [];
-    return new Promise(resolve => {
-      let dados = {
-        requisicao: "verCandidato",
-        cpf: this.pesquisaDadosCPF
-      }
-      this.provider.requisicaoPost(dados, "/corrida-sao-bartolomeu.php").subscribe((data) => {
-        if (data['status'] == 200) {
-          for (let c of data['dados']) {
-            this.candidato.push(c);
-          }
-        }
-        else if (data['status'] == 404) {
-          this.presentAlert("Nenhum candidato encontrado");
-        }
-      }, (err) => {
-        console.log(err);
-      })
-    })
-  }
-
-  arrumarCPF2() {
-    if (this.pesquisaDadosCPF.length == 3) this.pesquisaDadosCPF = this.pesquisaDadosCPF + ".";
-    if (this.pesquisaDadosCPF.length == 7) this.pesquisaDadosCPF = this.pesquisaDadosCPF + "."
-    if (this.pesquisaDadosCPF.length == 11) this.pesquisaDadosCPF = this.pesquisaDadosCPF + "-";
-  }
-
-  arrumarCPF1() {
-    if (this.cpf.length == 3) this.cpf = this.cpf + ".";
-    if (this.cpf.length == 7) this.cpf = this.cpf + "."
-    if (this.cpf.length == 11) this.cpf = this.cpf + "-";
-  }
-
-  pegarCategoria() {
-    console.log(this.categoria);
   }
 
 
@@ -197,6 +97,9 @@ export class CorridaSaoBartolomeuPage implements OnInit {
     if (this.platform.is("desktop")) {
       this.alternar = true;
     }
+    this.presentAlert(`Inscrições encerradas<br>
+      Limite alçando.<br>
+      Obrigado a todos participantes.`)
   }
 
 
@@ -209,16 +112,33 @@ export class CorridaSaoBartolomeuPage implements OnInit {
     }
   }
 
-  ngOnInit() {/*
-    viewDados1().funcao();
-    viewDados2().funcao();
-    viewDados3().funcao();
-    viewDados4().funcao();*/
+  adaptarTelefone() {
+    if (this.telefone == "")
+      this.telefone = "(" + this.telefone;
+    else if (this.telefone.length == 3)
+      this.telefone = this.telefone + ") ";
+    else if (this.telefone.length == 6)
+      this.telefone = this.telefone + " ";
+    else if (this.telefone.length == 11)
+      this.telefone = this.telefone + "-";
   }
-  voltarPesquisa() {
-    this.candidato = [];
-    this.pesquisaDadosCPF = "";
+
+  adaptarCategoria() {
+
+    if (this.categoria == "PCD cadeira handbike" || this.categoria == "PCD cadeira tradicional") {
+      this.desativarOpcoes = true;
+      this.subCategoria = "Geral";
+      this.distancia = "5,5 Km";
+    }
+    else {
+      this.desativarOpcoes = false;
+    }
   }
+
+  ngOnInit() {
+  }
+
+
   async presentAlert(mensagem) {
     const alert = await this.alertController.create({
       cssClass: 'primary',
@@ -231,4 +151,99 @@ export class CorridaSaoBartolomeuPage implements OnInit {
     const { role } = await alert.onDidDismiss();
     console.log('onDidDismiss resolved with role', role);
   }
+
+  meInscrever() {
+    return false;
+    if (this.nome.length < 10)
+      this.presentAlert("Informe seu nome e sobrenome.");
+    else if (this.dataNascimento.length < 9)
+      this.presentAlert("Infome corretamente sua data de nascimento.");
+    else if (this.sexo == "")
+      this.presentAlert("Informe sua orientação sexual.");
+    else if (this.cpf.length < 10)
+      this.presentAlert("Informe seu CPF completo.");
+    else if (this.cidade.length < 3)
+      this.presentAlert("Informe o nome da sua cidade.");
+    else if (this.telefone.length < 3)
+      this.presentAlert("Informe o seu numero de telefone/whatsapp.");
+    else if (this.categoria == "")
+      this.presentAlert("Informe a sua categoria.");
+    else if (this.subCategoria == "")
+      this.presentAlert("Informe a sua subcategoria.");
+    else if (this.distancia == "")
+      this.presentAlert("Informe a distancia.");
+    else if (this.termo == false)
+      this.presentAlert("Concorde com os termos");
+    else {
+      return new Promise((resolve, reject) => {
+        let dados = {
+          requisicao: "salvarCandidato",
+          dataNascimento: this.dataNascimento,
+          nome: this.nome,
+          sexo: this.sexo,
+          subCategoria: this.subCategoria,
+          categoria: this.categoria,
+          cpf: this.cpf,
+          cidade: this.cidade,
+          equipe: this.equipe,
+          celular: this.telefone,
+          distancia: this.distancia
+        }
+        this.provider.requisicaoPost(dados, "/corrida-sao-bartolomeu.php").subscribe((data) => {
+          this.presentAlert(data['mensagem'])
+        }, (error) => {
+          this.presentAlert("Tente novamente mais tarde.");
+          console.log(error);
+        })
+      });
+    }
+  }
+
+  verificarCPF() {
+    //    this.print("comprovante");
+    return new Promise((resolve, reject) => {
+      let dados = {
+        requisicao: "verCandidato",
+        cpf: this.cpf2,
+      }
+      this.provider.requisicaoPost(dados, "/corrida-sao-bartolomeu.php").subscribe((data) => {
+        if (data['status'] == 200 && this.cpf2.length == 11)
+          for (let i of data['dados']) {
+            this.aux_nome = i.nome;
+            this.aux_cpf = i.cpf;
+            this.aux_dataNascimento = i.dataNascimento;
+            this.aux_sexo = i.sexo;
+            this.aux_categoria = i.categoria;
+            this.aux_subCategoria = i.subCategoria;
+            this.aux_distancia = i.distancia;
+            this.aux_equipe = i.equipe;
+            this.aux_celular = i.celular;
+            this.aux_dataInscricao = this.AlterarData(i.dataInscricao);
+            break;
+          }
+        else {
+          this.aux_nome = "";
+          this.aux_cpf = "";
+          this.aux_dataNascimento = "";
+          this.aux_sexo = "";
+          this.aux_categoria = "";
+          this.aux_subCategoria = "";
+          this.aux_distancia = "";
+          this.aux_equipe = "";
+          this.aux_celular = "";
+          this.aux_dataInscricao = "";
+        }
+
+      }, (error) => {
+        this.presentAlert("Tente novamente mais tarde.");
+        console.log(error);
+      })
+    });
+  }
+
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400,
+    autoplay: true
+  };
 }

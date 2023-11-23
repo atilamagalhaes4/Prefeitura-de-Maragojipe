@@ -61,23 +61,23 @@
                     </ion-col>
                 </ion-row>
 
-                <ion-row *ngIf="alternar ==false">
+                <ion-row *ngIf="alternar ==false" class="tamanho">
                     <ion-col (click)='ir("/")' size=3>
                         <img class="imagem2" src="../../../assets/logo-prefeitura/logo2.png"
                             alt="Prefeitura de Maragojipe">
                     </ion-col>
                     <ion-col (click)='ir("/o-municipio")' size=3>
-                        <ion-label style="font-size: x-small;" color=light class="tamanho">
+                        <ion-label style="font-size: x-small;" color=light>
                             O MUNICIPIO
                         </ion-label>
                     </ion-col>
                     <ion-col (click)='ir("/a-prefeitura")' size=3>
-                        <ion-label style="font-size: x-small;" color=light class="tamanho">
+                        <ion-label style="font-size: x-small;" color=light>
                             A PREFEITURA
                         </ion-label>
                     </ion-col>
                     <ion-col (click)='ir("/telefones-uteis")' size=3>
-                        <ion-label style="font-size: x-small;" color=light class="tamanho">
+                        <ion-label style="font-size: x-small;" color=light>
                             TELEFONES ÚTEIS
                         </ion-label>
                     </ion-col>
@@ -85,329 +85,195 @@
             </ion-grid>
         </ion-toolbar>
     </ion-header>
+
+
     <br>
     <img *ngIf="alternar ==false" src="../../assets/logo-prefeitura/logo.png" height="100px" width="auto"
         style="display: block;margin-left: auto;margin-right: auto;" alt="">
     <img *ngIf="alternar ==true" src="../../assets/logo-prefeitura/logo.png" height="200px" width="auto"
         style="display: block;margin-left: auto;margin-right: auto;" alt="">
 
+    <h1 style="text-align: center;">Corrida de São Bartolomeu 2023</h1>
 
+    <ion-slides pager="false" [options]="slideOpts">
+        <ion-slide>
+            <img class="slidePrincipal" src="../../assets/corrida-sao-bartolomeu/001.png">
+        </ion-slide>
+        <ion-slide>
+            <img class="slidePrincipal" src="../../assets/corrida-sao-bartolomeu/002.png">
+        </ion-slide>
+        <ion-slide>
+            <img class="slidePrincipal" src="../../assets/corrida-sao-bartolomeu/003.png">
+        </ion-slide>
+        <ion-slide>
+            <img class="slidePrincipal" src="../../assets/corrida-sao-bartolomeu/004.png">
+        </ion-slide>
+        <ion-slide>
+            <img class="slidePrincipal" src="../../assets/corrida-sao-bartolomeu/005.png">
+        </ion-slide>
+    </ion-slides>
 
-    <ion-grid *ngIf="alternar ==true">
-        <ion-row style="height: 400px;border: thin #c7e4c2 dashed; margin-left: 5%; margin-right: 5%;">
+    <!--
+    <div class="div-formulario">
+        <h2>
+            Inscreva-se
+        </h2>
 
-            <ion-col style="border: thin #34cc67 dashed; background-color: #c7e4c2;" size="4">
-                <ion-item color=light lines=none>
-                    <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">Nome Completo
-                    </ion-label>
-                    <ion-input [(ngModel)]="nome" placeholder="Insira aqui o seu nome"></ion-input>
-                </ion-item>
-                <br>
-                <ion-item color=light lines=none>
-                    <ion-label  position="stacked">Data de nascimento
-                    </ion-label>
-                    <span slot="title">Data de nascimento</span>
-                    <ion-datetime [(ngModel)]="dataNascimento" locale="pt-BR"
-                    monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez" displayFormat="DD-MMM-YYYY"  doneText="Confirmar" cancelText="Cancelar" placeholder="Data de nascimento" presentation="date"></ion-datetime>
-                </ion-item>
-                <br>
-                <ion-item color=light lines=none>
-                    <ion-label position="stacked">
-                        Gênero
-                    </ion-label>
-                    <ion-select  okText="Confirmar" cancelText="Cancelar" [(ngModel)]="sexo" 
-                        placeholder="Selecionar sexo" [multiple]="false">
-                        <ion-select-option value="Masculino">Masculino</ion-select-option>
-                        <ion-select-option value="Feminino">Feminino</ion-select-option>
-                    </ion-select>
-                </ion-item>
-                <br>
-                <ion-item color=light lines=none>
-                    <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">CPF
-                    </ion-label>
-                    <ion-input [(ngModel)]="cpf" (ionChange)="arrumarCPF1()" type="tel" placeholder="Informe seu CPF"></ion-input>
-                </ion-item>
-                <br>
-                <ion-item color=light lines=none>
-                    <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">Cidade
-                    </ion-label>
-                    <ion-input [(ngModel)]="cidade" type="text" placeholder="Informe sua Cidade"></ion-input>
-                </ion-item>
-            </ion-col>
-
-            <ion-col style="border: thin #34cc67 dashed; background-color: #c7e4c2;" size="4">
-                <iframe src="../../assets/pdf/REGULAMENTO CORRIDA DE SAO BARTOLOMEU 2022.pdf#toolbar=0" width="100%"
-                    height="100%" style="border: none;"></iframe>
-
-            </ion-col>
-
-            <ion-col style="border: thin #34cc67 dashed; background-color: #c7e4c2;" size="4">
-
-                <ion-item color=light lines=none>
-                    <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">Equipe
-                        </ion-label>
-                        <ion-select  okText="Confirmar" cancelText="Cancelar" [(ngModel)]="equipe" 
-                        placeholder="Possui equipe ?" [multiple]="false">
-                        <ion-select-option value="Sim">Sim</ion-select-option>
-                        <ion-select-option value="Não">Não</ion-select-option>
-                    </ion-select>
-                </ion-item>
-                <br>
-                <ion-item color=light lines=none>
-                    <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">Celular
-                    </ion-label>
-                    <ion-input [(ngModel)]="celular" type="tel" placeholder="(DDD) + Telefone"></ion-input>
-                </ion-item>
-                <br>
-                <ion-item color=light lines=none>
-                    <ion-label position="stacked">
-                        Categoria
-                    </ion-label>
-                    <ion-select  okText="Confirmar" cancelText="Cancelar" [(ngModel)]="categoria"  [(ngModel)]="categoria"
-                        placeholder="Selecionar categoria" [multiple]="false">
-                        <ion-select-option value="local">Local</ion-select-option>
-                        <ion-select-option value="geral">Geral</ion-select-option>
-                    </ion-select>
-                </ion-item>
-                <br>
-
-                <ion-item color=light lines=none>
-                    <ion-label position="stacked">
-                        Distância
-                    </ion-label>
-                    <ion-select  okText="Confirmar" cancelText="Cancelar" [(ngModel)]="distancia"  [(ngModel)]="distancia"
-                        placeholder="Selecionar distancia" [multiple]="false">
-                        <ion-select-option value="5 Km">5 Km</ion-select-option>
-                        <ion-select-option value="10 km">10 Km</ion-select-option>
-                    </ion-select>
-                </ion-item>
-                <br>
-                <ion-item lines="none">
-                    <label>Li e aceito
-                        <a target="_blank"
-                            href="https://maragojipe.ba.gov.br/assets/pdf/REGULAMENTO%20CORRIDA%20DE%20SAO%20BARTOLOMEU%202022.pdf"
-                            style=" color: #339967; text-decoration: dashed;">
-                            todos os termos
-                        </a> citado ao lado.
-                    </label>
-                    <ion-checkbox slot="end" [(ngModel)]="aceito"></ion-checkbox>
-                </ion-item>
-                <br>
-                <ion-grid>
-                    <ion-row>
-                        <ion-col size=5>
-                            <ion-button expand="block" style="font-family: 'Times New Roman', Times, serif;"
-                                color="danger" (click)="limpar()" size="small">Limpar</ion-button>
-                        </ion-col>
-                        <ion-col size=2></ion-col>
-                        <ion-col size=5>
-                            <ion-button expand="block" style="font-family: 'Times New Roman', Times, serif;"
-                                color="primary" (click)="enviarInscricao()" size="small">Me cadastrar</ion-button>
-                        </ion-col>
-                    </ion-row>
-                </ion-grid>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
-
-    <ion-list *ngIf="alternar ==false">
-
-        <ion-item color=light lines=none>
-            <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">Nome Completo
+        <ion-item>
+            <ion-label position="floating">
+                Nome completo
+                <span style="color: red;">*</span>
             </ion-label>
-            <ion-input [(ngModel)]="nome" placeholder="Insira aqui o seu nome"></ion-input>
-        </ion-item>
-        <ion-item color=light lines=none>
-            <ion-label  position="stacked">Data de nascimento
-            </ion-label>
-            <span slot="title">Data de nascimento</span>
-            <ion-datetime [(ngModel)]="dataNascimento" locale="pt-BR"
-            monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez" displayFormat="DD-MMM-YYYY"  doneText="Confirmar" cancelText="Cancelar" placeholder="Data de nascimento" presentation="date"></ion-datetime>
+            <ion-input [(ngModel)]="nome" placeholder="Nome completo"></ion-input>
         </ion-item>
 
-        <ion-item color=light lines=none>
-            <ion-label position="stacked">
+        <ion-item>
+            <ion-label position="floating">
+                Data de nascimento
+                <span style="color: red;">*</span>
+            </ion-label>
+            <ion-input [(ngModel)]="dataNascimento" (ionChange)="ajustarDataNascimento()" maxlength="10"
+                placeholder="Sua data de nascimento"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">
                 Gênero
+                <span style="color: red;">*</span>
             </ion-label>
-            <ion-select  okText="Confirmar" cancelText="Cancelar" [(ngModel)]="sexo" 
-                placeholder="Selecionar sexo" [multiple]="false">
+            <ion-select [(ngModel)]="sexo" interface="popover" okText="Confirmar" cancelText="Cancelar"
+                placeholder="Masculino">
                 <ion-select-option value="Masculino">Masculino</ion-select-option>
                 <ion-select-option value="Feminino">Feminino</ion-select-option>
             </ion-select>
         </ion-item>
-    
-        <ion-item color=light lines=none>
-            <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">CPF
+
+        <ion-item>
+            <ion-label position="floating">
+                CPF
+                <span style="color: red;">*</span>
             </ion-label>
-            <ion-input [(ngModel)]="cpf" (ionChange)="arrumarCPF1()" type="tel" placeholder="Informe seu CPF"></ion-input>
+            <ion-input [(ngModel)]="cpf" maxlength="11" placeholder="Informe o seu CPF"></ion-input>
         </ion-item>
-    
-        <ion-item color=light lines=none>
-            <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">Cidade
+
+        <ion-item>
+            <ion-label position="floating">
+                Cidade
+                <span style="color: red;">*</span>
             </ion-label>
-            <ion-input [(ngModel)]="cidade" type="text" placeholder="Informe sua Cidade"></ion-input>
+            <ion-input [(ngModel)]="cidade" placeholder="Informe sua cidade atual"></ion-input>
         </ion-item>
-    
-        <ion-item color=light lines=none>
-            <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">Equipe
-                </ion-label>
-                <ion-select  okText="Confirmar" cancelText="Cancelar" [(ngModel)]="equipe" 
-                placeholder="Possui equipe ?" [multiple]="false">
-                <ion-select-option value="Sim">Sim</ion-select-option>
-                <ion-select-option value="Não">Não</ion-select-option>
-            </ion-select>
-        </ion-item>
-    
-        <ion-item color=light lines=none>
-            <ion-label style="font-family: 'Times New Roman', Times, serif;" position="stacked">Celular
+
+        <ion-item>
+            <ion-label position="floating">
+                Equipe
             </ion-label>
-            <ion-input [(ngModel)]="celular" type="tel" placeholder="(DDD) + Telefone"></ion-input>
+            <ion-input [(ngModel)]="equipe" placeholder="Nome da sua equipe 💪🏻"></ion-input>
         </ion-item>
-    
-        <ion-item color=light lines=none>
-            <ion-label position="stacked">
+
+        <ion-item>
+            <ion-label position="floating">
+                Celular
+                <span style="color: red;">*</span>
+            </ion-label>
+            <ion-input type="tel" [(ngModel)]="telefone" (ionFocus)="adaptarTelefone()" maxlength="16"
+                (ionChange)="adaptarTelefone()" placeholder="Numero para contato"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">
                 Categoria
+                <span style="color: red;">*</span>
             </ion-label>
-            <ion-select  okText="Confirmar" cancelText="Cancelar" [(ngModel)]="categoria"  [(ngModel)]="categoria"
-                placeholder="Selecionar categoria" [multiple]="false">
-                <ion-select-option value="local">Local</ion-select-option>
-                <ion-select-option value="geral">Geral</ion-select-option>
+            <ion-select okText="Confirmar" (ionChange)="adaptarCategoria()" [(ngModel)]="categoria" interface="popover"
+                cancelText="Cancelar" placeholder="Selecione sua categoria">
+                <ion-select-option value="Ampla concorrência">Ampla concorrência</ion-select-option>
+                <ion-select-option value="PCD cadeira handbike">PCD cadeira handbike</ion-select-option>
+                <ion-select-option value="PCD cadeira tradicional">PCD cadeira tradicional</ion-select-option>
             </ion-select>
         </ion-item>
-    
-    
-        <ion-item color=light lines=none>
-            <ion-label position="stacked">
+
+        <ion-item>
+            <ion-label position="floating">
+                Subcategoria
+                <span style="color: red;">*</span>
+            </ion-label>
+            <ion-select [disabled]="desativarOpcoes" [(ngModel)]="subCategoria" okText="Confirmar" interface="popover"
+                cancelText="Cancelar" placeholder="Selecione a subcategoria">
+                <ion-select-option value="Local">Local</ion-select-option>
+                <ion-select-option value="Geral">Geral</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">
                 Distância
+                <span style="color: red;">*</span>
             </ion-label>
-            <ion-select  okText="Confirmar" cancelText="Cancelar" [(ngModel)]="distancia"  [(ngModel)]="distancia"
-                placeholder="Selecionar distancia" [multiple]="false">
-                <ion-select-option value="5 Km">5 Km</ion-select-option>
-                <ion-select-option value="10 km">10 Km</ion-select-option>
+            <ion-select [disabled]="desativarOpcoes" [(ngModel)]="distancia" okText="Confirmar" interface="popover"
+                cancelText="Cancelar" placeholder="Selecione a distância">
+                <ion-select-option value="5,5 Km">5,5 Km</ion-select-option>
+                <ion-select-option value="11 Km">11 Km</ion-select-option>
             </ion-select>
         </ion-item>
-    
+
         <ion-item lines="none">
-            <label>Li e aceito
-                <a target="_blank"
-                    href="https://maragojipe.ba.gov.br/assets/pdf/REGULAMENTO%20CORRIDA%20DE%20SAO%20BARTOLOMEU%202022.pdf"
-                    style=" color: #339967; text-decoration: dashed;">
-                    todos os termos
-                </a> citado ao lado.
-            </label>
-            <ion-checkbox slot="end" [(ngModel)]="aceito"></ion-checkbox>
+            <p style="text-align: justify;">
+                Declaro que li o <a target="_blank"
+                    href="https://maragojipe.ba.gov.br/assets/corrida-sao-bartolomeu/REGULAMENTO CORRIDA DE SAO BARTOLOMEU 2023.pdf">regulamento
+                    da
+                    corrida</a> e estou de acordo
+                com todos os termos nele listados.
+            </p>
+            <ion-checkbox [(ngModel)]="termo" slot="start"></ion-checkbox>
         </ion-item>
-    </ion-list>
-    
-    <ion-grid *ngIf="alternar ==false">
-        <ion-row>
-            <ion-col size=6>
-                <ion-button expand="block" style="font-family: 'Times New Roman', Times, serif;" color="danger"
-                    (click)="limpar()" size="small">Limpar</ion-button>
-            </ion-col>
-            <ion-col size=6>
-                <ion-button expand="block" style="font-family: 'Times New Roman', Times, serif;" color="primary"
-                    (click)="enviarInscricao()" size="small">Me cadastrar</ion-button>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
 
-    <p *ngIf="alternar ==false" style="margin: 5%; font-size: large; color: #339967;">
-        Já realizou a inscrição ?
-    </p>
+        <ion-item lines = none>
+            <ion-label style="font-size: smaller; text-align: justify;">
+                <span style="color: red;">*</span> Item obrigtório para a inscrição
+            </ion-label>
+        </ion-item>
 
-    <ion-item lines="full" style="margin: 5%;" *ngIf="alternar ==false">
-        <ion-label position="stacked" color="primary">
-            CPF
-        </ion-label>
-        <ion-input type="tel" [(ngModel)]="pesquisaDadosCPF" (ionChange)="arrumarCPF2()"
-            placeholder="Informe o seu CPF"></ion-input>
-        <ion-icon slot="end" color="primary" style="cursor: pointer;" (click)="pesquisarCPF()" name="search-outline">
-        </ion-icon>
-    </ion-item>
-    <p *ngIf="alternar ==true" style="margin: 5%; font-size: xx-large; color: #339967;">
-        Já realizou a inscrição ?
-    </p>
-
-    <ion-item lines="full" style="margin: 5%;" *ngIf="alternar ==true">
-        <ion-label position="fixed" color="primary">
-            CPF
-        </ion-label>
-        <ion-input type="tel" [(ngModel)]="pesquisaDadosCPF" (ionChange)="arrumarCPF2()"
-            placeholder="Para consultar sua inscrição, confirme o seu CPF aqui."></ion-input>
-        <ion-icon slot="end" color="primary" style="cursor: pointer;" (click)="pesquisarCPF()" name="search-outline">
-        </ion-icon>
-    </ion-item>
-
+        <ion-button fill="solid" (click)="meInscrever()">Me inscrever</ion-button>
+    </div>
+-->
     <br>
-    <ion-list *ngIf="candidato.length > 0">
-        <ion-list *ngFor="let c of candidato" id="emprimir">
-            <ion-card *ngIf="alternar ==true"  style="background: rgb(249,249,249); margin-left: 10%; margin-right: 10%;">
+    <br>
+
+    <div class="div-comprovante">
+        <h2>
+            Veja seu comprovante de inscrição
+        </h2>
+        <ion-item>
+            <ion-input [(ngModel)]="cpf2" (keyup)="verificarCPF()" placeholder="Informe seu CPF"></ion-input>
+            <ion-icon (click)="verificarCPF()" slot="end" name="search-outline"></ion-icon>
+        </ion-item>
+        <p id="comprovante" *ngIf="aux_nome != ''">
+            <ion-card>
                 <ion-card-header>
-                    <ion-card-title>{{c.nome}}</ion-card-title>
+                    <ion-card-title>Certificado de inscrição</ion-card-title>
                     <ion-card-subtitle>
-                        <strong>CPF:</strong> {{c.cpf}}
+                        Certificamos que o Sr(a) <strong>{{aux_nome}}</strong>, portador do CPF:
+                        <strong>{{aux_cpf}}</strong> conforme
+                        o regulamento se inscreveu na corrida de São Bartolomeu 2023. Informando os seguintes
+                        dados:<br><br>
+                        <strong>Data de nascimento:</strong> {{aux_dataNascimento}}<br>
+                        <strong>Sexo:</strong> {{aux_sexo}}<br>
+                        <strong>Categoria:</strong> {{aux_categoria}}<br>
+                        <strong>Subcategoria:</strong> {{aux_subCategoria}}<br>
+                        <strong>Distancia:</strong> {{aux_distancia}}<br>
+                        <strong>Equipe:</strong> {{aux_equipe}}<br>
+                        <strong>Celular:</strong> {{aux_celular}}<br><br>
+                        <strong>Data de inscrição:</strong> {{aux_dataInscricao}}
                     </ion-card-subtitle>
                 </ion-card-header>
-
-                <ion-card-content>
-                    <strong>Cidade natal:</strong> {{c.cidade}}&nbsp;
-                    <strong>Sexo:</strong> {{c.sexo}}<br>
-                    <strong>Data de nascimento:</strong> {{c.dataNascimento}}&nbsp;
-                    <strong>Categoria:</strong> {{c.categoria}}<br>
-                    <strong>Celular:</strong> {{c.celular}}&nbsp;
-                    <strong>Distancia:</strong> {{c.distancia}}<br>
-                    <strong>Equipe:</strong> {{c.equipe}}<br>
-                    <strong>Data de inscrição:</strong> {{c.dataInscricao}}<br>
-                </ion-card-content>
             </ion-card>
-            <ion-card *ngIf="alternar ==false"  style="background: rgb(249,249,249); margin-left: 10%; margin-right: 10%;">
-                <ion-card-header>
-                    <ion-card-title>{{c.nome}}</ion-card-title>
-                    <ion-card-subtitle>
-                        <strong>CPF:</strong> {{c.cpf}}
-                    </ion-card-subtitle>
-                </ion-card-header>
-
-                <ion-card-content>
-                    <strong>Cidade natal:</strong> {{c.cidade}}&nbsp;
-                    <strong>Sexo:</strong> {{c.sexo}}<br>
-                    <strong>Data de nascimento:</strong> {{c.dataNascimento}}&nbsp;
-                    <strong>Categoria:</strong> {{c.categoria}}<br>
-                    <strong>Celular:</strong> {{c.celular}}&nbsp;
-                    <strong>Distancia:</strong> {{c.distancia}}<br>
-                    <strong>Equipe:</strong> {{c.equipe}}<br>
-                    <strong>Data de inscrição:</strong> {{c.dataInscricao}}<br>
-                </ion-card-content>
-            </ion-card>
-        </ion-list>
-    </ion-list>
-
-    <ion-grid *ngIf="candidato.length > 0">
-        <ion-row *ngIf="alternar ==true" >
-            <ion-col size=3></ion-col>
-            <ion-col size=6>
-                <ion-button expand="block" color="danger" (click)="voltarPesquisa()"> Nova pesquisa </ion-button>
-            </ion-col>
-            <ion-col size=3></ion-col>
-        </ion-row>
-
-        <ion-row *ngIf="alternar ==false" >
-            <ion-col size=3>            </ion-col>
-            <ion-col size=6>
-                <ion-button expand="block" color="danger" (click)="voltarPesquisa()"> Nova pesquisa </ion-button>
-            </ion-col>
-            <ion-col size=3></ion-col>
-        </ion-row>
-    </ion-grid>
-
-
-
-
-
-
-
-
+            <br>
+        </p>
+        <label *ngIf="aux_nome != ''" (click)="print('comprovante')">
+            Clique aqui para imprimir
+        </label>
+    </div>
 
 
 
@@ -753,7 +619,7 @@
         <ion-grid style="margin-left: 5%;margin-right: 5%;">
             <ion-row *ngIf="alternar==false">
                 <ion-col size=6 style="text-align: center; font-size: x-small; color: #ffffff;">
-                    &copy; 2022 Prefeitura de Maragojipe. Todos direitos reservados.
+                    &copy; 2024 Prefeitura de Maragojipe. Todos direitos reservados.
                 </ion-col>
                 <ion-col size=3 style="text-align: center; font-size: x-small; color: #ffffff;">
                     Termos de uso
@@ -764,7 +630,7 @@
             </ion-row>
             <ion-row *ngIf="alternar==true">
                 <ion-col size=6 style="text-align: center; color: #ffffff;">
-                    &copy; 2022 Prefeitura de Maragojipe. Todos direitos reservados.
+                    &copy; 2024 Prefeitura de Maragojipe. Todos direitos reservados.
                 </ion-col>
                 <ion-col size=3 style="text-align: center; color: #ffffff;cursor: pointer;">
                     Termos de uso
@@ -779,7 +645,11 @@
     <ion-grid>
         <ion-row>
             <ion-col size=3>
-                <img src="../../../assets/icones prefeitura/FALE-CONOSCO.png" width="60%" alt="Fale conosco"
+                <ion-label *ngIf="alternar == true" class="texto-Titulos">
+                    Fale Conosco
+                </ion-label>
+
+                <img src="../../../assets/icones prefeitura/FALE-CONOSCO.png" *ngIf="alternar == false" width="60%" alt="Fale conosco"
                     title="Fale conosco">
             </ion-col>
             <ion-col size=9></ion-col>
@@ -820,16 +690,4 @@
             <ion-col size=1></ion-col>
         </ion-row>
     </ion-grid>
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-
-        <!-- The Close Button -->
-        <span class="close">&times;</span>
-
-        <!-- Modal Content (The Image) -->
-        <img class="modal-content" id="img01">
-
-        <!-- Modal Caption (Image Text) -->
-        <div id="caption"></div>
-    </div>
 </ion-content>

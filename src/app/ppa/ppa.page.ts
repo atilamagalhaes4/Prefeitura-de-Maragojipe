@@ -2,8 +2,8 @@ import { Router } from '@angular/router';
 import { PostProvider } from './../../assets/providers/post-provider';
 import { AlertController, LoadingController, Platform } from '@ionic/angular';
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-import { Chart, registerables } from 'chart.js';
-Chart.register(...registerables);
+//import { Chart, registerables } from 'chart.js';
+//Chart.register(...registerables);
 @Component({
   selector: 'app-ppa',
   templateUrl: './ppa.page.html',
@@ -116,7 +116,7 @@ export class PpaPage implements OnInit {
         else if (c.escolha3 == "Segurança pública, tributação") this.pegaPega.dado8 = this.pegaPega.dado8 + 1;
         else if (c.escolha3 == "Industria, comércio, e modernização da máquina") this.pegaPega.dado9 = this.pegaPega.dado9 + 1;
       }
-      this.barChartMethod();
+//      this.barChartMethod();
     }, (error) => {
       console.log(error)
     })
@@ -136,6 +136,7 @@ export class PpaPage implements OnInit {
 //    this.pegarDados();
   }
 
+/*
   barChartMethod() {
     // Now we need to supply a Chart element reference with an object that defines the type of chart we want to use, and the type of data we want to display.
     this.barChart = new Chart(this.barCanvas.nativeElement, {
@@ -171,16 +172,18 @@ export class PpaPage implements OnInit {
         }]
       },
       options: {
-        scales: {/**
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }] */
+        scales: {
+//          yAxes: [{
+  //          ticks: {
+    //          beginAtZero: true
+      //      }
+        //  }] 
         }
       }
     });
   }
+
+*/
   async presentLoading(mensagem, duracao) {
     const loading = await this.loadingController.create({
       cssClass: 'primary',

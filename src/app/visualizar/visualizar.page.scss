@@ -1,98 +1,103 @@
-ion-icon{
-vertical-align: middle;
-}
-#imagem2{
-    display: inline-block;
-    position: relative;
-    left: 50%;
-    webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    width:  auto;
-//    height:60%;
-      height: 7cm !important;
+ion-icon {
+  vertical-align: middle;
 }
 
-  img.banner{    
-    display: block;
-    height: 200mm;
-    margin-left: auto;
-    margin-right: auto;
-  }
-#imagem{
+#imagem2 {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  //    height:60%;
+  height: 7cm !important;
+}
+
+.banner1 {
+  min-height: 500px;
+  max-height: 600px;
+  margin: auto;
+  display: block;
+}
+
+.banner2 {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+
+
+
+#imagem {
   position: relative;
   float: right;
   height: 70mm;
-  width:  auto;
+  width: auto;
   margin-left: 3%;
   margin-bottom: 3%;
   margin-right: 15%;
 
-//    display: inline-block;
-//    left: 50%;
-//  webkit-transform: translateX(-50%);
-//transform: translateX(-50%);
-//    height:60%;
-//     height: 15cm !important;
+  //    display: inline-block;
+  //    left: 50%;
+  //  webkit-transform: translateX(-50%);
+  //transform: translateX(-50%);
+  //    height:60%;
+  //     height: 15cm !important;
 }
-.corpoMensagem{
+
+.corpoMensagem {
   text-align: justify;
-  font-size:medium;
-  margin-left:15%;
+  font-size: medium;
+  margin-left: 15%;
   margin-right: 15%;
 }
 
-.imagem{
-  width: 80%;
-  float: left;
-  height:auto;
-}
-  .imagem2{
-    width: 100%;
-    float: left;
-    height:auto;
-  }ion-icon {
-    font-size: 20px;
-  }
-
-  .footer2 {
-    margin-top: 0;
-    background-color: #49d390;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  
-  div .figura{
-    img{
-      height: 200px !important;
-      width: 100%;
-    }
-    p{
-      text-align: center;
-    }
-  }
-   
-.top1 {
-  --background: #34cc67 url("../../assets/background/claro.png") no-repeat
-    center center / cover !important;
-}
-
-.top2 {
-  --background: #339967 url("../../assets/background/escuro.png") no-repeat
-    center center / cover !important;
-}
-ion-icon {
-  font-size: 200%;
-}
 .imagem {
   width: 80%;
   float: left;
   height: auto;
-} 
+}
+
 .imagem2 {
   width: 100%;
   float: left;
   height: auto;
 }
+
+ion-icon {
+  font-size: 20px;
+}
+
+.footer2 {
+  margin-top: 0;
+  background-color: #49d390;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+div .figura {
+  img {
+    width: 100%;
+  }
+
+  p {
+    text-align: center;
+  }
+}
+
+.top1 {
+  --background: #34cc67 url("../../assets/background/claro.png") no-repeat center center / cover !important;
+}
+
+.top2 {
+  --background: #339967 url("../../assets/background/escuro.png") no-repeat center center / cover !important;
+}
+
+ion-icon {
+  font-size: 200%;
+}
+
 ion-searchbar {
   margin-top: 1cm;
 }
@@ -116,12 +121,13 @@ ion-searchbar {
 
 .footer {
   margin-top: 5%;
-  min-width: 100%; 
+  min-width: 100%;
   background-color: #339967;
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 0;
 }
+
 //roda´pé desktop
 .rodape2 {
   display: block;
@@ -133,27 +139,48 @@ ion-searchbar {
 
 
 div.rodape {
-display: block;
-margin-left: auto;
-margin-right: auto;
-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
-  .footer {
-    margin-top: 5%;
-    min-width: 100%;
-    background-color: #339967;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-  }
-  
-  .top1{
-    --background: #34cc67 url('../../assets/background/claro.png') no-repeat center center / cover !important;
-  }
 
-  .top2{
-    --background: #339967 url('../../assets/background/escuro.png') no-repeat center center / cover !important;
-  }
-  .fundoMagico{
-    background-color: rgb(255, 255, 255);
-  }
+.footer {
+  margin-top: 5%;
+  min-width: 100%;
+  background-color: #339967;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+.top1 {
+  --background: #34cc67 url('../../assets/background/claro.png') no-repeat center center / cover !important;
+}
+
+.top2 {
+  --background: #339967 url('../../assets/background/escuro.png') no-repeat center center / cover !important;
+}
+
+.fundoMagico {
+  background-color: rgb(255, 255, 255);
+}
+
+.texto-Titulos {
+  font-size: 32px;
+  color: #96989a;
+  border-radius: 5px;
+  font-weight: 600;
+  padding: 2px;
+  border-style: double;
+}
+
+
+.texto-Titulos:hover {
+  font-weight: bold;
+  cursor: pointer;
+  border-style: double;
+  border-bottom: 4px #339967 solid;
+  border-left: 4px #339967 solid;
+  background-color: transparent;
+}

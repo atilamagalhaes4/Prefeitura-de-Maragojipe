@@ -1,13 +1,14 @@
-
 .igreja {
   margin-left: auto;
   margin-right: auto;
 }
+
 #background {
   background-image: url("../../assets/background/istockphoto-1193608799-1024x1024.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 /*
 
 
@@ -16,21 +17,25 @@ div.figura {
   background-color: rgb(236, 236, 236);
   width: 80%;
   height: auto;
+
   //  border: thin silver solid;
   img {
     margin-top: 5% !important;
     width: 40%;
   }
 }
+
 div.figura p {
   text-align: center;
   font-style: normal;
   font-size: smaller;
   text-indent: 0;
 }
+
 ion-content {
   font-family: Roboto Light, sans-serif;
 }
+
 #fundoCInza {
   background-color: rgb(241, 241, 240);
 }
@@ -41,6 +46,7 @@ div.figura2 {
   height: auto;
   //    border: thin silver solid;
 }
+
 div.figura2 p {
   text-align: center;
   font-style: normal;
@@ -49,6 +55,7 @@ div.figura2 p {
 }
 
 div.figura3 {
+
   //  background-color: yellowgreen;
   //  width: 100%;
   //    height: 60%;
@@ -58,13 +65,14 @@ div.figura3 {
     width: 90%;
   }
 }
+
 div.figura3 p {
   text-align: center;
   font-style: normal;
   font-size: large;
   text-indent: 0;
 }
- 
+
 /*
 .tamanho {
   font-size: smaller;
@@ -111,15 +119,18 @@ ion-searchbar {
 .banner {
   background-color: #ffffff;
 }
+
 .fundoBaixo {
   background-color: #ffffff;
-} 
+}
+
 .banner2 {
   width: 100% !important;
-  height: auto;
+  max-height: 350px;
 }
 
 div.figura4 {
+
   //  background-color: yellowgreen;
   //  width: 100%;
   //    height: 60%;
@@ -129,6 +140,7 @@ div.figura4 {
     width: 90%;
   }
 }
+
 div.figura4 p {
   text-align: center;
   font-style: normal;
@@ -138,9 +150,10 @@ div.figura4 p {
 
 
 .textoPequeno1 {
-  border: thin rgb(245,245,245) dashed;
+  border: thin rgb(245, 245, 245) dashed;
   background-color: rgb(250, 250, 250);
   height: auto;
+
   .imagemPequena {
     width: 25%;
     height: auto;
@@ -148,9 +161,10 @@ div.figura4 p {
 }
 
 .textoPequeno2 {
-  border: thin rgb(245,245,245) dashed;
+  border: thin rgb(245, 245, 245) dashed;
   background-color: rgb(250, 250, 250);
   height: auto;
+
   .imagemPequena {
     width: 25%;
     height: auto;
@@ -160,6 +174,7 @@ div.figura4 p {
 
 .textoPequeno3 {
   border: thin rgb(240, 240, 240) solid;
+
   //background-color: rgb(236, 236, 236);
   .imagemPequena {
     width: 100%;
@@ -169,6 +184,7 @@ div.figura4 p {
 
 .textoPequeno4 {
   border: thin rgb(240, 240, 240) solid;
+
   //background-color: rgb(236, 236, 236);
   .imagemPequena {
     width: 100%;
@@ -177,29 +193,31 @@ div.figura4 p {
 }
 
 
- 
+
 .top1 {
-  --background: #34cc67 url("../../assets/background/claro.png") no-repeat
-    center center / cover !important;
+  --background: #34cc67 url("../../assets/background/claro.png") no-repeat center center / cover !important;
 }
 
 .top2 {
-  --background: #339967 url("../../assets/background/escuro.png") no-repeat
-    center center / cover !important;
+  --background: #339967 url("../../assets/background/escuro.png") no-repeat center center / cover !important;
 }
+
 ion-icon {
   font-size: 200%;
 }
+
 .imagem {
   width: 80%;
   float: left;
   height: auto;
-} 
+}
+
 .imagem2 {
   width: 100%;
   float: left;
   height: auto;
 }
+
 ion-searchbar {
   margin-top: 1cm;
 }
@@ -214,12 +232,13 @@ ion-searchbar {
 
 .footer {
   margin-top: 5%;
-  min-width: 100%; 
+  min-width: 100%;
   background-color: #339967;
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 0;
 }
+
 //roda´pé desktop
 .rodape2 {
   display: block;
@@ -229,13 +248,35 @@ ion-searchbar {
   width: 80%;
 }
 
+.icon {
+  margin: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.icon:hover {
+  transform: scale(1.2) rotate(5deg);
+  animation: shake 0.5s ease-in-out; /* Adiciona a animação de chacoalhar */
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
 
 div.rodape {
-display: block;
-margin-left: auto;
-margin-right: auto;
-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
+
 .inputAjuda {
   margin-top: auto;
 }
@@ -248,106 +289,230 @@ width: 100%;
 
 // CSS para abrir imagem ao clicar
 
-   /* Style the Image Used to Trigger the Modal */
-   #myImg1 {
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  #myImg1:hover {opacity: 0.7;}
-  
-  #myImg2 {
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  #myImg2:hover {opacity: 0.7;}
-  
-  #myImg3 {
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  #myImg3:hover {opacity: 0.7;}
-  
-  #myImg4 {
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  #myImg4:hover {opacity: 0.7;}
-  
-  /* The Modal (background) */
-  .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-  }
-  
-  /* Modal Content (Image) */
-  .modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-  }
+/* Style the Image Used to Trigger the Modal */
+#myImg1 {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg1:hover {
+  opacity: 0.7;
+}
+
+#myImg2 {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg2:hover {
+  opacity: 0.7;
+}
+
+#myImg3 {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg3:hover {
+  opacity: 0.7;
+}
+
+#myImg4 {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg4:hover {
+  opacity: 0.7;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9);
+  /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
 
 /* Caption of Modal Image (Image Text) - Same Width as the Image */
 #caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 10px 0;
-    height: 150px;
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content,
+#caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0)
   }
-  
-  /* Add Animation - Zoom in the Modal */
-  .modal-content, #caption {
-    animation-name: zoom;
-    animation-duration: 0.6s;
+
+  to {
+    transform: scale(1)
   }
-  
-  @keyframes zoom {
-    from {transform:scale(0)}
-    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
   }
-  
-  /* The Close Button */
-  .close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
+}
+
+
+
+
+
+
+
+
+
+
+.modalDialog {
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 99999;
+  opacity: 0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+
+.modalDialog:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modalDialog>div {
+  width: 75%;
+  max-width: 800px;
+  position: relative;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+  background: #fff;
+  background: -moz-linear-gradient(#fff, #999);
+  background: -webkit-linear-gradient(#fff, #999);
+  background: -o-linear-gradient(#fff, #999);
+}
+
+.fechar {
+  background: #34cc67;
+  font-size: small;
+  color: #FFFFFF;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+}
+
+.fechar:hover {
+  background: red;
+  color: white;
+}
+.texto-Titulos {
+  font-size: 32px;
+  color: #96989a;
+  border-radius: 5px;
+  font-weight: 600;
+  padding: 2px;
+  border-style: double;
+  transition: transform 0.3s ease-in-out;
+  display: inline-block; /* Adiciona essa linha para garantir que o label seja tratado como um bloco ou inline-block */
+}
+
+.texto-Titulos:hover {
+  font-weight: bold;
+  cursor: pointer;
+  border-style: double;
+  border-bottom: 2px gray solid;
+  border-left: 2px gray solid;
+  background-color: transparent;
+  transform: rotate(5deg);
+  animation: shakeText 0.5s ease-in-out;
+}
+
+@keyframes shakeText {
+  0%, 100% {
+    transform: translateX(0);
   }
-  
-  .close:hover,
-  .close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
   }
-  
-  /* 100% Image Width on Smaller Screens */
-  @media only screen and (max-width: 700px){
-    .modal-content {
-      width: 100%;
-    }
-  }  
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
+
 import { PostProvider } from '../../assets/providers/post-provider';
 declare var viewDados1: any;
 declare var viewDados2: any;
@@ -44,7 +45,14 @@ export class HomePage {
     private route: Router
   ) { }
 
+  @ViewChild('openModal', { static: true }) divElementRef!: ElementRef;
+
   ionViewWillEnter() {
+    const divElement: HTMLElement = this.divElementRef.nativeElement;
+    /*    
+      Clicando aparece um baner na tela
+      divElement.click();
+    */
     if (this.platform.is("mobile")) {
       this.alternar = false;
     }
@@ -54,6 +62,8 @@ export class HomePage {
     this.pegarNoticias();
     this.noticiasPequenas();
   }
+
+
 
   pesquisarNoticias() {
     this.route.navigate(["/mais-noticias/" + this.pesquisa]);
@@ -95,6 +105,7 @@ export class HomePage {
   }
 
   ngOnInit() {
+
     viewDados1().funcao();
     viewDados2().funcao();
     viewDados3().funcao();
@@ -136,9 +147,55 @@ export class HomePage {
   visualizar(titulo) {
     this.route.navigate(['/visualizar/' + titulo]);
   }
+
   slideOptsOne = {
     initialSlide: 0, // inicia do 
     slidesPerView: 1, // 1 foto por vez
     autoplay: true // comecar sozinho
   };
+
+
+  rolagemPagina1() {
+    if(this.alternar == true){
+      const element = document.querySelector('#oQueBusco1');
+      element.scrollIntoView({behavior: 'auto'});
+    }
+    else{
+      const element = document.querySelector('#oQueBusco2');
+      element.scrollIntoView({behavior: 'auto'});
+    }
+
+  }
+
+  rolagemPagina2() {
+    if(this.alternar == true){
+      const element = document.querySelector('#destaque1');
+      element.scrollIntoView({behavior: 'auto'});
+    }
+    else{
+      const element = document.querySelector('#destaque2');
+      element.scrollIntoView({behavior: 'auto'});
+    }
+  }
+  rolagemInstagram() {
+    if(this.alternar == true){
+      const element = document.querySelector('#instagram');
+      element.scrollIntoView({behavior: 'auto'});
+    }
+    else{
+      const element = document.querySelector('#instagram');
+      element.scrollIntoView({behavior: 'auto'});
+    }
+  }
+  
+  rolagemPagina3() {
+    if(this.alternar == true){
+      const element = document.querySelector('#noticias1');
+      element.scrollIntoView({behavior: 'auto'});
+    }
+    else{
+      const element = document.querySelector('#noticias2');
+      element.scrollIntoView({behavior: 'auto'});
+    }
+  }
 }

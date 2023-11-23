@@ -1,82 +1,106 @@
-
 .footer {
-    margin-top: 0px;
-    min-width: 100%; 
-    background-color: #339967;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-  }
-  //rodapé desktop
-  .rodape2 {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: auto;
-    width: 80%;
-  }
-  
-  
- .iconesStore:hover {
-   -webkit-transform: scale(1.1);
-   transform: scale(1.1);
+  margin-top: 0px;
+  min-width: 100%;
+  background-color: #339967;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+//rodapé desktop
+.rodape2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  width: 80%;
+}
+
+
+.iconesStore:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 
 
-  div.rodape {
+div.rodape {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  }
-  
-ion-searchbar {
-    margin-top: 1cm;
-  }
-  
-  .footer2 {
-    margin-top: 0;
-    background-color: #49d390;
-    margin-left: 0;
-    margin-right: 0;
-  }
+}
 
- 
-  .top1 {
-    --background: #34cc67 url("../../assets/background/claro.png") no-repeat
-      center center / cover !important;
-  }
-  
-  .top2 {
-    --background: #339967 url("../../assets/background/escuro.png") no-repeat
-      center center / cover !important;
-  }
-  ion-icon {
-    font-size: 200%;
-  }
-  .imagem {
-    width: 80%;
-    float: left;
-    height: auto;
-  } 
-  .imagem2 {
-    width: 100%;
-    float: left;
-    height: auto;
-  }
-  
+ion-searchbar {
+  margin-top: 1cm;
+}
+
+.footer2 {
+  margin-top: 0;
+  background-color: #49d390;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+.top1 {
+  --background: #34cc67 url("../../assets/background/claro.png") no-repeat center center / cover !important;
+}
+
+.top2 {
+  --background: #339967 url("../../assets/background/escuro.png") no-repeat center center / cover !important;
+}
+
+ion-icon {
+  font-size: 200%;
+}
+
+.imagem {
+  width: 80%;
+  float: left;
+  height: auto;
+}
+
+.imagem2 {
+  width: 100%;
+  float: left;
+  height: auto;
+}
+
 .inputAjuda {
-    margin-top: auto;
+  margin-top: auto;
+}
+
+.tamanho {
+  font-size: smaller;
+  text-align: center;
+}
+
+.qrCode {
+  margin-bottom: 0px;
+
+  img {
+    width: 105%;
   }
-  
-  .tamanho {
-    font-size: smaller;
-    text-align: center;
-  }
-  .qrCode{
-    margin-bottom: 0px;
-    img{
-      width: 105%;
-    }
-  } 
+}
+
+
+
+.texto-Titulos {
+  font-size: 32px;
+  color: #96989a;
+  border-radius: 5px;
+  font-weight: 600;
+  padding: 2px;
+  border-style: double;
+}
+
+
+.texto-Titulos:hover {
+  font-weight: bold;
+  cursor: pointer;
+  border-style: double;
+  border-bottom: 4px #339967 solid;
+  border-left: 4px #339967 solid;
+  background-color: transparent;
+}
