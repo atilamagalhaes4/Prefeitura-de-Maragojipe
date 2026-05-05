@@ -30,7 +30,7 @@
                 <ion-row *ngIf="alternar ==true">
                     <ion-col size=3>
                         <a style="text-decoration: none;" href="/">
-                            <img class="imagem" src="../../../assets/logo-prefeitura/logo2.png"
+                            <img class="imagem" src="https://maragojipe.ba.gov.br/assets/logo-prefeitura/logo4.png"
                                 alt="Prefeitura de Maragojipe">
                         </a>
                     </ion-col>
@@ -63,7 +63,7 @@
 
                 <ion-row *ngIf="alternar ==false" class="tamanho">
                     <ion-col (click)='ir("/")' size=3>
-                        <img class="imagem2" src="../../../assets/logo-prefeitura/logo2.png"
+                        <img class="imagem2" src="https://maragojipe.ba.gov.br/assets/logo-prefeitura/logo4.png"
                             alt="Prefeitura de Maragojipe">
                     </ion-col>
                     <ion-col (click)='ir("/o-municipio")' size=3>
@@ -91,7 +91,7 @@
         <ion-grid>
             <ion-row>
                 <ion-col size="12">
-                    <img src="../../assets/background/cabeçalho2.png">
+                    <img src="https://maragojipe.ba.gov.br/assets/background/cabe%C3%A7alho2.png">
                 </ion-col>
             </ion-row>
             <ion-row>
@@ -101,7 +101,7 @@
                         O que busco ?
                     </ion-label>
 
-                    <ion-label   *ngIf="alternar == false"  style="font-size: 16px !important;" class="texto-Titulos">
+                    <ion-label *ngIf="alternar == false" style="font-size: 16px !important;" class="texto-Titulos">
                         O que busco ?
                     </ion-label>
                 </ion-col>
@@ -115,8 +115,7 @@
                 <ion-col size=1> </ion-col>
                 <ion-col size=2>
                     <div class="figura">
-                        <a target="_blank"
-                            href="https://dom.imap.org.br/sitesMunicipios/imprensaOficial.cfm?varCodigo=497"
+                        <a target="_blank" href="https://diariooficial.maragojipe.ba.gov.br"
                             style="text-decoration: none; color: black;">
                             <p><img src="../../assets/icones prefeitura/DIARIO.png" alt="Diario oficial"
                                     title="Diario oficial"></p>
@@ -126,7 +125,7 @@
                 </ion-col>
                 <ion-col size=2>
                     <div class="figura">
-                        <a color=dark target="_blank" href="https://sai.io.org.br/ba/maragojipe/site"
+                        <a color=dark target="_blank" href="https://transparencia.maragojipe.ba.gov.br"
                             style=" color: black;text-decoration: none;">
                             <p><img src="../../assets/icones prefeitura/TRANSPARENCIA.png" alt="Transparencia"
                                     title="transparencia">
@@ -136,12 +135,11 @@
                     </div>
                 </ion-col>
                 <ion-col size=2>
-                    <div class="figura">
-                        <a color=dark target="_blank"
-                            href="https://maragojipe.saatri.com.br/Imobiliario/EmitirIptu?Pbol_ComMenuEsquerdo=true"
-                            style="text-decoration: none; color: black;">
-                            <p><img src="../../assets/icones prefeitura/IPTU.png" alt="IPTU" title="IPTU"></p>
-                            <p>IPTU</p>
+                    <div class="figura" style="cursor: pointer;" routerLink="/agenda-prefeito">
+                        <a color=dark style="text-decoration: none; color: black;">
+                            <p><img src="../../assets/icones prefeitura/prefeito.png" alt="Agenda do prefeito"
+                                    title="Agenda do prefeito"></p>
+                            <p>Agenda do prefeito</p>
                         </a>
                     </div>
                 </ion-col>
@@ -254,19 +252,15 @@
                         <div class="figura">
                             <p><img src="../../assets/icones prefeitura/FALE-AQUI.png" alt="Ouvidoria"
                                     title="Ouvidoria"></p>
-                            <p>Solicite Aqui</p>
+                            <p>Ouvidoria</p>
                         </div>
                     </a>
                 </ion-col>
-
                 <ion-col size=2>
                     <div class="figura">
-                        <a target="_blank"
-                            href="https://sai.io.org.br/Handler.ashx?f=download_inativos&query=3728&c=497"
-                            style="text-decoration: none;color: black;">
-                            <p><img src="../../assets/icones prefeitura/CALENDARIO.png" alt="Calendario escolar"
-                                    title="Calendario escolar"></p>
-                            <p>Calendário Escolar</p>
+                        <a color=dark routerLink="/documentos-publicos" style=" color: black;text-decoration: none;">
+                            <p><img src="../../assets/icones prefeitura/pasta.png" alt="PPA" title="PPA"></p>
+                            <p>Documentos públicos</p>
                         </a>
                     </div>
                 </ion-col>
@@ -290,6 +284,61 @@
                     </div>
                 </ion-col>
                 <ion-col size=1> </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size=1></ion-col>
+                <ion-col size=2>
+                    <div class="figura">
+                        <a color=dark target="_blank"
+                            href="https://maragojipe.saatri.com.br/Imobiliario/EmitirIptu?Pbol_ComMenuEsquerdo=true"
+                            style="text-decoration: none; color: black;">
+                            <p><img src="../../assets/icones prefeitura/IPTU.png" alt="IPTU" title="IPTU"></p>
+                            <p>IPTU</p>
+                        </a>
+                    </div>
+                </ion-col>
+
+                <ion-col size=2>
+                    <div class="figura">
+                        <a target="_blank" href="https://maragojipe.ba.gov.br/assets/outros/calendario-escolar.pdf"
+                            style="text-decoration: none;color: black;">
+                            <p><img src="../../assets/icones prefeitura/CALENDARIO.png" alt="Calendario escolar"
+                                    title="Calendario escolar"></p>
+                            <p>Calendário Escolar 2026</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura">
+                        <a color=dark routerLink="/ppa" style=" color: black;text-decoration: none;">
+                            <p><img src="https://maragojipe.ba.gov.br/assets/icones%20prefeitura/ppa.png" alt="PPA"
+                                    title="PPA"></p>
+                            <p>Plano PluriAnual</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura">
+                        <a color=dark href="https://pncp.gov.br/app/editais/13784384000122/2025/50" target="_blank"
+                            style=" color: black;text-decoration: none;">
+                            <p><img src="https://pncp.gov.br/app/assets/images/logo.svg"
+                                    alt="Portal Nacional de Contratações Públicas"
+                                    title="Portal Nacional de Contratações Públicas"></p>
+                            <p>Portal Nacional de Contratações Públicas</p>
+                        </a>
+                    </div>
+                </ion-col>
+
+                <!--                <ion-col size=2>
+                    <div class="figura">
+                        <a color=dark routerLink="/cadastro-funcionarios"
+                            style=" color: black;text-decoration: none;">
+                            <p><img src="../../assets/icones prefeitura/cadastro-prefeitura.png" alt="PPA" title="PPA"></p>
+                            <p>Cadastro</p>
+                        </a>
+                    </div>
+                </ion-col>-->
+                <ion-col size=1></ion-col>
             </ion-row>
             <!--
             <ion-row>
@@ -337,8 +386,7 @@
                 <ion-col size=1> </ion-col>
                 <ion-col size=2>
                     <div class="figura2">
-                        <a target="_blank"
-                            href="https://dom.imap.org.br/sitesMunicipios/imprensaOficial.cfm?varCodigo=497"
+                        <a target="_blank" href="https://diariooficial.maragojipe.ba.gov.br/homepage"
                             style="text-decoration: none; color: black;">
                             <p><img src="../../assets/icones prefeitura/DIARIO.png" alt="Diario oficial"
                                     title="Diario oficial"></p>
@@ -348,7 +396,7 @@
                 </ion-col>
                 <ion-col size=2>
                     <div class="figura2">
-                        <a color=dark target="_blank" href="https://sai.io.org.br/ba/maragojipe/site"
+                        <a color=dark target="_blank" href="https://transparencia.maragojipe.ba.gov.br"
                             style=" color: black;text-decoration: none;">
                             <p><img src="../../assets/icones prefeitura/TRANSPARENCIA.png" alt="Transparencia"
                                     title="transparencia">
@@ -357,13 +405,12 @@
                         </a>
                     </div>
                 </ion-col>
-                <ion-col size=2>
+                <ion-col routerLink="/agenda-prefeito" style="cursor: pointer;" size=2>
                     <div class="figura2">
-                        <a color=dark target="_blank"
-                            href="https://maragojipe.saatri.com.br/Imobiliario/EmitirIptu?Pbol_ComMenuEsquerdo=true"
-                            style="text-decoration: none; color: black;">
-                            <p><img src="../../assets/icones prefeitura/IPTU.png" alt="IPTU" title="IPTU"></p>
-                            <p>IPTU</p>
+                        <a color=dark target="_self" style="text-decoration: none; color: black;">
+                            <p><img src="../../assets/icones prefeitura/prefeito.png" alt="Agenda do prefeito"
+                                    title="Agenda do prefeito"></p>
+                            <p>Agenda do prefeito</p>
                         </a>
                     </div>
                 </ion-col>
@@ -441,7 +488,7 @@
                             routerLink="/reparacao-racial-mulher">
                             <p><img src="../../assets/icones prefeitura/reparacao-social.png"
                                     alt="Reparação racial e da mulher" title="Reparação racial e da mulher"></p>
-                            <p style="text-align: center;">Reparação racial e da mulher</p>
+                            <p style="text-align: center;">Repar ação racial e da mulher</p>
                         </a>
                     </div>
                 </ion-col>
@@ -473,19 +520,19 @@
                 </ion-col>
                 <ion-col size=2>
                     <div class="figura2">
-                        <a href="https://sai.io.org.br/Handler.ashx?f=download_inativos&query=3728&c=497"
-                            target="_blank" style="text-decoration: none;color: black;">
-                            <p><img src="../../assets/icones prefeitura/CALENDARIO.png" alt="Calendario escolar"
-                                    title="Calendario escolar"></p>
-                            <p>Calendário Escolar</p>
+                        <a color=dark target="_self" routerLink="/documentos-publicos"
+                            style=" color: black;text-decoration: none;">
+                            <p><img src="../../assets/icones prefeitura/pasta.png" alt="PPA" title="PPA"></p>
+                            <p>Documentos públicos</p>
                         </a>
                     </div>
                 </ion-col>
+
                 <ion-col routerLink="/ouvidoria" size=2>
                     <div class="figura2">
                         <p><img src="../../assets/icones prefeitura/FALE-AQUI.png" alt="Ouvidoria" title="Ouvidoria">
                         </p>
-                        <p>Solicite Aqui</p>
+                        <p>Ouvidoria</p>
                     </div>
                 </ion-col>
                 <ion-col size=2>
@@ -506,7 +553,60 @@
                 </ion-col>
                 <ion-col size=1></ion-col>
             </ion-row>
+            <ion-row>
+                <ion-col size=1></ion-col>
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a color=dark target="_blank"
+                            href="https://maragojipe.saatri.com.br/Imobiliario/EmitirIptu?Pbol_ComMenuEsquerdo=true"
+                            style="text-decoration: none; color: black;">
+                            <p><img src="../../assets/icones prefeitura/IPTU.png" alt="IPTU" title="IPTU"></p>
+                            <p>IPTU</p>
+                        </a>
+                    </div>
+                </ion-col>
 
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a href="https://maragojipe.ba.gov.br/assets/outros/calendario-escolar.pdf" target="_blank"
+                            style="text-decoration: none;color: black;">
+                            <p><img src="../../assets/icones prefeitura/CALENDARIO.png" alt="Calendario escolar"
+                                    title="Calendario escolar"></p>
+                            <p>Calendário Escolar 2026</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a color=dark target="_blank" routerLink="/ppa" style=" color: black;text-decoration: none;">
+                            <p><img src="https://maragojipe.ba.gov.br/assets/icones%20prefeitura/ppa.png" alt="PPA"
+                                    title="PPA"></p>
+                            <p>Plano PluriAnual</p>
+                        </a>
+                    </div>
+                </ion-col>
+
+                <ion-col size=2>
+                    <div class="figura2">
+                        <a color=dark href="https://pncp.gov.br/app/editais/13784384000122/2025/50" target="_blank"
+                            style=" color: black;text-decoration: none;">
+                            <p><img src="https://pncp.gov.br/app/assets/images/logo.svg" alt="cadastro funcionarios"
+                                    title="Portal Nacional de Contratações Públicas"></p>
+                            <p>Portal Nacional de Contratações Públicas</p>
+                        </a>
+                    </div>
+                </ion-col>
+                <!--              <ion-col size=2>
+                    <div class="figura2">
+                        <a color=dark routerLink="/cadastro-funcionarios"
+                            style=" color: black;text-decoration: none;">
+                            <p><img src="../../assets/icones prefeitura/cadastro-prefeitura.png" alt="cadastro funcionarios" title="cadastro funcionarios"></p>
+                            <p>Cadastro</p>
+                        </a>
+                    </div>
+                </ion-col>-->
+                <ion-col size=1></ion-col>
+            </ion-row>
             <!--
             <ion-row>
                 <ion-col size=1></ion-col>
@@ -549,11 +649,20 @@
     <div class="banner">
         <br>
         <ion-slides class="slides" pager="false" [options]="slideOptsOne">
+            <!--            <ion-slide>
+                <img class="banner2" src="https://maragojipe.ba.gov.br/assets/banner/Nova-enseada SITE.png">
+            </ion-slide>
             <ion-slide>
                 <img class="banner2" src="https://maragojipe.ba.gov.br/assets/banner/banner-Carnaval-site-PMM.png">
             </ion-slide>
             <ion-slide>
+                <img class="banner2" src="https://maragojipe.ba.gov.br/assets/banner/20-cota-unica.jpg">
+            </ion-slide>-->
+            <ion-slide>
                 <img class="banner2" src="https://maragojipe.ba.gov.br/assets/banner/banner-site-PMM.png">
+            </ion-slide>
+            <ion-slide>
+                <img class="banner2" src="https://maragojipe.ba.gov.br/assets/banner/banner-site-PMM2.png">
             </ion-slide>
             <!--            <ion-slide>
                 <img class="banner2" src="../../assets/banner/banner.png">
@@ -574,11 +683,11 @@
             <ion-row>
                 <ion-col size=3>
                     <ion-label *ngIf="alternar == true" id="destaque1" (click)="rolagemPagina2()" class="texto-Titulos">
-                        Destaques
+                        Carnaval
                     </ion-label>
 
-                    <ion-label   *ngIf="alternar == false"  style="font-size: 16px !important;" class="texto-Titulos">
-                        Destaques
+                    <ion-label *ngIf="alternar == false" style="font-size: 16px !important;" class="texto-Titulos">
+                        Carnaval
                     </ion-label>
 
                 </ion-col>
@@ -586,105 +695,172 @@
             </ion-row>
             <br>
             <ion-row style="margin-left: 3%; margin-right: 3%;" *ngIf="alternar == true">
-                <ion-col size=3>
-                    <p style="text-align: center;">
-                        Expirou em 31/05/2023
-                    </p>
-                </ion-col>
-                <ion-col size=3>
-                    <p style="text-align: center;">
-                        SÃO JOÃO MARAGOJIPE
-                    </p>
-                </ion-col>
-                <ion-col size=3>
-                    <p style="text-align: center;">
-                        PAINEL DE INFORMAÇÕES
-                    </p>
-                </ion-col>
-                <ion-col size=3>
-                    <p style="text-align: center;">
-                        CAMPANHAS
-                    </p>
-                </ion-col>
+                <ion-slides class="slides" pager="false" [options]="slideOptsOne2">
+
+                    <ion-slide>
+                        <a href="https://www.instagram.com/p/C167bQIrhWV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img class="banner2" src="../../assets/outros/carnaval/imagem1.jpg">
+                        </a>
+                    </ion-slide>
+                    <ion-slide>
+                        <a href="https://www.instagram.com/p/C167bQIrhWV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img class="banner2" src="../../assets/outros/carnaval/imagem2.jpg">
+                        </a>
+                    </ion-slide>
+                    <ion-slide>
+                        <a href="https://www.instagram.com/p/C167bQIrhWV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img class="banner2" src="../../assets/outros/carnaval/imagem3.jpg">
+                        </a>
+                    </ion-slide>
+                    <ion-slide>
+                        <a href="https://www.instagram.com/p/C167bQIrhWV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img class="banner2" src="../../assets/outros/carnaval/imagem4.jpg">
+                        </a>
+                    </ion-slide>
+                    <ion-slide>
+                        <a href="https://www.instagram.com/p/C167bQIrhWV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img class="banner2" src="../../assets/outros/carnaval/imagem5.jpg">
+                        </a>
+                    </ion-slide>
+                    <ion-slide>
+                        <a href="https://www.instagram.com/p/C167bQIrhWV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img class="banner2" src="../../assets/outros/carnaval/imagem6.jpg">
+                        </a>
+                    </ion-slide>
+                    <ion-slide>
+                        <a href="https://www.instagram.com/p/C167bQIrhWV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img class="banner2" src="../../assets/outros/carnaval/imagem7.jpg">
+                        </a>
+                    </ion-slide>
+                    <ion-slide>
+                        <a href="https://www.instagram.com/p/C167bQIrhWV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img class="banner2" src="../../assets/outros/carnaval/imagem8.jpg">
+                        </a>
+                    </ion-slide>
+                </ion-slides>
             </ion-row>
 
-            <ion-row id="scrollId" style="margin-left: 3%; margin-right: 3%;">
-                <ion-col size=3>
-                    <img [src]="boletim" id="myImg1" alt="Boletim" title="Boletim">
-                </ion-col>
-                <ion-col size=3>
-                    <img [src]="vacinometro" id="myImg2" alt="Forró do cais" title="Forró do cais">
-                </ion-col>
-                <ion-col size=3>
-                    <img [src]="corona" alt="Painel de informações" id="myImg3" title="Painel de informações">
-                </ion-col>
-                <ion-col size=3>
-                    <img [src]="campanhas" alt="Campanhas" id="myImg4" title="Campanhas">
-                    <!--
-            <ion-slides class="slides" pager="true" [options]="slideOptsOne">
-              <ion-slide >
-                <img width="90%" src="../../assets/outros/campanhas/001.jpeg" title="Campanhas"> 
-              </ion-slide>
-              <ion-slide >
-                <img width="90%" src="../../assets/outros/campanhas/002.jpeg" title="Campanhas"> 
-              </ion-slide>
-              <ion-slide >
-                <img width="90%" src="../../assets/outros/campanhas/003.jpeg" title="Campanhas"> 
-              </ion-slide>
-            </ion-slides>
-          -->
-                </ion-col>
-            </ion-row>
             <ion-row style="margin-left: 3%; margin-right: 3%;" *ngIf="alternar == false">
-                <ion-col size=3>
-                    <p style="font-size: xx-small; text-align: justify;">
-                        Expirou em 31/05/2023
-                    </p>
-                </ion-col>
-                <ion-col size=3>
-                    <p style="font-size: xx-small; text-align: justify;">
-                        SÃO JOÃO MARAGOJIPE
-                    </p>
-                </ion-col>
-                <ion-col size=3>
-                    <p style="font-size: xx-small; text-align: justify;">
-                        PAINEL DE INFORMAÇÕES
-                    </p>
-                </ion-col>
-                <ion-col size=3>
-                    <p style="font-size: xx-small; text-align: justify;">
-                        CAMPANHAS
-                    </p>
-                </ion-col>
+                <ion-slides class="slides" pager="false" [options]="slideOptsOne2">
+
+                    <ion-slide>
+                        <a href="https://www.instagram.com/p/C167bQIrhWV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img class="banner2" src="../../assets/outros/carnaval/imagem1.jpg">
+                        </a>
+                    </ion-slide>
+                    <ion-slide>
+                        <a href="https://www.instagram.com/p/C167bQIrhWV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img class="banner2" src="../../assets/outros/carnaval/imagem2.jpg">
+                        </a>
+                    </ion-slide>
+                    <ion-slide>
+                        <a href="https://www.instagram.com/p/C167bQIrhWV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img class="banner2" src="../../assets/outros/carnaval/imagem3.jpg">
+                        </a>
+                    </ion-slide>
+                    <ion-slide>
+                        <a href="https://www.instagram.com/p/C167bQIrhWV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img class="banner2" src="../../assets/outros/carnaval/imagem4.jpg">
+                        </a>
+                    </ion-slide>
+                    <ion-slide>
+                        <a href="https://www.instagram.com/p/C167bQIrhWV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img class="banner2" src="../../assets/outros/carnaval/imagem5.jpg">
+                        </a>
+                    </ion-slide>
+                    <ion-slide>
+                        <a href="https://www.instagram.com/p/C167bQIrhWV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img class="banner2" src="../../assets/outros/carnaval/imagem6.jpg">
+                        </a>
+                    </ion-slide>
+                    <ion-slide>
+                        <a href="https://www.instagram.com/p/C167bQIrhWV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img class="banner2" src="../../assets/outros/carnaval/imagem7.jpg">
+                        </a>
+                    </ion-slide>
+                    <ion-slide>
+                        <a href="https://www.instagram.com/p/C167bQIrhWV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img class="banner2" src="../../assets/outros/carnaval/imagem8.jpg">
+                        </a>
+                    </ion-slide>
+                </ion-slides>
             </ion-row>
 
         </ion-grid>
     </div>
-    <ion-grid style=" margin-top: 5%;">
+    <ion-grid>
         <ion-row>
             <ion-col size=4>
-                <ion-label  id="instagram"  *ngIf="alternar == true"(click)="rolagemInstagram()" class="texto-Titulos">
+                <ion-label id="instagram" *ngIf="alternar == true" (click)="rolagemInstagram()" class="texto-Titulos">
+                    Banners
+                </ion-label>
+                <ion-label *ngIf="alternar == false" (click)="rolagemInstagram()" style="font-size: 16px !important;"
+                    class="texto-Titulos">
+                    Banners
+                </ion-label>
+            </ion-col>
+            <ion-col size=8></ion-col>
+        </ion-row>
+        <ion-row id="scrollId" style="margin-left: 3%; margin-right: 3%;">
+            <ion-col size=3>
+                <img src="https://maragojipe.ba.gov.br/assets/outros/banner1.png">
+            </ion-col>
+            <ion-col size=3>
+                <img src="https://maragojipe.ba.gov.br/assets/outros/banner2.png">
+            </ion-col>
+            <ion-col size=3>
+                <img src="https://maragojipe.ba.gov.br/assets/outros/banner3.png">
+            </ion-col>
+            <ion-col size=3>
+                <img src="https://maragojipe.ba.gov.br/assets/outros/banner4.png">
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+    <!--
+        <ion-grid style=" margin-top: 5%;">
+        <ion-row>
+            <ion-col size=4>
+                <ion-label id="instagram" *ngIf="alternar == true" (click)="rolagemInstagram()" class="texto-Titulos">
                     Feed do Instagram
                 </ion-label>
-                <ion-label   *ngIf="alternar == false" (click)="rolagemInstagram()" style="font-size: 16px !important;" class="texto-Titulos">
+                <ion-label *ngIf="alternar == false" (click)="rolagemInstagram()" style="font-size: 16px !important;"
+                    class="texto-Titulos">
                     Feed do Instagram
                 </ion-label>
             </ion-col>
             <ion-col size=8></ion-col>
         </ion-row>
-        <ion-row  style="margin-left: 5%; margin-right: 5%;">
+        <ion-row style="margin-left: 5%; margin-right: 5%;">
             <ion-col>
                 <div class="elfsight-app-31a27dc4-b4fa-47ed-b353-5c71faf37d7c" data-elfsight-app-lazy></div>
             </ion-col>
         </ion-row>
-    </ion-grid>
+    </ion-grid> -->
     <div class="fundoBaixo">
         <ion-grid *ngIf="titulo1.length>0 && alternar == true">
             <ion-row>
                 <ion-col size=3>
 
                     <ion-label *ngIf="alternar == true" id="noticias1" (click)="rolagemPagina3()" class="texto-Titulos">
-                        Noticias
+                        Últimas notícias
                     </ion-label>
                 </ion-col>
                 <ion-col size=9></ion-col>
@@ -716,8 +892,8 @@
         <ion-grid *ngIf="titulo1.length>0 && alternar == false">
             <ion-row>
                 <ion-col size=3>
-                    <ion-label   *ngIf="alternar == false"  style="font-size: 16px !important;" class="texto-Titulos">
-                        Noticias
+                    <ion-label *ngIf="alternar == false" style="font-size: 16px !important;" class="texto-Titulos">
+                        Últimas notícias
                     </ion-label>
                 </ion-col>
                 <ion-col size=9></ion-col>
@@ -750,20 +926,18 @@
             <ion-row>
                 <ion-col size=1></ion-col>
                 <ion-col class="textoPequeno1" size=5>
-                    <ion-item color="transparent" lines=none>
+                    <ion-item color="transparent" lines=none (click)="visualizar(titulo3)">
                         <img class="imagemPequena" [src]="thumb3"> &nbsp;
-                        <a style="text-decoration: none; color: black;" href=" javascript:void(0)"
-                            (click)="visualizar(titulo3)">
+                        <a style="text-decoration: none; color: black;" href=" javascript:void(0)">
                             <p>{{titulo3}}</p>
                         </a>
                     </ion-item>
                 </ion-col>
                 &nbsp;
                 <ion-col class="textoPequeno2" size=5>
-                    <ion-item color="transparent" lines=none>
+                    <ion-item color="transparent" lines=none (click)="visualizar(titulo4)">
                         <img class="imagemPequena" [src]="thumb4"> &nbsp;
-                        <a style="text-decoration: none; color: black;" href=" javascript:void(0)"
-                            (click)="visualizar(titulo4)">
+                        <a style="text-decoration: none; color: black;" href=" javascript:void(0)">
                             <p>{{titulo4}}</p>
                         </a>
                     </ion-item>
@@ -774,20 +948,18 @@
             <ion-row>
                 <ion-col size=1></ion-col>
                 <ion-col class="textoPequeno1" size=5>
-                    <ion-item color="transparent" lines=none>
+                    <ion-item color="transparent" lines=none (click)="visualizar(titulo5)">
                         <img class="imagemPequena" [src]="thumb5"> &nbsp;
-                        <a style="text-decoration: none; color: black;" href=" javascript:void(0)"
-                            (click)="visualizar(titulo5)">
+                        <a style="text-decoration: none; color: black;" href=" javascript:void(0)">
                             <p>{{titulo5}}</p>
                         </a>
                     </ion-item>
                 </ion-col>
                 &nbsp;
                 <ion-col class="textoPequeno2" size=5>
-                    <ion-item color="transparent" lines=none>
+                    <ion-item color="transparent" lines=none (click)="visualizar(titulo6)">
                         <img class="imagemPequena" [src]="thumb6"> &nbsp;
-                        <a style="text-decoration: none; color: black;" href=" javascript:void(0)"
-                            (click)="visualizar(titulo6)">
+                        <a style="text-decoration: none; color: black;" href=" javascript:void(0)">
                             <p>{{titulo6}}</p>
                         </a>
                     </ion-item>
@@ -974,7 +1146,7 @@
                         name="arrow-redo-outline"></ion-icon>
                     <a target="_blank"
                         style="text-align: center; text-decoration: none; color: #ffffff; font-size: medium;"
-                        href="https://sai.io.org.br/ba/maragojipe/site">
+                        href="https://transparencia.maragojipe.ba.gov.br">
                         Transparencia
                     </a>
                 </ion-col>
@@ -1141,7 +1313,7 @@
                         name="arrow-redo-outline"></ion-icon>
                     <a target="_blank"
                         style="text-align: center; text-decoration: none; color: #ffffff; font-size: xx-small;"
-                        href="https://sai.io.org.br/ba/maragojipe/site">
+                        href="https://transparencia.maragojipe.ba.gov.br">
                         Transparencia
                     </a>
                 </ion-col>
@@ -1203,7 +1375,7 @@
         <ion-grid style="margin-left: 5%;margin-right: 5%;">
             <ion-row *ngIf="alternar==false">
                 <ion-col size=6 style="text-align: center; font-size: x-small; color: #ffffff;">
-                    &copy; 2024 Prefeitura de Maragojipe. Todos direitos reservados.
+                    &copy; 2025 Prefeitura de Maragojipe. Todos direitos reservados.
                 </ion-col>
                 <ion-col size=3 style="text-align: center; font-size: x-small; color: #ffffff;">
                     Termos de uso
@@ -1214,7 +1386,7 @@
             </ion-row>
             <ion-row *ngIf="alternar==true">
                 <ion-col size=6 style="text-align: center; color: #ffffff;">
-                    &copy; 2024 Prefeitura de Maragojipe. Todos direitos reservados.
+                    &copy; 2025 Prefeitura de Maragojipe. Todos direitos reservados.
                 </ion-col>
                 <ion-col size=3 style="text-align: center; color: #ffffff;cursor: pointer;">
                     Termos de uso
@@ -1233,7 +1405,7 @@
                     Fale Conosco
                 </ion-label>
 
-                <ion-label   *ngIf="alternar == false"  style="font-size: 16px !important;" class="texto-Titulos">
+                <ion-label *ngIf="alternar == false" style="font-size: 16px !important;" class="texto-Titulos">
                     Fale conosco
                 </ion-label>
             </ion-col>
@@ -1298,7 +1470,7 @@
             <a href="#fechar" title="Fechar" class="fechar">x</a>
 
             <a href="https://maragojipe.saatri.com.br/Inicio" target="_blank">
-                <img src="https://maragojipe.ba.gov.br/assets/outros/popup_iptu.jpeg" alt="Banner IPTU">
+                <img src="https://maragojipe.ba.gov.br/assets/outros/banner-automatico.jpg" alt="Banner IPTU">
             </a>
         </div>
     </div>

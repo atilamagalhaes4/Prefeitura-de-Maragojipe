@@ -1,0 +1,60 @@
+[18-Sep-2025 14:34:45 America/Bahia] PHP Fatal error:  Uncaught mysqli_sql_exception: Connection timed out in /home2/atilam03/public_html/assets/api/serrmu/conexao.php:9
+Stack trace:
+#0 /home2/atilam03/public_html/assets/api/serrmu/conexao.php(9): mysqli->__construct('mysql742.umbler...', 'atila4', Object(SensitiveParameterValue), 'serrmu')
+#1 /home2/atilam03/public_html/assets/api/serrmu/noticias.php(3): include('/home2/atilam03...')
+#2 {main}
+  thrown in /home2/atilam03/public_html/assets/api/serrmu/conexao.php on line 9
+[03-Oct-2025 23:46:23 America/Bahia] PHP Fatal error:  Uncaught mysqli_sql_exception: Connection timed out in /home2/atilam03/public_html/assets/api/serrmu/conexao.php:9
+Stack trace:
+#0 /home2/atilam03/public_html/assets/api/serrmu/conexao.php(9): mysqli->__construct('mysql742.umbler...', 'atila4', Object(SensitiveParameterValue), 'serrmu')
+#1 /home2/atilam03/public_html/assets/api/serrmu/noticias.php(3): include('/home2/atilam03...')
+#2 {main}
+  thrown in /home2/atilam03/public_html/assets/api/serrmu/conexao.php on line 9
+[10-Dec-2025 02:32:48 America/Bahia] PHP Fatal error:  Uncaught mysqli_sql_exception: Connection timed out in /home2/atilam03/public_html/assets/api/serrmu/conexao.php:9
+Stack trace:
+#0 /home2/atilam03/public_html/assets/api/serrmu/conexao.php(9): mysqli->__construct('mysql742.umbler...', 'atila4', Object(SensitiveParameterValue), 'serrmu')
+#1 /home2/atilam03/public_html/assets/api/serrmu/noticias.php(3): include('/home2/atilam03...')
+#2 {main}
+  thrown in /home2/atilam03/public_html/assets/api/serrmu/conexao.php on line 9
+[12-Dec-2025 06:31:51 America/Bahia] PHP Fatal error:  Uncaught mysqli_sql_exception: Connection timed out in /home2/atilam03/public_html/assets/api/serrmu/conexao.php:9
+Stack trace:
+#0 /home2/atilam03/public_html/assets/api/serrmu/conexao.php(9): mysqli->__construct('mysql742.umbler...', 'atila4', Object(SensitiveParameterValue), 'serrmu')
+#1 /home2/atilam03/public_html/assets/api/serrmu/noticias.php(3): include('/home2/atilam03...')
+#2 {main}
+  thrown in /home2/atilam03/public_html/assets/api/serrmu/conexao.php on line 9
+[21-Dec-2025 07:34:06 America/Bahia] PHP Fatal error:  Uncaught mysqli_sql_exception: Connection timed out in /home2/atilam03/public_html/assets/api/serrmu/conexao.php:9
+Stack trace:
+#0 /home2/atilam03/public_html/assets/api/serrmu/conexao.php(9): mysqli->__construct('mysql742.umbler...', 'atila4', Object(SensitiveParameterValue), 'serrmu')
+#1 /home2/atilam03/public_html/assets/api/serrmu/noticias.php(3): include('/home2/atilam03...')
+#2 {main}
+  thrown in /home2/atilam03/public_html/assets/api/serrmu/conexao.php on line 9
+[27-Dec-2025 15:01:39 America/Bahia] PHP Fatal error:  Uncaught mysqli_sql_exception: Connection timed out in /home2/atilam03/public_html/assets/api/serrmu/conexao.php:9
+Stack trace:
+#0 /home2/atilam03/public_html/assets/api/serrmu/conexao.php(9): mysqli->__construct('mysql742.umbler...', 'atila4', Object(SensitiveParameterValue), 'serrmu')
+#1 /home2/atilam03/public_html/assets/api/serrmu/noticias.php(3): include('/home2/atilam03...')
+#2 {main}
+  thrown in /home2/atilam03/public_html/assets/api/serrmu/conexao.php on line 9
+[11-Jan-2026 01:08:37 America/Bahia] PHP Fatal error:  Uncaught mysqli_sql_exception: Connection timed out in /home2/atilam03/public_html/assets/api/serrmu/conexao.php:9
+Stack trace:
+#0 /home2/atilam03/public_html/assets/api/serrmu/conexao.php(9): mysqli->__construct('mysql742.umbler...', 'atila4', Object(SensitiveParameterValue), 'serrmu')
+#1 /home2/atilam03/public_html/assets/api/serrmu/noticias.php(3): include('/home2/atilam03...')
+#2 {main}
+  thrown in /home2/atilam03/public_html/assets/api/serrmu/conexao.php on line 9
+[31-Jan-2026 04:24:28 America/Bahia] PHP Fatal error:  Uncaught mysqli_sql_exception: Connection timed out in /home2/atilam03/public_html/assets/api/serrmu/conexao.php:9
+Stack trace:
+#0 /home2/atilam03/public_html/assets/api/serrmu/conexao.php(9): mysqli->__construct('mysql742.umbler...', 'atila4', Object(SensitiveParameterValue), 'serrmu')
+#1 /home2/atilam03/public_html/assets/api/serrmu/noticias.php(3): include('/home2/atilam03...')
+#2 {main}
+  thrown in /home2/atilam03/public_html/assets/api/serrmu/conexao.php on line 9
+[16-Mar-2026 22:26:29 America/Bahia] PHP Fatal error:  Uncaught mysqli_sql_exception: Connection timed out in /home2/atilam03/public_html/assets/api/serrmu/conexao.php:9
+Stack trace:
+#0 /home2/atilam03/public_html/assets/api/serrmu/conexao.php(9): mysqli->__construct('mysql742.umbler...', 'atila4', Object(SensitiveParameterValue), 'serrmu')
+#1 /home2/atilam03/public_html/assets/api/serrmu/noticias.php(3): include('/home2/atilam03...')
+#2 {main}
+  thrown in /home2/atilam03/public_html/assets/api/serrmu/conexao.php on line 9
+[18-Mar-2026 11:32:30 America/Bahia] PHP Fatal error:  Uncaught mysqli_sql_exception: Connection timed out in /home2/atilam03/public_html/assets/api/serrmu/conexao.php:9
+Stack trace:
+#0 /home2/atilam03/public_html/assets/api/serrmu/conexao.php(9): mysqli->__construct('mysql742.umbler...', 'atila4', Object(SensitiveParameterValue), 'serrmu')
+#1 /home2/atilam03/public_html/assets/api/serrmu/noticias.php(3): include('/home2/atilam03...')
+#2 {main}
+  thrown in /home2/atilam03/public_html/assets/api/serrmu/conexao.php on line 9

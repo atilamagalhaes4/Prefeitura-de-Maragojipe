@@ -48,9 +48,9 @@ export class HomePage {
   @ViewChild('openModal', { static: true }) divElementRef!: ElementRef;
 
   ionViewWillEnter() {
-    const divElement: HTMLElement = this.divElementRef.nativeElement;
-    /*    
-      Clicando aparece um baner na tela
+/*    const divElement: HTMLElement = this.divElementRef.nativeElement;
+        
+    //  Clicando aparece um baner na tela 
       divElement.click();
     */
     if (this.platform.is("mobile")) {
@@ -59,6 +59,7 @@ export class HomePage {
     if (this.platform.is("desktop")) {
       this.alternar = true;
     }
+    
     this.pegarNoticias();
     this.noticiasPequenas();
   }
@@ -106,10 +107,10 @@ export class HomePage {
 
   ngOnInit() {
 
-    viewDados1().funcao();
+/*    viewDados1().funcao();
     viewDados2().funcao();
     viewDados3().funcao();
-    viewDados4().funcao();
+    viewDados4().funcao();*/
   }
 
   pegarNoticias() {
@@ -154,6 +155,11 @@ export class HomePage {
     autoplay: true // comecar sozinho
   };
 
+  slideOptsOne2 = {
+    initialSlide: 0, // inicia do 
+    slidesPerView: 4, // 1 foto por vez
+    autoplay: true // comecar sozinho
+  };
 
   rolagemPagina1() {
     if(this.alternar == true){

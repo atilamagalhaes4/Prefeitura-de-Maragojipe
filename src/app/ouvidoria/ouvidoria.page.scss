@@ -25,19 +25,11 @@ ion-icon {
 
 .footer2 {
   margin-top: 0;
-  background-color: #49d390;
+  background-color: #34cc67;
   margin-left: 0;
   margin-right: 0;
 }
 
-
-.top1 {
-  --background: #34cc67 url("../../assets/background/claro.png") no-repeat center center / cover !important;
-}
-
-.top2 {
-  --background: #339967 url("../../assets/background/escuro.png") no-repeat center center / cover !important;
-}
 
 ion-icon {
   font-size: 200%;
@@ -78,14 +70,15 @@ ion-searchbar {
 }
 
 .top1 {
-  --background: #34cc67 url('../../assets/background/claro.png') no-repeat center center / cover !important;
+  --background: #34cc67;
 }
 
 .top2 {
-  --background: #339967 url('../../assets/background/escuro.png') no-repeat center center / cover !important;
+
+  --background: #339967;
 }
 
-
+ 
 .paragrafo-unico {
   margin-top: 5%;
   display: block;
@@ -110,7 +103,7 @@ ion-searchbar {
   font-weight: bold;
   cursor: pointer;
   border-style: double;
-  border-bottom: 4px #339967 solid;
-  border-left: 4px #339967 solid;
+  border-bottom: 4px #666666 solid;
+  border-left: 4px #666666 solid;
   background-color: transparent;
 }

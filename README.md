@@ -47,3 +47,7 @@ O site está sendo utilizado na atual gestão do prefeito Valnicio Armede e est�
 o qual foi o responsável pela criação, manutenção e implementação de todos os recursos nela contida.
 <br>Para consultas ou duvidas entre em contato: atilamagalhaes4@gmail.com.
 
+Cores primarias e secundarias respectivamente:
+
+#a0a0a0;
+#666666;

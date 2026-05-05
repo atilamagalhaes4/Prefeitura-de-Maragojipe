@@ -30,7 +30,7 @@
                 <ion-row *ngIf="alternar ==true">
                     <ion-col size=3>
                         <a style="text-decoration: none;" href="/">
-                            <img class="imagem" src="../../../assets/logo-prefeitura/logo2.png"
+                            <img class="imagem" src="../../../assets/logo-prefeitura/logo4.png"
                                 alt="Prefeitura de Maragojipe">
                         </a>
                     </ion-col>
@@ -63,7 +63,7 @@
 
                 <ion-row *ngIf="alternar ==false" class="tamanho">
                     <ion-col (click)='ir("/")' size=3>
-                        <img class="imagem2" src="../../../assets/logo-prefeitura/logo2.png"
+                        <img class="imagem2" src="../../../assets/logo-prefeitura/logo4.png"
                             alt="Prefeitura de Maragojipe">
                     </ion-col>
                     <ion-col (click)='ir("/o-municipio")' size=3>
@@ -93,7 +93,7 @@
     <img *ngIf="alternar ==true" src="../../assets/logo-prefeitura/logo.png" height="200px" width="auto"
         style="display: block;margin-left: auto;margin-right: auto;" alt="">
 
-    <h1 style="text-align: center;">Corrida de São Bartolomeu 2023</h1>
+    <h1 style="text-align: center;">Corrida de São Bartolomeu 2025</h1>
 
     <ion-slides pager="false" [options]="slideOpts">
         <ion-slide>
@@ -113,130 +113,545 @@
         </ion-slide>
     </ion-slides>
 
-    <!--
-    <div class="div-formulario">
-        <h2>
-            Inscreva-se
-        </h2>
+    <div class="container">
+        <!--
+        <div class="div-formulario">
+            <h2>
+                Atualize seus dados
+            </h2>
+            <ion-item>
+                <ion-label position="floating">
+                    CPF
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-input [(ngModel)]="cpf" (ionChange)="puxarCandidato()" maxlength="11" placeholder="CPF do responsável"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">
+                    Nome completo
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-input [(ngModel)]="nome" placeholder="Nome completo"></ion-input>
+            </ion-item>
 
-        <ion-item>
-            <ion-label position="floating">
-                Nome completo
-                <span style="color: red;">*</span>
-            </ion-label>
-            <ion-input [(ngModel)]="nome" placeholder="Nome completo"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label position="floating">
+                    Data de nascimento
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-input [(ngModel)]="dataNascimento" (ionChange)="ajustarDataNascimento()" maxlength="10"
+                    placeholder="Sua data de nascimento"></ion-input>
+            </ion-item>
 
-        <ion-item>
-            <ion-label position="floating">
-                Data de nascimento
-                <span style="color: red;">*</span>
-            </ion-label>
-            <ion-input [(ngModel)]="dataNascimento" (ionChange)="ajustarDataNascimento()" maxlength="10"
-                placeholder="Sua data de nascimento"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label position="floating">
+                    Gênero
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-select [(ngModel)]="sexo" interface="popover" okText="Confirmar" cancelText="Cancelar"
+                    placeholder="Masculino">
+                    <ion-select-option value="Masculino">Masculino</ion-select-option>
+                    <ion-select-option value="Feminino">Feminino</ion-select-option>
+                </ion-select>
+            </ion-item>
 
-        <ion-item>
-            <ion-label position="floating">
-                Gênero
-                <span style="color: red;">*</span>
-            </ion-label>
-            <ion-select [(ngModel)]="sexo" interface="popover" okText="Confirmar" cancelText="Cancelar"
-                placeholder="Masculino">
-                <ion-select-option value="Masculino">Masculino</ion-select-option>
-                <ion-select-option value="Feminino">Feminino</ion-select-option>
-            </ion-select>
-        </ion-item>
+            <ion-item>
+                <ion-label position="floating">
+                    Cidade
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-input [(ngModel)]="cidade" placeholder="Informe sua cidade atual"></ion-input>
+            </ion-item>
 
-        <ion-item>
-            <ion-label position="floating">
-                CPF
-                <span style="color: red;">*</span>
-            </ion-label>
-            <ion-input [(ngModel)]="cpf" maxlength="11" placeholder="Informe o seu CPF"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label position="floating">
+                    Equipe
+                </ion-label>
+                <ion-input [(ngModel)]="equipe" placeholder="Nome da sua equipe 💪🏻"></ion-input>
+            </ion-item>
 
-        <ion-item>
-            <ion-label position="floating">
-                Cidade
-                <span style="color: red;">*</span>
-            </ion-label>
-            <ion-input [(ngModel)]="cidade" placeholder="Informe sua cidade atual"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label position="floating">
+                    Celular
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-input type="tel" [(ngModel)]="telefone" (ionFocus)="adaptarTelefone()" maxlength="16"
+                    (ionChange)="adaptarTelefone()" placeholder="Numero para contato"></ion-input>
+            </ion-item>
 
-        <ion-item>
-            <ion-label position="floating">
-                Equipe
-            </ion-label>
-            <ion-input [(ngModel)]="equipe" placeholder="Nome da sua equipe 💪🏻"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label position="floating">
+                    Categoria
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-select okText="Confirmar" (ionChange)="adaptarCategoria()" [(ngModel)]="categoria"
+                    interface="popover" cancelText="Cancelar" placeholder="Selecione sua categoria">
+                    <ion-select-option value="Ampla concorrência">Ampla concorrência</ion-select-option>
+                    <ion-select-option value="PCD cadeira handbike">PCD cadeira handbike</ion-select-option>
+                    <ion-select-option value="PCD cadeira tradicional">PCD cadeira tradicional</ion-select-option>
+                    <ion-select-option value="Adulto">Faixa etária (Adulto de 20 a 49 anos)</ion-select-option> // no
+                    final
+                    ou uma tala a bde
+                    <ion-select-option value="master">Faixa etária (Master, acima de 50 anos)</ion-select-option>
+                    <ion-select-option value="Sub 17">Juvenil (16 a 14 anos)</ion-select-option>
+                    <ion-select-option value="Sub 13">Infantil (8 anos a 13 anos)</ion-select-option>
+                    <ion-select-option value="Sub 7">Kids (até 7 anos)</ion-select-option>
+                </ion-select>
+            </ion-item>
 
-        <ion-item>
-            <ion-label position="floating">
-                Celular
-                <span style="color: red;">*</span>
-            </ion-label>
-            <ion-input type="tel" [(ngModel)]="telefone" (ionFocus)="adaptarTelefone()" maxlength="16"
-                (ionChange)="adaptarTelefone()" placeholder="Numero para contato"></ion-input>
-        </ion-item>
+            <ion-item
+                (click)="presentAlert('Somente moradores da cidade podem usar a categoria <strong>local</strong>.<br>Se notada a presença de alguém que não é da cidade será desqualificado.')">
+                <ion-label position="floating">
+                    Subcategoria
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-select [disabled]="desativarOpcoes" [(ngModel)]="subCategoria" okText="Confirmar"
+                    interface="popover" cancelText="Cancelar" placeholder="Selecione a subcategoria">
+                    <ion-select-option value="Local">Local</ion-select-option>
+                    <ion-select-option value="Geral">Geral</ion-select-option>
+                </ion-select>
+            </ion-item>
 
-        <ion-item>
-            <ion-label position="floating">
-                Categoria
-                <span style="color: red;">*</span>
-            </ion-label>
-            <ion-select okText="Confirmar" (ionChange)="adaptarCategoria()" [(ngModel)]="categoria" interface="popover"
-                cancelText="Cancelar" placeholder="Selecione sua categoria">
-                <ion-select-option value="Ampla concorrência">Ampla concorrência</ion-select-option>
-                <ion-select-option value="PCD cadeira handbike">PCD cadeira handbike</ion-select-option>
-                <ion-select-option value="PCD cadeira tradicional">PCD cadeira tradicional</ion-select-option>
-            </ion-select>
-        </ion-item>
+            <ion-item>
+                <ion-label position="floating">
+                    Distância
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-select [disabled]="desativarOpcoes" [(ngModel)]="distancia" okText="Confirmar" interface="popover"
+                    cancelText="Cancelar" placeholder="Selecione a distância">
+                    <ion-select-option value="11 Km">11 Km</ion-select-option>
+                    <ion-select-option value="5,5 Km">5,5 Km</ion-select-option>
+                    <ion-select-option *ngIf="categoria === 'Sub 13' || categoria === 'Sub 7'" value="1 Km">1
+                        Km</ion-select-option>
+                    <ion-select-option *ngIf="categoria === 'Sub 13' || categoria === 'Sub 7'" value="340 m">340
+                        m</ion-select-option>
 
-        <ion-item>
-            <ion-label position="floating">
-                Subcategoria
-                <span style="color: red;">*</span>
-            </ion-label>
-            <ion-select [disabled]="desativarOpcoes" [(ngModel)]="subCategoria" okText="Confirmar" interface="popover"
-                cancelText="Cancelar" placeholder="Selecione a subcategoria">
-                <ion-select-option value="Local">Local</ion-select-option>
-                <ion-select-option value="Geral">Geral</ion-select-option>
-            </ion-select>
-        </ion-item>
+                </ion-select>
+            </ion-item>
 
-        <ion-item>
-            <ion-label position="floating">
-                Distância
-                <span style="color: red;">*</span>
-            </ion-label>
-            <ion-select [disabled]="desativarOpcoes" [(ngModel)]="distancia" okText="Confirmar" interface="popover"
-                cancelText="Cancelar" placeholder="Selecione a distância">
-                <ion-select-option value="5,5 Km">5,5 Km</ion-select-option>
-                <ion-select-option value="11 Km">11 Km</ion-select-option>
-            </ion-select>
-        </ion-item>
 
-        <ion-item lines="none">
-            <p style="text-align: justify;">
-                Declaro que li o <a target="_blank"
-                    href="https://maragojipe.ba.gov.br/assets/corrida-sao-bartolomeu/REGULAMENTO CORRIDA DE SAO BARTOLOMEU 2023.pdf">regulamento
-                    da
-                    corrida</a> e estou de acordo
-                com todos os termos nele listados.
-            </p>
-            <ion-checkbox [(ngModel)]="termo" slot="start"></ion-checkbox>
-        </ion-item>
+            <ng-container>
+                <ion-item lines="none">
+                    <ion-label position="stacked">
+                        Termo de responsabilidade da corrida de rua de São bartolomeu 2025
+                    </ion-label>
+                    <ion-note color="medium">(Baixe, imprima, assine e entregue no dia da retirada do kit.)</ion-note>
+                    <a target="_blank"
+                        href="https://maragojipe.ba.gov.br/assets/corrida-sao-bartolomeu/termo-responsabilidade1.pdf">Termo
+                        de
+                        responsabilidade assinado 📑</a>
 
-        <ion-item lines = none>
-            <ion-label style="font-size: smaller; text-align: justify;">
-                <span style="color: red;">*</span> Item obrigtório para a inscrição
-            </ion-label>
-        </ion-item>
+                </ion-item>
+                <br>
+                <ion-item lines="none">
+                    <ion-label position="stacked">
+                        Termo autorização para participação de atleta menor na corrida de rua de São bartolomeu 2025
+                    </ion-label>
+                    <ion-note color="medium">(Baixe, imprima, assine e entregue no dia da retirada do kit.)</ion-note>
+                    <a target="_blank"
+                        href="https://maragojipe.ba.gov.br/assets/corrida-sao-bartolomeu/termo-responsabilidade2.pdf">Termo
+                        de
+                        responsabilidade assinado 📑</a>
+                </ion-item>
+            </ng-container>
 
-        <ion-button fill="solid" (click)="meInscrever()">Me inscrever</ion-button>
+
+
+            <ion-item lines="none">
+                <p style="text-align: justify;">
+                    Declaro que li o <a target="_blank"
+                        href="https://maragojipe.ba.gov.br/assets/corrida-sao-bartolomeu/regulamento2025.pdf">regulamento
+                        da
+                        corrida</a> e estou de acordo
+                    com todos os termos nele listados.
+                </p>
+                <ion-checkbox [(ngModel)]="termo" slot="start"></ion-checkbox>
+            </ion-item>
+
+
+
+
+            <br>
+            <ion-item lines=none>
+                <ion-label style="font-size: smaller; text-align: justify;">
+                    <span style="color: red;">*</span> Os termos e a copia dos documentos oficiais com foto deverão ser
+                    entregues no da retirada dos kits
+                </ion-label>
+            </ion-item>
+            <br>
+            <ion-item lines=none>
+                <ion-label style="font-size: smaller; text-align: justify;">
+                    <span style="color: red;">*</span> Item obrigtório para a inscrição
+                </ion-label>
+            </ion-item>
+
+            <ion-button fill="solid" (click)="atualizarCadastro()">Atualizar cadastro</ion-button>
+        </div>
+    -->
+        <div class="div-formulario">
+            <h2>
+                Inscreva-se
+            </h2>
+
+            <ion-item>
+                <ion-label position="floating">
+                    Nome completo
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-input (ionChange)="formatarNome()" [(ngModel)]="nome" placeholder="Nome completo"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">
+                    Data de nascimento
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-input [(ngModel)]="dataNascimento" (ionChange)="ajustarDataNascimento()" type="date"
+                    placeholder="Sua data de nascimento"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">
+                    Gênero
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-select [(ngModel)]="sexo" interface="popover" okText="Confirmar" cancelText="Cancelar"
+                    placeholder="Masculino">
+                    <ion-select-option value="Masculino">Masculino</ion-select-option>
+                    <ion-select-option value="Feminino">Feminino</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">
+                    CPF
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-input [(ngModel)]="cpf" type="text" (ionChange)="adaptarCpf()" maxlength="14"
+                    placeholder="CPF do responsável"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">
+                    CEP
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-input [(ngModel)]="cep" (ionChange)="verificarCEP()" placeholder="Apenas os dígitos"></ion-input>
+            </ion-item>
+            <ion-item (click)="presentAlert('Informe ceu CEP acima para acharmos a sua <strong>cidade</strong>.')">
+                <ion-label position="floating">
+                    Cidade
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-input disabled [(ngModel)]="cidade" placeholder="Informe sua cidade atual"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">
+                    Equipe
+                </ion-label>
+                <ion-input [(ngModel)]="equipe" placeholder="Nome da sua equipe 💪🏻"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">
+                    Celular
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-input type="tel" [(ngModel)]="telefone" (ionFocus)="adaptarTelefone()" maxlength="16"
+                    (ionChange)="adaptarTelefone()" placeholder="Numero para contato"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">
+                    Categoria
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-select okText="Confirmar" (ionChange)="adaptarCategoria()" [(ngModel)]="categoria"
+                    interface="popover" cancelText="Cancelar" placeholder="Selecione sua categoria">
+                    <ion-select-option value="Ampla concorrência">Ampla concorrência</ion-select-option>
+                    <ion-select-option value="PCD cadeira handbike">PCD cadeira handbike</ion-select-option>
+                    <ion-select-option value="PCD cadeira tradicional">PCD cadeira tradicional</ion-select-option>
+                    <ion-select-option value="Adulto">Faixa etária (Adulto de 20 a 49 anos)</ion-select-option>
+                    <ion-select-option value="master">Faixa etária (Master, acima de 50 anos)</ion-select-option>
+                    <ion-select-option value="Sub 17">Juvenil (16 a 14 anos)</ion-select-option>
+                    <ion-select-option value="Sub 13">Infantil (8 anos a 13 anos)</ion-select-option>
+                    <ion-select-option value="Sub 7">Kids (até 7 anos)</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">
+                    Subcategoria
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-select [disabled]="desativarOpcoes" [(ngModel)]="subCategoria" okText="Confirmar"
+                    interface="popover" cancelText="Cancelar" placeholder="Selecione a subcategoria">
+                    <ion-select-option *ngIf="cidade == 'Maragogipe'" value="Local">Local</ion-select-option>
+                    <ion-select-option value="Geral">Geral</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">
+                    Distância
+                    <span style="color: red;">*</span>
+                </ion-label>
+                <ion-select [disabled]="desativarOpcoes" [(ngModel)]="distancia" okText="Confirmar" interface="popover"
+                    cancelText="Cancelar" placeholder="Selecione a distância">
+                    <ion-select-option value="11 Km">11 Km</ion-select-option>
+                    <ion-select-option value="5,5 Km">5,5 Km</ion-select-option>
+                    <ion-select-option *ngIf="categoria === 'Sub 13' || categoria === 'Sub 7'" value="1 Km">1
+                        Km</ion-select-option>
+                    <ion-select-option *ngIf="categoria === 'Sub 13' || categoria === 'Sub 7'" value="340 m">340
+                        m</ion-select-option>
+
+                </ion-select>
+            </ion-item>
+
+
+            <ng-container>
+                <ion-item lines="none">
+                    <ion-label position="stacked">
+                        Termo de responsabilidade da corrida de rua de São bartolomeu 2025
+                    </ion-label>
+                    <ion-note color="medium">(Baixe, imprima, assine e entregue no dia da retirada do kit.)</ion-note>
+                    <a target="_blank"
+                        href="https://maragojipe.ba.gov.br/assets/corrida-sao-bartolomeu/termo-responsabilidade1.pdf">Termo
+                        de
+                        responsabilidade assinado 📑</a>
+
+                </ion-item>
+                <br>
+                <ion-item lines="none">
+                    <ion-label position="stacked">
+                        Termo autorização para participação de atleta menor na corrida de rua de São bartolomeu 2025
+                    </ion-label>
+                    <ion-note color="medium">(Baixe, imprima, assine e entregue no dia da retirada do kit.)</ion-note>
+                    <a target="_blank"
+                        href="https://maragojipe.ba.gov.br/assets/corrida-sao-bartolomeu/termo-responsabilidade2.pdf">Termo
+                        de
+                        responsabilidade assinado 📑</a>
+                </ion-item>
+
+                <ion-modal [isOpen]="imagemPreviewBase64 !== null" (didDismiss)="fecharPreview()">
+                    <ng-template>
+                        <ion-content class="ion-padding">
+                            <ion-img [src]="imagemPreviewBase64"></ion-img>
+                            <ion-button expand="full" (click)="fecharPreview()">Fechar</ion-button>
+                        </ion-content>
+                    </ng-template>
+                </ion-modal>
+            </ng-container>
+
+
+
+            <ion-item lines="none">
+                <p style="text-align: justify;">
+                    Declaro que li o <a target="_blank"
+                        href="https://maragojipe.ba.gov.br/assets/corrida-sao-bartolomeu/regulamento2025.pdf">regulamento
+                        da
+                        corrida</a> e estou de acordo
+                    com todos os termos nele listados.
+                </p>
+                <ion-checkbox [(ngModel)]="termo" slot="start"></ion-checkbox>
+            </ion-item>
+
+
+
+            <ion-modal [isOpen]="imagemPreviewBase64 !== null" (didDismiss)="fecharPreview()">
+                <ng-template>
+                    <ion-content class="ion-padding">
+                        <ion-img [src]="imagemPreviewBase64"></ion-img>
+                        <ion-button expand="full" (click)="fecharPreview()">Fechar</ion-button>
+                    </ion-content>
+                </ng-template>
+            </ion-modal>
+
+            <br>
+            <ion-item lines=none>
+                <ion-label style="font-size: smaller; text-align: justify;">
+                    <span style="color: red;">*</span> Os termos e a copia dos documentos oficiais com foto deverão ser
+                    entregues no da retirada dos kits
+                </ion-label>
+            </ion-item>
+            <br>
+            <ion-item lines=none>
+                <ion-label style="font-size: smaller; text-align: justify;">
+                    <span style="color: red;">*</span> Item obrigtório para a inscrição
+                </ion-label>
+            </ion-item>
+
+            <ion-button fill="solid" (click)="meInscrever()">Me inscrever</ion-button>
+        </div>
+
+
+        <div class="editais">
+
+            <ion-card style="text-align: center;">
+                <ion-card-header>
+                    <ion-card-title>Publicações</ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <div class="table-responsive">
+                        <table class="event-table">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">DATA</th>
+                                    <th style="text-align: center;">OBJETO</th>
+                                    <th style="text-align: center;">RESUMO</th>
+                                    <th style="text-align: center;">📑</th>
+                                </tr>
+                            </thead>
+                            <tbody style="text-align: justify;">
+                                <tr>
+                                    <td>06/08/2025</td>
+                                    <td class="baitolagem">EDITAL Nº 006/2025
+                                    </td>
+                                    <td>
+                                        DIVULGA O RESULTADO FINAL DAS INSCRIÇÕES PARA A IV CORRIDA DE
+                                        SÃO BARTOLOMEU – 2025
+                                    </td>
+                                    <td style="text-align: center; font-size: x-large; color: red">
+                                        <a target="_blank" style=" color: red"
+                                            href="https://maragojipe.ba.gov.br/assets/corrida-sao-bartolomeu/EDITAL%20%20006-2025.pdf">
+                                            <i class="bi bi-filetype-pdf"></i>
+                                        </a>
+                                    </td>
+                                <tr>
+                                    <td>05/08/2025</td>
+                                    <td class="baitolagem">EDITAL Nº 005/2025
+                                    </td>
+                                    <td>
+                                        DIVULGA O RESULTADO PARCIAL DAS INSCRIÇÕES PARA A IV CORRIDA DE
+                                        SÃO BARTOLOMEU – 2025
+
+                                    </td>
+                                    <td style="text-align: center; font-size: x-large; color: red">
+                                        <a target="_blank" style=" color: red"
+                                            href="https://maragojipe.ba.gov.br/assets/corrida-sao-bartolomeu/EDITAL%20N005-2025.pdf">
+                                            <i class="bi bi-filetype-pdf"></i>
+                                        </a>
+                                    </td>
+                                <tr>
+                                    <td>01/08/2025</td>
+                                    <td class="baitolagem">EDITAL Nº 004/2025
+                                    </td>
+                                    <td>
+                                        DIVULGA O RESULTADO PARCIAL DAS INSCRIÇÕES PARA A IV CORRIDA DE
+                                        SÃO BARTOLOMEU – 2025
+
+                                    </td>
+                                    <td style="text-align: center; font-size: x-large; color: red">
+                                        <a target="_blank" style=" color: red"
+                                            href="https://maragojipe.ba.gov.br/assets/corrida-sao-bartolomeu/EDITAL%20N004-2025.pdf">
+                                            <i class="bi bi-filetype-pdf"></i>
+                                        </a>
+                                    </td>
+                                <tr>
+                                    <td>31/07/2025</td>
+                                    <td class="baitolagem">EDITAL Nº 003/2025
+                                    </td>
+                                    <td>
+                                        DIVULGA O RESULTADO PARCIAL DAS INSCRIÇÕES PARA A IV CORRIDA DE
+                                        SÃO BARTOLOMEU – 2025
+                                    </td>
+                                    <td style="text-align: center; font-size: x-large; color: red">
+                                        <a target="_blank" style=" color: red"
+                                            href="https://maragojipe.ba.gov.br/assets/corrida-sao-bartolomeu/EDITAL%20N003-2025.pdf">
+                                            <i class="bi bi-filetype-pdf"></i>
+                                        </a>
+                                    </td>
+                                <tr>
+                                    <td>28/07/2025</td>
+                                    <td class="baitolagem">EDITAL Nº 002/2025
+                                    </td>
+                                    <td>
+                                        DIVULGA O RESULTADO DAS INSCRIÇÕES APÓS JULGAMENTO DOS
+                                        RECURSOS ADMINISTRATIVOS E DISPÕE SOBRE A REABERTURA DE VAGAS
+                                        REMANESCENTES
+                                    </td>
+                                    <td style="text-align: center; font-size: x-large; color: red">
+                                        <a target="_blank" style=" color: red"
+                                            href="https://maragojipe.ba.gov.br/assets/corrida-sao-bartolomeu/EDITAL%20N002-2025.pdf">
+                                            <i class="bi bi-filetype-pdf"></i>
+                                        </a>
+                                    </td>
+                                <tr>
+                                    <td>24/07/2025</td>
+                                    <td class="baitolagem">Edital Nº 001/2025 Republicação com retificação
+                                    </td>
+                                    <td>
+                                        Dispõe sobre republicação do resultado preliminar das inscrições da IV corrida
+                                        de São Bartolomeu 2025, com as devidas correções
+                                        e estabelece novo prazo para interposição de recursos.
+                                    </td>
+                                    <td style="text-align: center; font-size: x-large; color: red">
+                                        <a target="_blank" style=" color: red"
+                                            href="https://maragojipe.ba.gov.br/assets/corrida-sao-bartolomeu/edital-002.pdf">
+                                            <i class="bi bi-filetype-pdf"></i>
+                                        </a>
+                                    </td>
+
+                                    <!--
+                                <tr>
+                                    <td>22/07/2025</td>
+                                    <td class="baitolagem">Edital Nº 001/2025
+                                    </td>
+                                    <td>Dispõe sobre a publicação do resultado preliminar das inscrições da IV corrida
+                                        de
+                                        São Bartolomeu
+                                        - 2025 e estabelece prazo para interposição de recursos.</td>
+                                    <td style="text-align: center; font-size: x-large; color: red">
+                                        <a target="_blank" style=" color: red"
+                                            href="https://maragojipe.ba.gov.br/assets/corrida-sao-bartolomeu/edital-001.pdf">
+                                            <i class="bi bi-filetype-pdf"></i>
+                                        </a>
+                                    </td>-->
+                                <tr>
+                                    <td>14/07/2025</td>
+                                    <td class="baitolagem">Termo de autorização</td>
+                                    <td>
+                                        Termo de autorização para participação de atleta menor na corrida de rua de São
+                                        Bartolomeu 2025.
+                                    </td>
+                                    <td style="text-align: center; font-size: x-large; color: red">
+                                        <a target="_blank" style=" color: red"
+                                            href="https://maragojipe.ba.gov.br/assets/corrida-sao-bartolomeu/termo-responsabilidade2.pdf">
+                                            <i class="bi bi-filetype-pdf"></i>
+                                        </a>
+                                    </td>
+                                <tr>
+                                    <td>14/07/2025</td>
+                                    <td class="baitolagem">Termo de responsabilidade</td>
+                                    <td>
+                                        Termo de Responsabilidade da corrida de rua de São Bartolomeu 2025.
+                                    </td>
+                                    <td style="text-align: center; font-size: x-large; color: red">
+                                        <a target="_blank" style=" color: red"
+                                            href="https://maragojipe.ba.gov.br/assets/corrida-sao-bartolomeu/termo-responsabilidade1.pdf">
+                                            <i class="bi bi-filetype-pdf"></i>
+                                        </a>
+                                    </td>
+                                <tr>
+                                    <td>14/07/2025</td>
+                                    <td class="baitolagem">Regulamento</td>
+                                    <td>Regulamento da corrida de São Bartolomeu 2025.</td>
+                                    <td style="text-align: center; font-size: x-large;">
+                                        <a target="_blank" style=" color: red"
+                                            href="https://maragojipe.ba.gov.br/assets/corrida-sao-bartolomeu/regulamento2025.pdf">
+                                            <i class="bi bi-filetype-pdf"></i>
+                                        </a>
+                                    </td>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+        </div>
     </div>
--->
+
     <br>
     <br>
 
@@ -245,26 +660,36 @@
             Veja seu comprovante de inscrição
         </h2>
         <ion-item>
-            <ion-input [(ngModel)]="cpf2" (keyup)="verificarCPF()" placeholder="Informe seu CPF"></ion-input>
+            <ion-input [(ngModel)]="cpf2" (keyup)="verificarCPF()" (ionChange)="adaptarCpf2()" placeholder="Informe seu CPF"></ion-input>
             <ion-icon (click)="verificarCPF()" slot="end" name="search-outline"></ion-icon>
         </ion-item>
         <p id="comprovante" *ngIf="aux_nome != ''">
             <ion-card>
                 <ion-card-header>
-                    <ion-card-title>Certificado de inscrição</ion-card-title>
+                    <ion-card-title>Certificado de inscrição
+                        <br>
+                        <img *ngIf="alternar ==false" src="../../assets/logo-prefeitura/logo.png" height="100px"
+                            width="auto" style="display: block;margin-left: auto;margin-right: auto;" alt="">
+                        <img *ngIf="alternar ==true" src="../../assets/logo-prefeitura/logo.png" height="200px"
+                            width="auto" style="display: block;margin-left: auto;margin-right: auto;" alt="">
+                    </ion-card-title>
                     <ion-card-subtitle>
                         Certificamos que o Sr(a) <strong>{{aux_nome}}</strong>, portador do CPF:
                         <strong>{{aux_cpf}}</strong> conforme
-                        o regulamento se inscreveu na corrida de São Bartolomeu 2023. Informando os seguintes
-                        dados:<br><br>
+                        o regulamento se inscreveu na corrida de São Bartolomeu 2025. Informando os seguintes
+                        dados:<br>
                         <strong>Data de nascimento:</strong> {{aux_dataNascimento}}<br>
                         <strong>Sexo:</strong> {{aux_sexo}}<br>
                         <strong>Categoria:</strong> {{aux_categoria}}<br>
                         <strong>Subcategoria:</strong> {{aux_subCategoria}}<br>
                         <strong>Distancia:</strong> {{aux_distancia}}<br>
                         <strong>Equipe:</strong> {{aux_equipe}}<br>
-                        <strong>Celular:</strong> {{aux_celular}}<br><br>
-                        <strong>Data de inscrição:</strong> {{aux_dataInscricao}}
+                        <strong>Celular:</strong> {{aux_celular}}<br>
+                        <strong>Data de inscrição:</strong> {{aux_dataInscricao}}<br>
+                        <strong>Numero do corredor:</strong> {{numeroCorredor}}
+                        <br><br>
+                        <label style="color: red; cursor: pointer;" (click)="ConfirmacaoExlusao(id)">Excluir
+                            cadastro</label>
                     </ion-card-subtitle>
                 </ion-card-header>
             </ion-card>
@@ -619,7 +1044,7 @@
         <ion-grid style="margin-left: 5%;margin-right: 5%;">
             <ion-row *ngIf="alternar==false">
                 <ion-col size=6 style="text-align: center; font-size: x-small; color: #ffffff;">
-                    &copy; 2024 Prefeitura de Maragojipe. Todos direitos reservados.
+                    &copy; 2025 Prefeitura de Maragojipe. Todos direitos reservados.
                 </ion-col>
                 <ion-col size=3 style="text-align: center; font-size: x-small; color: #ffffff;">
                     Termos de uso
@@ -630,7 +1055,7 @@
             </ion-row>
             <ion-row *ngIf="alternar==true">
                 <ion-col size=6 style="text-align: center; color: #ffffff;">
-                    &copy; 2024 Prefeitura de Maragojipe. Todos direitos reservados.
+                    &copy; 2025 Prefeitura de Maragojipe. Todos direitos reservados.
                 </ion-col>
                 <ion-col size=3 style="text-align: center; color: #ffffff;cursor: pointer;">
                     Termos de uso
@@ -649,8 +1074,9 @@
                     Fale Conosco
                 </ion-label>
 
-                <img src="../../../assets/icones prefeitura/FALE-CONOSCO.png" *ngIf="alternar == false" width="60%" alt="Fale conosco"
-                    title="Fale conosco">
+                <ion-label *ngIf="alternar == false" style="font-size: 16px !important;" class="texto-Titulos">
+                    Fale conosco
+                </ion-label>
             </ion-col>
             <ion-col size=9></ion-col>
         </ion-row>

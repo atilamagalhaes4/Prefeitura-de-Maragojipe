@@ -1,14 +1,23 @@
 <?PHP
 
-    include('conexao.php');
+// --- CORS CONFIG ---
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Credentials: true');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
+header('Content-Type: application/json; charset=utf-8');
 
-    header('Access-Control-Allow-Origin: *');
-    header('Access-Control-Allow-Credentials: true');
-    header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
-    header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With'); 
-    header('Content-Type: application/json; charset=utf-8');   
- 
-    $postjson = json_decode(file_get_contents('php://input'), true);
+// Se for requisição OPTIONS (preflight), apenas responde 200 OK e sai
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
+
+// --- CONEXÃO ---
+include('conexao.php');
+
+// --- LENDO O CORPO DA REQUISIÇÃO ---
+$postjson = json_decode(file_get_contents('php://input'), true);
 
     
     if($postjson['requisicao'] == 'pesquisarCoisasAmbiente'){

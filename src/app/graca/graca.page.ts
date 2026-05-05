@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, ModalController, Platform } from '@ionic/angular';
+import { AlertController, LoadingController, ModalController, Platform } from '@ionic/angular';
 import { PostProvider } from 'src/assets/providers/post-provider';
 import { OutdoorPage } from '../outdoor/outdoor.page';
 
@@ -12,82 +12,70 @@ import { OutdoorPage } from '../outdoor/outdoor.page';
 export class GracaPage implements OnInit {
 
   ppa: any = [];
+  naoPPA: any = [];
   alternar: boolean = true;
+  pesquisa: string = "";
 
   constructor(
     private provider: PostProvider,
     private alertController: AlertController,
     private route: Router,
     private platform: Platform,
-    private modalController: ModalController
-  ) {}
+    private modalController: ModalController,
+    private loadingCtrl: LoadingController
+  ) { }
 
 
-  ngOnInit(){
+  ngOnInit() {
 
   }
 
-  async presentAlertPrompt() {
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
-      message: 'Senhora Graça, informe a senha de acesso.',
-      inputs: [
-        {
-          name: 'name1',
-          type: 'text',
-          placeholder: 'Informe a senha'
+  noticias() {
+    this.ppa = [];
+    this.naoPPA = [];
+    let dados = {
+      requisicao: "pegarDadosPPA"
+    }
+    this.provider.requisicaoPost(dados, "/ppa.php").subscribe(data => {
+      this.ppa = [];
+      this.naoPPA = [];
+      for (let c of data['resultado']) {
+        if (c.lido == "true") {
+          this.ppa.push(c);
         }
-      ],
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: () => {
-            console.log('Confirm Cancel');
-          }
-        },
-        {
-          text: 'Confirmar',
-          handler: (blah) => {
-            if(blah.name1 ==""){
-              this.presentAlert("O campo senha está vazio, sr Graça");
-              return false;
-            }
-            else if(blah.name1 != "graca2021"){
-              this.presentAlert("Senha incorreta, sr Graça");
-              return false;
-            }
-            else{
-              this.ppa = [];
-              let dados= {
-                requisicao: "pegarDadosPPA"
-              }
-              this.provider.requisicaoPost(dados,"/ppa.php").subscribe(data=>{
-                    this.ppa = [];
-                for(let c of data['resultado']){
-                  this.ppa.push(c);
-                }
-              },(err) =>{
-                this.presentAlert("Sem conexão com o banco de dados");
-              });
-            }
-          }
+        else {
+          this.naoPPA.push(c);
         }
-      ]
+      }
+
+      //      console.log(this.naoPPA, this.ppa)
+    }, (err) => {
+      this.presentAlert("Sem conexão com o banco de dados");
     });
-
-    await alert.present();
   }
-  ionViewWillEnter(){
-    if(this.platform.is("mobile")){
+
+
+  ir(url) {
+    this.route.navigate([url]);
+  }
+
+
+  pesquisarNoticias() {
+    this.route.navigate(["/mais-noticias/" + this.pesquisa]);
+  }
+
+  ionViewWillEnter() {
+    if (this.platform.is("mobile")) {
       this.alternar = false;
     }
-    if(this.platform.is("desktop")){
+    else if (this.platform.is("desktop")) {
       this.alternar = true;
     }
-    this.presentAlertPrompt();
+    this.noticias();
+    console.log(this.alternar)
   }
+
+
   async presentAlert(mensagem) {
     const alert = await this.alertController.create({
       cssClass: 'primary',
@@ -106,7 +94,7 @@ export class GracaPage implements OnInit {
       component: OutdoorPage,
       cssClass: 'my-custom-class',
       componentProps: {
-        id:id,
+        id: id,
         nome: nome,
         cpf: cpf,
         distrito: distrito,
@@ -123,10 +111,20 @@ export class GracaPage implements OnInit {
     modal.onDidDismiss().then((dataReturned) => {
       if (dataReturned !== null) {
         var retorno = dataReturned.data;
-        console.log(retorno);
+        this.ionViewWillEnter();
+        this.showLoading();
         //alert('Modal Sent Data :'+ dataReturned);
       }
     });
     return await modal.present();
+  }
+
+  async showLoading() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Por favor aguarde 3 segundos...',
+      duration: 3000,
+    });
+
+    loading.present();
   }
 }

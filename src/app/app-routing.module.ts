@@ -44,7 +44,19 @@ const routes: Routes = [
   {
     path: 'corrida-sao-bartolomeu',
     loadChildren: () => import('./corrida-sao-bartolomeu/corrida-sao-bartolomeu.module').then( m => m.CorridaSaoBartolomeuPageModule)
+  },  {
+    path: 'cadastro-funcionarios',
+    loadChildren: () => import('./cadastro-funcionarios/cadastro-funcionarios.module').then( m => m.CadastroFuncionariosPageModule)
+  },
+  {
+    path: 'agenda-prefeito',
+    loadChildren: () => import('./agenda-prefeito/agenda-prefeito.module').then( m => m.AgendaPrefeitoPageModule)
+  },
+  {
+    path: 'documentos-publicos',
+    loadChildren: () => import('./documentos-publicos/documentos-publicos.module').then( m => m.DocumentosPublicosPageModule)
   }
+
 ];
 
 @NgModule({

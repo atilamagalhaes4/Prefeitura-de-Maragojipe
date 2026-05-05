@@ -29,7 +29,7 @@
             <ion-row *ngIf="alternar ==true">
                 <ion-col size=3>
                     <a style="text-decoration: none;" href="/">
-                        <img class="imagem" src="../../../assets/logo-prefeitura/logo2.png"
+                        <img class="imagem" src="../../../assets/logo-prefeitura/logo4.png"
                             alt="Prefeitura de Maragojipe">
                     </a>
                 </ion-col>
@@ -62,7 +62,7 @@
 
             <ion-row *ngIf="alternar ==false"  class="tamanho">
                 <ion-col (click)='ir("/")' size=3>
-                    <img class="imagem2" src="../../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+                    <img class="imagem2" src="../../../assets/logo-prefeitura/logo4.png" alt="Prefeitura de Maragojipe">
                 </ion-col>
                 <ion-col (click)='ir("/o-municipio")' size=3>
                     <ion-label style="font-size: x-small;" color=light>
@@ -113,17 +113,18 @@
         </ion-label>
         <br><br>
       </div>
-      <br>
+            <br>
       <div *ngIf="alternar == true">
         <img *ngIf="titulo.length>0" id="imagem" [src]="imagem">
       </div>
       <div *ngIf="alternar == false">
         <img *ngIf="titulo.length>0" id="imagem2" [src]="imagem">
       </div>
-
+      <br>
       <div *ngIf="titulo.length>0" class="corpoMensagem">
         <div [innerHTML]="mensagem" style="font-size: medium;"></div>
       </div>
+
     </ion-list>
 
     <div style="width: 100%;border: thin rgb(240, 240, 240) solid; margin-top: 5%;">
@@ -143,16 +144,18 @@
           <div class="figura">
             <a href="javascript:void(0);" style="text-decoration: none; color: black;" (click)="visualizar(titulo1)">
               <img [src]="thumb1" class="thumbmail">
-              <p>{{titulo1}}</p>
+              <p *ngIf="alternar">{{titulo1}}</p>
+              <p *ngIf="!alternar" style="font-size: small;" class="limitar">{{titulo1}}</p>
             </a>
           </div>
-        </ion-col>
+        </ion-col> 
 
         <ion-col size=3>
           <div class="figura">
             <a href="javascript:void(0);" style="text-decoration: none; color: black;" (click)="visualizar(titulo2)">
               <img [src]="thumb2" class="thumbmail">
-              <p>{{titulo2}}</p>
+              <p *ngIf="alternar">{{titulo2}}</p>
+              <p  *ngIf="!alternar" style="font-size: small;" class="limitar">{{titulo2}}</p>
             </a>
           </div>
         </ion-col>
@@ -161,7 +164,8 @@
           <div class="figura">
             <a href="javascript:void(0);" style="text-decoration: none; color: black;" (click)="visualizar(titulo3)">
               <img [src]="thumb3" class="thumbmail">
-              <p>{{titulo3}}</p>
+              <p *ngIf="alternar">{{titulo3}}</p>
+              <p  *ngIf="!alternar" style="font-size: small;" class="limitar">{{titulo3}}</p>
             </a>
           </div>
         </ion-col>
@@ -170,7 +174,8 @@
           <div class="figura">
             <a href="javascript:void(0);" style="text-decoration: none; color: black;" (click)="visualizar(titulo4)">
               <img [src]="thumb4" class="thumbmail">
-              <p>{{titulo4}}</p>
+              <p *ngIf="alternar">{{titulo4}}</p>
+              <p *ngIf="!alternar" style="font-size: small;" class="limitar">{{titulo4}}</p>
             </a>
           </div>
         </ion-col>
@@ -411,7 +416,7 @@
     <ion-grid style="margin-left: 5%;margin-right: 5%;">
         <ion-row *ngIf="alternar==false">
             <ion-col size=6 style="text-align: center; font-size: x-small; color: #ffffff;">
-                &copy; 2024 Prefeitura de Maragojipe. Todos direitos reservados.
+                &copy; 2025 Prefeitura de Maragojipe. Todos direitos reservados.
             </ion-col>
             <ion-col size=3 style="text-align: center; font-size: x-small; color: #ffffff;">
                 Termos de uso
@@ -422,7 +427,7 @@
         </ion-row>
         <ion-row *ngIf="alternar==true">
             <ion-col size=6 style="text-align: center; color: #ffffff;">
-                &copy; 2024 Prefeitura de Maragojipe. Todos direitos reservados.
+                &copy; 2025 Prefeitura de Maragojipe. Todos direitos reservados.
             </ion-col>
             <ion-col size=3 style="text-align: center; color: #ffffff;cursor: pointer;">
                 Termos de uso

@@ -1,170 +1,264 @@
 <ion-content>
 
   <ion-header [translucent]="true">
-    <ion-toolbar class="top1" >
-      
+    <ion-toolbar class="top1">
       <ion-buttons slot="end">
         <a style="text-decoration: none;" target="_blank" href="https://www.facebook.com/prefeiturademaragojipe">
-          <ion-icon color = light button  name="logo-facebook"></ion-icon>&nbsp;&nbsp;
+          <ion-icon color=light button name="logo-facebook"></ion-icon>&nbsp;&nbsp;
         </a>
       </ion-buttons>
-      
+
       <ion-buttons slot="end">
-        <a style="text-decoration: none;" target="_blank"  href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br"  >
-          <ion-icon color = light name="logo-instagram"></ion-icon> &nbsp;&nbsp; 
+        <a style="text-decoration: none;" target="_blank"
+          href="https://www.instagram.com/prefeiturademaragojipe/?hl=pt-br">
+          <ion-icon color=light name="logo-instagram"></ion-icon> &nbsp;&nbsp;
         </a>
       </ion-buttons>
-      
+
       <ion-buttons slot="end">
-        <a style="text-decoration: none;" target="_blank"  href="">
-         <ion-icon color = light  name="logo-youtube"></ion-icon>&nbsp;&nbsp;
+        <a style="text-decoration: none;" target="_blank" href="">
+          <ion-icon color=light name="logo-youtube"></ion-icon>&nbsp;&nbsp;
         </a>
       </ion-buttons>
       <ion-title>
       </ion-title>
     </ion-toolbar>
-    
-    <ion-toolbar class="top2" >
+
+    <ion-toolbar class="top2">
       <ion-grid>
-        <ion-row  *ngIf ="alternar ==true">
-          <ion-col size = 3>
-            <a style="text-decoration: none;"href="/">
-              <img class="imagem"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+        <ion-row *ngIf="alternar ==true">
+          <ion-col size=3>
+            <a style="text-decoration: none;" href="/">
+              <img class="imagem" src="../../../assets/logo-prefeitura/logo4.png" alt="Prefeitura de Maragojipe">
             </a>
-            </ion-col>
-          <ion-col size = 3>
-              <ion-searchbar  type="text"[(ngModel)]="pesquisa" (keyup.enter)="pesquisarNoticias()" class="inputAjuda" placeholder = "O que deseja procurar ?"></ion-searchbar>
           </ion-col>
-          <ion-col class="centralizarTexto" size = 2>
-            <ion-item button routerLink ="/o-municipio" color = transparent lines = none>
-              <ion-label color = light>
+          <ion-col size=3>
+            <ion-searchbar type="text" [(ngModel)]="pesquisa" (keyup.enter)="pesquisarNoticias()" class="inputAjuda"
+              placeholder="O que deseja procurar ?"></ion-searchbar>
+          </ion-col>
+          <ion-col class="centralizarTexto" size=2>
+            <ion-item button (click)='ir("/o-municipio")' color=transparent lines=none>
+              <ion-label color=light>
                 O MUNICIPIO
               </ion-label>
             </ion-item>
           </ion-col>
-          <ion-col class="centralizarTexto" size = 2>
-            <ion-item button routerLink ="/a-prefeitura" color = transparent lines = none>
-              <ion-label color = light>
+          <ion-col class="centralizarTexto" size=2>
+            <ion-item button (click)='ir("/a-prefeitura")' color=transparent lines=none>
+              <ion-label color=light>
                 A PREFEITURA
               </ion-label>
             </ion-item>
           </ion-col>
-          <ion-col class="centralizarTexto" size = 2>
-            <ion-item  routerLink ="/telefones-uteis" button color = transparent lines = none>
-              <ion-label color = light>
+          <ion-col class="centralizarTexto" size=2>
+            <ion-item (click)='ir("/telefones-uteis")' button color=transparent lines=none>
+              <ion-label color=light>
                 TELEFONES ÚTEIS
               </ion-label>
             </ion-item>
           </ion-col>
         </ion-row>
-  
-        <ion-row *ngIf ="alternar ==false" class="tamanho">
-          <ion-col routerLink = "/" size = 3>
-            <img class="imagem2"src="../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+
+        <ion-row *ngIf="alternar ==false" class="tamanho">
+          <ion-col (click)='ir("/")' size=3>
+            <img class="imagem2" src="../../../assets/logo-prefeitura/logo4.png" alt="Prefeitura de Maragojipe">
           </ion-col>
-          <ion-col  routerLink ="/o-municipio" size = 3>
-              <ion-label color = light>
-                O MUNICIPIO
-              </ion-label>
+          <ion-col (click)='ir("/o-municipio")' size=3>
+            <ion-label style="font-size: x-small;" color=light>
+              O MUNICIPIO
+            </ion-label>
           </ion-col>
-          <ion-col  routerLink ="/a-prefeitura"  size = 3>
-              <ion-label color = light>
-                A PREFEITURA
-              </ion-label>
+          <ion-col (click)='ir("/a-prefeitura")' size=3>
+            <ion-label style="font-size: x-small;" color=light>
+              A PREFEITURA
+            </ion-label>
           </ion-col>
-          <ion-col routerLink ="/telefones-uteis" size = 3>
-              <ion-label color = light>
-                TELEFONES ÚTEIS
-              </ion-label>
+          <ion-col (click)='ir("/telefones-uteis")' size=3>
+            <ion-label style="font-size: x-small;" color=light>
+              TELEFONES ÚTEIS
+            </ion-label>
           </ion-col>
         </ion-row>
       </ion-grid>
     </ion-toolbar>
   </ion-header>
-  <br><br>
 
-  <h1 style="text-align: center;">
-    Desculpe, a página não está mais disponivel.
-  </h1>
-  <h2 style="text-align: center;">
-    O prazo para a votação expirou.
-  </h2>
-  
-</ion-content>
-  <!---
-<ion-content >
+  <ion-grid *ngIf="formulario == false" style="background-color: rgb(255, 255, 255); margin: 2.5%;">
 
-  <ion-grid *ngIf="formulario == false" style="background-color: rgb(255, 255, 255); margin: 5%;">
-    <ion-row>
-      <ion-col size=3>
-        <img src="../../assets/logo-prefeitura/logo.png">
-      </ion-col>
-      <ion-col size=6></ion-col>
-      <ion-col size=3>
-        <img src="../../assets/banner/ppa.png" style="border-radius: 10px;">
-      </ion-col>
-    </ion-row>
-    <ion-row style="margin: 3%; background-color: #98fb98; border-radius:20px">
-      <ion-col size=12>
-        <h1 style="color: #339967; text-align: center;">O QUE É PPA?</h1>
-        <h5 style="color: #339967; text-align: justify; font-size: small;">
-          O Plano Plurianual (PPA) está previsto na Constituição Federal de 1988, e foi regulamentado pelo decreto
-          2.829, de 29 de outubro de 1998. Trata-se de um plano que deve ser feito a cada quatro anos por todas as
-          entidades da federação, Governo Federal, Estados e Municípios, para estabelecer diretrizes, metas e objetivos.
-          O PPA é aprovado pelo legislativo por uma lei quadrienal, sujeita a prazos e ritos diferenciados de tramitação
-          e que tem vigência a partir do segundo ano de um mandato até o final do primeiro ano do mandato seguinte.
-          Assim, todos os governos, inclusive os municipais, ficam obrigados a fazer um planejamento estratégico e
-          seguir as diretrizes e metas estabelecidas no PPA. Dessa forma impede-se a descontinuidade de políticas e
-          obras públicas de importância estratégica para a cidade, estado ou país. Também está na Constituição que a
-          inciativa privada deve convergir para áreas e diretrizes estabelecidas para o desenvolvimento do PPA.
-        </h5>
-      </ion-col>
-    </ion-row>
+<!--
+    <h1 style="text-align: center;">Plano Plurianual 2025 - 2029</h1>
+    <h3 style="margin-top: 5%;">
+      ➜ O QUE É PPA?
+    </h3>
+
+    <ion-label style="color: #666666; text-align: center;">
+      O Plano Plurianual (PPA) está previsto na Constituição Federal de 1988, e foi regulamentado pelo decreto
+      2.829, de 29 de outubro de 1998. Trata-se de um plano que deve ser feito a cada quatro anos por todas as
+      entidades da federação, Governo Federal, Estados e Municípios, para estabelecer diretrizes, metas e objetivos.
+      O PPA é aprovado pelo legislativo por uma lei quadrienal, sujeita a prazos e ritos diferenciados de tramitação
+      e que tem vigência a partir do segundo ano de um mandato até o final do primeiro ano do mandato seguinte.
+      Assim, todos os governos, inclusive os municipais, ficam obrigados a fazer um planejamento estratégico e
+      seguir as diretrizes e metas estabelecidas no PPA. Dessa forma impede-se a descontinuidade de políticas e
+      obras públicas de importância estratégica para a cidade, estado ou país. Também está na Constituição que a
+      inciativa privada deve convergir para áreas e diretrizes estabelecidas para o desenvolvimento do PPA.
+    </ion-label>
+
+
+
+
+    <h3 style="margin-top: 5%;">
+      ➜ Resultado de PPA's passados
+    </h3>
+    <div class="carrossel-container">
+      <ion-button fill="clear" class="seta esquerda" (click)="slidePrev()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+
+      <ion-slides [options]="slideOpts" #slides>
+        <ion-slide *ngFor="let foto of fotos">
+          <img [src]="foto" class="imagem-carrossel" />
+        </ion-slide>
+      </ion-slides>
+
+      <ion-button fill="clear" class="seta direita" (click)="slideNext()">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+    <div id="corpo">
+      <video src="../../assets/videos/IMG_8678.MOV" controls>
+      </video>
+    </div>
+
+
+    <h3 style="margin-top: 5%;">
+      ➜ Agenda
+    </h3>
+
+
+<ion-card>
+    <ion-card-header>
+      <ion-card-title>Tabela de Eventos</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="table-responsive">
+        <table class="event-table">
+          <thead>
+            <tr>
+              <th>LOCAL</th>
+              <th>DATA</th>
+              <th>ENDEREÇO</th>
+              <th>EVENTO</th>
+              <th>HORÁRIO</th>
+              <th>PARTICIPAÇÃO MUSICAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>SEDE</td><td>16/05/2025</td><td>CASA DA CULTURA</td><td>ABERTURA</td><td>09H</td><td>TATAI GUERREIRO MASCARADOS</td></tr>
+            <tr><td>GUAPIRA</td><td>19/05/2025</td><td>QUADRA ESCOLA PADRE JULIAN</td><td>PLENÁRIA</td><td>13:30H</td><td>AMAURI QUIRINO</td></tr>
+            <tr><td>ENSEADA DO PARAGUAÇU</td><td>21/05/2025</td><td>QUADRA ESCOLA DESEMBARGADOR OSCAR DANTAS</td><td>PLENÁRIA</td><td>13:30H</td><td>ALEF MOURA</td></tr>
+            <tr><td>PONTA DE SOUZA</td><td>22/05/2025</td><td>ESCOLA IEDA BARRADAS</td><td>PLENÁRIA</td><td>13:30H</td><td>ALESSON ANDRADE (DE CAHOEIRINHA)</td></tr>
+            <tr><td>BAIXÃO DO GUAÍ</td><td>23/05/2025</td><td>ESPAÇO DE DONA LOURA</td><td>PLENÁRIA</td><td>13:30H</td><td>LINALDO ARAÚJO</td></tr>
+            <tr><td>SERRARIA</td><td>02/06/2025</td><td>ESCOLA DEPUTADO CLERALDO ANDRADE</td><td>PLENÁRIA</td><td>13:30H</td><td>NAL FRANZINE</td></tr>
+            <tr><td>SANTO ANTONIO DE ALDEIA</td><td>04/06/2025</td><td>ESCOLA ANTONIO OTILIO DE ANDRADE</td><td>PLENÁRIA</td><td>13:30H</td><td>ALESSON ANDRADE (DE CAHOEIRINHA)</td></tr>
+            <tr><td>SÃO ROQUE DO PARAGUAÇU</td><td>06/06/2025</td><td>QUADRA COBERTA AO LADO DA CRECHE GERMANA INES MANCIONE</td><td>PLENÁRIA</td><td>13:30H</td><td>ISLAINE OLIVER</td></tr>
+            <tr><td>CUMBE</td><td>09/06/2025</td><td>IGREJA</td><td>PLENÁRIA</td><td>13:30H</td><td>LINALDO ARAÚJO</td></tr>
+            <tr><td>CAPANEMA</td><td>11/06/2025</td><td>ESCOLA ENGENHEIRO JÚLIO SANTOS SÁ</td><td>PLENÁRIA</td><td>13:30H</td><td>IKO MATONE</td></tr>
+            <tr><td>PIEDADE</td><td>16/06/2025</td><td>QUADRA DA PIEDADE</td><td>PLENÁRIA</td><td>13:30H</td><td>ANDERSON DA PIEDADE</td></tr>
+            <tr><td>NAGÉ</td><td>07/07/2025</td><td>ESCOLA CATHARINA PARAGUAÇU</td><td>PLENÁRIA</td><td>13:30H</td><td>AMAURI QUIRINO</td></tr>
+            <tr><td>COQUEIROS</td><td>09/07/2025</td><td>ESCOLA SANTA RITA</td><td>PLENÁRIA</td><td>13:30H</td><td>TAXISTA APAIXONADO E IKO MATONE</td></tr>
+            <tr><td>SEDE</td><td>15/07/2025</td><td>CENTRO PEDAGÓGICO VALQUIRIA ARMEDE RIBEIRO</td><td>ENCERRAMENTO</td><td>10H</td><td>SAMBA DE RODA, DJ KADU E SAXOFONISTA MÁRCIO E ARTISTAS LOCAIS</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+-->
+
+  <h1>PPA de Maragojipe (Plano Plurianual)</h1>
+
+  <!-- Seção 1: Vídeos Recentes -->
+  <h2>📹 Vídeos Recentes</h2>
+  <ion-slides [options]="slideOpts">
+    <ion-slide *ngFor="let video of videos">
+      <div class="video-container">
+        <video
+          preload="none"
+          controls
+          muted
+          playsinline
+          [attr.data-src]="video.src"
+          (ionViewDidEnter)="loadVideo($event)">
+        </video>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+  <!-- Seção 2: Álbuns de Fotos -->
+  <h2>📸 Álbuns de Fotos</h2>
+  <ion-slides [options]="slideOpts2"   class="custom-slides2">
+    <ion-slide *ngFor="let album of albums">
+          <div class="image-wrapper2">
+      <img 
+        [src]="album.cover" 
+        class="full-image2" />
+    </div>
+    </ion-slide>
+  </ion-slides>
+
+  <!-- Seção 3: Cards e Avisos -->
+  <h2>📢 Cards e Avisos</h2>
+<ion-slides [options]="slideOpts" class="custom-slides">
+  <ion-slide *ngFor="let card of cards">
+    <div class="image-wrapper">
+      <img 
+        [src]="card.img" 
+        [alt]="card.title"
+        class="full-image" />
+    </div>
+  </ion-slide>
+</ion-slides>
+
+
+
+    <h3 style="margin-top: 5%;">
+      ➜ Gráfico parcial de votos
+      <canvas #barCanvas style="position: relative;"></canvas>
+    </h3>
+
     <ion-row *ngIf="alternar == false">
       <ion-col style="margin:auto" size="12">
-        <ion-button (click)="presentAlertPrompt()" expand="block">PARTICIPAR AGORA</ion-button>
+        <ion-button (click)="presentAlertPrompt()" expand="block">VOTE</ion-button>
       </ion-col>
     </ion-row>
     <ion-row *ngIf="alternar == true">
       <ion-col size="4"></ion-col>
       <ion-col style="margin:auto" size="4">
-        <ion-button (click)="presentAlertPrompt()" expand="block">PARTICIPAR AGORA</ion-button>
+        <ion-button (click)="presentAlertPrompt()" expand="block">VOTE</ion-button>
       </ion-col>
       <ion-col size="4"></ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size=12>
-        <div class="ion-padding">
-          Gráfico parcial de votos
-          <canvas #barCanvas style="position: relative; height:20vh; width:40vw"></canvas>
-        </div>
-      </ion-col>
     </ion-row>
     <br> <br>
   </ion-grid>
 
-  <ion-grid *ngIf="formulario == true" style="background-color: #98fb98; margin: 5%;border-radius:20px;">
-    <ion-row>
-      <ion-col size=3>
-        <img src="../../assets/logo-prefeitura/logo3.png">
-      </ion-col>
-      <ion-col size=6></ion-col>
-      <ion-col size=3>
-        <img style="border-radius: 10px;" src="../../assets/banner/ppa.png">
-      </ion-col>
-    </ion-row>
+
+
+  <ion-grid *ngIf="formulario == true" style="margin-top: 5%;">
+
     <ion-row
-      style="margin-left:3%;margin-right:3%;background-color: #5bc55b;border-top-left-radius:20px;border-top-right-radius:20px">
+      style="margin-left:3%;margin-right:3%;background-color: #ffffff;border-top-left-radius:20px;border-top-right-radius:20px">
       <ion-col size=12>
-        <p style="text-align: center;font-size: larger; color: #339967;">
+        <p style="text-align: center;font-size: larger; color: #000;">
           Prezada(o) {{nome}}<br>
         </p>
-        <p style="text-align: center;font-size: small; color: #339967;">
+        <p style="text-align: center;font-size: small; color: #000;">
           Precisamos de mais alguns dados pessoais para completar a pesquisa do PPA Participativo.
         </p>
       </ion-col>
     </ion-row>
-    <ion-row *ngIf="alternar == false" style="margin-left:3%;margin-right:3%;background-color: #5bc55b;">
+    <ion-row *ngIf="alternar == false" style="margin-left:3%;margin-right:3%;background-color: #ffffff;">
       <ion-col size=12>
         <ion-item style="border-radius: 10px;">
           <ion-label position="stacked" color=primary>Nome</ion-label>
@@ -172,7 +266,7 @@
         </ion-item>
       </ion-col>
     </ion-row>
-    <ion-row *ngIf="alternar == false" style="margin-left:3%;margin-right:3%;background-color: #5bc55b;">
+    <ion-row *ngIf="alternar == false" style="margin-left:3%;margin-right:3%;background-color: #ffffff;">
       <ion-col size=12>
         <ion-item style="border-radius: 10px;">
           <ion-label position="stacked" color=primary>CPF</ion-label>
@@ -180,7 +274,7 @@
         </ion-item>
       </ion-col>
     </ion-row>
-    <ion-row *ngIf="alternar == false" style="margin-left:3%;margin-right:3%;background-color: #5bc55b;">
+    <ion-row *ngIf="alternar == false" style="margin-left:3%;margin-right:3%;background-color: #ffffff;">
       <ion-col size=12>
         <ion-item style="border-radius: 10px;">
           <ion-label position="stacked" color=primary>Distrito</ion-label>
@@ -188,7 +282,7 @@
         </ion-item>
       </ion-col>
     </ion-row>
-    <ion-row *ngIf="alternar == false" style="margin-left:3%;margin-right:3%;background-color: #5bc55b;">
+    <ion-row *ngIf="alternar == false" style="margin-left:3%;margin-right:3%;background-color: #ffffff;">
       <ion-col size=12>
         <ion-item style="border-radius: 10px;">
           <ion-label position="stacked" color=primary>email</ion-label>
@@ -196,7 +290,7 @@
         </ion-item>
       </ion-col>
     </ion-row>
-    <ion-row *ngIf="alternar == true" style="margin-left:3%;margin-right:3%;background-color: #5bc55b;">
+    <ion-row *ngIf="alternar == true" style="margin-left:3%;margin-right:3%;background-color: #ffffff;">
       <ion-col size=3>
         <ion-item style="border-radius: 10px;">
           <ion-label position="stacked" color=primary>Nome</ion-label>
@@ -222,17 +316,18 @@
         </ion-item>
       </ion-col>
     </ion-row>
-    <ion-row style="margin-left:3%;margin-right:3%;background-color: #5bc55b;">
+    <ion-row style="margin-left:3%;margin-right:3%;background-color: #ffffff;">
       <ion-col size=12>
-        <p style="text-align: center; font-size: medium;color: #339967;">Escolha os Três TEMAS mais IMPORTANTES:</p>
+        <p style="text-align: center; font-size: medium;color: #000;">Escolha os Três TEMAS mais IMPORTANTES:</p>
       </ion-col>
     </ion-row>
-    <ion-list color = transparent *ngIf="alternar == false" style="margin-left:3%;margin-right:3%;background-color: #5bc55b;">
+    <ion-list color=transparent *ngIf="alternar == false"
+      style="margin-left:3%;margin-right:3%;background-color: #ffffff;">
       <ion-row *ngFor="let c of form">
         <ion-col size=12>
-          
+
           <ion-item [title]="c.val" color="transparent" lines=none>
-            <ion-label color="primary" style="font-size: small;">{{c.val}}</ion-label>
+            <ion-label color="dark" style="font-size: small;">{{c.val}}</ion-label>
             <ion-checkbox color="primary" slot="start" [(ngModel)]="c.isChecked" (click)="check(c)"
               [disabled]="!c.isChecked && checkeds === limit"></ion-checkbox>
           </ion-item>
@@ -240,39 +335,39 @@
       </ion-row>
     </ion-list>
 
-    <ion-row *ngIf="alternar == true" style="margin-left:3%;margin-right:3%;background-color: #5bc55b;">
+    <ion-row *ngIf="alternar == true" style="margin-left:3%;margin-right:3%;background-color: #ffffff;">
       <ion-col size=4>
-        
+
         <ion-item [title]="form[0].val" color="transparent" lines=none>
-          <ion-label color="primary" style="font-size: small;">{{form[0].val}}</ion-label>
+          <ion-label color="dark" style="font-size: small;">{{form[0].val}}</ion-label>
           <ion-checkbox color="primary" slot="start" [(ngModel)]="form[0].isChecked" (click)="check(form[0])"
             [disabled]="!form[0].isChecked && checkeds === limit"></ion-checkbox>
         </ion-item>
         <ion-item [title]="form[1].val" color="transparent" lines=none>
-          <ion-label color="primary" style="font-size: small;">{{form[1].val}}</ion-label>
+          <ion-label color="dark" style="font-size: small;">{{form[1].val}}</ion-label>
           <ion-checkbox slot="start" [(ngModel)]="form[1].isChecked" (click)="check(form[1])"
             [disabled]="!form[1].isChecked && checkeds === limit"></ion-checkbox>
         </ion-item>
         <ion-item [title]="form[2].val" color="transparent" lines=none>
-          <ion-label color="primary" style="font-size: small;">{{form[2].val}}</ion-label>
+          <ion-label color="dark" style="font-size: small;">{{form[2].val}}</ion-label>
           <ion-checkbox slot="start" [(ngModel)]="form[2].isChecked" (click)="check(form[2])"
             [disabled]="!form[2].isChecked && checkeds === limit"></ion-checkbox>
         </ion-item>
       </ion-col>
       <ion-col size=4>
-        
+
         <ion-item [title]="form[3].val" color=transparent lines=none>
-          <ion-label color="primary" style="font-size: small;">{{form[3].val}}</ion-label>
+          <ion-label color="dark" style="font-size: small;">{{form[3].val}}</ion-label>
           <ion-checkbox slot="start" [(ngModel)]="form[3].isChecked" (click)="check(form[3])"
             [disabled]="!form[3].isChecked && checkeds === limit"></ion-checkbox>
         </ion-item>
         <ion-item [title]="form[4].val" color="transparent" lines=none>
-          <ion-label color="primary" style="font-size: small;">{{form[4].val}}</ion-label>
+          <ion-label color="dark" style="font-size: small;">{{form[4].val}}</ion-label>
           <ion-checkbox slot="start" [(ngModel)]="form[4].isChecked" (click)="check(form[4])"
             [disabled]="!form[4].isChecked && checkeds === limit"></ion-checkbox>
         </ion-item>
         <ion-item [title]="form[5].val" color="transparent" lines=none>
-          <ion-label color="primary" style="font-size: small;">{{form[5].val}}</ion-label>
+          <ion-label color="dark" style="font-size: small;">{{form[5].val}}</ion-label>
           <ion-checkbox slot="start" [(ngModel)]="form[5].isChecked" (click)="check(form[5])"
             [disabled]="!form[5].isChecked && checkeds === limit"></ion-checkbox>
         </ion-item>
@@ -281,45 +376,48 @@
       <ion-col size=4>
 
         <ion-item [title]="form[6].val" color="transparent" lines=none>
-          <ion-label color="primary" style="font-size: small;">{{form[6].val}}</ion-label>
+          <ion-label color="dark" style="font-size: small;">{{form[6].val}}</ion-label>
           <ion-checkbox slot="start" [(ngModel)]="form[6].isChecked" (click)="check(form[6])"
             [disabled]="!form[6].isChecked && checkeds === limit"></ion-checkbox>
         </ion-item>
         <ion-item [title]="form[7].val" color="transparent" lines=none>
-          <ion-label color="primary" style="font-size: small;">{{form[7].val}}</ion-label>
+          <ion-label color="dark" style="font-size: small;">{{form[7].val}}</ion-label>
           <ion-checkbox slot="start" [(ngModel)]="form[7].isChecked" (click)="check(form[7])"
             [disabled]="!form[7].isChecked && checkeds === limit"></ion-checkbox>
         </ion-item>
         <ion-item [title]="form[8].val" color="transparent" lines=none>
-          <ion-label color="primary" style="font-size: small;">{{form[8].val}}</ion-label>
+          <ion-label color="dark" style="font-size: small;">{{form[8].val}}</ion-label>
           <ion-checkbox slot="start" [(ngModel)]="form[8].isChecked" (click)="check(form[8])"
             [disabled]="!form[8].isChecked && checkeds === limit"></ion-checkbox>
         </ion-item>
       </ion-col>
     </ion-row>
-    <ion-row style="margin-left:3%;margin-right:3%;background-color: #5bc55b;">
+    <ion-row style="margin-left:3%;margin-right:3%;background-color: #ffffff;">
       <ion-col size=12>
         <ion-item>
           <ion-label position="stacked" color="primary">Comentários</ion-label>
-          <ion-textarea [(ngModel)]="comentario" rows="10" placeholder="Digite aqui seu comentário..."></ion-textarea>
+          <ion-textarea [(ngModel)]="comentario" rows="10"
+            placeholder="Deixe aqui sua dúvida, sugestão ou critica"></ion-textarea>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row *ngIf="alternar == true"
-      style="margin-left:3%;margin-right:3%;background-color: #5bc55b;border-bottom-left-radius:20px;border-bottom-right-radius:20px">
-      <ion-col style="margin:auto" size=4>
-        <ion-button (click)="finalizarPesquisa()" expand="block">FINALIZAR PESQUISA</ion-button>
+      style="margin-left:3%;margin-right:3%;background-color: #ffffff;border-bottom-left-radius:20px;border-bottom-right-radius:20px">
+      <ion-col size="4"></ion-col>
+      <ion-col size=4>
+        <ion-button (click)="finalizarPesquisa()" expand="full">Enviar</ion-button>
       </ion-col>
-      <ion-col size="8"></ion-col>
+      <ion-col size="4"></ion-col>
     </ion-row>
 
     <ion-row *ngIf="alternar == false"
-      style="margin-left:3%;margin-right:3%;background-color: #5bc55b;border-bottom-left-radius:20px;border-bottom-right-radius:20px">
+      style="margin-left:3%;margin-right:3%;background-color: #ffffff;border-bottom-left-radius:20px;border-bottom-right-radius:20px">
       <ion-col style="margin:auto" size=12>
-        <ion-button (click)="finalizarPesquisa()" expand="full">FINALIZAR PESQUISA</ion-button>
+        <ion-button (click)="finalizarPesquisa()" expand="full">Enviar</ion-button>
       </ion-col>
     </ion-row>
     <br>
+
   </ion-grid>
 
-</ion-content> -->
+</ion-content>

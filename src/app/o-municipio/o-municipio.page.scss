@@ -16,7 +16,7 @@
 
 .footer2 {
     margin-top: 0;
-    background-color: #49d390;
+    background-color: #a0a0a0;
     margin-left: 0;
     margin-right: 0;
   }
@@ -25,21 +25,12 @@
   .footer {
     margin-top: 5%;
     min-width: 100%;
-    background-color: #339967;
+    background-color: #666666;
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 0;
   }
    
-.top1 {
-    --background: #34cc67 url("../../assets/background/claro.png") no-repeat
-      center center / cover !important;
-  }
-  
-  .top2 {
-    --background: #339967 url("../../assets/background/escuro.png") no-repeat
-      center center / cover !important;
-  }
   ion-icon {
     font-size: 200%;
   }
@@ -72,20 +63,27 @@
 
 .footer2 {
   margin-top: 0;
-  background-color: #49d390;
+  background-color: #34cc67;
   margin-left: 0;
   margin-right: 0;
 }
+.top1 {
+  --background: #34cc67;
+}
 
+.top2 {
+  --background: #339967;
+}
 
 .footer {
   margin-top: 5%;
-  min-width: 100%; 
+  min-width: 100%;
   background-color: #339967;
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 0;
 }
+
 //roda´pé desktop
 .rodape2 {
   display: block;
@@ -127,13 +125,6 @@ ion-icon {
     height: auto;
 }
 
-.top1 {
-    --background: #34cc67 url('../../assets/background/claro.png') no-repeat center center / cover !important;
-}
-
-.top2 {
-    --background: #339967 url('../../assets/background/escuro.png') no-repeat center center / cover !important;
-}
 
 .t1 {
     img {
@@ -169,7 +160,7 @@ ion-icon {
   font-weight: bold;
   cursor: pointer;
   border-style: double;
-  border-bottom: 4px #339967 solid;
-  border-left: 4px #339967 solid;
+  border-bottom: 4px #666666 solid;
+  border-left: 4px #666666 solid;
   background-color: transparent;
 }

@@ -87,12 +87,12 @@ div.figura3 p {
   
   
   .top1 {
-    --background: #34cc67 url("../../assets/background/claro.png") no-repeat
+    --background: #a0a0a0 url("../../assets/background/claro.png") no-repeat
       center center / cover !important;
   }
   
   .top2 {
-    --background: #339967 url("../../assets/background/escuro.png") no-repeat
+    --background: #666666 url("../../assets/background/escuro.png") no-repeat
       center center / cover !important;
   }
   ion-icon {
@@ -193,15 +193,6 @@ div.figura4 p {
 }
 
 
-
-.top1 {
-  --background: #34cc67 url("../../assets/background/claro.png") no-repeat center center / cover !important;
-}
-
-.top2 {
-  --background: #339967 url("../../assets/background/escuro.png") no-repeat center center / cover !important;
-}
-
 ion-icon {
   font-size: 200%;
 }
@@ -222,22 +213,6 @@ ion-searchbar {
   margin-top: 1cm;
 }
 
-.footer2 {
-  margin-top: 0;
-  background-color: #49d390;
-  margin-left: 0;
-  margin-right: 0;
-}
-
-
-.footer {
-  margin-top: 5%;
-  min-width: 100%;
-  background-color: #339967;
-  margin-left: 0;
-  margin-right: 0;
-  margin-bottom: 0;
-}
 
 //roda´pé desktop
 .rodape2 {
@@ -310,7 +285,149 @@ div.rodape {
   font-weight: bold;
   cursor: pointer;
   border-style: double;
-  border-bottom: 4px #339967 solid;
-  border-left: 4px #339967 solid;
+  border-bottom: 4px #666666 solid;
+  border-left: 4px #666666 solid;
   background-color: transparent;
+}
+
+.footer2 {
+  margin-top: 0;
+  background-color: #34cc67;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.top1 {
+  --background: #34cc67;
+}
+
+.top2 {
+  --background: #339967;
+}
+
+.footer {
+  margin-top: 5%;
+  min-width: 100%;
+  background-color: #339967;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+ion-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  input[type='file'] {
+    margin-top: 8px;
+    width: 100%;
+  }
+
+  ion-button {
+    margin-top: 8px;
+    align-self: flex-end;
+    font-size: 14px;
+    --padding-start: 0;
+    --padding-end: 0;
+    height: 36px;
+  }
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 480px) {
+  ion-item {
+    ion-label {
+      font-size: 14px;
+    }
+
+    input[type='file'] {
+      font-size: 13px;
+    }
+
+    ion-button {
+      font-size: 13px;
+    }
+  }
+
+  ion-modal ion-img {
+    max-height: 60vh;
+    object-fit: contain;
+  }
+
+
+  .div-formulario {
+    width: 90%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+.cancel-button {
+  color: #f44336 !important;
+  /* vermelho */
+  font-weight: bold;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: row;
+  /* lado a lado */
+  gap: 24px;
+  /* espaço entre as divs */
+  align-items: flex-start;
+  /* alinha ao topo */
+  justify-content: space-between;
+  /* separa um pouco mais */
+  flex-wrap: wrap;
+  /* responsivo para telas pequenas */
+}
+
+.div-formulario {
+  flex: 1 1 60%;
+  /* 60% do espaço, ajustável */
+}
+
+.editais {
+  flex: 1 1 35%;
+  /* 35% do espaço, ajustável */
+  background-color: #f5f5f5;
+  /* opcional: cor de fundo para visualização */
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.event-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.event-table th,
+.event-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.event-table th {
+  background-color: #f7f7f7;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .event-table {
+    font-size: 12px;
+  }
+}
+
+.baitolagem:hover {
+  color: green;
 }

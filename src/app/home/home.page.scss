@@ -4,7 +4,7 @@
 }
 
 #background {
-  background-image: url("../../assets/background/istockphoto-1193608799-1024x1024.jpg");
+/*  background-image: url("../../assets/background/istockphoto-1193608799-1024x1024.jpg");*/
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -73,7 +73,7 @@ div.figura3 p {
   text-indent: 0;
 }
 
-/*
+
 .tamanho {
   font-size: smaller;
   text-align: center;
@@ -87,13 +87,12 @@ div.figura3 p {
 
 
 .top1 {
-  --background: #34cc67 url("../../assets/background/claro.png") no-repeat
-    center center / cover !important;
+  --background: #34cc67;
 }
 
 .top2 {
-  --background: #339967 url("../../assets/background/escuro.png") no-repeat
-    center center / cover !important;
+
+  --background: #339967;
 }
 ion-icon {
   font-size: 200%;
@@ -115,7 +114,6 @@ ion-searchbar {
 .inputAjuda {
   margin-top: auto;
 }
-*/
 .banner {
   background-color: #ffffff;
 }
@@ -194,14 +192,6 @@ div.figura4 p {
 
 
 
-.top1 {
-  --background: #34cc67 url("../../assets/background/claro.png") no-repeat center center / cover !important;
-}
-
-.top2 {
-  --background: #339967 url("../../assets/background/escuro.png") no-repeat center center / cover !important;
-}
-
 ion-icon {
   font-size: 200%;
 }
@@ -224,7 +214,7 @@ ion-searchbar {
 
 .footer2 {
   margin-top: 0;
-  background-color: #49d390;
+  background-color: #34cc67;
   margin-left: 0;
   margin-right: 0;
 }
@@ -460,7 +450,7 @@ div.rodape {
 }
 
 .fechar {
-  background: #34cc67;
+  background: #a0a0a0;
   font-size: small;
   color: #FFFFFF;
   line-height: 25px;
@@ -483,6 +473,7 @@ div.rodape {
   background: red;
   color: white;
 }
+/* Estilo do título (mantido como está) */
 .texto-Titulos {
   font-size: 32px;
   color: #96989a;
@@ -491,7 +482,7 @@ div.rodape {
   padding: 2px;
   border-style: double;
   transition: transform 0.3s ease-in-out;
-  display: inline-block; /* Adiciona essa linha para garantir que o label seja tratado como um bloco ou inline-block */
+  display: inline-block;
 }
 
 .texto-Titulos:hover {
@@ -505,6 +496,15 @@ div.rodape {
   animation: shakeText 0.5s ease-in-out;
 }
 
+/* Novo estilo para as imagens */
+.img-padronizada {
+  width: 200px;        /* largura padrão */
+  height: 200px;       /* altura padrão */
+  object-fit: cover;   /* CORTA sem distorcer */
+  border-radius: 8px;  /* opcional, deixa cantos arredondados */
+  display: block;
+}
+
 @keyframes shakeText {
   0%, 100% {
     transform: translateX(0);
@@ -514,5 +514,325 @@ div.rodape {
   }
   20%, 40%, 60%, 80% {
     transform: translateX(5px);
+  }
+}
+
+
+
+/* ===== CONTAINER DAS NOTÍCIAS ===== */
+.fundoBaixo ion-row {
+  align-items: stretch;
+}
+
+/* ===== CARDS GRANDES (topo) ===== */
+.figura3 {
+  width: 100%;
+  height: 100%;
+}
+
+/* imagem maior e mais destacada */
+.figura3 img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* título principal */
+.figura3 p,
+.figura3 b {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* ===== LISTA DE NOTÍCIAS MENORES ===== */
+.textoPequeno1,
+.textoPequeno2,
+.textoPequeno3,
+.textoPequeno4 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: rgba(255, 255, 255, 0.05); /* leve contraste no verde */
+  border-radius: 10px;
+  padding: 6px 8px;
+
+  transition: 0.2s ease;
+}
+
+/* imagem pequena */
+.imagemPequena {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* texto pequeno */
+.textoPequeno1 p,
+.textoPequeno2 p,
+.textoPequeno3 p,
+.textoPequeno4 p {
+  font-size: 13px;
+  margin: 0;
+}
+
+/* ===== HOVER SUAVE (bem menor) ===== */
+.figura3:hover,
+.textoPequeno1:hover,
+.textoPequeno2:hover,
+.textoPequeno3:hover,
+.textoPequeno4:hover {
+  transform: scale(1.015); /* 🔥 bem leve */
+}
+
+/* ===== ASSIMETRIA DESKTOP ===== */
+@media (min-width: 768px) {
+
+  /* primeira linha (2 grandes) */
+  .fundoBaixo ion-row:first-of-type {
+    display: flex;
+  }
+
+  /* deixa um maior que o outro */
+  .fundoBaixo ion-col:nth-child(2) {
+    flex: 2; /* maior */
+  }
+
+  .fundoBaixo ion-col:nth-child(3) {
+    flex: 1; /* menor */
+  }
+
+  /* altura diferente pra dar assimetria */
+  .fundoBaixo ion-col:nth-child(2) .figura3 img {
+    height: 220px;
+  }
+
+  .fundoBaixo ion-col:nth-child(3) .figura3 img {
+    height: 140px;
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
+  /* empilha tudo */
+  .fundoBaixo ion-col {
+    width: 100%;
+  }
+
+  /* imagens mais equilibradas */
+  .figura3 img {
+    height: 150px;
+  }
+
+  .imagemPequena {
+    width: 60px;
+    height: 60px;
+  }
+
+  .textoPequeno3 p,
+  .textoPequeno4 p {
+    font-size: 12px;
+  }
+}
+@media (max-width: 768px) {
+
+  /* container das notícias pequenas */
+  .textoPequeno3,
+  .textoPequeno4 {
+    display: flex;
+    flex-direction: row; /* lado a lado */
+    align-items: center;
+    gap: 10px;
+
+    background: rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 8px;
+
+    margin-bottom: 8px;
+  }
+
+  /* remove aquele comportamento estranho do ion-item */
+  .textoPequeno3 ion-item,
+  .textoPequeno4 ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    background: transparent;
+  }
+
+  /* imagem corrigida */
+  .imagemPequena {
+    width: 65px;
+    height: 65px;
+    min-width: 65px; /* 🔥 impede de esmagar */
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  /* texto organizado */
+  .textoPequeno3 p,
+  .textoPequeno4 p {
+    font-size: 13px;
+    line-height: 1.3;
+    margin: 0;
+    text-align: left;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* limita */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* remove aquele layout quebrado de coluna */
+  .textoPequeno3,
+  .textoPequeno4 {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  /* container vira coluna */
+  .textoPequeno3,
+  .textoPequeno4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 10px;
+
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  /* remove comportamento estranho do ion-item */
+  .textoPequeno3 ion-item,
+  .textoPequeno4 ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    justify-content: center;
+    background: transparent;
+  }
+
+  /* imagem agora fica bonita e proporcional */
+  .imagemPequena {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 6px;
+  }
+
+  /* texto embaixo */
+  .textoPequeno3 p,
+  .textoPequeno4 p {
+    font-size: 13px;
+    line-height: 1.3;
+    margin: 0;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* ===== CARDS INFERIORES (notícias pequenas) ===== */
+.textoPequeno1,
+.textoPequeno2,
+.textoPequeno3,
+.textoPequeno4 {
+  display: flex;
+  flex-direction: column; /* 🔥 imagem em cima, texto embaixo */
+  align-items: center;
+  justify-content: flex-start;
+
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 10px;
+
+  text-align: center;
+  transition: 0.2s ease;
+}
+
+/* remove comportamento padrão estranho */
+.textoPequeno1 ion-item,
+.textoPequeno2 ion-item,
+.textoPequeno3 ion-item,
+.textoPequeno4 ion-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  justify-content: center;
+  background: transparent;
+}
+
+/* ===== CONTAINER DA IMAGEM ===== */
+.textoPequeno1 ion-item img,
+.textoPequeno2 ion-item img,
+.textoPequeno3 ion-item img,
+.textoPequeno4 ion-item img,
+.imagemPequena {
+  width: 100%;
+  height: 120px;
+
+  object-fit: contain; /* 🔥 NÃO CORTA */
+  background: #ffffff; /* fundo pra preencher espaço */
+
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+
+/* ===== TEXTO ===== */
+.textoPequeno1 p,
+.textoPequeno2 p,
+.textoPequeno3 p,
+.textoPequeno4 p {
+  font-size: 13px;
+  line-height: 1.3;
+  margin: 0;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ===== HOVER SUAVE ===== */
+.textoPequeno1:hover,
+.textoPequeno2:hover,
+.textoPequeno3:hover,
+.textoPequeno4:hover {
+  transform: scale(1.01);
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 768px) {
+  .textoPequeno1,
+  .textoPequeno2,
+  .textoPequeno3,
+  .textoPequeno4 {
+    height: 100%;
+  }
+
+  .imagemPequena {
+    height: 130px;
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .imagemPequena {
+    height: 110px;
+  }
+
+  .textoPequeno3 p,
+  .textoPequeno4 p {
+    font-size: 12px;
   }
 }

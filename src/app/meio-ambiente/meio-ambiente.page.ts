@@ -16,25 +16,36 @@ export class MeioAmbientePage implements OnInit {
   alternar: boolean = false;
   pesquisa: String = "";
 
-  opcaoPortaria: boolean = false;  
+  opcaoPortaria: boolean = false;
   opcaoFormulario: boolean = false;
+  opcaolegislacao: boolean = false;
 
   meioAmbientePortaria = [];
   meioAmbienteFormularios = [];
+  meioAmbientelegislacao = [];
 
-  verPortarias(){
-    if(this.opcaoPortaria == true){
+  verLicitacoes() {
+    if (this.opcaolegislacao == true) {
+      this.opcaolegislacao = false;
+    }
+    else {
+      this.opcaolegislacao = true;
+    }
+  }
+
+  verPortarias() {
+    if (this.opcaoPortaria == true) {
       this.opcaoPortaria = false;
     }
-    else{
+    else {
       this.opcaoPortaria = true;
     }
   }
-  verRequisicoes(){
-    if(this.opcaoFormulario == true){
+  verRequisicoes() {
+    if (this.opcaoFormulario == true) {
       this.opcaoFormulario = false;
     }
-    else{
+    else {
       this.opcaoFormulario = true;
     }
   }
@@ -47,42 +58,45 @@ export class MeioAmbientePage implements OnInit {
 
   ngOnInit() {
   }
-  pesquisarNoticias(){
-    this.route.navigate(["/mais-noticias/"+this.pesquisa]);
+  pesquisarNoticias() {
+    this.route.navigate(["/mais-noticias/" + this.pesquisa]);
   }
-  ionViewWillEnter(){
-    if(this.platform.is("desktop")){
+  ionViewWillEnter() {
+    if (this.platform.is("desktop")) {
       this.alternar = true;
     }
-    if(this.platform.is("mobile")){
+    if (this.platform.is("mobile")) {
       this.alternar = false;
     }
     this.pesquisarDadosAmbiente();
   }
-  pesquisarDadosAmbiente(){
-    
+  pesquisarDadosAmbiente() {
+
     let dados = {
       requisicao: "pesquisarCoisasAmbiente",
     }
-    this.provider.requisicaoPost(dados,"/meio-ambiente.php").subscribe((data)=>{
-      console.log(data);
-      for(let c of data['resultado']){
-        if(c.categoria == "formulario"){
+
+    this.provider.requisicaoPost(dados, "/meio-ambiente.php").subscribe((data) => {
+      for (let c of data['resultado']) {
+        if (c.categoria == "formulario") {
           this.meioAmbienteFormularios.push(c);
         }
-        if(c.categoria =="portaria"){
+        if (c.categoria == "portaria") {
           this.meioAmbientePortaria.push(c);
         }
+        if (c.categoria == "legislacao") {
+          this.meioAmbientelegislacao.push(c);
+        }
       }
-    },(error)=>{
+    }, (error) => {
     })
-}
+  }
 
-ir2(url){
-  this.route.navigate([url]);
-}
-  ir(titulo){ 
-    const browser = this.iab.create(titulo,"_blank");
+  ir2(url) {
+    this.route.navigate([url]);
+  }
+  ir(titulo) {
+    const browser = this.iab.create(titulo, "_blank");
     browser.show();
   }
 }

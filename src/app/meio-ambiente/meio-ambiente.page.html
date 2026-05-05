@@ -29,7 +29,7 @@
             <ion-row *ngIf="alternar ==true">
                 <ion-col size=3>
                     <a style="text-decoration: none;" href="/">
-                        <img class="imagem" src="../../../assets/logo-prefeitura/logo2.png"
+                        <img class="imagem" src="../../../assets/logo-prefeitura/logo4.png"
                             alt="Prefeitura de Maragojipe">
                     </a>
                 </ion-col>
@@ -62,7 +62,7 @@
 
             <ion-row *ngIf="alternar ==false" class="tamanho">
                 <ion-col (click)='ir2("/")' size=3>
-                    <img class="imagem2" src="../../../assets/logo-prefeitura/logo2.png" alt="Prefeitura de Maragojipe">
+                    <img class="imagem2" src="../../../assets/logo-prefeitura/logo4.png" alt="Prefeitura de Maragojipe">
                 </ion-col>
                 <ion-col (click)='ir2("/o-municipio")' size=3>
                     <ion-label style="font-size: x-small;" color=light>
@@ -86,7 +86,7 @@
 
 
     <!------------------------------------------------------->
-    <p style="text-align: center; font-size: xx-large; font-family: cursive; color: #339967;">
+    <p style="text-align: center; font-size: xx-large; font-family: cursive; color: #000;">
         Meio Ambiente
     </p>
     <!------------------------------------------------------->
@@ -99,11 +99,11 @@
             <ion-icon slot="start" color="primary" *ngIf="opcaoFormulario == false" name="chevron-forward-outline"></ion-icon>
         </ion-item>
         <ion-row style="margin-left: 5%;" *ngIf="opcaoFormulario == true">
-            <label style="text-align: center; margin-left: 5%;" *ngIf="meioAmbienteFormularios.length == 0 && alternar == true">
-            Nenhum formulário encontrado.
+            <label style="color: red;text-align: center; margin-left: 5%;" *ngIf="meioAmbienteFormularios.length == 0 && alternar == true">
+          Nenhum arquivo encontrado.
           </label>
-            <label *ngIf="meioAmbienteFormularios.length == 0 && alternar == false">
-            Nenhum formulário encontrado.
+            <label style="color: red;" *ngIf="meioAmbienteFormularios.length == 0 && alternar == false">
+          Nenhum arquivo encontrado.
           </label>
             <ion-col size="12" *ngFor="let c of meioAmbienteFormularios">
                 <a style="text-decoration: none;" (click)="ir(c.link)" href="javascript:void(0)">
@@ -118,13 +118,31 @@
             <ion-icon slot="start" color="primary" *ngIf="opcaoPortaria == false" name="chevron-forward-outline"></ion-icon>
         </ion-item>
         <ion-row style="margin-left: 5%;" *ngIf="opcaoPortaria == true">
-            <label style="text-align: center; margin-left: 5%;" *ngIf="meioAmbientePortaria.length == 0 && alternar == true">
-          Nenhuma portaria foi encontrada.
+            <label style="text-align: center; margin-left: 5%;color: red;" *ngIf="meioAmbientePortaria.length == 0 && alternar == true">
+          Nenhum arquivo encontrado.
         </label>
-            <label *ngIf="meioAmbientePortaria.length == 0 && alternar == false">
-          Nenhuma portaria foi encontrada.
+            <label style="color: red;" *ngIf="meioAmbientePortaria.length == 0 && alternar == false">
+          Nenhum arquivo encontrado.
         </label>
             <ion-col size="12" *ngFor="let c of meioAmbientePortaria">
+                <a style="text-decoration: none;" (click)="ir(c.link)" href="javascript:void(0)">
+                  {{c.titulo}}
+            </a>
+            </ion-col>
+        </ion-row>
+                <ion-item button lines="none" (click)="verLicitacoes()">
+            Legislação
+            <ion-icon slot="start" color="primary" *ngIf="opcaolegislacao == true" name="chevron-down-outline"></ion-icon>
+            <ion-icon slot="start" color="primary" *ngIf="opcaolegislacao == false" name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+        <ion-row style="margin-left: 5%;" *ngIf="opcaolegislacao == true">
+            <label style="text-align: center; margin-left: 5%;color: red;" *ngIf="meioAmbientelegislacao.length == 0 && alternar == true">
+          Nenhum arquivo encontrado.
+        </label>
+            <label style="color: red;" *ngIf="meioAmbientelegislacao.length == 0 && alternar == false">
+          Nenhum arquivo encontrado.
+        </label>
+            <ion-col size="12" *ngFor="let c of meioAmbientelegislacao">
                 <a style="text-decoration: none;" (click)="ir(c.link)" href="javascript:void(0)">
                   {{c.titulo}}
             </a>
@@ -365,7 +383,7 @@
         <ion-grid style="margin-left: 5%;margin-right: 5%;">
             <ion-row *ngIf="alternar==false">
                 <ion-col size=6 style="text-align: center; font-size: x-small; color: #ffffff;">
-                    &copy; 2024 Prefeitura de Maragojipe. Todos direitos reservados.
+                    &copy; 2025 Prefeitura de Maragojipe. Todos direitos reservados.
                 </ion-col>
                 <ion-col size=3 style="text-align: center; font-size: x-small; color: #ffffff;">
                     Termos de uso
@@ -376,7 +394,7 @@
             </ion-row>
             <ion-row *ngIf="alternar==true">
                 <ion-col size=6 style="text-align: center; color: #ffffff;">
-                    &copy; 2024 Prefeitura de Maragojipe. Todos direitos reservados.
+                    &copy; 2025 Prefeitura de Maragojipe. Todos direitos reservados.
                 </ion-col>
                 <ion-col size=3 style="text-align: center; color: #ffffff;cursor: pointer;">
                     Termos de uso
